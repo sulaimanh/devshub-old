@@ -1,0 +1,8 @@
+.icon {
+  &Bookmark {
+    color: blue;
+    &:hover {
+      width: 1rem;
+    }
+  }
+}

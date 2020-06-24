@@ -1,0 +1,37 @@
+:root {
+  --color-primary: #ffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+
+  // @include respond(tab-land) {
+  //   font-size: 56.25%;
+  // }
+
+  // @include respond(tab-port) {
+  //   font-size: 50%;
+  // }
+
+  // @include respond(big-desktop) {
+  //   // 1rem = 12px, 12/16 = 7%5
+  //   font-size: 75%;
+  // }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 0rem;
+}
