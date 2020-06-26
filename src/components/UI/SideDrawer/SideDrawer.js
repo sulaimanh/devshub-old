@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./SideDrawer.module.scss";
 
-const sideDrawer = () => {
-  return <div className={styles.sideDrawer}></div>;
+const SideDrawer = (props) => {
+  const [isOpen, setOpen] = useState(false);
+
+  return <div className={styles.sidedrawer}></div>;
 };
 
-export default sideDrawer;
+export default SideDrawer;

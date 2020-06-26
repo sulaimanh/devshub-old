@@ -1,0 +1,26 @@
+@import "../../../sass/abstracts/mixins";
+
+.headingPrimary {
+  color: var(--color-primary-text);
+  margin-bottom: 1rem;
+  backface-visibility: hidden;
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.headingSecondary {
+  font-size: 3.1rem;
+  color: var(--color-primary-text);
+  font-weight: 500;
+
+  @include respond(tab-port) {
+    font-size: 2.5rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2rem;
+  }
+}
+
+.headingTertiary {
+}

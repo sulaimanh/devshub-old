@@ -1,8 +1,9 @@
-// COLORS
-$color-primary: rgba(224, 130, 131, 1);
-$color-primary-light: rgba(241, 169, 160, 1);
-$color-primary-dark: rgba(210, 77, 87, 1);
-$color-primary-dark-2: rgba(150, 40, 27, 1);
+$color-primary: #649d66;
+$color-primary-light: #f6f578;
+$color-primary-dark: #06623b;
+$color-primary-dark-2: #f6d743;
+
+$color-background: #FFFFFF;
 
 $color-grey-dark: #5d5d5d;
 $color-grey-dark-2: #999;
@@ -15,11 +16,20 @@ $color-black: #000;
 $color-grey-light-1: #f7f7f7;
 $color-grey-light-2: #eee;
 
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
 // FONT
-$default-font-size: 1.7rem;
+$default-font-size: 1.8rem;
+$default-font-size-tertiary: 2rem;
+
+$default-paragraph-size: 1.5rem;
 
 // GRID
 $grid-width: 114rem;
-$gutter-vertical: 8rem;
-$gutter-vertical-small: 6rem;
-$gutter-horizontal: 6rem;
+$gutter-vertical: 3rem;
+$gutter-vertical-small: 3rem;
+$gutter-horizontal: 2rem;

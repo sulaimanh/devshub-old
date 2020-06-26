@@ -1,0 +1,28 @@
+@import "../../../sass/abstracts/mixins";
+
+.why {
+  display: flex;
+  justify-content: space-around;
+
+  width: 100%;
+
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+
+  flex-direction: row;
+
+  &__dev {
+    display: flex;
+    flex-direction: column;
+
+    // font-weight: bold;
+
+    &Text {
+      font-size: var(--default-font-size);
+    }
+  }
+
+  &__illus {
+    display: flex;
+  }
+}

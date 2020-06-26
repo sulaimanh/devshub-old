@@ -1,0 +1,53 @@
+@import "../../../sass/abstracts/mixins";
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  border-top: 0.8rem solid var(--color-secondary);
+  padding-top: 3rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-bottom: 2rem;
+
+  @include respond(big-desktop) {
+    justify-content: space-around;
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+
+  @include respond(tab-port) {
+    justify-content: space-between;
+  }
+
+  &__logo {
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    // height: 100%;
+    &__sidedrawer {
+      display: none;
+
+      @include respond(tab-port) {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &__spread {
+      display: flex;
+      @include respond(tab-port) {
+        display: none;
+      }
+    }
+  }
+
+  &__signIn {
+    display: flex;
+    align-items: center;
+  }
+}
