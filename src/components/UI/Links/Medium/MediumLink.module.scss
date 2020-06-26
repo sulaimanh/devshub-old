@@ -8,7 +8,10 @@
   &:link,
   &:visited {
     padding: 1.5rem 2rem;
-    margin: 1rem;
+
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
     border-radius: 5px;
     font-size: var(--default-font-size);
     color: var(--color-primary-text);
@@ -53,7 +56,7 @@
     &:after {
       content: "";
       position: absolute;
-      z-index: -1;
+      // z-index: -1;
       right: 0;
       width: 0;
       bottom: -5px;

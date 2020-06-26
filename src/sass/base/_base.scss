@@ -10,7 +10,7 @@
   --color-teal: #b6e5e2;
   --color-dark-blue: #083d5d;
 
-  --color-background: #ffffff;
+  --color-background: #efefef;
   --color-grey-dark: #5d5d5d;
   --color-grey-dark-2: #999;
   --color-grey-dark-3: #333;
@@ -28,11 +28,23 @@
 
   --box-shadow: 0 10px 20px rgba(--color-primary-text, 0.2);
 
-  --default-font-size: 1.8rem;
+  --primary-heading-size: 4rem;
+  @include respond(tab-port) {
+    --primary-heading-size: 2.5rem;
+  }
+  --secondary-heading-size: 3.1rem;
+  @include respond(tab-port) {
+    --secondary-heading-size: 2.8rem;
+  }
+  @include respond(phone) {
+    --secondary-heading-size: 2.5rem;
+  }
 
+  --default-font-size: 1.8rem;
   @include respond(phone) {
     --default-font-size: 1.5rem;
   }
+
   --default-font-size-small: 1rem;
   --default-font-size-tertiary: 2rem;
 
@@ -72,9 +84,9 @@ body {
   box-sizing: border-box;
   padding: 0rem;
 
-  font-family: "Inter", sans-serif;
-
   font-weight: 400;
+  // font-family: "Cairo", sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 1.7;
   color: var(--color-primary-text);
 

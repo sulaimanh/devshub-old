@@ -6,7 +6,7 @@
   align-items: center;
   align-content: center;
   justify-content: space-between;
-  border-top: 0.8rem solid var(--color-secondary);
+  // border-top: 0.5rem solid var(--color-secondary);
   padding-top: 3rem;
   padding-left: 5rem;
   padding-right: 5rem;
@@ -20,6 +20,13 @@
 
   @include respond(tab-port) {
     justify-content: space-between;
+    padding-top: 1rem;
+  }
+
+  @include respond(phone) {
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 1rem;
   }
 
   &__logo {

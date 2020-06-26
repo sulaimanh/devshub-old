@@ -2,27 +2,41 @@
 
 .why {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 
   width: 100%;
+  background-color: var(--color-primary);
 
   padding-top: 10rem;
   padding-bottom: 10rem;
 
-  flex-direction: row;
-
-  &__dev {
+  &__heading {
     display: flex;
-    flex-direction: column;
-
-    // font-weight: bold;
-
+    color: white;
+    text-align: center;
     &Text {
-      font-size: var(--default-font-size);
+      color: var(--color-white);
+    }
+    &Change {
+      color: var(--color-tertiary);
+      @include respond(tab-port) {
+        display: block;
+      }
     }
   }
 
-  &__illus {
-    display: flex;
+  &__statement {
+    width: 50%;
+    text-align: center;
+
+    @include respond(tab-port) {
+      width: 85%;
+    }
+    &Text {
+      font-size: var(--default-font-size);
+      color: var(--color-white-dark);
+    }
   }
 }

@@ -4,22 +4,15 @@
   color: var(--color-primary-text);
   margin-bottom: 1rem;
   backface-visibility: hidden;
-  font-size: 4rem;
+  font-size: var(--primary-heading-size);
   font-weight: 700;
 }
 
 .headingSecondary {
-  font-size: 3.1rem;
+  font-size: var(--secondary-heading-size);
   color: var(--color-primary-text);
+
   font-weight: 500;
-
-  @include respond(tab-port) {
-    font-size: 2.5rem;
-  }
-
-  @include respond(phone) {
-    font-size: 2rem;
-  }
 }
 
 .headingTertiary {

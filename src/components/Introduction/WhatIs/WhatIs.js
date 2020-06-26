@@ -14,7 +14,7 @@ const whatIs = (props) => {
           <div className={styles.what__reasonStatement}>
             <HeadingSecondary>A community of developers</HeadingSecondary>
             <p className={styles.what__reasonText}>
-              Collaborate with other developers. Working on a team helps you
+              Collaborate with other developers and working on a team helps you
               build effective collaboration skills, an important skill in the
               work force. It also presents the opportunity to learn from other
               developers.

@@ -39,12 +39,12 @@
     }
 
     &Img {
-      width: 13rem;
-      height: 13rem;
+      width: 10rem;
+      height: 10rem;
       margin-right: 5rem;
       @include respond(phone) {
-        width: 10rem;
-        height: 10rem;
+        width: 8rem;
+        height: 8rem;
         margin-bottom: 2rem;
       }
     }
@@ -55,9 +55,9 @@
     }
 
     &Statement {
-      width: 40%;
+      width: 70%;
       @include respond(tab-port) {
-        width: 90%;
+        width: 100%;
       }
 
       @include respond(phone) {
