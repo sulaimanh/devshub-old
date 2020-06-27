@@ -1,4 +1,5 @@
 @import "../../../sass/abstracts/mixins";
+@import "../../../sass/base/animations";
 
 .what {
   display: flex;
@@ -14,9 +15,12 @@
 
   &__container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: column;
-    align-items: center;
+
+    @include respond(tab-port) {
+      align-items: center;
+    }
   }
 
   &__reason {
@@ -42,9 +46,11 @@
       width: 10rem;
       height: 10rem;
       margin-right: 5rem;
+
       @include respond(phone) {
         width: 8rem;
         height: 8rem;
+        margin-right: 0rem;
         margin-bottom: 2rem;
       }
     }
@@ -55,9 +61,14 @@
     }
 
     &Statement {
-      width: 70%;
+      flex-basis: 70%;
+
+      @include respond(big-desktop) {
+        flex-basis: 60%;
+      }
+
       @include respond(tab-port) {
-        width: 100%;
+        flex-basis: 100%;
       }
 
       @include respond(phone) {
@@ -69,4 +80,12 @@
     font-size: 5rem;
     color: var(--color-primary);
   }
+}
+
+.transition1 {
+  animation: moveInLeft 1s ease-out;
+}
+
+.transition2 {
+  animation: moveInRight 1s ease-out;
 }

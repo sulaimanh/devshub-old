@@ -4,12 +4,24 @@ import { headingSecondary as HeadingSecondary } from "../../UI/Text/Text";
 import Group from "../../../assets/img/group.png";
 import Code from "../../../assets/img/html.png";
 import Cv from "../../../assets/img/cv.png";
+import { useInView } from "react-intersection-observer";
 
-const whatIs = (props) => {
+const WhatIs = (props) => {
+  const [ref1, inView1] = useInView({ triggerOnce: true });
+  const [ref2, inView2] = useInView({ triggerOnce: true });
+  const [ref3, inView3] = useInView({ triggerOnce: true });
+  // console.log(inView, "sdasd");
+
   return (
     <div className={styles.what}>
       <div className={styles.what__container}>
-        <div className={styles.what__reason}>
+        <div
+          ref={ref1}
+          className={[
+            styles.what__reason,
+            inView1 ? styles.transition1 : null
+          ].join(" ")}
+        >
           <img className={styles.what__reasonImg} src={Group} alt="group" />
           <div className={styles.what__reasonStatement}>
             <HeadingSecondary>A community of developers</HeadingSecondary>
@@ -21,7 +33,13 @@ const whatIs = (props) => {
             </p>
           </div>
         </div>
-        <div className={styles.what__reason}>
+        <div
+          ref={ref2}
+          className={[
+            styles.what__reason,
+            inView2 ? styles.transition2 : null
+          ].join(" ")}
+        >
           <img className={styles.what__reasonImg} src={Code} alt="group" />
           <div className={styles.what__reasonStatement}>
             <HeadingSecondary>Open source made easier</HeadingSecondary>
@@ -33,7 +51,13 @@ const whatIs = (props) => {
             </p>
           </div>
         </div>
-        <div className={styles.what__reason}>
+        <div
+          ref={ref3}
+          className={[
+            styles.what__reason,
+            inView3 ? styles.transition1 : null
+          ].join(" ")}
+        >
           <img className={styles.what__reasonImg} src={Cv} alt="group" />
           <div className={styles.what__reasonStatement}>
             <HeadingSecondary>Build a portfolio.</HeadingSecondary>
@@ -49,4 +73,4 @@ const whatIs = (props) => {
   );
 };
 
-export default whatIs;
+export default WhatIs;

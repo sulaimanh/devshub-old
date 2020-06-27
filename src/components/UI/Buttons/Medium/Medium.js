@@ -3,7 +3,12 @@ import styles from "./Medium.module.scss";
 
 const medium = (props) => {
   return (
-    <button className={styles.button} onClick={props.handler}>
+    <button
+      className={[styles.button, styles[`button__${props.className}`]].join(
+        " "
+      )}
+      onClick={props.handler}
+    >
       {props.children}
     </button>
   );

@@ -1,28 +1,37 @@
 @import "../../../sass/abstracts/mixins";
+@import "../../../sass/base/animations";
 
 .why {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  align-items: center;
 
   width: 100%;
   background-color: var(--color-primary);
 
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 
+  &__container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
   &__heading {
     display: flex;
     color: white;
     text-align: center;
     &Text {
-      color: var(--color-white);
+      color: var(--color-white-dark);
     }
     &Change {
       color: var(--color-tertiary);
-      @include respond(tab-port) {
+      @include respond(phone) {
         display: block;
+      }
+
+      &__fadeIn {
+        animation: fadeIn 3s linear infinite;
       }
     }
   }
@@ -39,4 +48,8 @@
       color: var(--color-white-dark);
     }
   }
+}
+
+.transition {
+  animation: moveInRight 1s ease-out;
 }

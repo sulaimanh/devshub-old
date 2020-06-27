@@ -1,0 +1,27 @@
+@import "../../../sass/abstracts/mixins";
+
+.sign {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: fit-content;
+
+  border-radius: 2rem;
+  width: 70%;
+
+  @include respond(big-desktop) {
+    width: 70%;
+  }
+
+  @include respond(tab-port) {
+    width: 50%;
+  }
+
+  &__text {
+    width: 100%;
+    margin-top: 2rem;
+  }
+}

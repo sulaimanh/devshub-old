@@ -1,0 +1,41 @@
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__input {
+    box-sizing: border-box;
+    padding: 1.5rem 2rem;
+    width: 100%;
+    border-radius: 3px;
+    border: none;
+    background-color: inherit;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+    background-color: var(--color-grey);
+
+    &:focus {
+      outline: none;
+      border-bottom: 3px solid var(--color-secondary);
+      box-shadow: 0 10px 20px rgba(black, 0.2);
+    }
+
+    &::-webkit-input-placeholder {
+    }
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    display: block;
+    transition: all 0.3s;
+  }
+
+  &__input:placeholder-shown ~ &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+}

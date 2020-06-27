@@ -20,7 +20,7 @@
 
   @include respond(tab-port) {
     justify-content: space-between;
-    padding-top: 1rem;
+    padding-top: 2rem;
   }
 
   @include respond(phone) {

@@ -1,0 +1,87 @@
+@import "../../../../sass/base/animations";
+@import "../../../../sass/abstracts/mixins";
+
+.button {
+  font-family: inherit;
+
+  &,
+  &:link,
+  &:visited {
+    padding: 1.5rem 2rem;
+
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
+    border-radius: 5px;
+    font-size: var(--default-font-size);
+    color: var(--color-primary-text);
+    border: none;
+    transition: all 0.2s;
+    position: relative;
+    cursor: pointer;
+
+    @include respond(tab-port) {
+      padding: 1rem 1.5rem;
+    }
+  }
+
+  &__primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(black, 0.2);
+      background-color: var(--color-primary-hover);
+
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+      }
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
+      transform: translateY(1px);
+      box-shadow: 0 5px 10px rgba(black, 0.2);
+    }
+  }
+
+  &__secondary {
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+
+    &:after {
+      content: "";
+      position: absolute;
+      // z-index: -1;
+      right: 0;
+      width: 0;
+      bottom: -5px;
+      background: var(--color-primary);
+      height: 3px;
+      transition-property: width;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-out;
+    }
+    &:hover:after,
+    &:focus:after,
+    &:active:after {
+      outline: none;
+      left: 0;
+      right: auto;
+      width: 100%;
+    }
+  }
+
+  &__tertiary {
+    background-color: inherit;
+    border: 1px solid var(--color-primary);
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+  }
+}
