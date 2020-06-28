@@ -5,6 +5,7 @@ import TopHeader from "./TopHeader/TopHeader";
 import WhatIs from "./WhatIs/WhatIs";
 import WhyDev from "./WhyDev/WhyDev";
 import Footer from "../UI/Footer/Footer";
+import Modal from "../UI/Modal/Modal";
 // import useOnScreen from "../../hooks/useOnScreen";
 
 const Introduction = () => {

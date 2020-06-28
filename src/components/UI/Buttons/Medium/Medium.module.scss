@@ -8,13 +8,14 @@
   &:link,
   &:visited {
     padding: 1.5rem 2rem;
+    width: 100%;
 
     &:not(:first-child) {
       margin-left: 1rem;
     }
     border-radius: 5px;
     font-size: var(--default-font-size);
-    color: var(--color-primary-text);
+    color: var(--color-primary);
     border: none;
     transition: all 0.2s;
     position: relative;

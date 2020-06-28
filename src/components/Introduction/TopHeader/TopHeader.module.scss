@@ -5,9 +5,10 @@
   position: relative;
   display: flex;
   justify-content: space-evenly;
+  // background-color: var(--color-primary);
 
   height: 60vh;
-  margin-top: 5rem;
+  padding-top: 3rem;
   max-width: 100%;
 
   @include respond(big-desktop) {
@@ -16,15 +17,17 @@
     padding-right: 0rem;
   }
   @include respond(tab-port) {
-    margin-top: 0rem;
-    height: 80vh;
+    padding-top: 0rem;
+    height: 70vh;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
   }
 
   @include respond(phone) {
-    margin-top: 0rem;
-    height: 80vh;
+    padding-top: 0rem;
+    height: 70vh;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
   }
@@ -45,11 +48,13 @@
       width: 75%;
       text-align: center;
       align-items: center;
+      margin-top: 7rem;
     }
 
     @include respond(phone) {
       width: 90%;
       align-items: center;
+      margin-top: 0rem;
     }
   }
 
@@ -60,7 +65,9 @@
 
   &__buttons {
     display: flex;
+    flex-direction: row;
     margin-top: 2rem;
+
     // @include respond(tab-port) {
 
     // }
@@ -83,7 +90,8 @@
     @include respond(tab-port) {
       width: 75%;
       text-align: center;
-      align-items: center;
+
+      display: none;
     }
 
     @include respond(phone) {

@@ -60,6 +60,10 @@
       padding-top: 1rem;
     }
 
+    &darkMode {
+      color: var(--color-white);
+    }
+
     &Statement {
       flex-basis: 70%;
 

@@ -6,10 +6,15 @@
   // --color-secondary: #bbe1fa;
   // --color-tertiary: #f8662b;
 
-  --color-primary: #204051;
-  --color-primary-hover: #204051;
-  --color-secondary: #84a9ac;
-  --color-tertiary: #f8662b;
+  --color-primary: #1b6ca8;
+  --color-primary-hover: #0a97b0;
+  --color-secondary: #a6dcef;
+  --color-tertiary: #f37121;
+
+  --color-dark-primary: #3f3f44;
+  --color-dark-secondary: #323232;
+
+  --color-light: #ebe6e6;
 
   --color-red: #e6425a;
   --color-yellow: #fbe292;
@@ -27,28 +32,28 @@
   --color-grey-light-1: #f7f7f7;
   --color-grey-light-2: #eee;
 
-  --color-primary-button: #3d3dc3;
+  // --color-primary-button: #3d3dc3;
   --color-primary-text: #000;
   --color-dropdown-color: #ebf0f7;
 
   --box-shadow: 0 10px 20px rgba(--color-primary-text, 0.2);
 
   --primary-heading-size: 4rem;
-  @include respond(tab-port) {
-    --primary-heading-size: 2.5rem;
-  }
+
   --secondary-heading-size: 3.1rem;
+
+  --default-font-size: 1.5rem;
   @include respond(tab-port) {
+    --primary-heading-size: 4rem;
     --secondary-heading-size: 2.8rem;
   }
   @include respond(phone) {
     --secondary-heading-size: 2.5rem;
+    --primary-heading-size: 3rem;
+    --default-font-size: 1.5rem;
   }
 
   --default-font-size: 1.8rem;
-  @include respond(phone) {
-    --default-font-size: 1.5rem;
-  }
 
   --default-font-size-small: 1rem;
   --default-font-size-tertiary: 2rem;
@@ -94,7 +99,7 @@ body {
   font-family: "Nunito", sans-serif;
   line-height: 1.7;
   color: var(--color-primary-text);
-  background-color: var(--color-background);
+  background-color: var(--color-white);
 
   // @include respond(big-desktop) {
   //   margin-left: 10rem;

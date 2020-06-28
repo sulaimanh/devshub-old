@@ -4,7 +4,7 @@ import { headingSecondary as HeadingSecondary } from "../../../components/UI/Tex
 import TextInput from "../../../components/UI/Inputs/TextInput/TextInput";
 import MediumButton from "../../../components/UI/Buttons/Medium/Medium";
 
-const SignIn = () => {
+const SignIn = (props) => {
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -20,7 +20,7 @@ const SignIn = () => {
   return (
     <form className={styles.sign}>
       <div className={styles.sign__heading}>
-        <HeadingSecondary>Sign Up</HeadingSecondary>
+        <HeadingSecondary>{props.isSignUp ? "Sign Up" : "Sign In"}</HeadingSecondary>
       </div>
       <div className={styles.sign__text}>
         <TextInput
@@ -37,15 +37,19 @@ const SignIn = () => {
           value={form.password}
           handler={handleForm}
         />
-        <TextInput
-          placeholder="Confirm Password"
-          for="confirmPassword"
-          type="password"
-          value={form.confirmPassword}
-          handler={handleForm}
-        />
+        {props.isSignUp ? (
+          <TextInput
+            placeholder="Confirm Password"
+            for="confirmPassword"
+            type="password"
+            value={form.confirmPassword}
+            handler={handleForm}
+          />
+        ) : null}
       </div>
-      <MediumButton className="tertiary">Submit</MediumButton>
+      <div className={styles.sign__submit}>
+        <MediumButton className="tertiary">Submit</MediumButton>
+      </div>
     </form>
   );
 };

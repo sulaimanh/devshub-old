@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./WhyDev.module.scss";
 import { headingPrimary as HeadingPrimary } from "../../UI/Text/Text";
 import { useInView } from "react-intersection-observer";
+import MediumLink from "../../UI/Links/Medium/MediumLink";
 
 const WhyDev = (props) => {
   const [term, setTerm] = useState({
@@ -63,6 +64,9 @@ const WhyDev = (props) => {
             skills.
           </p>
         </div>
+      </div>
+      <div className={styles.why__button}>
+        <MediumLink className="tertiaryOutline">Sign Up</MediumLink>
       </div>
     </div>
   );

@@ -23,7 +23,7 @@ const TopHeader = () => {
         </div>
       </div>
       <div className={styles.topHeader__rightContainer}>
-        <SignIn />
+        <SignIn isSignUp={true} />
       </div>
     </div>
   );

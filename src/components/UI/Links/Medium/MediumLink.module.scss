@@ -9,6 +9,8 @@
   &:visited {
     padding: 1.5rem 2rem;
 
+    text-align: center;
+
     &:not(:first-child) {
       margin-left: 1rem;
     }
@@ -28,6 +30,8 @@
   &__primary {
     background-color: var(--color-primary);
     color: var(--color-white);
+    // background-color: var(--color-white);
+    // border: 1px solid var(--color-primary);
 
     &:hover {
       transform: translateY(-3px);
@@ -36,6 +40,7 @@
 
       &::after {
         transform: scaleX(1.4) scaleY(1.6);
+
         opacity: 0;
       }
     }
@@ -76,6 +81,22 @@
     }
   }
 
-  &__tertiary {
+  &__tertiaryOutline {
+    border: 1px solid var(--color-tertiary);
+    width: 100%;
+    color: var(--color-tertiary);
+    &:hover {
+      background-color: var(--color-tertiary);
+      color: var(--color-white);
+    }
+  }
+
+  &__outline {
+    background-color: inherit;
+    border: 1px solid var(--color-primary);
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
   }
 }
