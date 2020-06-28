@@ -5,6 +5,7 @@
   position: relative;
   display: flex;
   justify-content: space-evenly;
+  overflow: hidden;
   // background-color: var(--color-primary);
 
   height: 60vh;
@@ -49,6 +50,7 @@
       text-align: center;
       align-items: center;
       margin-top: 7rem;
+      height: 100%;
     }
 
     @include respond(phone) {
@@ -103,4 +105,48 @@
 
 .paragraph {
   font-size: var(--default-paragraph-size);
+}
+
+.circle1 {
+  width: 400px;
+  height: 400px;
+  background-color: var(--color-secondary);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 4rem;
+  left: -15rem;
+  // animation: floating 3s ease-in infinite;
+  z-index: -1;
+}
+
+.circle2 {
+  width: 360px;
+  height: 100px;
+  background-color: var(--color-tertiary);
+  border-radius: 80px 80px 0 0;
+  position: absolute;
+  bottom: 0rem;
+  right: -10rem;
+  // overflow: hidden;
+  // @include respond(tab-port) {
+  //   // bottom: -30rem;
+  // }
+  // animation: floating 3s ease-in infinite;
+  z-index: -1;
+}
+
+.circle3 {
+  width: 100px;
+  height: 360px;
+  background-color: var(--color-primary);
+  border-radius: 80px 0 0 80px;
+  position: absolute;
+  bottom: 0rem;
+  right: -6.4rem;
+  // overflow: hidden;
+  // @include respond(tab-port) {
+  //   // bottom: -30rem;
+  // }
+  // animation: floating 3s ease-in infinite;
+  z-index: -1;
 }

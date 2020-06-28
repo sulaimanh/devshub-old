@@ -79,6 +79,10 @@
       right: auto;
       width: 100%;
     }
+
+    &:hover {
+      color: var(--color-tertiary);
+    }
   }
 
   &__tertiaryOutline {
