@@ -16,12 +16,32 @@ const header = (props) => {
           <SideDrawer />
         </div>
         <div className={styles.header__links__spread}>
-          <MediumLink className="secondary">About Us</MediumLink>
-          <MediumLink className="secondary">Sign In</MediumLink>
-          <MediumLink className="primary">Sign Up</MediumLink>
+          <MediumLink handler={null} className="secondary">
+            About Us
+          </MediumLink>
+          <MediumLink
+            action="sign in"
+            handler={props.handleSignIn}
+            className="secondary"
+          >
+            Sign In
+          </MediumLink>
+          <MediumLink
+            action="sign up"
+            handler={props.handleSignIn}
+            className="primary"
+          >
+            Sign Up
+          </MediumLink>
         </div>
         <div className={styles.header__links__sidedrawer}>
-          <MediumLink className="secondary">Sign In</MediumLink>
+          <MediumLink
+            action="sign in"
+            handler={props.handleSignIn}
+            className="secondary"
+          >
+            Sign In
+          </MediumLink>
         </div>
       </div>
     </div>

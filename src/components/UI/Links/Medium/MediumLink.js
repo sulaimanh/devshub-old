@@ -5,8 +5,10 @@ const medium = (props) => {
   return (
     <a
       href={props.href}
-      className={[styles.anchor, styles[`anchor__${props.className}`]].join(" ")}
-      onClick={props.handler}
+      className={[styles.anchor, styles[`anchor__${props.className}`]].join(
+        " "
+      )}
+      onClick={() => props.handler(props.action)}
     >
       {props.children}
     </a>

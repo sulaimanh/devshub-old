@@ -5,7 +5,7 @@ import MediumLink from "../../UI/Links/Medium/MediumLink";
 import SignIn from "../../../containers/Introduction/SignIn/SignIn";
 // import Beautiful from "./Beautiful/Beautiful";
 
-const TopHeader = () => {
+const TopHeader = (props) => {
   return (
     <div className={styles.topHeader}>
       <div className={styles.topHeader__leftContainer}>
@@ -18,7 +18,13 @@ const TopHeader = () => {
           </p>
         </div>
         <div className={styles.topHeader__buttons}>
-          <MediumLink className="primary">Sign Up</MediumLink>
+          <MediumLink
+            action="sign up"
+            handler={props.handleSignIn}
+            className="primary"
+          >
+            Sign Up
+          </MediumLink>
           <MediumLink className="secondary">About us</MediumLink>
         </div>
       </div>

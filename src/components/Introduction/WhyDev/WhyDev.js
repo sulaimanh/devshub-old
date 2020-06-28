@@ -66,7 +66,13 @@ const WhyDev = (props) => {
         </div>
       </div>
       <div className={styles.why__button}>
-        <MediumLink className="tertiaryOutline">Sign Up</MediumLink>
+        <MediumLink
+          action="sign up"
+          handler={props.handleSignIn}
+          className="tertiaryOutline"
+        >
+          Sign Up
+        </MediumLink>
       </div>
     </div>
   );

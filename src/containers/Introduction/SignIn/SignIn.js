@@ -18,9 +18,16 @@ const SignIn = (props) => {
   };
 
   return (
-    <form className={styles.sign}>
+    <form
+      className={[
+        styles.sign,
+        props.isModal ? styles.sign__isModal : null
+      ].join(" ")}
+    >
       <div className={styles.sign__heading}>
-        <HeadingSecondary>{props.isSignUp ? "Sign Up" : "Sign In"}</HeadingSecondary>
+        <HeadingSecondary>
+          {props.isSignUp ? "Sign Up" : "Sign In"}
+        </HeadingSecondary>
       </div>
       <div className={styles.sign__text}>
         <TextInput
