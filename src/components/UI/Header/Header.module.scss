@@ -1,23 +1,23 @@
 @import "../../../sass/abstracts/mixins";
 
 .header {
-  position: relative;
+  position: fixed;
+  z-index: 9000;
+  top: 0;
+  width: 100%;
+  background-color: var(--color-white);
+
   // background-color: var(--color-primary);
   display: flex;
   align-items: center;
   align-content: center;
-
+  // box-shadow: 0 4px 5px -5px black;
   justify-content: space-between;
-  // border-top: 0.5rem solid var(--color-secondary);
-  padding-top: 3rem;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding-top: 2rem;
   padding-bottom: 2rem;
 
   @include respond(big-desktop) {
     justify-content: space-around;
-    padding-left: 0rem;
-    padding-right: 0rem;
   }
 
   @include respond(tab-port) {
@@ -27,16 +27,41 @@
 
   @include respond(phone) {
     justify-content: space-between;
-    padding-left: 2rem;
-    padding-right: 1rem;
   }
 
   &__logo {
+    padding-left: 5rem;
+
+    @include respond(big-desktop) {
+      padding-left: 0rem;
+    }
+
+    @include respond(tab-port) {
+      padding-left: 2rem;
+    }
+
+    @include respond(phone) {
+      padding-left: 2rem;
+    }
   }
 
   &__links {
     display: flex;
     justify-content: flex-end;
+    // padding-left: 5rem;
+    padding-right: 5rem;
+
+    @include respond(big-desktop) {
+      padding-right: 0rem;
+    }
+
+    @include respond(tab-port) {
+      padding-right: 2rem;
+    }
+
+    @include respond(phone) {
+      padding-right: 1rem;
+    }
 
     &__sidedrawer {
       display: none;
@@ -60,4 +85,17 @@
     display: flex;
     align-items: center;
   }
+}
+
+.toggleHeaderOn {
+  top: 0;
+  box-shadow: none;
+  // position: relative;
+  transition: top 0.5s linear;
+}
+
+.toggleHeaderOff {
+  top: -10rem;
+
+  transition: top 0.5s linear;
 }

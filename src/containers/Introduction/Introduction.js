@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styles from "./Introduction.module.scss";
-import Header from "../UI/Header/Header";
-import TopHeader from "./TopHeader/TopHeader";
-import WhatIs from "./WhatIs/WhatIs";
-import WhyDev from "./WhyDev/WhyDev";
-import Footer from "../UI/Footer/Footer";
-import Modal from "../UI/Modal/Modal";
-import SignIn from "../../containers/Introduction/SignIn/SignIn";
+import Header from "../../components/UI/Header/Header";
+import TopHeader from "../../components/Introduction/TopHeader/TopHeader";
+import WhatIs from "../../components/Introduction/WhatIs/WhatIs";
+import WhyDev from "../../components/Introduction/WhyDev/WhyDev";
+import Footer from "../../components/UI/Footer/Footer";
+import Modal from "../../components/UI/Modal/Modal";
+import SignIn from "./SignIn/SignIn";
 
 const Introduction = () => {
   const [showModal, setBackdrop] = useState({
