@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import styles from "./Introduction.module.scss";
+import React, { useState, Fragment } from "react";
+// import styles from "./Introduction.module.scss";
 import Header from "../../components/UI/Header/Header";
 import TopHeader from "../../components/Introduction/TopHeader/TopHeader";
 import WhatIs from "../../components/Introduction/WhatIs/WhatIs";
@@ -9,7 +9,7 @@ import Modal from "../../components/UI/Modal/Modal";
 import SignIn from "./SignIn/SignIn";
 
 const Introduction = () => {
-  const [showModal, setBackdrop] = useState({
+  const [showModal, setModal] = useState({
     showModal: false,
     isSignUp: false
   });
@@ -20,14 +20,14 @@ const Introduction = () => {
       isSignUp = true;
     }
 
-    setBackdrop({
+    setModal({
       showModal: !showModal.showModal,
       isSignUp: isSignUp
     });
   };
 
   return (
-    <React.Fragment>
+    <Fragment>
       {showModal.showModal ? (
         <Modal handler={changeModalHandler} show={showModal.showModal}>
           <SignIn isSignUp={showModal.isSignUp} isModal="true" />
@@ -38,7 +38,7 @@ const Introduction = () => {
       <WhatIs />
       <WhyDev handleSignIn={changeModalHandler} />
       <Footer />
-    </React.Fragment>
+    </Fragment>
   );
 };
 

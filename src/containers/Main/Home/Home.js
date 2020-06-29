@@ -11,7 +11,7 @@ const Dashboard = (props) => {
   };
 
   return (
-    <div className={styles.dashboard}>
+    <div className={styles.home}>
       <TopSelection
         selectedChoice={selectedChoice}
         handler={selectedChoiceHandler}

@@ -27,6 +27,7 @@
 
     border-left: 1px solid var(--color-grey);
     height: 10%;
+    cursor: pointer;
 
     &__last {
       border-right: 1px solid var(--color-grey);
@@ -34,7 +35,10 @@
     &:hover {
       color: var(--color-tertiary);
     }
-    cursor: pointer;
+
+    &__selected {
+      color: var(--color-tertiary);
+    }
   }
 
   &__text {

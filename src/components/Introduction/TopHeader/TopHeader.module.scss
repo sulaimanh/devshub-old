@@ -136,13 +136,13 @@
 }
 
 .circle3 {
-  width: 100px;
+  width: 360px;
   height: 360px;
   background-color: var(--color-primary);
-  border-radius: 100rem 0 0 100rem;
+  border-radius: 100rem 100rem 100rem 100rem;
   position: absolute;
   bottom: -15rem;
-  right: -6.4rem;
+  right: -33.4rem;
   // overflow: hidden;
   // @include respond(tab-port) {
   //   // bottom: -30rem;

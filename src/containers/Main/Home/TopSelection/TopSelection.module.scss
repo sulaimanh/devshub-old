@@ -1,6 +1,7 @@
 .top {
-  position: fixed;
-
+  position: sticky;
+  top: 0rem;
+  height: fit-content;
   display: flex;
   flex-direction: row;
   width: 100%;
