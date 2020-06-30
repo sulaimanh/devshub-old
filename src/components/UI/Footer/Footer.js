@@ -21,8 +21,8 @@ const Footer = (props) => {
           <p className={styles.footer__links}>Support</p>
         </div>
       </div>
-      <div className={styles.halfCircle1}></div>
-      <div className={styles.halfCircle2}></div>
+      {/* <div className={styles.halfCircle1}></div>
+      <div className={styles.halfCircle2}></div> */}
     </div>
   );
 };

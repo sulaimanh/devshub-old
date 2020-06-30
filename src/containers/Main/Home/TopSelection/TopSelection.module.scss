@@ -17,7 +17,7 @@
     text-align: center;
     cursor: pointer;
 
-    padding: 1rem;
+    padding: 1rem 0rem;
 
     &:not(:last-child) {
       border-right: 1px solid var(--color-grey);
@@ -25,16 +25,16 @@
 
     &:hover {
       color: var(--color-tertiary);
-      background-color: var(--color-grey);
+      background-color: var(--color-white-2);
     }
 
     &__selected {
       color: var(--color-tertiary);
-      background-color: var(--color-grey);
+      background-color: var(--color-white-2);
     }
   }
 
   &Text {
-    font-size: 1.2rem;
+    font-size: var(--default-font-size);
   }
 }

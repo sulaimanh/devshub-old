@@ -3,6 +3,7 @@ import styles from "./Header.module.scss";
 import { headingSecondary as HeadingSecondary } from "../Text/Text";
 import MediumLink from "../Links/Medium/MediumLink";
 import SideDrawer from "../SideDrawer/SideDrawer";
+import Wave from "../../../assets/img/wave.svg";
 
 const Header = (props) => {
   const [showHeader, setHeader] = useState({
@@ -33,7 +34,9 @@ const Header = (props) => {
     <div
       className={[
         styles.header,
-        showHeader.visible ? styles.toggleHeaderOn : styles.toggleHeaderOff
+        showHeader.visible && !props.showModal
+          ? styles.toggleHeaderOn
+          : styles.toggleHeaderOff
       ].join(" ")}
     >
       <div className={styles.header__logo}>

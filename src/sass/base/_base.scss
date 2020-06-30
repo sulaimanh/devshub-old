@@ -1,15 +1,15 @@
 @import "../abstracts/mixins";
 
 :root {
-  // --color-primary: #2c2c96;
+  // --color-primary: #5f36f8;
   // --color-primary-hover: #3d3dc3;
   // --color-secondary: #bbe1fa;
-  // --color-tertiary: #f8662b;
+  // --color-tertiary: #376efe;
 
-  --color-primary: #1b6ca8;
-  --color-primary-hover: #0a97b0;
-  --color-secondary: #a6dcef;
-  --color-tertiary: #f8662b;
+  --color-primary: #005aea;
+  --color-primary-hover: #4692ff;
+  --color-secondary: #0183ff;
+  --color-tertiary: #3be47a;
 
   --color-dark-primary: #47474d;
   --color-dark-secondary: #323232;
@@ -24,9 +24,11 @@
   --color-white-dark: #f5f5f5;
   --color-grey: #e5e5e5;
 
-  --color-background: #dddddd;
+  --color-background: #f7f7fd;
 
   --color-white: #fff;
+  --color-white-2: #fafbfc;
+  --color-white-3: #f6f7fb;
   --color-black: #000;
 
   --color-grey-light-1: #f7f7f7;
@@ -50,7 +52,6 @@
   @include respond(phone) {
     --secondary-heading-size: 2.5rem;
     --primary-heading-size: 3rem;
-    --default-font-size: 1.5rem;
   }
 
   --default-font-size: 1.8rem;
@@ -76,18 +77,18 @@
 html {
   font-size: 62.5%;
 
-  // @include respond(tab-land) {
-  //   font-size: 56.25%;
-  // }
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
 
-  // @include respond(tab-port) {
-  //   font-size: 50%;
-  // }
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
 
-  // @include respond(big-desktop) {
-  //   // 1rem = 12px, 12/16 = 7%5
-  //   font-size: 75%;
-  // }
+  @include respond(big-desktop) {
+    // 1rem = 12px, 12/16 = 7%5
+    font-size: 75%;
+  }
 }
 
 body {
@@ -99,7 +100,8 @@ body {
   font-family: "Nunito", sans-serif;
   line-height: 1.7;
   color: var(--color-primary-text);
-  background-color: var(--color-white);
+
+  background-color: var(--color-background);
 
   // @include respond(big-desktop) {
   //   margin-left: 10rem;
