@@ -78,11 +78,12 @@
   }
 
   &__tertiary {
-    background-color: inherit;
-    border: 1px solid var(--color-primary);
+    color: var(--color-white);
+    background-color: var(--color-tertiary);
     &:hover {
-      background-color: var(--color-primary);
-      color: var(--color-white);
+      background-color: inherit;
+      border: 1px solid var(--color-tertiary);
+      color: var(--color-tertiary);
     }
   }
 }

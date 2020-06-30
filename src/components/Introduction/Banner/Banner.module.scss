@@ -1,21 +1,11 @@
 @import "../../../sass/base/base";
 
 .banner {
-  position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-
-  margin-top: 20rem;
-
-  width: 100%;
-  //   height: 5rem;
-  background-color: var(--color-primary);
-
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  text-align: center;
+  background-color: transparent;
 
   &__header {
     color: white;
@@ -26,31 +16,28 @@
     color: var(--color-white);
   }
 }
-.svg {
-  position: absolute;
-  top: -18rem;
-  z-index: -1000;
-  width: 100%;
 
-  @include respond(tab-port) {
-    top: -15rem;
-  }
-  @include respond(phone) {
-    top: -8.5rem;
-  }
+.text {
+  position: absolute;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.svg {
+  z-index: -1000;
+  margin-bottom: -1rem;
 }
 
 .svgRotate {
-  position: absolute;
   transform: rotate(180deg);
-  bottom: -18rem;
   width: 100%;
   z-index: -1000;
-
-  @include respond(tab-port) {
-    bottom: -15rem;
-  }
-  @include respond(phone) {
-    bottom: -8.5rem;
-  }
 }

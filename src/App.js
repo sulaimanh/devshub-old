@@ -11,7 +11,7 @@ import Dashboard from "./containers/Main/Home/Home";
 import { Route, Switch } from "react-router-dom";
 
 function App() {
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(true);
   const [selectedTab, setSelectedTab] = useState("Home");
 
   let routes = (

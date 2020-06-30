@@ -39,7 +39,7 @@ const Introduction = () => {
         handleSignIn={changeModalHandler}
       />
       <TopHeader handleSignIn={changeModalHandler} />
-      <Banner />
+      {/* <Banner /> */}
       <WhatIs />
       <WhyDev handleSignIn={changeModalHandler} />
       <Footer />

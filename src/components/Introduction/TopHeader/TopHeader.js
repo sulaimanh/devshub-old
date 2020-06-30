@@ -27,6 +27,7 @@ const TopHeader = (props) => {
           </MediumLink>
           <MediumLink className="secondary">About us</MediumLink>
         </div>
+
         {/* <div className={styles.circle1}></div> */}
         {/* <div className={styles.circle2}></div> */}
       </div>

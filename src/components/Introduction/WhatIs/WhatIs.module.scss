@@ -2,13 +2,14 @@
 @import "../../../sass/base/animations";
 
 .what {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
   width: 100%;
 
-  margin-top: 10rem;
+  margin-top: 5rem;
   padding-bottom: 10rem;
 
   flex-direction: column;
@@ -34,13 +35,17 @@
     &:not(:first-child) {
       // padding-top: 0rem;
       margin-top: 4rem;
+      @include respond(phone) {
+        flex-direction: column;
+        padding-top: 0rem;
+      }
     }
     @include respond(tab-port) {
       width: 80%;
     }
+
     @include respond(phone) {
       flex-direction: column;
-      padding-top: 5rem;
     }
 
     &Img {
@@ -94,9 +99,4 @@
 
 .transition2 {
   animation: moveInRight 1s ease-out;
-}
-
-.svg {
-  position: absolute;
-  top: 0;
 }

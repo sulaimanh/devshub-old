@@ -151,3 +151,11 @@
   // animation: floating 3s ease-in infinite;
   z-index: -1;
 }
+
+.svg {
+  position: absolute;
+  right: -10rem;
+  top: -13rem;
+  z-index: -1000;
+  width: 70rem;
+}
