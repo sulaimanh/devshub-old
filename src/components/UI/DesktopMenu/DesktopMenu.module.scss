@@ -1,0 +1,108 @@
+@import "../../../sass/abstracts/mixins";
+
+.menu {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+  width: 10rem;
+
+  background-color: var(--color-primary);
+
+  @include respond(tab-port) {
+    display: none;
+  }
+
+  &__hideShow {
+    cursor: pointer;
+    position: fixed;
+    left: 5.7%;
+    top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    width: 2rem;
+    padding: 1rem;
+    background-color: var(--color-primary);
+    border-radius: 0 2rem 2rem 0;
+
+    &:hover {
+      background-color: var(--color-tertiary);
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-top: 6rem;
+    border-radius: 2rem 0 0 2rem;
+
+    &:hover {
+      background-color: #064abd;
+      color: var(--color-tertiary);
+    }
+    &:hover > .menu__text {
+      color: var(--color-tertiary);
+    }
+    &:hover > &Color {
+      color: var(--color-tertiary);
+    }
+
+    &Color {
+      color: var(--color-background);
+    }
+
+    &__selected {
+      background-color: #064abd;
+    }
+
+    &Selected {
+      color: var(--color-tertiary);
+    }
+  }
+
+  &__text {
+    color: var(--color-background);
+    &Selected {
+      color: var(--color-tertiary);
+    }
+  }
+
+  &__hide {
+    width: 0rem;
+    transition: all 0.5s;
+
+    &__arrow {
+      left: 0%;
+      transition: all 0.5s;
+    }
+
+    &__links {
+      display: none;
+      transition: all 0.5s;
+    }
+  }
+
+  &__show {
+    width: 10rem;
+    transition: all 0.5s;
+    &__arrow {
+      left: 5.7%;
+      transition: all 0.5s;
+    }
+
+    &__links {
+      display: flex;
+      transition: all 0.5s;
+    }
+  }
+}

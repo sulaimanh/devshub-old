@@ -42,75 +42,40 @@ const Header = (props) => {
       <div className={styles.header__logo}>
         <HeadingSecondary>developers path</HeadingSecondary>
       </div>
-
-      {props.auth ? (
-        <div className={styles.header__links}>
-          <div className={styles.header__links__sidedrawer}>
-            <SideDrawer />
-          </div>
-          <div className={styles.header__links__spread}>
-            <MediumLink action="home" handler={null} className="secondary">
-              Home
-            </MediumLink>
-            <MediumLink
-              action="profile"
-              handler={props.handleSignIn}
-              className="secondary"
-            >
-              Profile
-            </MediumLink>
-            <MediumLink
-              action="messages"
-              handler={props.handleSignIn}
-              className="secondary"
-            >
-              Messages
-            </MediumLink>
-            <MediumLink
-              action="sign out"
-              handler={props.handleSignIn}
-              className="secondary"
-            >
-              Sign Out
-            </MediumLink>
-          </div>
+      <div className={styles.header__links}>
+        <div className={styles.header__links__sidedrawer}>
+          <SideDrawer />
         </div>
-      ) : (
-        <div className={styles.header__links}>
-          <div className={styles.header__links__sidedrawer}>
-            <SideDrawer />
-          </div>
-          <div className={styles.header__links__spread}>
-            <MediumLink handler={null} className="secondary">
-              About Us
-            </MediumLink>
-            <MediumLink
-              action="sign in"
-              handler={props.handleSignIn}
-              className="secondary"
-            >
-              Sign In
-            </MediumLink>
-            <MediumLink
-              action="sign up"
-              handler={props.handleSignIn}
-              className="primary"
-            >
-              Sign Up
-            </MediumLink>
-          </div>
-
-          <div className={styles.header__links__sidedrawer}>
-            <MediumLink
-              action="sign in"
-              handler={props.handleSignIn}
-              className="secondary"
-            >
-              Sign In
-            </MediumLink>
-          </div>
+        <div className={styles.header__links__spread}>
+          <MediumLink handler={null} className="secondary">
+            About Us
+          </MediumLink>
+          <MediumLink
+            action="sign in"
+            handler={props.handleSignIn}
+            className="secondary"
+          >
+            Sign In
+          </MediumLink>
+          <MediumLink
+            action="sign up"
+            handler={props.handleSignIn}
+            className="primary"
+          >
+            Sign Up
+          </MediumLink>
         </div>
-      )}
+
+        <div className={styles.header__links__sidedrawer}>
+          <MediumLink
+            action="sign in"
+            handler={props.handleSignIn}
+            className="secondary"
+          >
+            Sign In
+          </MediumLink>
+        </div>
+      </div>
     </div>
   );
 };
