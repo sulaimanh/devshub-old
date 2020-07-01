@@ -59,40 +59,46 @@ const DesktopMenu = (props) => {
             : styles.menu__hide__arrow
         ].join(" ")}
       >
-        <FontAwesomeIcon icon={arrow} size="2x" color="white" />
+        <FontAwesomeIcon
+          icon={arrow}
+          size="2x"
+          className={styles.menu__hideShow__logo}
+        />
       </div>
-      {tabs.map((tab, index) => {
-        return (
-          <div
-            key={index}
-            onClick={() => props.handler(tab.choice)}
-            className={[
-              styles.menu__link,
-              tab.isSelected ? styles.menu__link__selected : null,
-              arrow === faArrowCircleLeft
-                ? styles.menu__show__links
-                : styles.menu__hide__links
-            ].join(" ")}
-          >
-            <FontAwesomeIcon
+      <div className={styles.menu__links}>
+        {tabs.map((tab, index) => {
+          return (
+            <div
+              key={index}
+              onClick={() => props.handler(tab.choice)}
               className={[
-                styles.menu__linkColor,
-                tab.isSelected ? styles.menu__linkSelected : null
-              ].join(" ")}
-              icon={tab.icon}
-              size="2x"
-            />
-            <p
-              className={[
-                styles.menu__text,
-                tab.isSelected ? styles.menu__textSelected : null
+                styles.menu__link,
+                tab.isSelected ? styles.menu__link__selected : null,
+                arrow === faArrowCircleLeft
+                  ? styles.menu__show__links
+                  : styles.menu__hide__links
               ].join(" ")}
             >
-              {tab.choice}
-            </p>
-          </div>
-        );
-      })}
+              <FontAwesomeIcon
+                className={[
+                  styles.menu__linkColor,
+                  tab.isSelected ? styles.menu__linkSelected : null
+                ].join(" ")}
+                icon={tab.icon}
+                size="2x"
+              />
+              <p
+                className={[
+                  styles.menu__text,
+                  tab.isSelected ? styles.menu__textSelected : null
+                ].join(" ")}
+              >
+                {tab.choice}
+              </p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

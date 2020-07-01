@@ -9,7 +9,7 @@
 
   align-items: center;
   flex-direction: column;
-  width: 10rem;
+  width: 8rem;
 
   background-color: var(--color-primary);
 
@@ -20,18 +20,31 @@
   &__hideShow {
     cursor: pointer;
     position: fixed;
-    left: 5.7%;
+    left: 6rem;
     top: 1rem;
     display: flex;
     justify-content: flex-end;
     width: 2rem;
     padding: 1rem;
     background-color: var(--color-primary);
-    border-radius: 0 2rem 2rem 0;
+    border-radius: 2rem;
 
-    &:hover {
-      background-color: var(--color-tertiary);
+    border: none;
+    &__logo {
+      color: var(--color-background);
+      // background: none;
+      border: none;
+      &:hover {
+        // background: none;
+        border: none;
+        color: var(--color-tertiary);
+      }
     }
+  }
+
+  &__links {
+    margin: 6rem;
+    width: 100%;
   }
 
   &__link {
@@ -43,11 +56,10 @@
     width: 100%;
     padding-top: 2rem;
     padding-bottom: 2rem;
-    margin-top: 6rem;
+
     border-radius: 2rem 0 0 2rem;
 
     &:hover {
-      background-color: #064abd;
       color: var(--color-tertiary);
     }
     &:hover > .menu__text {
@@ -72,6 +84,7 @@
 
   &__text {
     color: var(--color-background);
+    font-size: 1.2rem;
     &Selected {
       color: var(--color-tertiary);
     }
@@ -82,27 +95,29 @@
     transition: all 0.5s;
 
     &__arrow {
-      left: 0%;
+      left: 0.5%;
       transition: all 0.5s;
     }
 
     &__links {
       display: none;
-      transition: all 0.5s;
     }
   }
 
+  &__hide > &__hideShow {
+    width: 2rem;
+  }
+
   &__show {
-    width: 10rem;
+    width: 8rem;
     transition: all 0.5s;
     &__arrow {
-      left: 5.7%;
+      left: 6rem;
       transition: all 0.5s;
     }
 
     &__links {
       display: flex;
-      transition: all 0.5s;
     }
   }
 }
