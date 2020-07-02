@@ -1,0 +1,132 @@
+@import "../../../../sass/base/animations";
+@import "../../../../sass/abstracts/mixins";
+
+.anchor {
+  font-family: inherit;
+
+  &,
+  &:link,
+  &:visited {
+    padding: 1rem 1.5rem;
+
+    text-align: center;
+
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
+    border-radius: 5px;
+    font-size: var(--default-font-size);
+    color: var(--color-primary-text);
+
+    transition: all 0.2s;
+    position: relative;
+    cursor: pointer;
+
+    @include respond(tab-port) {
+      padding: 1rem 1.5rem;
+    }
+  }
+
+  &__primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    // background-color: var(--color-white);
+    // border: 1px solid var(--color-primary);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(black, 0.2);
+      background-color: var(--color-primary-hover);
+
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+
+        opacity: 0;
+      }
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
+      transform: translateY(1px);
+      box-shadow: 0 5px 10px rgba(black, 0.2);
+    }
+  }
+
+  &__secondary {
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+
+    &:after {
+      content: "";
+      position: absolute;
+      // z-index: -1;
+      right: 0;
+      width: 0;
+      bottom: -5px;
+      background: var(--color-primary);
+      height: 3px;
+      transition-property: width;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-out;
+    }
+    &:hover:after,
+    &:focus:after,
+    &:active:after {
+      outline: none;
+      left: 0;
+      right: auto;
+      width: 100%;
+    }
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  &__tertiary {
+    background-color: var(--color-tertiary);
+    color: var(--color-white);
+    // background-color: var(--color-white);
+    // border: 1px solid var(--color-primary);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(black, 0.2);
+      background-color: rgba(#3be47a, 0.8);
+
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+
+        opacity: 0;
+      }
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
+      transform: translateY(1px);
+      box-shadow: 0 5px 10px rgba(black, 0.2);
+    }
+  }
+
+  &__tertiaryOutline {
+    border: 1px solid var(--color-tertiary);
+    width: 100%;
+    color: var(--color-tertiary);
+    &:hover {
+      background-color: var(--color-tertiary);
+      color: var(--color-white);
+    }
+  }
+
+  &__outline {
+    background-color: inherit;
+    border: 1px solid var(--color-primary);
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+  }
+}

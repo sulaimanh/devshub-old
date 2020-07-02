@@ -1,0 +1,72 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  background-color: var(--color-white);
+  padding: 2rem;
+  border: 1px solid var(--color-background);
+  border-radius: 1rem;
+
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__description {
+    margin: 0 1rem;
+    &Desc {
+      font-size: var(--default-font-size);
+      font-weight: 600;
+    }
+    &Text {
+      font-size: var(--default-font-size);
+    }
+  }
+
+  &__skills {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 0 1rem;
+
+    &__container {
+      margin-top: 0.5rem;
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    &Skills {
+      font-size: var(--default-font-size);
+      font-weight: 600;
+    }
+
+    &__cards {
+      display: flex;
+      flex-wrap: wrap;
+      &Card {
+        display: flex;
+        border: 1px solid var(--color-primary);
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        margin-bottom: 1rem;
+        &:not(:last-child) {
+          margin-right: 1rem;
+        }
+      }
+    }
+
+    &Text {
+      font-size: 1.3rem;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

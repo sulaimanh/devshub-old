@@ -21,6 +21,11 @@
     &:hover {
       background-color: var(--color-tertiary);
     }
+
+    &On {
+      background-color: var(--color-tertiary);
+      box-shadow: 0 10px 20px rgba(black, 0.2);
+    }
   }
 
   &__icon {
@@ -97,6 +102,7 @@
     display: flex;
     padding: 1rem 2rem;
     background-color: var(--color-white);
+    box-shadow: 0 10px 20px rgba(black, 0.2);
     border: 1px solid var(--color-grey);
     border-radius: 1rem;
 

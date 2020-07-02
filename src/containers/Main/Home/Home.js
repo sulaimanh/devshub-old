@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Home.module.scss";
 import TopSelection from "./TopSelection/TopSelection";
+import Teams from "./Teams/Teams";
 
 // - This will show the main contact
 const Dashboard = (props) => {
@@ -16,6 +17,7 @@ const Dashboard = (props) => {
         selectedChoice={selectedChoice}
         handler={selectedChoiceHandler}
       />
+      <Teams />
     </div>
   );
 };

@@ -32,18 +32,24 @@ const SearchInput = (props) => {
     <div className={styles.input}>
       <div className={styles.input__input}>
         <input placeholder="Search" className={styles.input__search} />
-        <a onClick={toggleDropDown} className={styles.input__caret}>
+        <FontAwesomeIcon
+          icon={faSearch}
+          size="lg"
+          className={styles.input__icon}
+        />
+        <a
+          onClick={toggleDropDown}
+          className={[
+            styles.input__caret,
+            difficulty.toggleDropDown ? styles.input__caretOn : null
+          ].join(" ")}
+        >
           <FontAwesomeIcon
             icon={difficulty.toggleDropDown ? faCaretUp : faCaretDown}
             size="2x"
           />
         </a>
 
-        <FontAwesomeIcon
-          icon={faSearch}
-          size="lg"
-          className={styles.input__icon}
-        />
         <button
           onClick={props.handler}
           className={styles.input__search__button}
