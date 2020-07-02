@@ -12,7 +12,11 @@ const Layout = (props) => {
 
   const selectTabHandler = (event, choice) => {
     event.preventDefault();
-    history.push("/" + choice);
+    if (choice === "Home") {
+      history.push("/");
+    } else {
+      history.push("/" + choice);
+    }
     setSelectedTab(choice);
   };
 
@@ -24,11 +28,12 @@ const Layout = (props) => {
   let menu = props.auth ? (
     <MobileMenu handler={selectTabHandler} choice={selectedTab} />
   ) : null;
+
   return (
     <div className={props.auth ? styles.layout : null}>
       {desktopMenu}
-      <div styles={{ position: "relative" }}>
-        <Header />
+      <div style={{ position: "relative" }}>
+        {selectedTab === "Profile" ? null : <Header />}
         {props.children}
         {menu}
         {footer}

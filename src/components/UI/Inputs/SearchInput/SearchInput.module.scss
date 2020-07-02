@@ -1,3 +1,5 @@
+@import "../../../../sass/abstracts/mixins";
+
 .input {
   position: relative;
   width: 100%;
@@ -69,6 +71,61 @@
         outline: none;
         transform: translateY(1px);
         box-shadow: 0 5px 10px rgba(black, 0.2);
+      }
+    }
+  }
+  &__search:focus + &__dropdown {
+    transition: all 2s;
+    display: flex;
+    position: absolute;
+    z-index: 3;
+    top: 5rem;
+    width: 75%;
+    padding: 1rem 2rem;
+    background-color: var(--color-background);
+    border-radius: 1rem;
+  }
+
+  &__dropdown {
+    display: none;
+    transition: all 0.5s;
+    z-index: 3;
+
+    &__text {
+      font-size: 1.5rem;
+      width: 50%;
+    }
+
+    &__difficulty {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      margin-left: 1rem;
+      padding: 0.5rem;
+      border-radius: 1rem;
+      width: 15%;
+      cursor: pointer;
+    }
+
+    &__easy {
+      background-color: #00ca4e;
+      &:hover {
+        background-color: rgba(#00ca4e, 0.5);
+      }
+    }
+
+    &__medium {
+      background-color: #ffbd44;
+      &:hover {
+        background-color: rgba(#ffbd44, 0.5);
+      }
+    }
+
+    &__difficult {
+      background-color: #ff605c;
+      &:hover {
+        background-color: rgba(#ff605c, 0.5);
       }
     }
   }

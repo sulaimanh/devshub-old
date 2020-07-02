@@ -12,7 +12,7 @@ const TopSelection = (props) => {
           props.selectedChoice === "team" ? styles.topLink__selected : null
         ].join(" ")}
       >
-        <p className={styles.topText}>Find a team</p>
+        <p className={styles.topText}>Teams</p>
       </div>
       <div
         onClick={() => props.handler("project")}
@@ -21,7 +21,7 @@ const TopSelection = (props) => {
           props.selectedChoice === "project" ? styles.topLink__selected : null
         ].join(" ")}
       >
-        <p className={styles.topText}>Find a project</p>
+        <p className={styles.topText}>Projects</p>
       </div>
       <div
         onClick={() => props.handler("source")}
@@ -30,7 +30,7 @@ const TopSelection = (props) => {
           props.selectedChoice === "source" ? styles.topLink__selected : null
         ].join(" ")}
       >
-        <p className={styles.topText}>Find an Open Source</p>
+        <p className={styles.topText}>Open Source</p>
       </div>
     </div>
   );
