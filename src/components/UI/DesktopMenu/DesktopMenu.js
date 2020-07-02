@@ -70,7 +70,7 @@ const DesktopMenu = (props) => {
           return (
             <div
               key={index}
-              onClick={() => props.handler(tab.choice)}
+              onClick={(event) => props.handler(event, tab.choice)}
               className={[
                 styles.menu__link,
                 tab.isSelected ? styles.menu__link__selected : null,

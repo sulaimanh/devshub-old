@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import styles from "./Header.module.scss";
-import { headingSecondary as HeadingSecondary } from "../Text/Text";
-import MediumLink from "../Links/Medium/MediumLink";
-import SideDrawer from "../SideDrawer/SideDrawer";
-import Wave from "../../../assets/img/wave.svg";
+import styles from "./HeaderIntro.module.scss";
+import { headingSecondary as HeadingSecondary } from "../../Text/Text";
+import MediumLink from "../../Links/Medium/MediumLink";
+import SideDrawer from "../../SideDrawer/SideDrawer";
 
-const Header = (props) => {
+const HeaderIntro = (props) => {
   const [showHeader, setHeader] = useState({
     visible: true,
     yOffset: window.pageYOffset
@@ -80,4 +79,4 @@ const Header = (props) => {
   );
 };
 
-export default Header;
+export default HeaderIntro;

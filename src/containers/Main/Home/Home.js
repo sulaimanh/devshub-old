@@ -4,7 +4,7 @@ import TopSelection from "./TopSelection/TopSelection";
 
 // - This will show the main contact
 const Dashboard = (props) => {
-  const [selectedChoice, setSelectedChoice] = useState("project");
+  const [selectedChoice, setSelectedChoice] = useState("team");
 
   const selectedChoiceHandler = (choice) => {
     setSelectedChoice(choice);

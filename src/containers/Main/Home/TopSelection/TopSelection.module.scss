@@ -2,18 +2,15 @@
 
 .top {
   display: none;
-  @include respond(tab-port) {
-    position: sticky;
-    top: 0rem;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
 
-    justify-content: center;
-    border-bottom: 1px solid var(--color-grey);
-    border-top: 1px solid var(--color-grey);
-  }
+  position: relative;
+  top: 0rem;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  border-radius: 1rem 1rem 0 0;
 
   &Link {
     width: 50%;
@@ -21,21 +18,17 @@
     justify-content: center;
     text-align: center;
     cursor: pointer;
-
+    border-radius: 3rem 3rem 0 0;
     padding: 1rem 0rem;
-
-    &:not(:last-child) {
-      border-right: 1px solid var(--color-grey);
-    }
+    border-bottom: 1px solid var(--color-grey);
 
     &:hover {
       color: var(--color-tertiary);
-      background-color: var(--color-white-2);
     }
 
     &__selected {
-      color: var(--color-tertiary);
-      background-color: var(--color-white-2);
+      color: var(--color-primary);
+      border-bottom: 2px solid var(--color-primary);
     }
   }
 

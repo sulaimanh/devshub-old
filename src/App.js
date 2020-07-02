@@ -4,6 +4,8 @@ import styles from "./App.module.scss";
 import Layout from "./containers/Layout/Layout";
 import Introduction from "./containers/Introduction/Introduction";
 import Home from "./containers/Main/Home/Home";
+import Profile from "./containers/Main/Profile/Profile";
+import Messages from "./containers/Main/Messages/Messages";
 
 import { Route, Switch } from "react-router-dom";
 
@@ -16,7 +18,9 @@ function App() {
   };
   let routes = (
     <Switch>
-      <Route path="/" component={Home} />
+      <Route path="/profile" component={Profile} />
+      <Route path="/messages" component={Messages} />
+      <Route path="/home" component={Home} />
     </Switch>
   );
 

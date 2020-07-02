@@ -1,13 +1,18 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styles from "./Layout.module.scss";
 import DesktopMenu from "../../components/UI/DesktopMenu/DesktopMenu";
+import Header from "../../components/UI/Header/HeaderMain/HeaderMain";
 import Footer from "../../components/UI/Footer/Footer";
 import MobileMenu from "../../components/UI/MobileMenu/MobileMenu";
 
 const Layout = (props) => {
   const [selectedTab, setSelectedTab] = useState("Home");
+  const history = useHistory();
 
-  const selectTabHandler = (choice) => {
+  const selectTabHandler = (event, choice) => {
+    event.preventDefault();
+    history.push("/" + choice);
     setSelectedTab(choice);
   };
 
@@ -22,7 +27,8 @@ const Layout = (props) => {
   return (
     <div className={props.auth ? styles.layout : null}>
       {desktopMenu}
-      <div>
+      <div styles={{ position: "relative" }}>
+        <Header />
         {props.children}
         {menu}
         {footer}

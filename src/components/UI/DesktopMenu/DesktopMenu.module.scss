@@ -4,9 +4,10 @@
   position: sticky;
   top: 0;
   left: 0;
+
   height: 100vh;
   display: flex;
-
+  z-index: 1;
   align-items: center;
   flex-direction: column;
   width: 8rem;
@@ -33,10 +34,10 @@
     &__logo {
       color: var(--color-background);
       // background: none;
-      border: none;
+      // border: none;
       &:hover {
         // background: none;
-        border: none;
+        // border: none;
         color: var(--color-tertiary);
       }
     }

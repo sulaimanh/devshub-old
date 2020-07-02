@@ -1,8 +1,8 @@
 import React, { useState, Fragment } from "react";
 // import styles from "./Introduction.module.scss";
-import Header from "../../components/UI/Header/Header";
+import Header from "../../components/UI/Header/HeaderIntro/HeaderIntro";
 import TopHeader from "../../components/Introduction/TopHeader/TopHeader";
-import Banner from "../../components/Introduction/Banner/Banner";
+
 import WhatIs from "../../components/Introduction/WhatIs/WhatIs";
 import WhyDev from "../../components/Introduction/WhyDev/WhyDev";
 import Footer from "../../components/UI/Footer/Footer";

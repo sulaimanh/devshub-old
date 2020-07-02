@@ -42,7 +42,7 @@ const MobileMenu = (props) => {
         return (
           <div
             key={index}
-            onClick={() => props.handler(tab.choice)}
+            onClick={(event) => props.handler(event, tab.choice)}
             className={[
               styles.menu__tab,
               tab.isSelected ? styles.menu__tab__selected : null,
