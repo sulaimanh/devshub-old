@@ -20,7 +20,7 @@ function App() {
     <Switch>
       <Route path="/profile" component={Profile} />
       <Route path="/messages" component={Messages} />
-      <Route path="/" component={Home} />
+      <Route path="/home" component={Home} />
     </Switch>
   );
 
