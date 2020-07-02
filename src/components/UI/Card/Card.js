@@ -27,7 +27,7 @@ const Card = (props) => {
       <div className={styles.card__heading}>
         <HeadingSecondary>Developers Path</HeadingSecondary>
 
-        <SmallLink handler={props.goToCardHandler} className="tertiary">
+        <SmallLink handler={props.goToCardHandler} className="tertiaryOutline">
           Explore
         </SmallLink>
       </div>
