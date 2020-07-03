@@ -13,6 +13,7 @@ import { Route, useRouteMatch, useHistory, Redirect } from "react-router-dom";
 // - This will show the main contact
 const Dashboard = (props) => {
   const [selectedChoice, setSelectedChoice] = useState("team");
+  const [search, setSearch] = useState("");
   const history = useHistory();
   const match = useRouteMatch("/home/:section");
 
@@ -30,6 +31,12 @@ const Dashboard = (props) => {
     setSelectedChoice(choice);
   };
 
+  const searchHandler = (event) => {
+    console.log(search);
+
+    setSearch(event.target.value);
+  };
+
   return (
     <Fragment>
       <div className={styles.home}>
@@ -38,7 +45,12 @@ const Dashboard = (props) => {
           handler={selectedChoiceHandler}
         />
         <div className={styles.home__search}>
-          <SearchInput />
+          <SearchInput
+            value={search}
+            handler={searchHandler}
+            isSubmitButton={false}
+            placeholder="Filter your search"
+          />
         </div>
 
         <div className={styles.home__list}>

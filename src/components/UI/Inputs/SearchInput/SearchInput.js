@@ -27,18 +27,25 @@ const SearchInput = (props) => {
   return (
     <div className={styles.input}>
       <div className={styles.input__input}>
-        <input placeholder="Search" className={styles.input__search} />
+        <input
+          placeholder={props.placeholder}
+          className={styles.input__search}
+          value={props.value}
+          onChange={props.handler}
+        />
         <FontAwesomeIcon
           icon={faSearch}
           size="lg"
           className={styles.input__icon}
         />
-        <button
-          onClick={props.handler}
-          className={styles.input__search__button}
-        >
-          Submit
-        </button>
+        {props.isSubmitButton ? (
+          <button
+            onClick={props.handler}
+            className={styles.input__search__button}
+          >
+            Submit
+          </button>
+        ) : null}
       </div>
     </div>
   );
