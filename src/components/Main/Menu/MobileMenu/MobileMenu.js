@@ -1,12 +1,6 @@
 import React from "react";
 import styles from "./MobileMenu.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faAddressCard,
-  faMailBulk,
-  faSignOutAlt
-} from "@fortawesome/free-solid-svg-icons";
 import menuItems from "../menu";
 
 const MobileMenu = (props) => {

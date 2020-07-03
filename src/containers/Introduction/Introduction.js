@@ -5,7 +5,6 @@ import TopHeader from "../../components/Introduction/TopHeader/TopHeader";
 
 import WhatIs from "../../components/Introduction/WhatIs/WhatIs";
 import WhyDev from "../../components/Introduction/WhyDev/WhyDev";
-import Footer from "../../components/UI/Footer/Footer";
 import Modal from "../../components/UI/Modal/Modal";
 import SignIn from "./SignIn/SignIn";
 
