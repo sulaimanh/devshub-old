@@ -1,13 +1,14 @@
 import React, { Fragment, useState, useEffect } from "react";
 import styles from "./Home.module.scss";
-import TopSelection from "./TopSelection/TopSelection";
+import TopSelection from "../../../components/Main/Home/TopSelection/TopSelection";
+import SearchInput from "../../../components/UI/Inputs/SearchInput/SearchInput";
 import Teams from "./Teams/Teams";
 import Projects from "./Projects/Projects";
+import OpenSource from "./OpenSource/OpenSource";
 import MediumLink from "../../../components/UI/Links/Medium/MediumLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Route, useRouteMatch, useHistory, Redirect } from "react-router-dom";
-import Header from "../../../components/UI/Header/HeaderMain/HeaderMain";
 
 // - This will show the main contact
 const Dashboard = (props) => {
@@ -19,8 +20,6 @@ const Dashboard = (props) => {
     if (match) {
       setSelectedChoice(match.params.section);
     } else {
-      console.log("helllllllooo");
-
       history.push("/home/teams");
       setSelectedChoice("teams");
     }
@@ -33,15 +32,20 @@ const Dashboard = (props) => {
 
   return (
     <Fragment>
-      <Header />
       <div className={styles.home}>
         <TopSelection
           selectedChoice={selectedChoice}
           handler={selectedChoiceHandler}
         />
+        <div className={styles.home__search}>
+          <SearchInput />
+        </div>
 
-        <Route path="/home/teams" component={Teams} />
-        <Route path="/home/projects" component={Projects} />
+        <div className={styles.home__list}>
+          <Route path="/home/teams" component={Teams} />
+          <Route path="/home/projects" component={Projects} />
+          <Route path="/home/sources" component={OpenSource} />
+        </div>
 
         <div className={styles.home__buttons}>
           <MediumLink className="primary">

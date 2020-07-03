@@ -1,13 +1,14 @@
 import React from "react";
-import styles from "./Projects.module.scss";
+import styles from "./OpenSource.module.scss";
 import Card from "../../../../components/UI/Card/Card";
 
-const Projects = (props) => {
+const OpenSource = (props) => {
   return (
     <div>
+      <Card />
       <Card />
     </div>
   );
 };
 
-export default Projects;
+export default OpenSource;

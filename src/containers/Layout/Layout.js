@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useRouteMatch, useLocation } from "react-router-dom";
 import styles from "./Layout.module.scss";
-import DesktopMenu from "../../components/UI/DesktopMenu/DesktopMenu";
+import DesktopMenu from "../../components/Main/DesktopMenu/DesktopMenu";
+import Header from "../../components/UI/Header/HeaderMain/HeaderMain";
 import Footer from "../../components/UI/Footer/Footer";
-import MobileMenu from "../../components/UI/MobileMenu/MobileMenu";
+import MobileMenu from "../../components/Main/MobileMenu/MobileMenu";
 
 const Layout = (props) => {
   const [selectedTab, setSelectedTab] = useState("home");
   const history = useHistory();
-  const location = useLocation();
   const match = useRouteMatch("/:section");
 
   // - If page is refreshed, then we need to keep the path
@@ -29,7 +29,7 @@ const Layout = (props) => {
   let desktopMenu = props.auth ? (
     <DesktopMenu handler={selectTabHandler} choice={selectedTab} />
   ) : null;
-  let footer = props.auth ? <Footer /> : null;
+  let header = props.auth ? <Header /> : null;
   let menu = props.auth ? (
     <MobileMenu handler={selectTabHandler} choice={selectedTab} />
   ) : null;
@@ -38,6 +38,7 @@ const Layout = (props) => {
     <div className={props.auth ? styles.layout : null}>
       {desktopMenu}
       <div style={{ position: "relative" }}>
+        {header}
         {props.children}
         {menu}
         <Footer />

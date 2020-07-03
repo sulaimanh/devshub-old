@@ -14,14 +14,14 @@
 
   &__search {
     display: flex;
-    width: 50%;
+    width: 75%;
     @include respond(phone) {
       width: 100%;
     }
   }
 
   &__title {
-    font-size: 2.5rem;
+    font-size: var(--secondary-heading-size);
 
     @include respond(phone) {
       display: none;

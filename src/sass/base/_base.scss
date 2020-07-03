@@ -47,10 +47,10 @@
   --default-font-size: 1.5rem;
   @include respond(tab-port) {
     --primary-heading-size: 4rem;
-    --secondary-heading-size: 2.5rem;
+    --secondary-heading-size: 2.3rem;
   }
   @include respond(phone) {
-    --secondary-heading-size: 2.5rem;
+    --secondary-heading-size: 2.2rem;
     --primary-heading-size: 3rem;
   }
 

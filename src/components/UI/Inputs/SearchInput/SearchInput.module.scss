@@ -12,22 +12,6 @@
     width: 100%;
   }
 
-  &__caret {
-    background-color: var(--color-background);
-    padding: 1rem;
-    border-radius: 0 1rem 1rem 0;
-    cursor: pointer;
-
-    &:hover {
-      background-color: var(--color-tertiary);
-    }
-
-    &On {
-      background-color: var(--color-tertiary);
-      box-shadow: 0 10px 20px rgba(black, 0.2);
-    }
-  }
-
   &__icon {
     position: absolute;
     top: 2rem;
@@ -43,7 +27,7 @@
     box-sizing: border-box;
     padding: 1rem 3rem;
     width: 100%;
-    border-radius: 1rem 0 0 1rem;
+    border-radius: 1rem;
     border: none;
     font-size: 1.5rem;
     font-family: inherit;
@@ -56,7 +40,7 @@
 
     &:focus {
       outline: none;
-      box-shadow: 0 10px 20px rgba(black, 0.2);
+      box-shadow: 0 5px 10px rgba(black, 0.2);
     }
 
     &__button {
@@ -79,91 +63,13 @@
       }
 
       &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(black, 0.2);
         background-color: rgba(#3be47a, 0.8);
-
-        &::after {
-          transform: scaleX(1.4) scaleY(1.6);
-          opacity: 0;
-        }
       }
 
       &:active,
       &:focus {
         outline: none;
-        transform: translateY(1px);
-        box-shadow: 0 5px 10px rgba(black, 0.2);
       }
     }
-  }
-
-  &__dropdown {
-    display: flex;
-    padding: 1rem 2rem;
-    background-color: var(--color-white);
-    box-shadow: 0 10px 20px rgba(black, 0.2);
-    border: 1px solid var(--color-grey);
-    border-radius: 1rem;
-
-    width: 89%;
-    margin-top: 1rem;
-
-    z-index: 3;
-    transition: all 0.5s linear;
-
-    &__text {
-      font-size: 1.5rem;
-      width: 50%;
-    }
-
-    &__difficulty {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.2rem;
-      margin-left: 1rem;
-      padding: 0.5rem;
-      border-radius: 1rem;
-      width: 15%;
-      cursor: pointer;
-    }
-
-    &__easy {
-      background-color: #00ca4e;
-      &:hover {
-        background-color: rgba(#00ca4e, 0.5);
-      }
-
-      &__chosen {
-        background-color: rgba(#00ca4e, 0.5);
-      }
-    }
-
-    &__medium {
-      background-color: #ffbd44;
-      &:hover {
-        background-color: rgba(#ffbd44, 0.5);
-      }
-
-      &__chosen {
-        background-color: rgba(#ffbd44, 0.5);
-      }
-    }
-
-    &__hard {
-      background-color: #ff605c;
-      &:hover {
-        background-color: rgba(#ff605c, 0.5);
-      }
-
-      &__chosen {
-        background-color: rgba(#ff605c, 0.5);
-      }
-    }
-  }
-
-  &__hideDropdown {
-    display: none;
   }
 }
