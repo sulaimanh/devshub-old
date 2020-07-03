@@ -7,7 +7,7 @@ import Home from "./containers/Main/Home/Home";
 import Profile from "./containers/Main/Profile/Profile";
 import Messages from "./containers/Main/Messages/Messages";
 
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 function App() {
   const [auth, setAuth] = useState(true);
@@ -18,9 +18,9 @@ function App() {
   };
   let routes = (
     <Switch>
-      <Route path="/Profile" component={Profile} />
-      <Route path="/Messages" component={Messages} />
-      <Route path="/Home" component={Home} />
+      <Route path="/profile" component={Profile} />
+      <Route path="/messages" component={Messages} />
+      <Route path="/home" component={Home} />
       <Route path="/" component={Home} />
     </Switch>
   );

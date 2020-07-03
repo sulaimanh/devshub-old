@@ -42,12 +42,12 @@
 
   --primary-heading-size: 4rem;
 
-  --secondary-heading-size: 3.1rem;
+  --secondary-heading-size: 2.7rem;
 
   --default-font-size: 1.5rem;
   @include respond(tab-port) {
     --primary-heading-size: 4rem;
-    --secondary-heading-size: 2.8rem;
+    --secondary-heading-size: 2.5rem;
   }
   @include respond(phone) {
     --secondary-heading-size: 2.5rem;

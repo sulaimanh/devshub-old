@@ -25,17 +25,17 @@ const DesktopMenu = (props) => {
     {
       choice: "Home",
       icon: faHome,
-      isSelected: props.choice === "Home"
+      isSelected: props.choice === "home"
     },
     {
       choice: "Profile",
       icon: faAddressCard,
-      isSelected: props.choice === "Profile"
+      isSelected: props.choice === "profile"
     },
     {
       choice: "Messages",
       icon: faMailBulk,
-      isSelected: props.choice === "Messages"
+      isSelected: props.choice === "messages"
     },
     {
       choice: "Sign Out",
@@ -70,7 +70,9 @@ const DesktopMenu = (props) => {
           return (
             <div
               key={index}
-              onClick={(event) => props.handler(event, tab.choice)}
+              onClick={(event) =>
+                props.handler(event, tab.choice.toLowerCase())
+              }
               className={[
                 styles.menu__link,
                 tab.isSelected ? styles.menu__link__selected : null,

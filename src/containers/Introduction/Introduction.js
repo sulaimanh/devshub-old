@@ -42,7 +42,7 @@ const Introduction = () => {
       {/* <Banner /> */}
       <WhatIs />
       <WhyDev handleSignIn={changeModalHandler} />
-      <Footer />
+      
     </Fragment>
   );
 };

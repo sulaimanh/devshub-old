@@ -1,26 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useRouteMatch, useLocation } from "react-router-dom";
 import styles from "./Layout.module.scss";
 import DesktopMenu from "../../components/UI/DesktopMenu/DesktopMenu";
-import Header from "../../components/UI/Header/HeaderMain/HeaderMain";
 import Footer from "../../components/UI/Footer/Footer";
 import MobileMenu from "../../components/UI/MobileMenu/MobileMenu";
 
 const Layout = (props) => {
-  const [selectedTab, setSelectedTab] = useState("Home");
+  const [selectedTab, setSelectedTab] = useState("home");
   const history = useHistory();
   const location = useLocation();
+  const match = useRouteMatch("/:section");
 
   // - If page is refreshed, then we need to keep the path
   useEffect(() => {
-    const loc = location.pathname;
-    // console.log(loc.substring(1));
-    if (loc === "/") {
-      setSelectedTab("Home");
-    } else {
-      setSelectedTab(loc.substring(1));
+    if (match) {
+      setSelectedTab(match.params.section);
     }
-    history.push(loc);
   }, []);
 
   const selectTabHandler = (event, choice) => {
@@ -38,19 +33,14 @@ const Layout = (props) => {
   let menu = props.auth ? (
     <MobileMenu handler={selectTabHandler} choice={selectedTab} />
   ) : null;
-  let header =
-    (selectedTab === "Home" || selectedTab === "/") && props.auth ? (
-      <Header />
-    ) : null;
 
   return (
     <div className={props.auth ? styles.layout : null}>
       {desktopMenu}
       <div style={{ position: "relative" }}>
-        {header}
         {props.children}
         {menu}
-        {footer}
+        <Footer />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Teams.module.scss";
 import Card from "../../../../components/UI/Card/Card";
 
