@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useRouteMatch, useLocation } from "react-router-dom";
 import styles from "./Layout.module.scss";
-import DesktopMenu from "../../components/Main/DesktopMenu/DesktopMenu";
+import DesktopMenu from "../../components/Main/Menu/DesktopMenu/DesktopMenu";
 import Header from "../../components/UI/Header/HeaderMain/HeaderMain";
 import Footer from "../../components/UI/Footer/Footer";
-import MobileMenu from "../../components/Main/MobileMenu/MobileMenu";
+import MobileMenu from "../../components/Main/Menu/MobileMenu/MobileMenu";
 
 const Layout = (props) => {
   const [selectedTab, setSelectedTab] = useState("home");

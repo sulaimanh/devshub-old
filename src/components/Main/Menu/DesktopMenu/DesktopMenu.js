@@ -2,13 +2,10 @@ import React, { useState } from "react";
 import styles from "./DesktopMenu.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faHome,
-  faAddressCard,
-  faMailBulk,
-  faSignOutAlt,
   faArrowCircleRight,
   faArrowCircleLeft
 } from "@fortawesome/free-solid-svg-icons";
+import menuItems from "../menu";
 
 const DesktopMenu = (props) => {
   const [arrow, setArrow] = useState(faArrowCircleLeft);
@@ -21,28 +18,6 @@ const DesktopMenu = (props) => {
     }
   };
 
-  const tabs = [
-    {
-      choice: "Home",
-      icon: faHome,
-      isSelected: props.choice === "home"
-    },
-    {
-      choice: "Profile",
-      icon: faAddressCard,
-      isSelected: props.choice === "profile"
-    },
-    {
-      choice: "Messages",
-      icon: faMailBulk,
-      isSelected: props.choice === "messages"
-    },
-    {
-      choice: "Sign Out",
-      icon: faSignOutAlt,
-      isSelected: props.choice === "Sign Out"
-    }
-  ];
   return (
     <div
       className={[
@@ -66,16 +41,16 @@ const DesktopMenu = (props) => {
         />
       </div>
       <div className={styles.menu__links}>
-        {tabs.map((tab, index) => {
+        {menuItems.map((item, index) => {
           return (
             <div
               key={index}
               onClick={(event) =>
-                props.handler(event, tab.choice.toLowerCase())
+                props.handler(event, item.choice.toLowerCase())
               }
               className={[
                 styles.menu__link,
-                tab.isSelected ? styles.menu__link__selected : null,
+                props.choice === item.path ? styles.menu__link__selected : null,
                 arrow === faArrowCircleLeft
                   ? styles.menu__show__links
                   : styles.menu__hide__links
@@ -84,18 +59,18 @@ const DesktopMenu = (props) => {
               <FontAwesomeIcon
                 className={[
                   styles.menu__linkColor,
-                  tab.isSelected ? styles.menu__linkSelected : null
+                  props.choice === item.path ? styles.menu__linkSelected : null
                 ].join(" ")}
-                icon={tab.icon}
+                icon={item.icon}
                 size="2x"
               />
               <p
                 className={[
                   styles.menu__text,
-                  tab.isSelected ? styles.menu__textSelected : null
+                  props.choice === item.path ? styles.menu__textSelected : null
                 ].join(" ")}
               >
-                {tab.choice}
+                {item.choice}
               </p>
             </div>
           );

@@ -8,7 +8,13 @@ import OpenSource from "./OpenSource/OpenSource";
 import MediumLink from "../../../components/UI/Links/Medium/MediumLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { Route, useRouteMatch, useHistory, Redirect } from "react-router-dom";
+import {
+  Switch,
+  Route,
+  useRouteMatch,
+  useHistory,
+  Redirect
+} from "react-router-dom";
 
 // - This will show the main contact
 const Dashboard = (props) => {
@@ -24,7 +30,7 @@ const Dashboard = (props) => {
       history.push("/home/teams");
       setSelectedChoice("teams");
     }
-  }, []);
+  }, [match]);
 
   const selectedChoiceHandler = (choice) => {
     history.push("/home/" + choice);
@@ -54,9 +60,11 @@ const Dashboard = (props) => {
         </div>
 
         <div className={styles.home__list}>
-          <Route path="/home/teams" component={Teams} />
-          <Route path="/home/projects" component={Projects} />
-          <Route path="/home/sources" component={OpenSource} />
+          <Switch>
+            <Route path="/home/teams" component={Teams} />
+            <Route path="/home/projects" component={Projects} />
+            <Route path="/home/opensource" component={OpenSource} />
+          </Switch>
         </div>
 
         <div className={styles.home__buttons}>
