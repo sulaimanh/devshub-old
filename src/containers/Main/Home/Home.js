@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import styles from "./Home.module.scss";
 import TopSelection from "./TopSelection/TopSelection";
 import Teams from "./Teams/Teams";
+import MediumLink from "../../../components/UI/Links/Medium/MediumLink";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 // - This will show the main contact
 const Dashboard = (props) => {
@@ -18,6 +21,14 @@ const Dashboard = (props) => {
         handler={selectedChoiceHandler}
       />
       <Teams />
+      <div className={styles.home__buttons}>
+        <MediumLink className="primary">
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </MediumLink>
+        <MediumLink className="primary">
+          <FontAwesomeIcon icon={faArrowRight} />
+        </MediumLink>
+      </div>
     </div>
   );
 };

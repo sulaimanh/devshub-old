@@ -18,9 +18,10 @@ function App() {
   };
   let routes = (
     <Switch>
-      <Route path="/profile" component={Profile} />
-      <Route path="/messages" component={Messages} />
-      <Route path="/home" component={Home} />
+      <Route path="/Profile" component={Profile} />
+      <Route path="/Messages" component={Messages} />
+      <Route path="/Home" component={Home} />
+      <Route path="/" component={Home} />
     </Switch>
   );
 
