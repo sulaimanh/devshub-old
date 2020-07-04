@@ -4,7 +4,7 @@ import TopSelection from "../../../components/Main/Home/TopSelection/TopSelectio
 import SearchInput from "../../../components/UI/Inputs/SearchInput/SearchInput";
 import Teams from "./Teams/Teams";
 import Projects from "./Projects/Projects";
-import OpenSource from "./OpenSource/OpenSource";
+import OpenSources from "./OpenSources/OpenSources";
 import MediumLink from "../../../components/UI/Links/Medium/MediumLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -64,7 +64,7 @@ const Dashboard = (props) => {
           <Switch>
             <Route path="/home/teams" component={Teams} />
             <Route path="/home/projects" component={Projects} />
-            <Route path="/home/opensource" component={OpenSource} />
+            <Route path="/home/opensource" component={OpenSources} />
           </Switch>
         </div>
 

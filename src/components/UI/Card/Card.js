@@ -40,8 +40,12 @@ const Card = (props) => {
         </p>
       </div>
       <div className={styles.card__skills}>
-        <div className={styles.card__skills__container}>
-          <p className={styles.card__skillsSkills}>Skills Needed</p>
+        <div className={styles.card__skillsContainer}>
+          <p className={styles.card__skillsSkills}>Technologies Used</p>
+          <div className={styles.card__skills__cards}>{skillView}</div>
+        </div>
+        <div className={styles.card__skillsContainer}>
+          <p className={styles.card__skillsSkills}>Looking For</p>
           <div className={styles.card__skills__cards}>{skillView}</div>
         </div>
       </div>

@@ -40,12 +40,6 @@
         justify-content: center;
         align-items: center;
       }
-
-      &:active + .input__info {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
     }
   }
 
@@ -55,9 +49,9 @@
     position: absolute;
     top: 3rem;
     right: 0;
-    padding: 1rem 2rem;
+    padding: 1rem;
     z-index: 1000;
-    border-radius: 2rem;
+    border-radius: 1rem;
     border: 2px solid var(--color-background);
     background-color: var(--color-white);
     box-shadow: 0 5px 10px rgba(black, 0.2);
