@@ -2,7 +2,7 @@
 .Modal {
   position: fixed;
   z-index: 9000;
-  background-color: white;
+  background-color: var(--color-background);
   width: 50%;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(black, 0.2);

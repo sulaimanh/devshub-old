@@ -6,8 +6,9 @@ const Footer = (props) => {
     <div className={styles.footer}>
       <div className={styles.footer__left}>
         <p className={styles.footer__para}>
-          Developers path is commited in connecting developers with one another
-          for the purpose of them advancing in the field of Computer Science
+          Developers path is commited in connecting developers to opportunities
+          by facilitating the interaction with other developers and getting
+          hands on experience.
         </p>
       </div>
       <div className={styles.footer__right}>
@@ -21,8 +22,6 @@ const Footer = (props) => {
           <p className={styles.footer__links}>Support</p>
         </div>
       </div>
-      {/* <div className={styles.halfCircle1}></div>
-      <div className={styles.halfCircle2}></div> */}
     </div>
   );
 };

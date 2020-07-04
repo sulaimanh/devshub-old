@@ -7,15 +7,15 @@ import Home from "./containers/Main/Home/Home";
 import Profile from "./containers/Main/Profile/Profile";
 import Messages from "./containers/Main/Messages/Messages";
 
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 function App() {
   const [auth, setAuth] = useState(true);
-  const authHandler = (choice) => {
-    console.log(choice);
+  // const authHandler = (choice) => {
+  //   console.log(choice);
 
-    setAuth(choice);
-  };
+  //   setAuth(choice);
+  // };
   let routes = (
     <Switch>
       <Route path="/profile" component={Profile} />

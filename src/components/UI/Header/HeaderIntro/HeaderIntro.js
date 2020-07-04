@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import styles from "./HeaderIntro.module.scss";
 import { headingSecondary as HeadingSecondary } from "../../Text/Text";
 import MediumLink from "../../Links/Medium/MediumLink";
-import SideDrawer from "../../SideDrawer/SideDrawer";
 
 const HeaderIntro = (props) => {
   const [showHeader, setHeader] = useState({
@@ -42,9 +41,6 @@ const HeaderIntro = (props) => {
         <HeadingSecondary>developers path</HeadingSecondary>
       </div>
       <div className={styles.header__links}>
-        <div className={styles.header__links__sidedrawer}>
-          <SideDrawer />
-        </div>
         <div className={styles.header__links__spread}>
           <MediumLink handler={null} className="secondary">
             About Us

@@ -20,6 +20,7 @@ const HeaderMain = (props) => {
           value={search}
           placeholder="Search"
           handler={searchHandler}
+          info="Search for users, projects, or teams"
         />
       </div>
       <h1 className={styles.header__title}>Developers Path</h1>

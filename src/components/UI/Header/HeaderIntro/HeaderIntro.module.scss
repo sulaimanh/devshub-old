@@ -64,15 +64,6 @@
       padding-right: 1rem;
     }
 
-    &__sidedrawer {
-      display: none;
-
-      @include respond(tab-port) {
-        display: flex;
-        align-items: center;
-      }
-    }
-
     &__spread {
       display: flex;
       width: 100%;

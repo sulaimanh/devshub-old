@@ -52,6 +52,7 @@ const Dashboard = (props) => {
         />
         <div className={styles.home__search}>
           <SearchInput
+            info="Filter your search based on difficulty or tech you are interested in"
             value={search}
             handler={searchHandler}
             isSubmitButton={false}

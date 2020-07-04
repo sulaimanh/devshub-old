@@ -1,8 +1,6 @@
 import React, { useState, Fragment } from "react";
-// import styles from "./Introduction.module.scss";
 import Header from "../../components/UI/Header/HeaderIntro/HeaderIntro";
 import TopHeader from "../../components/Introduction/TopHeader/TopHeader";
-
 import WhatIs from "../../components/Introduction/WhatIs/WhatIs";
 import WhyDev from "../../components/Introduction/WhyDev/WhyDev";
 import Modal from "../../components/UI/Modal/Modal";
@@ -38,7 +36,6 @@ const Introduction = () => {
         handleSignIn={changeModalHandler}
       />
       <TopHeader handleSignIn={changeModalHandler} />
-      {/* <Banner /> */}
       <WhatIs />
       <WhyDev handleSignIn={changeModalHandler} />
       
