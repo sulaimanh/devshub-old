@@ -8,7 +8,7 @@ const medium = (props) => {
       className={[styles.anchor, styles[`anchor__${props.className}`]].join(
         " "
       )}
-      onClick={() => props.handler(props.action)}
+      onClick={(event) => props.handler(event, props.id)}
     >
       {props.children}
     </a>

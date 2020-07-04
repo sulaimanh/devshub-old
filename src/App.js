@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./App.module.scss";
 
 import Layout from "./containers/Layout/Layout";
@@ -7,10 +7,36 @@ import Home from "./containers/Main/Home/Home";
 import Profile from "./containers/Main/Profile/Profile";
 import Messages from "./containers/Main/Messages/Messages";
 
-import { Route, Switch } from "react-router-dom";
+import Team from "./components/Main/Home/Team/Team";
+import Project from "./components/Main/Home/Project/Project";
+import OpenSource from "./components/Main/Home/OpenSource/OpenSource";
+
+import { Route, Switch, useRouteMatch, useHistory } from "react-router-dom";
 
 function App() {
   const [auth, setAuth] = useState(true);
+  const teamMatch = useRouteMatch("/home/projects/:projectId");
+  const projectMatch = useRouteMatch("/home/projects/:projectId");
+  const openSourceMatch = useRouteMatch("/home/projects/:projectId");
+
+  const projects = [
+    {
+      id: 1,
+      title: "Developers Path",
+      description: "This is the description",
+      techUsed: ["Reactjs", "JavaScript", "Redux"],
+      techNeeded: ["Reactjs", "Nodejs", "JavaScript", "Redux"]
+    }
+  ];
+
+  useEffect(() => {
+    console.log("Hello");
+
+    if (projectMatch) {
+      console.log(projectMatch.params.projectId);
+    }
+  }, [projectMatch]);
+
   // const authHandler = (choice) => {
   //   console.log(choice);
 
@@ -18,6 +44,12 @@ function App() {
   // };
   let routes = (
     <Switch>
+      <Route path="/home/teams/:teamId" component={Team} />
+      <Route path="/home/projects/:projectId">
+        <Project />
+      </Route>
+      <Route path="/home/opensource/:opensourceId" component={OpenSource} />
+
       <Route path="/profile" component={Profile} />
       <Route path="/messages" component={Messages} />
       {/* <Route path="/home" component={Home} /> */}

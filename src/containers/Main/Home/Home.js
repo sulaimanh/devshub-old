@@ -8,13 +8,7 @@ import OpenSources from "./OpenSources/OpenSources";
 import MediumLink from "../../../components/UI/Links/Medium/MediumLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import {
-  Switch,
-  Route,
-  useRouteMatch,
-  useHistory,
-  Redirect
-} from "react-router-dom";
+import { Switch, Route, useRouteMatch, useHistory } from "react-router-dom";
 
 // - This will show the main contact
 const Dashboard = (props) => {

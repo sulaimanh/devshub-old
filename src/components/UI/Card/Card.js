@@ -4,17 +4,15 @@ import { headingSecondary as HeadingSecondary } from "../Text/Text";
 import SmallLink from "../Links/Small/SmallLink";
 
 const Card = (props) => {
-  const skills = [
-    "Java",
-    "React",
-    "JavaScript",
-    "Node",
-    "AWS",
-    "Python",
-    "MongoDB"
-  ];
+  const techUsed = props.techUsed.map((skill, index) => {
+    return (
+      <div key={index} className={styles.card__skills__cardsCard}>
+        <p className={styles.card__skillsText}>{skill}</p>
+      </div>
+    );
+  });
 
-  const skillView = skills.map((skill, index) => {
+  const techNeeded = props.techNeeded.map((skill, index) => {
     return (
       <div key={index} className={styles.card__skills__cardsCard}>
         <p className={styles.card__skillsText}>{skill}</p>
@@ -25,28 +23,28 @@ const Card = (props) => {
   return (
     <div className={styles.card}>
       <div className={styles.card__heading}>
-        <HeadingSecondary>Developers Path</HeadingSecondary>
+        <HeadingSecondary>{props.title}</HeadingSecondary>
 
-        <SmallLink handler={props.goToCardHandler} className="tertiaryOutline">
+        <SmallLink
+          id={props.id}
+          handler={props.handler}
+          className="tertiaryOutline"
+        >
           Explore
         </SmallLink>
       </div>
       <div className={styles.card__description}>
         <p className={styles.card__descriptionDesc}>Team Description</p>
-        <p className={styles.card__descriptionText}>
-          This is a card and this is a card and This is a card and this is a
-          card and This is a card and this is a card andThis is a card and this
-          is a card andThis
-        </p>
+        <p className={styles.card__descriptionText}>{props.description}</p>
       </div>
       <div className={styles.card__skills}>
         <div className={styles.card__skillsContainer}>
           <p className={styles.card__skillsSkills}>Technologies Used</p>
-          <div className={styles.card__skills__cards}>{skillView}</div>
+          <div className={styles.card__skills__cards}>{techUsed}</div>
         </div>
         <div className={styles.card__skillsContainer}>
           <p className={styles.card__skillsSkills}>Looking For</p>
-          <div className={styles.card__skills__cards}>{skillView}</div>
+          <div className={styles.card__skills__cards}>{techNeeded}</div>
         </div>
       </div>
     </div>

@@ -3,7 +3,6 @@ import styles from "./TopHeader.module.scss";
 import { headingPrimary as HeadingPrimary } from "../../UI/Text/Text";
 import MediumLink from "../../UI/Links/Medium/MediumLink";
 import SignIn from "../../../containers/Introduction/SignIn/SignIn";
-// import Beautiful from "./Beautiful/Beautiful";
 
 const TopHeader = (props) => {
   return (
@@ -19,7 +18,7 @@ const TopHeader = (props) => {
         </div>
         <div className={styles.topHeader__buttons}>
           <MediumLink
-            action="sign up"
+            id="sign up"
             handler={props.handleSignIn}
             className="primary"
           >
@@ -27,13 +26,9 @@ const TopHeader = (props) => {
           </MediumLink>
           <MediumLink className="secondary">About us</MediumLink>
         </div>
-
-        {/* <div className={styles.circle1}></div> */}
-        {/* <div className={styles.circle2}></div> */}
       </div>
       <div className={styles.topHeader__rightContainer}>
         <SignIn isSignUp={true} />
-        {/* <div className={styles.circle3}></div> */}
       </div>
     </div>
   );

@@ -35,7 +35,6 @@ const WhyDev = (props) => {
 
   return (
     <div className={styles.why}>
-      
       <div
         className={
           inView
@@ -68,15 +67,13 @@ const WhyDev = (props) => {
       </div>
       <div className={styles.why__button}>
         <MediumLink
-          action="sign up"
+          id="sign up"
           handler={props.handleSignIn}
           className="tertiaryOutline"
         >
           Sign Up
         </MediumLink>
       </div>
-
-      
     </div>
   );
 };

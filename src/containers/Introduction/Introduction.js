@@ -12,7 +12,7 @@ const Introduction = () => {
     isSignUp: false
   });
 
-  const changeModalHandler = (action) => {
+  const changeModalHandler = (event, action) => {
     let isSignUp = false;
     if (action === "sign up") {
       isSignUp = true;
