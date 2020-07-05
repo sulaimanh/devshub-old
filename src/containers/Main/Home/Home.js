@@ -31,9 +31,7 @@ const Dashboard = (props) => {
     setSelectedChoice(choice);
   };
 
-  const searchHandler = (event) => {
-    console.log(search);
-
+  const filterHandler = (event) => {
     setSearch(event.target.value);
   };
 
@@ -48,7 +46,7 @@ const Dashboard = (props) => {
           <SearchInput
             info="Filter your search based on difficulty or tech you are interested in"
             value={search}
-            handler={searchHandler}
+            handler={filterHandler}
             isSubmitButton={false}
             placeholder="Filter your search"
           />

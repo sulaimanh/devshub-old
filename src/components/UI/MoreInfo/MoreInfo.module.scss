@@ -1,0 +1,40 @@
+@import "../../../sass/abstracts/mixins";
+
+.info {
+  color: #959eb2;
+  z-index: 2;
+
+  &:hover {
+    color: var(--color-tertiary);
+  }
+
+  &:hover + .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.container {
+  display: none;
+  justify-content: center;
+  width: 25rem;
+  position: absolute;
+  top: 3rem;
+  right: -6rem;
+  padding: 1rem;
+  z-index: 1000;
+  border-radius: 1rem;
+  border: 2px solid var(--color-background);
+  background-color: var(--color-white);
+  box-shadow: 0 5px 10px rgba(black, 0.2);
+
+  @include respond(tab-port) {
+    right: -13rem;
+  }
+
+  &__text {
+    position: relative;
+    font-size: var(--default-font-size-small);
+  }
+}

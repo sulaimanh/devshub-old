@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styles from "./SearchInput.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import MoreInfo from "../../MoreInfo/MoreInfo";
 
 const SearchInput = (props) => {
   const infoHandler = () => {};
@@ -20,14 +21,9 @@ const SearchInput = (props) => {
           size="2x"
           className={styles.input__iconSearch}
         />
-        <FontAwesomeIcon
-          icon={faInfoCircle}
-          size="2x"
-          className={styles.input__iconInfo}
-          onClick={infoHandler}
-        />
-        <div className={styles.input__info}>
-          <p className={styles.input__infoText}>{props.info}</p>
+
+        <div className={styles.input__iconInfo}>
+          <MoreInfo>{props.info}</MoreInfo>
         </div>
       </div>
       {props.isSubmitButton ? (

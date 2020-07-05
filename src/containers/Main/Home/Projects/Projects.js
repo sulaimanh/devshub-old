@@ -13,6 +13,10 @@ const Projects = (props) => {
 
   // - handle when project is selected
   const projectSelectedHandler = (event, projectId) => {
+    // - Here, I will dispatch an action to fetch the information
+    //    about the specific project
+    // - Then we will go to the route. Within the Project component,
+    //    we will have access to that project via state.
     history.push("/home/projects/" + projectId);
   };
 
@@ -20,7 +24,7 @@ const Projects = (props) => {
     <div>
       <Card
         title="Developers Path"
-        description="This is the description"
+        description="Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday."
         techUsed={["Reactjs", "JavaScript", "Redux"]}
         techNeeded={["Reactjs", "Nodejs", "JavaScript", "Redux"]}
         id="1"
@@ -28,7 +32,7 @@ const Projects = (props) => {
       />
       <Card
         title="Developers Path"
-        description="This is the description"
+        description="Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday."
         techUsed={["Reactjs", "JavaScript", "Redux"]}
         techNeeded={["Reactjs", "Nodejs", "JavaScript", "Redux"]}
         id="2"

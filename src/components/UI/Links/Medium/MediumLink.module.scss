@@ -85,6 +85,15 @@
     }
   }
 
+  &__tertiary {
+    width: 100%;
+    background-color: var(--color-tertiary);
+    color: var(--color-white);
+    &:hover {
+      background-color: rgba(#3be47a, 0.8);
+    }
+  }
+
   &__tertiaryOutline {
     border: 1px solid var(--color-tertiary);
     width: 100%;
