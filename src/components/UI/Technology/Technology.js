@@ -21,11 +21,11 @@ const Technology = (props) => {
   return (
     <div className={styles.tech}>
       <div className={styles.tech__container}>
-        <p className={styles.tech__text}>Tech Used:</p>
+        <p className={styles.tech__text}>Technology Used:</p>
         <div className={styles.tech__containerTech}>{used}</div>
       </div>
       <div className={styles.tech__container}>
-        <p className={styles.tech__text}>Tech Needed:</p>
+        <p className={styles.tech__text}>Looking For:</p>
         <div className={styles.tech__containerTech}>{needed}</div>
       </div>
     </div>

@@ -30,6 +30,15 @@
     &Text {
       font-size: var(--default-font-size);
     }
+
+    &Seemore {
+      cursor: pointer;
+      color: var(--color-primary);
+      text-decoration: underline;
+      &:hover {
+        color: var(--color-tertiary);
+      }
+    }
   }
 
   &__tech {

@@ -1,0 +1,117 @@
+@import "../../../../sass/abstracts/mixins";
+
+.post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  width: 95%;
+  margin-top: 2rem;
+  margin-left: 2.5%;
+
+  background-color: var(--color-white);
+  border-radius: 1rem;
+  padding-bottom: 2rem;
+
+  &__top {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    // background-color: red;
+    &Icon {
+      color: var(--color-primary);
+      cursor: pointer;
+      margin-left: 2rem;
+      &:hover {
+        color: var(--color-tertiary);
+      }
+    }
+
+    &Request {
+      display: flex;
+      margin-right: 2rem;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 90%;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+    }
+  }
+
+  &__left {
+    width: 90%;
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
+    &Heading {
+      display: flex;
+      justify-content: space-between;
+
+      &__confidential {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__moreInfo {
+          margin-left: 1rem;
+          position: relative;
+        }
+
+        &Text {
+          font-size: var(--default-font-size-small);
+        }
+      }
+    }
+
+    &__tech {
+      margin-top: 2rem;
+    }
+  }
+
+  &__right {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-direction: column;
+    width: 70%;
+    &__owner {
+      font-size: var(--default-font-size);
+    }
+
+    @include respond(tab-port) {
+      margin-top: 3rem;
+      align-items: flex-start;
+    }
+
+    &__repo {
+      display: flex;
+
+      &Icon {
+        margin-left: 1rem;
+        color: #959eb2;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--color-tertiary);
+        }
+      }
+    }
+  }
+
+  &__text {
+    font-size: var(--default-font-size);
+  }
+}

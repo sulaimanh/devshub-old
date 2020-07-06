@@ -24,7 +24,7 @@ const Projects = (props) => {
     <div>
       <Card
         title="Developers Path"
-        description="Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday."
+        description="Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everdayDevelopers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday."
         techUsed={[
           "Reactjs",
           "Nodejs",
@@ -50,7 +50,8 @@ const Projects = (props) => {
       />
       <Card
         title="Developers Path"
-        description="Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday."
+        description="
+        Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everdayDevelopers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday."
         techUsed={["Reactjs", "JavaScript", "Redux"]}
         techNeeded={["Reactjs", "Nodejs", "JavaScript", "Redux"]}
         id="2"
