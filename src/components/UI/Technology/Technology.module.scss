@@ -16,7 +16,7 @@
     justify-content: space-around;
     flex-direction: column;
     position: relative;
-    width: 50%;
+    width: 48%;
 
     @include respond(phone) {
       width: 100%;

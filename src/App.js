@@ -40,6 +40,7 @@ function App() {
       <Route path="/home/opensource/:id" component={OpenSource} />
 
       <Route path="/profile" component={Profile} />
+
       <Route path="/messages" component={Messages} />
       <Route path="/home" component={Home} />
       <Route path="/" component={Home} />
