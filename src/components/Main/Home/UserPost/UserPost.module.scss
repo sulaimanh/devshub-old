@@ -1,6 +1,7 @@
 @import "../../../../sass/abstracts/mixins";
 
 .post {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,10 +15,20 @@
   border-radius: 1rem;
   padding-bottom: 2rem;
 
+  &__tech {
+    position: relative;
+    display: inline-block;
+
+    // width: 95%;
+    margin-left: 5%;
+    margin-bottom: 2rem;
+  }
+
   &__top {
     position: relative;
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
     width: 100%;
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -60,11 +71,13 @@
     &Heading {
       display: flex;
       justify-content: space-between;
+      align-items: baseline;
 
       &__confidential {
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-left: 1rem;
         &__moreInfo {
           margin-left: 1rem;
           position: relative;
@@ -74,10 +87,6 @@
           font-size: var(--default-font-size-small);
         }
       }
-    }
-
-    &__tech {
-      margin-top: 2rem;
     }
   }
 

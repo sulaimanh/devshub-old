@@ -1,10 +1,10 @@
 @import "../../../sass/abstracts/mixins";
 
 .tech {
-  position: relative;
+  //   position: relative;
   display: flex;
-
   justify-content: space-between;
+  align-items: baseline;
   margin-top: 2rem;
 
   @include respond(phone) {
@@ -13,6 +13,7 @@
 
   &__container {
     display: flex;
+    justify-content: space-around;
     flex-direction: column;
     position: relative;
     width: 50%;

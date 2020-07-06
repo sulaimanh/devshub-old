@@ -13,6 +13,8 @@ const Projects = (props) => {
 
   // - handle when project is selected
   const projectSelectedHandler = (event, projectId) => {
+    console.log(projectId);
+
     // - Here, I will dispatch an action to fetch the information
     //    about the specific project
     // - Then we will go to the route. Within the Project component,

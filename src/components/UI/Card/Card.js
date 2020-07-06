@@ -31,7 +31,12 @@ const Card = (props) => {
   return (
     <div className={styles.card}>
       <div className={styles.card__heading}>
-        <HeadingSecondary>{props.title}</HeadingSecondary>
+        <div
+          className={styles.card__headingTitle}
+          onClick={(event) => props.handler(event, props.id)}
+        >
+          <HeadingSecondary>{props.title}</HeadingSecondary>
+        </div>
 
         <SmallLink
           id={props.id}
