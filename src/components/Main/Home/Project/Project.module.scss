@@ -56,44 +56,28 @@
     @include respond(tab-port) {
       width: 100%;
     }
-  }
 
-  &__tech {
-    display: flex;
-    margin-top: 2rem;
+    &Heading {
+      display: flex;
+      justify-content: space-between;
 
-    // @include respond(tab-port) {
-    //   justify-content: space-around;
-    // }
-    @include respond(phone) {
-      justify-content: space-around;
-    }
+      &__confidential {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__moreInfo {
+          margin-left: 1rem;
+          position: relative;
+        }
 
-    &Row {
-      &:not(:last-child) {
-        margin-right: 3rem;
+        &Text {
+          font-size: var(--default-font-size-small);
+        }
       }
     }
-  }
 
-  &__card {
-    display: flex;
-    border: 1px solid var(--color-grey);
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    margin-bottom: 1rem;
-
-    &:not(:last-child) {
-      margin-right: 1rem;
-    }
-
-    &:hover {
-      background-color: var(--color-primary);
-      color: var(--color-white);
-    }
-
-    &Text {
-      font-size: 1.5rem;
+    &__tech {
+      margin-top: 2rem;
     }
   }
 
@@ -111,33 +95,23 @@
       margin-top: 3rem;
       align-items: flex-start;
     }
+
+    &__repo {
+      display: flex;
+
+      &Icon {
+        margin-left: 1rem;
+        color: #959eb2;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--color-tertiary);
+        }
+      }
+    }
   }
 
   &__text {
     font-size: var(--default-font-size);
-  }
-
-  &__confidential {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &__moreInfo {
-      margin-left: 1rem;
-      position: relative;
-    }
-  }
-
-  &__repo {
-    display: flex;
-
-    &Icon {
-      margin-left: 1rem;
-      color: #959eb2;
-      cursor: pointer;
-
-      &:hover {
-        color: var(--color-tertiary);
-      }
-    }
   }
 }

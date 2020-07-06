@@ -32,55 +32,8 @@
     }
   }
 
-  &__skills {
-    margin: 0 1rem;
-
-    margin-top: 0.5rem;
-    position: relative;
-
-    display: flex;
-    justify-content: space-between;
-    @include respond(phone) {
-      flex-direction: column;
-    }
-
-    &Container {
-      &:not(:last-child) {
-        margin-right: 1rem;
-        @include respond(phone) {
-          margin-right: 0rem;
-        }
-      }
-    }
-
-    &Skills {
-      font-size: var(--default-font-size);
-      font-weight: 600;
-    }
-
-    &__cards {
-      display: flex;
-      flex-wrap: wrap;
-      &Card {
-        display: flex;
-        border: 1px solid var(--color-grey);
-        border-radius: 0.5rem;
-        padding: 0.5rem 1rem;
-        margin-bottom: 1rem;
-        &:not(:last-child) {
-          margin-right: 1rem;
-        }
-
-        &:hover {
-          background-color: var(--color-primary);
-          color: var(--color-white);
-        }
-      }
-    }
-
-    &Text {
-      font-size: 1.3rem;
-    }
+  &__tech {
+    margin-left: 1rem;
   }
 
   &__button {

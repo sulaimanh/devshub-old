@@ -1,0 +1,54 @@
+@import "../../../sass/abstracts/mixins";
+
+.tech {
+  position: relative;
+  display: flex;
+
+  justify-content: space-between;
+  margin-top: 2rem;
+
+  @include respond(phone) {
+    flex-direction: column;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 50%;
+
+    @include respond(phone) {
+      width: 100%;
+    }
+
+    &Tech {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__text {
+    font-size: var(--default-font-size);
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  width: fit-content;
+  border: 1px solid var(--color-grey);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+
+  margin-right: 1rem;
+
+  &:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  &Text {
+    font-size: 1.5rem;
+  }
+}

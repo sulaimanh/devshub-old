@@ -19,8 +19,46 @@ const OpenSource = (props) => {
       <Card
         title="Developers Path"
         description="This is the description"
-        techUsed={["Reactjs", "JavaScript", "Redux"]}
-        techNeeded={["Reactjs", "Nodejs", "JavaScript", "Redux"]}
+        techNeeded={[
+          "Reactjs",
+          "Nodejs",
+          "JavaScript",
+          "Redux",
+          "Reactjs",
+          "Nodejs",
+          "JavaScript",
+          "Redux",
+          "Reactjs",
+          "Nodejs",
+          "JavaScript",
+          "Redux",
+          "Reactjs",
+          "Nodejs",
+          "JavaScript",
+          "Redux",
+          "Reactjs",
+          "Nodejs",
+          "JavaScript",
+          "Redux",
+          "Reactjs",
+          "Nodejs",
+          "JavaScript",
+          "Redux"
+        ]}
+        techUsed={[
+          "Reactjs",
+          "Nodejs",
+          "JavaScript",
+          "Redux",
+          "Reactjs",
+          "Nodejs",
+          "JavaScript",
+          "Redux",
+          "Reactjs",
+          "Nodejs",
+          "JavaScript",
+          "Redux"
+        ]}
         id="1"
         handler={opensourceSelectedHandler}
       />
