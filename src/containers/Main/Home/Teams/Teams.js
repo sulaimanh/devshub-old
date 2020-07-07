@@ -1,7 +1,7 @@
 import React, { Suspense, useState, useEffect } from "react";
 import styles from "./Teams.module.scss";
 import Card from "../../../../components/UI/Card/Card";
-import { useRouteMatch, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const Teams = (props) => {
@@ -10,6 +10,8 @@ const Teams = (props) => {
 
   // - Retrieve Teams
   useEffect(() => {
+    console.log("[Teams.js] useEffect");
+
     axios
       .get("http://dummy.restapiexample.com/api/v1/employees")
       .then((res) => {
@@ -31,7 +33,6 @@ const Teams = (props) => {
   const teamSelectedHandler = (event, projectId) => {
     history.push("/home/teams/" + projectId);
   };
-  console.log(cards, "HASFHASHFAH");
 
   const view = cards.map((card, index) => (
     <Card

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import styles from "./OpenSources.module.scss";
+// import styles from "./OpenSources.module.scss";
 import Card from "../../../../components/UI/Card/Card";
-import { useRouteMatch, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const OpenSource = (props) => {
   const history = useHistory();

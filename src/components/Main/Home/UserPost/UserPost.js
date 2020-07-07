@@ -15,7 +15,7 @@ const UserPost = (props) => {
   // - Retrieve the data for the post
   useEffect(() => {});
 
-  const goBackHandler = () => {
+  const goBackHandler = () => { 
     history.goBack();
   };
 
@@ -35,9 +35,7 @@ const UserPost = (props) => {
       <div className={styles.post__details}>
         <div className={styles.post__left}>
           <div className={styles.post__leftHeading}>
-            <HeadingSecondary>
-              {props.post.title} asda sfas fa sf as fas fa sf asfasdasda
-            </HeadingSecondary>
+            <HeadingSecondary>{props.post.title}</HeadingSecondary>
             {props.post.isConfidential ? (
               <div className={styles.post__leftHeading__confidential}>
                 <p className={styles.post__leftHeading__confidentialText}>

@@ -1,9 +1,9 @@
-import React, { useMemo } from "react";
+import React from "react";
 import styles from "./Modal.module.scss";
 
 import Backdrop from "../Backdrop/Backdrop";
 
-const Modal = React.memo((props, nextProps) => {
+const Modal = React.memo((props) => {
   // - We only want this modal to update if the 'show' prop changes. This will help us improve performance.
   // - So, when the user clicks the ORDER NOW button, the component will then update.
   //    Otherwise, there is no point in updating this component.

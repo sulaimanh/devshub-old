@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "./Project.module.scss";
+// import styles from "./Project.module.scss";
 import UserPost from "../UserPost/UserPost";
 
 const Project = (props) => {

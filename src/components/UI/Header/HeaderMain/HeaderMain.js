@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "./HeaderMain.module.scss";
 import SearchInput from "../../Inputs/SearchInput/SearchInput";
-import { headingSecondary as HeadingSecondary } from "../../Text/Text";
 
 const HeaderMain = (props) => {
   const [search, setSearch] = useState("");

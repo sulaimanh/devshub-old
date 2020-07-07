@@ -11,20 +11,17 @@ import Team from "./components/Main/Home/Team/Team";
 import Project from "./components/Main/Home/Project/Project";
 import OpenSource from "./components/Main/Home/OpenSource/OpenSource";
 
-import { Route, Switch, useRouteMatch, useHistory } from "react-router-dom";
+import { Route, Switch, useRouteMatch } from "react-router-dom";
 
 function App() {
   const [auth, setAuth] = useState(true);
-  const [id, setId] = useState("");
   const match = useRouteMatch("/home/:section/:id");
 
   useEffect(() => {
-    console.log("Hello");
+    console.log("[App.js] useEffect");
 
     if (match) {
-      console.log(match);
-
-      setId(match.params.id);
+      console.log("sdasda", match);
     }
   }, [match]);
 

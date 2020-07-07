@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, useRouteMatch, useLocation } from "react-router-dom";
+import { useHistory, useRouteMatch } from "react-router-dom";
 import styles from "./Layout.module.scss";
 import DesktopMenu from "../../components/Main/Menu/DesktopMenu/DesktopMenu";
 import Header from "../../components/UI/Header/HeaderMain/HeaderMain";
@@ -16,7 +16,7 @@ const Layout = (props) => {
     if (match) {
       setSelectedTab(match.params.section);
     }
-  }, []);
+  }, [match]);
 
   const selectTabHandler = (event, choice) => {
     event.preventDefault();

@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
-import styles from "./Projects.module.scss";
+import React, { useEffect } from "react";
+// import styles from "./Projects.module.scss";
 import Card from "../../../../components/UI/Card/Card";
-import Project from "../../../../components/Main/Home/Project/Project";
-import { useRouteMatch, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-const Projects = (props) => {
+const Projects = React.memo((props) => {
   const history = useHistory();
-  const match = useRouteMatch("/home/projects/:projectId");
+  // const match = useRouteMatch("/home/projects/:projectId");
 
   // - Retrieve Projects
-  useEffect(() => {});
+  useEffect(() => {
+    console.log("HELLOOOO");
+  }, []);
 
   // - handle when project is selected
   const projectSelectedHandler = (event, projectId) => {
@@ -61,6 +62,6 @@ const Projects = (props) => {
       />
     </div>
   );
-};
+});
 
 export default Projects;

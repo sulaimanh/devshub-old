@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./SearchInput.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import MoreInfo from "../../MoreInfo/MoreInfo";
 
 const SearchInput = (props) => {
-  const infoHandler = () => {};
-
   return (
     <div className={styles.input}>
       <div className={styles.input__input}>

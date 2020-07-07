@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./TopHeader.module.scss";
 import { headingPrimary as HeadingPrimary } from "../../UI/Text/Text";
 import MediumLink from "../../UI/Links/Medium/MediumLink";

@@ -15,7 +15,7 @@ const Card = (props) => {
     } else {
       setWordy(false);
     }
-  }, []);
+  }, [props.description]);
 
   const description = isWordy ? (
     <p className={styles.card__descriptionText}>
