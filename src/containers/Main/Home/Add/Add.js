@@ -10,65 +10,65 @@ const Add = (props) => {
   // Title, Description, Number of Developers, Number of Develoeprs Needed,
   //     Technology Used, Technology Needed, github Repo
   return (
-    <div
-      style={{
-        transform: props.show ? "translateY(0)" : "translateY(-100vh"
-      }}
-      className={styles.add}
-    >
-      <div className={styles.add__top}>
-        <FontAwesomeIcon
-          className={styles.add__top__back}
-          size="2x"
-          onClick={props.handler}
-          icon={faArrowCircleLeft}
-        />
-        <HeadingSecondary>Add a {props.section}</HeadingSecondary>
-      </div>
-      <Input
-        for="description"
-        placeholder="Enter Description"
-        isTextArea={true}
-        readOnly={false}
-      />
-      <div className={styles.add__dev}>
+    <div className={styles.container}>
+      <div className={styles.add}>
+        <div className={styles.add__top}>
+          <FontAwesomeIcon
+            className={styles.add__top__back}
+            size="2x"
+            onClick={props.handler}
+            icon={faArrowCircleLeft}
+          />
+          <HeadingSecondary>Add a {props.section}</HeadingSecondary>
+        </div>
+
         <Input
-          for="currentDev"
-          placeholder="Current number of developers"
+          for="title"
+          placeholder="Enter Title"
+          isTextArea={false}
+          readOnly={false}
+        />
+        <Input
+          for="description"
+          placeholder={`Enter ${props.section} Description`}
+          isTextArea={true}
+          readOnly={false}
+        />
+        <Input
+          for="numOfDevelopers"
+          placeholder="# of developers"
+          isTextArea={false}
+          readOnly={false}
+        />
+        <Input
+          for="numOfDevelopersNeeded"
+          placeholder="# of developers you need"
+          isTextArea={false}
+          readOnly={false}
+        />
+        <div className={styles.add__tech}>
+          <div className={styles.add__techInput}>
+            <Input
+              for="repo"
+              placeholder="Technology needed to know"
+              isTextArea={false}
+              readOnly={false}
+            />
+          </div>
+          <div className={styles.add__techAdd}>
+            <MediumLink className="primary1">Add</MediumLink>
+          </div>
+        </div>
+        <Input
+          for="repo"
+          placeholder="Link to repository"
           isTextArea={false}
           readOnly={false}
         />
 
-        <Input
-          for="neededDev"
-          placeholder="Number of developers needed"
-          isTextArea={false}
-          readOnly={false}
-        />
-      </div>
-
-      <Input
-        for="used"
-        placeholder="Technology Used"
-        isTextArea={false}
-        readOnly={false}
-      />
-      <Input
-        for="know"
-        placeholder="Developers who know"
-        isTextArea={false}
-        readOnly={false}
-      />
-      <Input
-        for="repo"
-        placeholder="Link to repository (if applicable)"
-        isTextArea={false}
-        readOnly={false}
-        isRequired={false}
-      />
-
-      <div className={styles.add__submit}>
-        <MediumLink className="tertiary">Add</MediumLink>
+        <div className={styles.add__submit}>
+          <MediumLink className="tertiary">Add</MediumLink>
+        </div>
       </div>
     </div>
   );

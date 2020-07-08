@@ -16,7 +16,7 @@ const Dashboard = (props) => {
   const [selectedChoice, setSelectedChoice] = useState("team");
   const [search, setSearch] = useState("");
   const [section, setSection] = useState("Team");
-  const [showAdd, setShowAdd] = useState(false);
+  const [showAdd, setShowAdd] = useState(true);
   const history = useHistory();
   const match = useRouteMatch("/home/:section");
 

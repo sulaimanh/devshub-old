@@ -61,7 +61,7 @@ const HeaderIntro = (props) => {
           </MediumLink>
         </div>
 
-        <div className={styles.header__links__sidedrawer}>
+        <div className={styles.header__links__smallscreen}>
           <MediumLink
             action="sign in"
             handler={props.handleSignIn}
