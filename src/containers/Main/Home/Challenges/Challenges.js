@@ -3,15 +3,15 @@ import React, { useEffect } from "react";
 import Card from "../../../../components/UI/Card/Card";
 import { useHistory } from "react-router-dom";
 
-const OpenSource = (props) => {
+const Challenges = (props) => {
   const history = useHistory();
 
   // - Retrieve Projects
   useEffect(() => {});
 
   // - handle when project is selected
-  const opensourceSelectedHandler = (event, projectId) => {
-    history.push("/home/opensource/" + projectId);
+  const challengesSelectedHandler = (event, projectId) => {
+    history.push("/home/challenges/" + projectId);
   };
 
   return (
@@ -19,7 +19,7 @@ const OpenSource = (props) => {
       <Card
         title="Developers Path"
         description="This is the description"
-        techNeeded={[
+        tech={[
           "Reactjs",
           "Nodejs",
           "JavaScript",
@@ -32,20 +32,6 @@ const OpenSource = (props) => {
           "Nodejs",
           "JavaScript",
           "Redux",
-          "Reactjs",
-          "Nodejs",
-          "JavaScript",
-          "Redux",
-          "Reactjs",
-          "Nodejs",
-          "JavaScript",
-          "Redux",
-          "Reactjs",
-          "Nodejs",
-          "JavaScript",
-          "Redux"
-        ]}
-        techUsed={[
           "Reactjs",
           "Nodejs",
           "JavaScript",
@@ -60,10 +46,10 @@ const OpenSource = (props) => {
           "Redux"
         ]}
         id="1"
-        handler={opensourceSelectedHandler}
+        handler={challengesSelectedHandler}
       />
     </div>
   );
 };
 
-export default OpenSource;
+export default Challenges;

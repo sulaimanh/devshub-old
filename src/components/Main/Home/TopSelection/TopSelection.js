@@ -24,15 +24,15 @@ const TopSelection = (props) => {
         <p className={styles.topText}>Projects</p>
       </div>
       <div
-        onClick={() => props.handler("opensource")}
+        onClick={() => props.handler("challenges")}
         className={[
           styles.topLink,
-          props.selectedChoice === "opensource"
+          props.selectedChoice === "challenges"
             ? styles.topLink__selected
             : null
         ].join(" ")}
       >
-        <p className={styles.topText}>Open Source</p>
+        <p className={styles.topText}>Challenges</p>
       </div>
     </div>
   );

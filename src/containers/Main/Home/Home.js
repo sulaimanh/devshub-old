@@ -4,7 +4,7 @@ import TopSelection from "../../../components/Main/Home/TopSelection/TopSelectio
 import SearchInput from "../../../components/UI/Inputs/SearchInput/SearchInput";
 import Teams from "./Teams/Teams";
 import Projects from "./Projects/Projects";
-import OpenSources from "./OpenSources/OpenSources";
+import Challenges from "./Challenges/Challenges";
 import MediumLink from "../../../components/UI/Links/Medium/MediumLink";
 import Add from "./Add/Add";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,7 +16,7 @@ const Dashboard = (props) => {
   const [selectedChoice, setSelectedChoice] = useState("team");
   const [search, setSearch] = useState("");
   const [section, setSection] = useState("Team");
-  const [showAdd, setShowAdd] = useState(true);
+  const [showAdd, setShowAdd] = useState(false);
   const history = useHistory();
   const match = useRouteMatch("/home/:section");
 
@@ -30,8 +30,8 @@ const Dashboard = (props) => {
 
       if (route === "projects") {
         view = "Project";
-      } else if (route === "opensource") {
-        view = "Open Source";
+      } else if (route === "challenges") {
+        view = "Challenge";
       }
       setSection(view);
     } else {
@@ -75,7 +75,7 @@ const Dashboard = (props) => {
         </div>
         <div className={styles.home__add}>
           <MediumLink handler={showAddHandler} className="tertiary">
-            Add {section}
+            Add a {section}
           </MediumLink>
         </div>
 
@@ -83,7 +83,7 @@ const Dashboard = (props) => {
           <Switch>
             <Route path="/home/teams" component={Teams} />
             <Route path="/home/projects" component={Projects} />
-            <Route path="/home/opensource" component={OpenSources} />
+            <Route path="/home/challenges" component={Challenges} />
           </Switch>
         </div>
 

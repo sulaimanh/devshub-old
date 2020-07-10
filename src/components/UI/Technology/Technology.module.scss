@@ -3,7 +3,6 @@
 .tech {
   //   position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
   margin-top: 2rem;
 
@@ -13,10 +12,8 @@
 
   &__container {
     display: flex;
-    justify-content: space-around;
     flex-direction: column;
     position: relative;
-    width: 48%;
 
     @include respond(phone) {
       width: 100%;

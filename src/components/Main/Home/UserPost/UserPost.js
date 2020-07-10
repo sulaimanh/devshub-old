@@ -15,7 +15,7 @@ const UserPost = (props) => {
   // - Retrieve the data for the post
   useEffect(() => {});
 
-  const goBackHandler = () => { 
+  const goBackHandler = () => {
     history.goBack();
   };
 
@@ -59,28 +59,18 @@ const UserPost = (props) => {
           <p className={styles.post__text}>Owner: {props.post.owner}</p>
 
           <p className={styles.post__text}>
-            Number of developers: {props.post.numberOfDevelopers}
+            Developers: {props.post.numberOfDevelopers}
           </p>
           <p className={styles.post__text}>
-            Number of developers needed: {props.post.numberOfDevelopersNeeded}
+            Developers needed: {props.post.numberOfDevelopersNeeded}
           </p>
-          <div className={styles.post__right__repo}>
-            <p className={styles.post__text}>Repository</p>
-            <a href={props.post.githubLink}>
-              <FontAwesomeIcon
-                className={styles.post__right__repoIcon}
-                icon={faGithub}
-                size="3x"
-              />
-            </a>
-          </div>
+          <a href={props.post.githubLink} className={styles.post__textRepo}>
+            <p>Go to Repository</p>
+          </a>
         </div>
       </div>
       <div className={styles.post__tech}>
-        <Technology
-          techUsed={props.post.techUsed}
-          techNeeded={props.post.techNeeded}
-        />
+        <Technology tech={props.post.tech} />
       </div>
     </div>
   );

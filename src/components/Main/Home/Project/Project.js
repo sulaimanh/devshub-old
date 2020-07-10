@@ -14,7 +14,7 @@ const Project = (props) => {
     description:
       "Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everdayDevelopers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday.",
     isConfidential: true,
-    techUsed: [
+    tech: [
       "Reactjs",
       "Nodejs",
       "JavaScript",
@@ -28,7 +28,6 @@ const Project = (props) => {
       "JavaScript",
       "Redux"
     ],
-    techNeeded: ["Reactjs", "JavaScript", "Redux"],
     githubLink: "https://github.com/developerspath/developerspath-frontend",
     numberOfDevelopersNeeded: 2
   };

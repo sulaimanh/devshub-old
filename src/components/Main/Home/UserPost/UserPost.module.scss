@@ -17,7 +17,7 @@
 
   &__tech {
     position: relative;
-    display: inline-block;
+    display: flex;
 
     // width: 95%;
     margin-left: 5%;
@@ -122,5 +122,9 @@
 
   &__text {
     font-size: var(--default-font-size);
+    &Repo {
+      font-size: var(--default-font-size);
+      color: var(--color-primary);
+    }
   }
 }

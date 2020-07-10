@@ -9,7 +9,7 @@ import Messages from "./containers/Main/Messages/Messages";
 
 import Team from "./components/Main/Home/Team/Team";
 import Project from "./components/Main/Home/Project/Project";
-import OpenSource from "./components/Main/Home/OpenSource/OpenSource";
+import Challenge from "./components/Main/Home/Challenge/Challenge";
 
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 
@@ -34,10 +34,10 @@ function App() {
     <Switch>
       <Route path="/home/teams/:id" component={Team} />
       <Route path="/home/projects/:id" component={Project} />
-      <Route path="/home/opensource/:id" component={OpenSource} />
+      <Route path="/home/challenges/:id" component={Challenge} />
+
 
       <Route path="/profile" component={Profile} />
-
       <Route path="/messages" component={Messages} />
       <Route path="/home" component={Home} />
       <Route path="/" component={Home} />

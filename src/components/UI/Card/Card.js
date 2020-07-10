@@ -53,7 +53,7 @@ const Card = (props) => {
         {description}
       </div>
       <div className={styles.card__tech}>
-        <Technology techUsed={props.techUsed} techNeeded={props.techNeeded} />
+        <Technology tech={props.tech} />
       </div>
     </div>
   );
