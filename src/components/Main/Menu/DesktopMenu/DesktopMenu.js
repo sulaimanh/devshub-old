@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory, useRouteMatch } from "react-router-dom";
 import styles from "./DesktopMenu.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,6 +10,25 @@ import menuItems from "../menu";
 
 const DesktopMenu = (props) => {
   const [arrow, setArrow] = useState(faArrowCircleLeft);
+
+  const [selectedTab, setSelectedTab] = useState("home");
+  const history = useHistory();
+  const match = useRouteMatch("/:section");
+
+  // - If page is refreshed, then we need to keep the path
+  useEffect(() => {
+    if (match) {
+      setSelectedTab(match.params.section);
+    }
+  }, [match]);
+
+  const selectTabHandler = (event, choice) => {
+    event.preventDefault();
+
+    history.push("/" + choice);
+
+    setSelectedTab(choice);
+  };
 
   const hideShowHandler = () => {
     if (arrow === faArrowCircleLeft) {
@@ -45,12 +65,10 @@ const DesktopMenu = (props) => {
           return (
             <div
               key={index}
-              onClick={(event) =>
-                props.handler(event, item.choice.toLowerCase())
-              }
+              onClick={(event) => selectTabHandler(event, item.path)}
               className={[
                 styles.menu__link,
-                props.choice === item.path ? styles.menu__link__selected : null,
+                selectedTab === item.path ? styles.menu__link__selected : null,
                 arrow === faArrowCircleLeft
                   ? styles.menu__show__links
                   : styles.menu__hide__links
@@ -59,7 +77,7 @@ const DesktopMenu = (props) => {
               <FontAwesomeIcon
                 className={[
                   styles.menu__linkColor,
-                  props.choice === item.path ? styles.menu__linkSelected : null
+                  selectedTab === item.path ? styles.menu__linkSelected : null
                 ].join(" ")}
                 icon={item.icon}
                 size="2x"

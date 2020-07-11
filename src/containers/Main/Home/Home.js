@@ -1,22 +1,19 @@
 import React, { Fragment, useState, useEffect } from "react";
 import styles from "./Home.module.scss";
 import TopSelection from "../../../components/Main/Home/TopSelection/TopSelection";
-import SearchInput from "../../../components/UI/Inputs/SearchInput/SearchInput";
-import Teams from "./Teams/Teams";
-import Projects from "./Projects/Projects";
-import Challenges from "./Challenges/Challenges";
 import MediumLink from "../../../components/UI/Links/Medium/MediumLink";
 import Add from "./Add/Add";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { Switch, Route, useRouteMatch, useHistory } from "react-router-dom";
+import { useRouteMatch, useHistory } from "react-router-dom";
+import Sections from "./Sections/Sections";
 
 // - This will show the main contact
-const Dashboard = (props) => {
-  const [selectedChoice, setSelectedChoice] = useState("team");
-  const [search, setSearch] = useState("");
+const Home = (props) => {
+  const [selectedChoice, setSelectedChoice] = useState("teams");
   const [section, setSection] = useState("Team");
   const [showAdd, setShowAdd] = useState(false);
+
   const history = useHistory();
   const match = useRouteMatch("/home/:section");
 
@@ -24,33 +21,32 @@ const Dashboard = (props) => {
     console.log("[Home.js] useEffect");
 
     if (match) {
-      const route = match.params.section;
+      let route = match.params.section;
       setSelectedChoice(route);
       let view = "Team";
-
       if (route === "projects") {
         view = "Project";
       } else if (route === "challenges") {
         view = "Challenge";
       }
       setSection(view);
-    } else {
-      history.push("/home/teams");
-      setSelectedChoice("teams");
     }
-  }, [match, history]);
+  }, [match]);
 
   const selectedChoiceHandler = (choice) => {
     history.push("/home/" + choice);
     setSelectedChoice(choice);
+    let view = "Team";
+    if (choice === "projects") {
+      view = "Project";
+    } else if (choice === "challenges") {
+      view = "Challenge";
+    }
+    setSection(view);
   };
 
   const showAddHandler = () => {
     setShowAdd((prevState) => !prevState);
-  };
-
-  const filterHandler = (event) => {
-    setSearch(event.target.value);
   };
 
   return (
@@ -64,15 +60,6 @@ const Dashboard = (props) => {
           selectedChoice={selectedChoice}
           handler={selectedChoiceHandler}
         />
-        <div className={styles.home__search}>
-          <SearchInput
-            info="Filter your search based on difficulty or tech you are interested in"
-            value={search}
-            handler={filterHandler}
-            isSubmitButton={false}
-            placeholder="Filter your search"
-          />
-        </div>
         <div className={styles.home__add}>
           <MediumLink handler={showAddHandler} className="tertiary">
             Add a {section}
@@ -80,11 +67,7 @@ const Dashboard = (props) => {
         </div>
 
         <div className={styles.home__list}>
-          <Switch>
-            <Route path="/home/teams" component={Teams} />
-            <Route path="/home/projects" component={Projects} />
-            <Route path="/home/challenges" component={Challenges} />
-          </Switch>
+          <Sections />
         </div>
 
         <div className={styles.home__buttons}>
@@ -100,4 +83,4 @@ const Dashboard = (props) => {
   );
 };
 
-export default Dashboard;
+export default Home;

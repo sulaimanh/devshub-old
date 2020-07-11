@@ -5,22 +5,22 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   height: fit-content;
-  width: 95%;
+  // width: 95%;
   margin-top: 2rem;
   margin-left: 2.5%;
+  margin-right: 2.5%;
 
   background-color: var(--color-white);
   border-radius: 1rem;
   padding-bottom: 2rem;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
 
   &__tech {
     position: relative;
     display: flex;
 
-    // width: 95%;
-    margin-left: 5%;
     margin-bottom: 2rem;
   }
 
@@ -29,15 +29,18 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    width: 100%;
+
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    @include respond(tab-port) {
+      margin-bottom: 0rem;
+    }
 
     // background-color: red;
     &Icon {
       color: var(--color-primary);
       cursor: pointer;
-      margin-left: 2rem;
+
       &:hover {
         color: var(--color-tertiary);
       }
@@ -45,27 +48,25 @@
 
     &Request {
       display: flex;
-      margin-right: 2rem;
-      justify-content: center;
-      align-items: center;
+
+      justify-content: space-between;
     }
   }
 
   &__details {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    width: 90%;
-
     @include respond(tab-port) {
       flex-direction: column;
     }
+    align-items: baseline;
   }
 
   &__left {
-    width: 90%;
+    width: 70%;
     @include respond(tab-port) {
       width: 100%;
+      order: 2;
     }
 
     &Heading {
@@ -95,7 +96,13 @@
     justify-content: flex-start;
     align-items: flex-end;
     flex-direction: column;
-    width: 70%;
+    width: 30%;
+
+    @include respond(tab-port) {
+      width: 100%;
+      order: 1;
+      margin-bottom: 1rem;
+    }
     &__owner {
       font-size: var(--default-font-size);
     }
@@ -104,20 +111,6 @@
       margin-top: 3rem;
       align-items: flex-start;
     }
-
-    &__repo {
-      display: flex;
-
-      &Icon {
-        margin-left: 1rem;
-        color: #959eb2;
-        cursor: pointer;
-
-        &:hover {
-          color: var(--color-tertiary);
-        }
-      }
-    }
   }
 
   &__text {
@@ -125,6 +118,10 @@
     &Repo {
       font-size: var(--default-font-size);
       color: var(--color-primary);
+
+      &:hover {
+        color: var(--color-tertiary);
+      }
     }
   }
 }

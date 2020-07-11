@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 // import styles from "./Challenges.module.scss";
-import Card from "../../../../components/UI/Card/Card";
+import Card from "../../../../../components/UI/Card/Card";
 import { useHistory } from "react-router-dom";
 
 const Projects = React.memo((props) => {
@@ -9,13 +9,11 @@ const Projects = React.memo((props) => {
 
   // - Retrieve Projects
   useEffect(() => {
-    console.log("HELLOOOO");
+    console.log("[Projects.js] useEffect");
   }, []);
 
   // - handle when project is selected
   const projectSelectedHandler = (event, projectId) => {
-    console.log(projectId);
-
     // - Here, I will dispatch an action to fetch the information
     //    about the specific project
     // - Then we will go to the route. Within the Project component,

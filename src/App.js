@@ -19,27 +19,16 @@ function App() {
 
   useEffect(() => {
     console.log("[App.js] useEffect");
-
-    if (match) {
-      console.log("sdasda", match);
-    }
   }, [match]);
 
-  // const authHandler = (choice) => {
-  //   console.log(choice);
-
-  //   setAuth(choice);
-  // };
   let routes = (
     <Switch>
       <Route path="/home/teams/:id" component={Team} />
       <Route path="/home/projects/:id" component={Project} />
       <Route path="/home/challenges/:id" component={Challenge} />
 
-
       <Route path="/profile" component={Profile} />
       <Route path="/messages" component={Messages} />
-      <Route path="/home" component={Home} />
       <Route path="/" component={Home} />
       <Route path="*">
         <Home />

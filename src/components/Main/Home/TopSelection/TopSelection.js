@@ -3,39 +3,30 @@ import styles from "./TopSelection.module.scss";
 
 // - This will show the main contact
 const TopSelection = (props) => {
-  return (
-    <div className={styles.top}>
+  const selections = [
+    { heading: "Teams", choice: "teams" },
+    { heading: "Projects", choice: "projects" },
+    { heading: "Challenges", choice: "challenges" }
+  ];
+
+  const view = selections.map((selection, index) => {
+    return (
       <div
-        onClick={() => props.handler("teams")}
+        key={index}
+        onClick={() => props.handler(selection.choice)}
         className={[
           styles.topLink,
-          props.selectedChoice === "teams" ? styles.topLink__selected : null
-        ].join(" ")}
-      >
-        <p className={styles.topText}>Teams</p>
-      </div>
-      <div
-        onClick={() => props.handler("projects")}
-        className={[
-          styles.topLink,
-          props.selectedChoice === "projects" ? styles.topLink__selected : null
-        ].join(" ")}
-      >
-        <p className={styles.topText}>Projects</p>
-      </div>
-      <div
-        onClick={() => props.handler("challenges")}
-        className={[
-          styles.topLink,
-          props.selectedChoice === "challenges"
+          props.selectedChoice === selection.choice
             ? styles.topLink__selected
             : null
         ].join(" ")}
       >
-        <p className={styles.topText}>Challenges</p>
+        <p className={styles.topText}>{selection.heading}</p>
       </div>
-    </div>
-  );
+    );
+  });
+
+  return <div className={styles.top}>{view}</div>;
 };
 
 export default TopSelection;
