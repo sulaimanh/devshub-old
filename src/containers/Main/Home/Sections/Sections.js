@@ -12,7 +12,9 @@ const Sections = (props) => {
     setSearch(event.target.value);
   };
 
-  React.useEffect(() => {}, []);
+  React.useEffect(() => {
+    console.log("[Sections.js] useEffect");
+  });
 
   return (
     <React.Fragment>
@@ -27,7 +29,7 @@ const Sections = (props) => {
       </div>
       <Switch>
         <Route path="/home/teams">
-          <Teams t="Hello"/>
+          <Teams t="Hello" />
         </Route>
         <Route path="/home/projects">
           <Projects />

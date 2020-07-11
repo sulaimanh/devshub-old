@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import styles from "./TopSelection.module.scss";
 import { Link } from "react-router-dom";
 import MediumLink from "../../../../components/UI/Links/Medium/MediumLink";
 import { useRouteMatch, useHistory } from "react-router-dom";
+import Add from "../Add/Add";
 
 // - This will show the main contact
 const TopSelection = (props) => {
   const [selectedChoice, setSelectedChoice] = useState("teams");
   const [section, setSection] = useState("Team");
+  const [showAdd, setShowAdd] = useState({ show: false, section: "Teams" });
   const match = useRouteMatch("/home/:section");
 
   useEffect(() => {
-    console.log("[Home.js] useEffect");
+    console.log("[TopSelection.js] useEffect");
 
     let route = match.params.section;
     setSelectedChoice(route);
@@ -27,6 +29,12 @@ const TopSelection = (props) => {
   const selectedChoiceHandler = (choice, heading) => {
     setSelectedChoice(choice);
     setSection(heading);
+  };
+
+  const showAddHandler = (event, id) => {
+    setShowAdd((prevState) => {
+      return { show: !prevState.show, section: id };
+    });
   };
 
   const selections = [
@@ -54,18 +62,24 @@ const TopSelection = (props) => {
   });
 
   return (
-    <div className={styles.top}>
-      <div className={styles.top__links}>{view}</div>
-      <div className={styles.top__add}>
-        <MediumLink
-          id={section}
-          handler={props.showAddHandler}
-          className="tertiary"
-        >
-          Add a {section}
-        </MediumLink>
+    <Fragment>
+      {showAdd.show ? (
+        <Add handler={showAddHandler} show={true} section={showAdd.section} />
+      ) : null}
+
+      <div className={styles.top}>
+        <div className={styles.top__links}>{view}</div>
+        <div className={styles.top__add}>
+          <MediumLink
+            id={section}
+            handler={showAddHandler}
+            className="tertiary"
+          >
+            Add a {section}
+          </MediumLink>
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 
