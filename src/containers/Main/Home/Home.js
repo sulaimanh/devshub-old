@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, useRef } from "react";
 import styles from "./Home.module.scss";
 import TopSelection from "../../../components/Main/Home/TopSelection/TopSelection";
 import MediumLink from "../../../components/UI/Links/Medium/MediumLink";
@@ -10,61 +10,22 @@ import Sections from "./Sections/Sections";
 
 // - This will show the main contact
 const Home = (props) => {
-  const [selectedChoice, setSelectedChoice] = useState("teams");
-  const [section, setSection] = useState("Team");
-  const [showAdd, setShowAdd] = useState(false);
+  const [showAdd, setShowAdd] = useState({ show: false, section: "Teams" });
 
-  const history = useHistory();
-  const match = useRouteMatch("/home/:section");
-
-  useEffect(() => {
-    console.log("[Home.js] useEffect");
-
-    if (match) {
-      let route = match.params.section;
-      setSelectedChoice(route);
-      let view = "Team";
-      if (route === "projects") {
-        view = "Project";
-      } else if (route === "challenges") {
-        view = "Challenge";
-      }
-      setSection(view);
-    }
-  }, [match]);
-
-  const selectedChoiceHandler = (choice) => {
-    history.push("/home/" + choice);
-    setSelectedChoice(choice);
-    let view = "Team";
-    if (choice === "projects") {
-      view = "Project";
-    } else if (choice === "challenges") {
-      view = "Challenge";
-    }
-    setSection(view);
-  };
-
-  const showAddHandler = () => {
-    setShowAdd((prevState) => !prevState);
+  const showAddHandler = (event, id) => {
+    setShowAdd((prevState) => {
+      return { show: !prevState.show, section: id };
+    });
   };
 
   return (
     <Fragment>
-      {showAdd ? (
-        <Add handler={showAddHandler} show={true} section={section} />
+      {showAdd.show ? (
+        <Add handler={showAddHandler} show={true} section={showAdd.section} />
       ) : null}
 
       <div className={styles.home}>
-        <TopSelection
-          selectedChoice={selectedChoice}
-          handler={selectedChoiceHandler}
-        />
-        <div className={styles.home__add}>
-          <MediumLink handler={showAddHandler} className="tertiary">
-            Add a {section}
-          </MediumLink>
-        </div>
+        <TopSelection showAddHandler={showAddHandler} />
 
         <div className={styles.home__list}>
           <Sections />
