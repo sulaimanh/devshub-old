@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
-import styles from "./Home.module.scss";
-import TopSelection from "./TopSelection/TopSelection";
-import MediumLink from "../../../components/UI/Links/Medium/MediumLink";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import MediumLink from "../../../components/UI/Links/Medium/MediumLink";
 import Sections from "./Sections/Sections";
+import TopSelection from "./TopSelection/TopSelection";
+import styles from "./Home.module.scss";
 
 // - This will show the main contact
 const Home = (props) => {
   useEffect(() => {
     console.log("[Home.js] useEffect");
-  }, []);
+  });
 
   return (
     <div className={styles.home}>

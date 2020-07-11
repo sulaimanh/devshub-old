@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from "react";
-import styles from "./App.module.scss";
-
-import Layout from "./containers/Layout/Layout";
-import Introduction from "./containers/Introduction/Introduction";
-import Home from "./containers/Main/Home/Home";
-import Profile from "./containers/Main/Profile/Profile";
-import Messages from "./containers/Main/Messages/Messages";
-
-import Team from "./components/Main/Home/Team/Team";
-import Project from "./components/Main/Home/Project/Project";
-import Challenge from "./components/Main/Home/Challenge/Challenge";
-
+import React, { useEffect, useState } from "react";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
+
+import Challenge from "./components/Main/Home/Challenge/Challenge";
+import Home from "./containers/Main/Home/Home";
+import Introduction from "./containers/Introduction/Introduction";
+import Layout from "./containers/Layout/Layout";
+import Messages from "./containers/Main/Messages/Messages";
+import Profile from "./containers/Main/Profile/Profile";
+import Project from "./components/Main/Home/Project/Project";
+import Team from "./components/Main/Home/Team/Team";
+import styles from "./App.module.scss";
 
 function App() {
   const [auth, setAuth] = useState(true);
@@ -30,9 +28,6 @@ function App() {
       <Route path="/profile" component={Profile} />
       <Route path="/messages" component={Messages} />
       <Route path="/" component={Home} />
-      <Route path="*">
-        <Home />
-      </Route>
     </Switch>
   );
 

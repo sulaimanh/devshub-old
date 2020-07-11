@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import styles from "./Add.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
-import Input from "../../../../components/UI/Inputs/TextInput/TextInput";
 import { headingSecondary as HeadingSecondary } from "../../../../components/UI/Text/Text";
+import Input from "../../../../components/UI/Inputs/TextInput/TextInput";
 import MediumLink from "../../../../components/UI/Links/Medium/MediumLink";
+import React from "react";
+import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import styles from "./Add.module.scss";
 
 const Add = (props) => {
   // Title, Description, Number of Developers, Number of Develoeprs Needed,

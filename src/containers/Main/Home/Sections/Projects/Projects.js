@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+
 // import styles from "./Challenges.module.scss";
 import Card from "../../../../../components/UI/Card/Card";
 import { useHistory } from "react-router-dom";
@@ -10,7 +11,7 @@ const Projects = React.memo((props) => {
   // - Retrieve Projects
   useEffect(() => {
     console.log("[Projects.js] useEffect");
-  }, []);
+  });
 
   // - handle when project is selected
   const projectSelectedHandler = (event, projectId) => {

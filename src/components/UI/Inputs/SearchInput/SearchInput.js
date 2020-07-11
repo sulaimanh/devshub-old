@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import styles from "./SearchInput.module.scss";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import MoreInfo from "../../MoreInfo/MoreInfo";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import styles from "./SearchInput.module.scss";
 
 const SearchInput = (props) => {
   return (

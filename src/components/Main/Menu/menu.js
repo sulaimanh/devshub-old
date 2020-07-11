@@ -1,6 +1,6 @@
 import {
-  faHome,
   faAddressCard,
+  faHome,
   faMailBulk,
   faSignOutAlt
 } from "@fortawesome/free-solid-svg-icons";

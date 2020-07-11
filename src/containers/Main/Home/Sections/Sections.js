@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import Teams from "../Sections/Teams/Teams";
-import Projects from "../Sections/Projects/Projects";
+import { Redirect, Route, Switch } from "react-router-dom";
+
 import Challenges from "../Sections/Challenges/Challenges";
+import Projects from "../Sections/Projects/Projects";
 import SearchInput from "../../../../components/UI/Inputs/SearchInput/SearchInput";
-import { Route, Switch, Redirect } from "react-router-dom";
+import Teams from "../Sections/Teams/Teams";
 
 const Sections = (props) => {
   const [search, setSearch] = useState("");
@@ -29,7 +30,7 @@ const Sections = (props) => {
       </div>
       <Switch>
         <Route path="/home/teams">
-          <Teams t="Hello" />
+          <Teams />
         </Route>
         <Route path="/home/projects">
           <Projects />

@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { useHistory, useRouteMatch } from "react-router-dom";
-import styles from "./DesktopMenu.module.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from "react";
 import {
-  faArrowCircleRight,
-  faArrowCircleLeft
+  faArrowCircleLeft,
+  faArrowCircleRight
 } from "@fortawesome/free-solid-svg-icons";
+import { useHistory, useRouteMatch } from "react-router-dom";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import menuItems from "../menu";
+import styles from "./DesktopMenu.module.scss";
 
 const DesktopMenu = (props) => {
   const [arrow, setArrow] = useState(faArrowCircleLeft);

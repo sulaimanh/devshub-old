@@ -1,9 +1,9 @@
-import React, { useState, useEffect, Fragment } from "react";
-import styles from "./TopSelection.module.scss";
-import { Link } from "react-router-dom";
-import MediumLink from "../../../../components/UI/Links/Medium/MediumLink";
-import { useRouteMatch, useHistory } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
+import React, { Fragment, useEffect, useState } from "react";
+
 import Add from "../Add/Add";
+import MediumLink from "../../../../components/UI/Links/Medium/MediumLink";
+import styles from "./TopSelection.module.scss";
 
 // - This will show the main contact
 const TopSelection = (props) => {
@@ -14,17 +14,18 @@ const TopSelection = (props) => {
 
   useEffect(() => {
     console.log("[TopSelection.js] useEffect");
-
-    let route = match.params.section;
-    setSelectedChoice(route);
-    let view = "Team";
-    if (route === "projects") {
-      view = "Project";
-    } else if (route === "challenges") {
-      view = "Challenge";
+    if (match) {
+      let route = match.params.section;
+      setSelectedChoice(route);
+      let view = "Team";
+      if (route === "projects") {
+        view = "Project";
+      } else if (route === "challenges") {
+        view = "Challenge";
+      }
+      setSection(view);
     }
-    setSection(view);
-  }, [match.params.section]);
+  }, []);
 
   const selectedChoiceHandler = (choice, heading) => {
     setSelectedChoice(choice);

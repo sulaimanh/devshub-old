@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
-import styles from "./MobileMenu.module.scss";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import menuItems from "../menu";
+import styles from "./MobileMenu.module.scss";
 
 const MobileMenu = (props) => {
   const [selectedTab, setSelectedTab] = useState("home");

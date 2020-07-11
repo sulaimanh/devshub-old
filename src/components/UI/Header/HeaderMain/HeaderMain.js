@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import styles from "./HeaderMain.module.scss";
+
 import SearchInput from "../../Inputs/SearchInput/SearchInput";
+import styles from "./HeaderMain.module.scss";
 
 const HeaderMain = (props) => {
   const [search, setSearch] = useState("");

@@ -1,10 +1,11 @@
-import React, { Suspense, useState, useEffect } from "react";
-import styles from "./Teams.module.scss";
+import React, { useEffect, useState } from "react";
+
 import Card from "../../../../../components/UI/Card/Card";
+import styles from "./Teams.module.scss";
 import { useHistory } from "react-router-dom";
 
-import { useQuery, useMutation, queryCache } from "react-query";
-import axios from "axios";
+// import { useQuery, useMutation, queryCache } from "react-query";
+// import axios from "axios";
 
 const Teams = (props) => {
   const [cards, setCards] = useState([]);
