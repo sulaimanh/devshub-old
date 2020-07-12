@@ -121,7 +121,7 @@ const Sections = (props) => {
 
       setCards(card);
       setLoading(false);
-    }, 2000);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, [match.params.section]);
