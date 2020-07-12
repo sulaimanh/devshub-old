@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     console.log("[App.js] useEffect");
-  }, [match]);
+  });
 
   let routes = (
     <Switch>

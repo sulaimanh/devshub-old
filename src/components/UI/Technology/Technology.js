@@ -14,7 +14,7 @@ const Technology = (props) => {
   return (
     <div className={styles.tech}>
       <div className={styles.tech__container}>
-        <HeadingTertiary>Technology Used:</HeadingTertiary>
+        <HeadingTertiary>Technology Used</HeadingTertiary>
         <div className={styles.tech__containerTech}>{tech}</div>
       </div>
     </div>

@@ -33,6 +33,7 @@ const UserPost = (props) => {
           <MediumLink className="tertiary">Send Request</MediumLink>
         </div>
       </div>
+
       <div className={styles.post__details}>
         <div className={styles.post__left}>
           <div className={styles.post__leftHeading}>
@@ -70,11 +71,10 @@ const UserPost = (props) => {
           </a>
         </div>
       </div>
-      
-      <div>
-        <HeadingTertiary className={styles.post__text}>
-          Requirements
-        </HeadingTertiary>
+
+      <div className={styles.post__req}>
+        <HeadingTertiary>Requirements</HeadingTertiary>
+        <p className={styles.post__text}>{props.post.requirements}</p>
       </div>
       <div className={styles.post__tech}>
         <Technology tech={props.post.tech} />

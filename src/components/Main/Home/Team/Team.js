@@ -11,20 +11,9 @@ const Team = (props) => {
     description:
       "Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday.",
     isConfidential: true,
-    tech: [
-      "Reactjs",
-      "Nodejs",
-      "JavaScript",
-      "Reactjs",
-      "Nodejs",
-      "JavaScript",
-      "Redux",
-      "JavaScript",
-      "Reactjs",
-      "Nodejs",
-      "JavaScript",
-      "Redux"
-    ],
+    requirements:
+      "Developers Path is looking for 2 motivated developers who are looking to change the current way we hire engineers in the work force. You must know React or Node in order to be considered.",
+    tech: ["Reactjs", "Nodejs", "JavaScript", "React Query", "CSS", "Sass"],
     githubLink: "https://github.com/developerspath/developerspath-frontend",
     numberOfDevelopersNeeded: 2
   };

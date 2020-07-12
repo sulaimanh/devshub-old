@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import styles from "./Card.module.scss";
+
 import { headingSecondary as HeadingSecondary } from "../Text/Text";
+import { headingTertiary as HeadingTertiary } from "../Text/Text";
 import SmallLink from "../Links/Small/SmallLink";
 import Technology from "../Technology/Technology";
+import styles from "./Card.module.scss";
 import { useEffect } from "react";
 
 const Card = (props) => {
@@ -47,9 +49,7 @@ const Card = (props) => {
         </SmallLink>
       </div>
       <div className={styles.card__description}>
-        <p className={styles.card__descriptionDesc}>
-          {props.section} Description
-        </p>
+        <HeadingTertiary>Description</HeadingTertiary>
         {description}
       </div>
       <div className={styles.card__tech}>

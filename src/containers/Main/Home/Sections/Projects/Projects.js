@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-// import styles from "./Challenges.module.scss";
 import Card from "../../../../../components/UI/Card/Card";
+// import styles from "./Projects.module.scss";
 import { useHistory } from "react-router-dom";
 
 const Projects = React.memo((props) => {
@@ -9,47 +9,30 @@ const Projects = React.memo((props) => {
   // const match = useRouteMatch("/home/projects/:projectId");
 
   // - Retrieve Projects
+
   useEffect(() => {
     console.log("[Projects.js] useEffect");
   });
 
   // - handle when project is selected
   const projectSelectedHandler = (event, projectId) => {
-    // - Here, I will dispatch an action to fetch the information
-    //    about the specific project
-    // - Then we will go to the route. Within the Project component,
-    //    we will have access to that project via state.
     history.push("/home/projects/" + projectId);
   };
 
-  return (
-    <div>
+  const view = props.cards.map((card, index) => {
+    return (
       <Card
-        title="Developers Path"
-        description="Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everdayDevelopers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday."
-        tech={[
-          "Reactjs",
-          "Nodejs",
-          "JavaScript",
-          "Redux",
-          "Reactjs",
-          "Nodejs",
-          "JavaScript",
-          "Redux"
-        ]}
-        id="1"
+        key={index}
         handler={projectSelectedHandler}
+        title={card.title}
+        id={card.id}
+        description={card.description}
+        tech={card.tech}
       />
-      <Card
-        title="Developers Path"
-        description="
-        Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everdayDevelopers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday."
-        tech={["Reactjs", "Nodejs", "JavaScript", "Redux"]}
-        id="2"
-        handler={projectSelectedHandler}
-      />
-    </div>
-  );
+    );
+  });
+
+  return <div>{view}</div>;
 });
 
 export default Projects;

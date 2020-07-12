@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 // import styles from "./OpenSources.module.scss";
 import Card from "../../../../../components/UI/Card/Card";
@@ -7,50 +7,29 @@ import { useHistory } from "react-router-dom";
 const Challenges = (props) => {
   const history = useHistory();
 
-  // - Retrieve Projects
-  useEffect(() => {});
+  useEffect(() => {
+    console.log("[Challenges.js] useEffect");
+  });
 
   // - handle when project is selected
   const challengesSelectedHandler = (event, projectId) => {
     history.push("/home/challenges/" + projectId);
   };
 
-  return (
-    <div>
+  const view = props.cards.map((card, index) => {
+    return (
       <Card
-        title="Developers Path"
-        description="This is the description"
-        tech={[
-          "Reactjs",
-          "Nodejs",
-          "JavaScript",
-          "Redux",
-          "Reactjs",
-          "Nodejs",
-          "JavaScript",
-          "Redux",
-          "Reactjs",
-          "Nodejs",
-          "JavaScript",
-          "Redux",
-          "Reactjs",
-          "Nodejs",
-          "JavaScript",
-          "Redux",
-          "Reactjs",
-          "Nodejs",
-          "JavaScript",
-          "Redux",
-          "Reactjs",
-          "Nodejs",
-          "JavaScript",
-          "Redux"
-        ]}
-        id="1"
+        key={index}
         handler={challengesSelectedHandler}
+        title={card.title}
+        id={card.id}
+        description={card.description}
+        tech={card.tech}
       />
-    </div>
-  );
+    );
+  });
+
+  return <div>{view}</div>;
 };
 
 export default Challenges;
