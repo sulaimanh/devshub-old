@@ -10,7 +10,7 @@ export const headingSecondary = (props) => {
 };
 
 export const headingTertiary = (props) => {
-  return <h3>{props.children}</h3>;
+  return <h3 className={styles.headingTertiary}>{props.children}</h3>;
 };
 
 export const paragraph = (props) => {

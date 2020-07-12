@@ -9,7 +9,7 @@ import styles from "./TopSelection.module.scss";
 const TopSelection = (props) => {
   const [selectedChoice, setSelectedChoice] = useState("teams");
   const [section, setSection] = useState("Team");
-  const [showAdd, setShowAdd] = useState({ show: false, section: "Teams" });
+  const [showAdd, setShowAdd] = useState(false);
   const match = useRouteMatch("/home/:section");
 
   useEffect(() => {
@@ -34,23 +34,38 @@ const TopSelection = (props) => {
 
   const showAddHandler = (event, id) => {
     setShowAdd((prevState) => {
-      return { show: !prevState.show, section: id };
+      return { show: !prevState.show, section: section };
     });
   };
 
   const selections = [
-    { heading: "Teams", choice: "teams", path: "/home/teams" },
-    { heading: "Projects", choice: "projects", path: "/home/projects" },
-    { heading: "Challenges", choice: "challenges", path: "/home/challenges" }
+    {
+      heading: "Teams",
+      choice: "teams",
+      path: "/home/teams",
+      buttonName: "Team"
+    },
+    {
+      heading: "Projects",
+      choice: "projects",
+      path: "/home/projects",
+      buttonName: "Project"
+    },
+    {
+      heading: "Challenges",
+      choice: "challenges",
+      path: "/home/challenges",
+      buttonName: "Challenge"
+    }
   ];
 
   const view = selections.map((selection, index) => {
     return (
       <Link
-        onClick={() =>
-          selectedChoiceHandler(selection.choice, selection.heading)
-        }
         key={index}
+        onClick={() =>
+          selectedChoiceHandler(selection.choice, selection.buttonName)
+        }
         className={[
           styles.topLink,
           selectedChoice === selection.choice ? styles.topLink__selected : null
@@ -65,17 +80,13 @@ const TopSelection = (props) => {
   return (
     <Fragment>
       {showAdd.show ? (
-        <Add handler={showAddHandler} show={true} section={showAdd.section} />
+        <Add handler={showAddHandler} show={true} section={section} />
       ) : null}
 
       <div className={styles.top}>
         <div className={styles.top__links}>{view}</div>
         <div className={styles.top__add}>
-          <MediumLink
-            id={section}
-            handler={showAddHandler}
-            className="tertiary"
-          >
+          <MediumLink handler={showAddHandler} className="tertiary">
             Add a {section}
           </MediumLink>
         </div>

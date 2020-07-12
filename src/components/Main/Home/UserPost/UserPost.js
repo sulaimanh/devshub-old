@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
-import styles from "./UserPost.module.scss";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { useHistory } from "react-router-dom";
 import { headingSecondary as HeadingSecondary } from "../../../UI/Text/Text";
+import { headingTertiary as HeadingTertiary } from "../../../UI/Text/Text";
 import MediumLink from "../../../UI/Links/Medium/MediumLink";
 import MoreInfo from "../../../UI/MoreInfo/MoreInfo";
 import Technology from "../../../UI/Technology/Technology";
+import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import styles from "./UserPost.module.scss";
+import { useHistory } from "react-router-dom";
 
 const UserPost = (props) => {
   const history = useHistory();
@@ -68,6 +69,12 @@ const UserPost = (props) => {
             <p>Go to Repository</p>
           </a>
         </div>
+      </div>
+      
+      <div>
+        <HeadingTertiary className={styles.post__text}>
+          Requirements
+        </HeadingTertiary>
       </div>
       <div className={styles.post__tech}>
         <Technology tech={props.post.tech} />

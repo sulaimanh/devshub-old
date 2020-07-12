@@ -1,3 +1,4 @@
+import { headingTertiary as HeadingTertiary } from "../Text/Text";
 import React from "react";
 import styles from "./Technology.module.scss";
 
@@ -13,7 +14,7 @@ const Technology = (props) => {
   return (
     <div className={styles.tech}>
       <div className={styles.tech__container}>
-        <p className={styles.tech__text}>Technology Used:</p>
+        <HeadingTertiary>Technology Used:</HeadingTertiary>
         <div className={styles.tech__containerTech}>{tech}</div>
       </div>
     </div>
