@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Switch, useRouteMatch } from "react-router-dom";
+import { Redirect, Route, Switch, useRouteMatch } from "react-router-dom";
 
 import Challenge from "./components/Main/Home/Challenge/Challenge";
 import Home from "./containers/Main/Home/Home";
@@ -27,7 +27,8 @@ function App() {
 
       <Route path="/profile" component={Profile} />
       <Route path="/messages" component={Messages} />
-      <Route path="/" component={Home} />
+      <Route path="/home/:cat" component={Home} />
+      <Redirect to="/home/teams" />
     </Switch>
   );
 

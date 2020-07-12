@@ -142,14 +142,14 @@ const Sections = (props) => {
         />
       </div>
       <Switch>
-        <Route path="/home/teams">
-          <Teams cards={cards} />
-        </Route>
         <Route path="/home/projects">
           <Projects cards={cards} />
         </Route>
         <Route path="/home/challenges">
           <Challenges cards={cards} />
+        </Route>
+        <Route path="/home/teams">
+          <Teams cards={cards} />
         </Route>
         <Redirect to="/home/teams" />
       </Switch>
