@@ -17,6 +17,7 @@
   background-color: var(--color-background);
   position: relative;
   padding: 4rem;
+  padding-bottom: 15rem;
   display: flex;
   flex-direction: column;
 
@@ -55,13 +56,36 @@
     }
   }
 
+  &__challenge {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+
+    &Check {
+      display: flex;
+      // align-items: center;
+      margin-top: 1rem;
+
+      // @include respond(phone) {
+      //   justify-content: space-around;
+      // }
+    }
+
+    &Moreinfo {
+      display: flex;
+      align-items: center;
+      margin-left: 2rem;
+    }
+  }
+
   &__tech {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: baseline;
     width: 100%;
-    margin-bottom: 3rem;
 
     &Container {
       display: flex;
@@ -83,11 +107,17 @@
     &Card {
       position: relative;
       display: flex;
+      cursor: pointer;
       width: fit-content;
       border: 1px solid transparent;
       box-shadow: 0 2px 5px rgba(black, 0.2);
       border-radius: 0.5rem;
       padding: 0.5rem 1rem;
+
+      &:hover {
+        background-color: red;
+        color: white;
+      }
 
       &:not(:last-child) {
         margin-right: 1rem;

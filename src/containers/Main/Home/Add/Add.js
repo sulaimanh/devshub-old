@@ -4,10 +4,12 @@ import {
 } from "../../../../components/UI/Text/Text";
 import React, { useState } from "react";
 
+import Checkbox from "../../../../components/UI/Inputs/Checkbox/Checkbox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Input from "../../../../components/UI/Inputs/TextInput/TextInput";
 import MediumButton from "../../../../components/UI/Buttons/Medium/Medium";
 import MediumLink from "../../../../components/UI/Links/Medium/MediumLink";
+import MoreInfo from "../../../../components/UI/MoreInfo/MoreInfo";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Add.module.scss";
 
@@ -19,9 +21,11 @@ const Add = (props) => {
     numOfDevelopers: "",
     numOfDevelopersNeeded: "",
     tech: "",
-    repo: ""
+    repo: "",
+    challenge: ""
   });
   const [tech, setTech] = useState([]);
+  const [isCheckbox, setIsCheckbox] = useState(false);
 
   const setInputHandler = (event) => {
     const value = event.target.value;
@@ -33,24 +37,46 @@ const Add = (props) => {
   };
 
   const setTechHandler = (event) => {
-    setInput((prevState) => {
-      return { ...prevState, tech: "" };
-    });
-    setTech((prevState) => [...prevState, input.tech]);
-  };
-
-  const setTechEnterHandler = (event) => {
-    if (event.charCode == 13) {
+    if (input.tech.trim().length > 0) {
+      setTech((prevState) => [...prevState, input.tech]);
       setInput((prevState) => {
         return { ...prevState, tech: "" };
       });
-      setTech((prevState) => [...prevState, input.tech]);
     }
+  };
+
+  const setTechEnterHandler = (event) => {
+    if (input.tech.trim().length > 0 && event.charCode == 13) {
+      setTech((prevState) => [...prevState, input.tech]);
+      setInput((prevState) => {
+        return { ...prevState, tech: "" };
+      });
+    }
+  };
+
+  const checkboxHandler = (isClicked) => {
+    setIsCheckbox(isClicked);
+  };
+
+  const deleteTechHandler = (removedTech) => {
+    setTech((prevState) => {
+      const updatedTechArray = prevState.filter((t) => {
+        if (t !== removedTech) {
+          return t;
+        }
+      });
+
+      return updatedTechArray;
+    });
   };
 
   const technology = tech.map((t, index) => {
     return (
-      <div key={index} className={styles.add__techCard}>
+      <div
+        key={index}
+        className={styles.add__techCard}
+        onClick={() => deleteTechHandler(t)}
+      >
         <p className={styles.add__techText}>{t}</p>
       </div>
     );
@@ -140,7 +166,7 @@ const Add = (props) => {
           <HeadingTertiary>Link to Repository</HeadingTertiary>
           <Input
             for="repo"
-            placeholder="Link to repository"
+            placeholder="Link to repository (if available)"
             isTextArea={false}
             readOnly={false}
             type="text"
@@ -173,6 +199,39 @@ const Add = (props) => {
             </div>
           </div>
           <div className={styles.add__techTechnology}>{technology}</div>
+        </div>
+
+        <div className={styles.add__challenge}>
+          <HeadingTertiary>Challenge</HeadingTertiary>
+          <div className={styles.add__challengeCheck}>
+            <Checkbox handler={checkboxHandler}>
+              Is a challenge required?
+            </Checkbox>
+
+            <div className={styles.add__challengeMoreinfo}>
+              <MoreInfo className="middle">
+                You can require applicants to take a challenge before being able
+                to apply. Please go to the Challenges section to create your
+                challenge and paste your link here.
+              </MoreInfo>
+            </div>
+          </div>
+
+          {isCheckbox ? (
+            <div>
+              <HeadingTertiary>Link to Challenge</HeadingTertiary>
+              <Input
+                for="challenge"
+                placeholder="Link to challenge"
+                isTextArea={false}
+                readOnly={false}
+                type="text"
+                value={input.challenge}
+                handler={setInputHandler}
+                isRequired={true}
+              />
+            </div>
+          ) : null}
         </div>
 
         <div className={styles.add__submit}>

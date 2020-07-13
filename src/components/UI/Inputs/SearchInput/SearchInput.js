@@ -22,7 +22,7 @@ const SearchInput = (props) => {
         />
 
         <div className={styles.input__iconInfo}>
-          <MoreInfo>{props.info}</MoreInfo>
+          <MoreInfo className="left">{props.info}</MoreInfo>
         </div>
       </div>
       {props.isSubmitButton ? (

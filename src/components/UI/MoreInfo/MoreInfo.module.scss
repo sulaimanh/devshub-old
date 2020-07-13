@@ -25,7 +25,6 @@
   width: 25rem;
   position: absolute;
   top: 3rem;
-  right: 0;
 
   padding: 1rem;
   z-index: 1000;
@@ -38,4 +37,19 @@
     position: relative;
     font-size: var(--default-font-size-small);
   }
+}
+
+.right {
+  position: absolute;
+  left: 2rem;
+}
+
+.left {
+  position: absolute;
+  right: 0;
+}
+
+.middle {
+  position: absolute;
+  right: -9rem;
 }
