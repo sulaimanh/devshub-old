@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import menuItems from "../menu";
 import styles from "./DesktopMenu.module.scss";
 
-const DesktopMenu = (props) => {
+const DesktopMenu = () => {
   const [arrow, setArrow] = useState(faArrowCircleLeft);
 
   const [selectedTab, setSelectedTab] = useState("home");
@@ -18,10 +18,10 @@ const DesktopMenu = (props) => {
 
   // - If page is refreshed, then we need to keep the path
   useEffect(() => {
-    if (match) {
-      setSelectedTab(match.params.section);
-    }
-  }, [match]);
+    console.log("[DesktopMenu.js] useEffect");
+
+    setSelectedTab(match.params.section);
+  }, [match.params.section]);
 
   const selectTabHandler = (event, choice) => {
     event.preventDefault();
@@ -86,7 +86,7 @@ const DesktopMenu = (props) => {
               <p
                 className={[
                   styles.menu__text,
-                  props.choice === item.path ? styles.menu__textSelected : null
+                  selectedTab === item.path ? styles.menu__textSelected : null
                 ].join(" ")}
               >
                 {item.choice}

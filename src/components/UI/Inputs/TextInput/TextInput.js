@@ -2,14 +2,14 @@ import React from "react";
 import styles from "./TextInput.module.scss";
 
 const TextInput = (props) => {
-  let input = props.isTextArea ? (
-    <textarea
+  let input = props.isRequired ? (
+    <input
       id={props.for}
       placeholder={props.placeholder}
-      className={styles.form__textarea}
+      className={styles.form__input}
       type={props.type}
-      onChange={props.handler}
       value={props.value}
+      onChange={props.handler}
       required
     />
   ) : (
@@ -20,9 +20,22 @@ const TextInput = (props) => {
       type={props.type}
       value={props.value}
       onChange={props.handler}
-      required
     />
   );
+
+  if (props.isTextArea) {
+    input = (
+      <textarea
+        id={props.for}
+        placeholder={props.placeholder}
+        className={styles.form__textarea}
+        type={props.type}
+        onChange={props.handler}
+        value={props.value}
+        required
+      />
+    );
+  }
 
   return (
     <div className={styles.form}>

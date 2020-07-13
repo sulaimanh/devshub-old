@@ -1,16 +1,63 @@
+import {
+  headingSecondary as HeadingSecondary,
+  headingTertiary as HeadingTertiary
+} from "../../../../components/UI/Text/Text";
+import React, { useState } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { headingSecondary as HeadingSecondary } from "../../../../components/UI/Text/Text";
 import Input from "../../../../components/UI/Inputs/TextInput/TextInput";
+import MediumButton from "../../../../components/UI/Buttons/Medium/Medium";
 import MediumLink from "../../../../components/UI/Links/Medium/MediumLink";
-import React from "react";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Add.module.scss";
 
 const Add = (props) => {
-  // Title, Description, Number of Developers, Number of Develoeprs Needed,
-  //     Technology Used, Technology Needed, github Repo
+  const [input, setInput] = useState({
+    title: "",
+    description: "",
+    requirements: "",
+    numOfDevelopers: "",
+    numOfDevelopersNeeded: "",
+    tech: "",
+    repo: ""
+  });
+  const [tech, setTech] = useState([]);
+
+  const setInputHandler = (event) => {
+    const value = event.target.value;
+    const id = event.target.id;
+
+    setInput((prevState) => {
+      return { ...prevState, [id]: value };
+    });
+  };
+
+  const setTechHandler = (event) => {
+    setInput((prevState) => {
+      return { ...prevState, tech: "" };
+    });
+    setTech((prevState) => [...prevState, input.tech]);
+  };
+
+  const setTechEnterHandler = (event) => {
+    if (event.charCode == 13) {
+      setInput((prevState) => {
+        return { ...prevState, tech: "" };
+      });
+      setTech((prevState) => [...prevState, input.tech]);
+    }
+  };
+
+  const technology = tech.map((t, index) => {
+    return (
+      <div key={index} className={styles.add__techCard}>
+        <p className={styles.add__techText}>{t}</p>
+      </div>
+    );
+  });
+
   return (
-    <div className={styles.container}>
+    <form className={styles.container}>
       <div className={styles.add}>
         <div className={styles.add__top}>
           <FontAwesomeIcon
@@ -21,56 +68,118 @@ const Add = (props) => {
           />
           <HeadingSecondary>Add a {props.section}</HeadingSecondary>
         </div>
-
+        <HeadingTertiary>Title</HeadingTertiary>
         <Input
           for="title"
           placeholder="Enter Title"
           isTextArea={false}
           readOnly={false}
+          value={input.title}
+          type="text"
+          handler={setInputHandler}
+          isRequired={true}
         />
-        <Input
-          for="description"
-          placeholder={`Enter ${props.section} Description`}
-          isTextArea={true}
-          readOnly={false}
-        />
-        <Input
-          for="numOfDevelopers"
-          placeholder="# of developers"
-          isTextArea={false}
-          readOnly={false}
-        />
-        <Input
-          for="numOfDevelopersNeeded"
-          placeholder="# of developers you need"
-          isTextArea={false}
-          readOnly={false}
-        />
-        <div className={styles.add__tech}>
-          <div className={styles.add__techInput}>
+        <div className={styles.add__row2}>
+          <div className={styles.add__withHeading}>
+            <HeadingTertiary>Description</HeadingTertiary>
             <Input
-              for="repo"
+              for="description"
+              placeholder={`Enter ${props.section} description`}
+              isTextArea={true}
+              readOnly={false}
+              type="text"
+              value={input.description}
+              handler={setInputHandler}
+              isRequired={true}
+            />
+          </div>
+          <div className={styles.add__withHeading}>
+            <HeadingTertiary>Requirements</HeadingTertiary>
+            <Input
+              for="requirements"
+              placeholder={`Enter ${props.section} requirements`}
+              isTextArea={true}
+              readOnly={false}
+              type="text"
+              value={input.requirements}
+              handler={setInputHandler}
+              isRequired={true}
+            />
+          </div>
+        </div>
+        <div className={styles.add__row2}>
+          <div className={styles.add__withHeading}>
+            <HeadingTertiary>Number of Developers</HeadingTertiary>
+            <Input
+              for="numOfDevelopers"
+              placeholder="# of developers"
+              isTextArea={false}
+              readOnly={false}
+              type="text"
+              value={input.numOfDevelopers}
+              handler={setInputHandler}
+              isRequired={true}
+            />
+          </div>
+          <div className={styles.add__withHeading}>
+            <HeadingTertiary>Number of Developers Needed</HeadingTertiary>
+            <Input
+              for="numOfDevelopersNeeded"
+              placeholder="# of developers you need"
+              isTextArea={false}
+              readOnly={false}
+              type="text"
+              value={input.numOfDevelopersNeeded}
+              handler={setInputHandler}
+              isRequired={true}
+            />
+          </div>
+        </div>
+
+        <div className={styles.add__withHeading}>
+          <HeadingTertiary>Link to Repository</HeadingTertiary>
+          <Input
+            for="repo"
+            placeholder="Link to repository"
+            isTextArea={false}
+            readOnly={false}
+            type="text"
+            value={input.repo}
+            handler={setInputHandler}
+            isRequired={false}
+          />
+        </div>
+
+        <div className={styles.add__tech}>
+          <HeadingTertiary>Technology</HeadingTertiary>
+          <div
+            className={styles.add__techContainer}
+            onKeyPress={setTechEnterHandler}
+          >
+            <Input
+              for="tech"
               placeholder="Technology needed to know"
               isTextArea={false}
               readOnly={false}
+              type="text"
+              value={input.tech}
+              handler={setInputHandler}
+              isRequired={true}
             />
+            <div className={styles.add__techAdd}>
+              <MediumLink handler={setTechHandler} className="primary1">
+                Add
+              </MediumLink>
+            </div>
           </div>
-          <div className={styles.add__techAdd}>
-            <MediumLink className="primary1">Add</MediumLink>
-          </div>
+          <div className={styles.add__techTechnology}>{technology}</div>
         </div>
-        <Input
-          for="repo"
-          placeholder="Link to repository"
-          isTextArea={false}
-          readOnly={false}
-        />
 
         <div className={styles.add__submit}>
-          <MediumLink className="tertiary">Add</MediumLink>
+          <MediumButton className="tertiary">Add</MediumButton>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 

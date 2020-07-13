@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import styles from "./SignIn.module.scss";
+
 import { headingSecondary as HeadingSecondary } from "../../../components/UI/Text/Text";
-import TextInput from "../../../components/UI/Inputs/TextInput/TextInput";
 import MediumButton from "../../../components/UI/Buttons/Medium/Medium";
+import TextInput from "../../../components/UI/Inputs/TextInput/TextInput";
+import styles from "./SignIn.module.scss";
 
 const SignIn = (props) => {
   const [form, setForm] = useState({
@@ -36,6 +37,7 @@ const SignIn = (props) => {
           type="email"
           value={form.email}
           handler={handleForm}
+          isRequired={true}
         />
         <TextInput
           placeholder="Password"
@@ -43,6 +45,7 @@ const SignIn = (props) => {
           type="password"
           value={form.password}
           handler={handleForm}
+          isRequired={true}
         />
         {props.isSignUp ? (
           <TextInput
@@ -51,6 +54,7 @@ const SignIn = (props) => {
             type="password"
             value={form.confirmPassword}
             handler={handleForm}
+            isRequired={true}
           />
         ) : null}
       </div>

@@ -33,9 +33,7 @@ const TopSelection = (props) => {
   };
 
   const showAddHandler = (event, id) => {
-    setShowAdd((prevState) => {
-      return { show: !prevState.show, section: section };
-    });
+    setShowAdd((prevState) => !prevState);
   };
 
   const selections = [
@@ -79,9 +77,7 @@ const TopSelection = (props) => {
 
   return (
     <Fragment>
-      {showAdd.show ? (
-        <Add handler={showAddHandler} show={true} section={section} />
-      ) : null}
+      {showAdd ? <Add handler={showAddHandler} section={section} /> : null}
 
       <div className={styles.top}>
         <div className={styles.top__links}>{view}</div>

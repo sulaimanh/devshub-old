@@ -5,10 +5,14 @@ import MobileMenu from "../../components/Main/Menu/MobileMenu/MobileMenu";
 import React from "react";
 import styles from "./Layout.module.scss";
 
-const Layout = (props) => {
+const Layout = React.memo((props) => {
   let desktopMenu = props.auth ? <DesktopMenu /> : null;
   let header = props.auth ? <Header /> : null;
   let menu = props.auth ? <MobileMenu /> : null;
+
+  React.useEffect(() => {
+    console.log("[Layout.js] useEffect");
+  });
 
   return (
     <div className={props.auth ? styles.layout : null}>
@@ -21,6 +25,6 @@ const Layout = (props) => {
       </div>
     </div>
   );
-};
+});
 
 export default Layout;

@@ -38,21 +38,6 @@ const UserPost = (props) => {
         <div className={styles.post__left}>
           <div className={styles.post__leftHeading}>
             <HeadingSecondary>{props.post.title}</HeadingSecondary>
-            {props.post.isConfidential ? (
-              <div className={styles.post__leftHeading__confidential}>
-                <p className={styles.post__leftHeading__confidentialText}>
-                  Private
-                </p>
-                <div
-                  className={styles.post__leftHeading__confidential__moreInfo}
-                >
-                  <MoreInfo>
-                    This is a private post. If you are interested, please send a
-                    request to the post owner to get more information.
-                  </MoreInfo>
-                </div>
-              </div>
-            ) : null}
           </div>
           <p className={styles.post__text}>{props.post.description}</p>
         </div>

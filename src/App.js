@@ -13,7 +13,7 @@ import styles from "./App.module.scss";
 
 function App() {
   const [auth, setAuth] = useState(true);
-  const match = useRouteMatch("/home/:section/:id");
+  const match = useRouteMatch("/home/:category/:id");
 
   useEffect(() => {
     console.log("[App.js] useEffect");
@@ -27,7 +27,7 @@ function App() {
 
       <Route path="/profile" component={Profile} />
       <Route path="/messages" component={Messages} />
-      <Route path="/home/:cat" component={Home} />
+      <Route path="/home/:category" component={Home} />
       <Redirect to="/home/teams" />
     </Switch>
   );

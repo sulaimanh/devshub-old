@@ -7,7 +7,6 @@ import Sections from "./Sections/Sections";
 import TopSelection from "./TopSelection/TopSelection";
 import styles from "./Home.module.scss";
 
-// - This will show the main contact
 const Home = (props) => {
   useEffect(() => {
     console.log("[Home.js] useEffect");
