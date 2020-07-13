@@ -83,7 +83,7 @@ const TopSelection = (props) => {
         <div className={styles.top__links}>{view}</div>
         <div className={styles.top__add}>
           <MediumLink handler={showAddHandler} className="tertiary">
-            Add a {section}
+            Post a {section}
           </MediumLink>
         </div>
       </div>

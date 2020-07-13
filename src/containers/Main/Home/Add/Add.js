@@ -66,7 +66,7 @@ const Add = (props) => {
             onClick={props.handler}
             icon={faArrowCircleLeft}
           />
-          <HeadingSecondary>Add a {props.section}</HeadingSecondary>
+          <HeadingSecondary>Post a {props.section}</HeadingSecondary>
         </div>
         <HeadingTertiary>Title</HeadingTertiary>
         <Input
@@ -164,7 +164,7 @@ const Add = (props) => {
               type="text"
               value={input.tech}
               handler={setInputHandler}
-              isRequired={true}
+              isRequired={false}
             />
             <div className={styles.add__techAdd}>
               <MediumLink handler={setTechHandler} className="primary1">
@@ -176,7 +176,7 @@ const Add = (props) => {
         </div>
 
         <div className={styles.add__submit}>
-          <MediumButton className="tertiary">Add</MediumButton>
+          <MediumButton className="tertiary">Post</MediumButton>
         </div>
       </div>
     </form>
