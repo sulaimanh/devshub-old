@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./TextInput.module.scss";
 
-const TextInput = (props) => {
+const TextInput = (props, ref) => {
   let input = props.isRequired ? (
     <input
       id={props.for}

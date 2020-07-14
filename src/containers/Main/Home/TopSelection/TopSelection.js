@@ -75,6 +75,8 @@ const TopSelection = (props) => {
     );
   });
 
+  let addView = {};
+
   return (
     <Fragment>
       {showAdd ? <Add handler={showAddHandler} section={section} /> : null}

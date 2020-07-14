@@ -2,12 +2,12 @@ import {
   headingSecondary as HeadingSecondary,
   headingTertiary as HeadingTertiary
 } from "../../../../components/UI/Text/Text";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
+import AddTechnology from "../../../../components/UI/Technology/AddTechnology/AddTechnology";
 import Checkbox from "../../../../components/UI/Inputs/Checkbox/Checkbox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Input from "../../../../components/UI/Inputs/TextInput/TextInput";
-import MediumButton from "../../../../components/UI/Buttons/Medium/Medium";
 import MediumLink from "../../../../components/UI/Links/Medium/MediumLink";
 import MoreInfo from "../../../../components/UI/MoreInfo/MoreInfo";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
@@ -24,8 +24,11 @@ const Add = (props) => {
     repo: "",
     challenge: ""
   });
-  const [tech, setTech] = useState([]);
-  const [isCheckbox, setIsCheckbox] = useState(false);
+  const [techArr, setTechArr] = useState([]);
+  const [isCheckbox, setIsCheckbox] = useState({
+    repo: false,
+    challenge: false
+  });
 
   const setInputHandler = (event) => {
     const value = event.target.value;
@@ -36,54 +39,14 @@ const Add = (props) => {
     });
   };
 
-  const setTechHandler = (event) => {
-    if (input.tech.trim().length > 0) {
-      setTech((prevState) => [...prevState, input.tech]);
-      setInput((prevState) => {
-        return { ...prevState, tech: "" };
-      });
-    }
-  };
-
-  const setTechEnterHandler = (event) => {
-    if (input.tech.trim().length > 0 && event.charCode == 13) {
-      setTech((prevState) => [...prevState, input.tech]);
-      setInput((prevState) => {
-        return { ...prevState, tech: "" };
-      });
-    }
-  };
-
-  const checkboxHandler = (isClicked) => {
-    setIsCheckbox(isClicked);
-  };
-
-  const deleteTechHandler = (removedTech) => {
-    setTech((prevState) => {
-      const updatedTechArray = prevState.filter((t) => {
-        if (t !== removedTech) {
-          return t;
-        }
-      });
-
-      return updatedTechArray;
+  const checkboxHandler = (isClicked, id) => {
+    setIsCheckbox((prevState) => {
+      return { ...prevState, [id]: isClicked };
     });
   };
 
-  const technology = tech.map((t, index) => {
-    return (
-      <div
-        key={index}
-        className={styles.add__techCard}
-        onClick={() => deleteTechHandler(t)}
-      >
-        <p className={styles.add__techText}>{t}</p>
-      </div>
-    );
-  });
-
   return (
-    <form className={styles.container}>
+    <form className={styles.form}>
       <div className={styles.add}>
         <div className={styles.add__top}>
           <FontAwesomeIcon
@@ -94,17 +57,19 @@ const Add = (props) => {
           />
           <HeadingSecondary>Post a {props.section}</HeadingSecondary>
         </div>
-        <HeadingTertiary>Title</HeadingTertiary>
-        <Input
-          for="title"
-          placeholder="Enter Title"
-          isTextArea={false}
-          readOnly={false}
-          value={input.title}
-          type="text"
-          handler={setInputHandler}
-          isRequired={true}
-        />
+        <div className={styles.add__withHeading}>
+          <HeadingTertiary>Title</HeadingTertiary>
+          <Input
+            for="title"
+            placeholder="Enter Title"
+            isTextArea={false}
+            readOnly={false}
+            value={input.title}
+            type="text"
+            handler={setInputHandler}
+            isRequired={true}
+          />
+        </div>
         <div className={styles.add__row2}>
           <div className={styles.add__withHeading}>
             <HeadingTertiary>Description</HeadingTertiary>
@@ -119,12 +84,67 @@ const Add = (props) => {
               isRequired={true}
             />
           </div>
+          {props.section === "Challenge" ? null : (
+            <div className={styles.add__withHeading}>
+              <HeadingTertiary>Requirements</HeadingTertiary>
+              <Input
+                for="requirements"
+                placeholder={`Enter ${props.section} requirements`}
+                isTextArea={true}
+                readOnly={false}
+                type="text"
+                value={input.requirements}
+                handler={setInputHandler}
+                isRequired={true}
+              />
+            </div>
+          )}
+        </div>
+        {props.section === "Challenge" ? null : (
+          <div className={styles.add__row2}>
+            <div className={styles.add__withHeading}>
+              <HeadingTertiary>Number of Developers</HeadingTertiary>
+              <Input
+                for="numOfDevelopers"
+                placeholder="# of developers"
+                isTextArea={false}
+                readOnly={false}
+                type="text"
+                value={input.numOfDevelopers}
+                handler={setInputHandler}
+                isRequired={true}
+              />
+            </div>
+            <div className={styles.add__withHeading}>
+              <HeadingTertiary>Number of Developers Needed</HeadingTertiary>
+              <Input
+                for="numOfDevelopersNeeded"
+                placeholder="# of developers you need"
+                isTextArea={false}
+                readOnly={false}
+                type="text"
+                value={input.numOfDevelopersNeeded}
+                handler={setInputHandler}
+                isRequired={true}
+              />
+            </div>
+          </div>
+        )}
+
+        {props.section === "Challenge" ? (
           <div className={styles.add__withHeading}>
-            <HeadingTertiary>Requirements</HeadingTertiary>
+            <div className={styles.add__challengeCheck}>
+              <HeadingTertiary>Link to Challenge</HeadingTertiary>
+              <div className={styles.add__challengeMoreinfo}>
+                <MoreInfo className="middle">
+                  Enter the link for the challenge.
+                </MoreInfo>
+              </div>
+            </div>
             <Input
-              for="requirements"
-              placeholder={`Enter ${props.section} requirements`}
-              isTextArea={true}
+              for="challenge"
+              placeholder={`Enter link to challenge`}
+              isTextArea={false}
               readOnly={false}
               type="text"
               value={input.requirements}
@@ -132,110 +152,79 @@ const Add = (props) => {
               isRequired={true}
             />
           </div>
-        </div>
-        <div className={styles.add__row2}>
-          <div className={styles.add__withHeading}>
-            <HeadingTertiary>Number of Developers</HeadingTertiary>
-            <Input
-              for="numOfDevelopers"
-              placeholder="# of developers"
-              isTextArea={false}
-              readOnly={false}
-              type="text"
-              value={input.numOfDevelopers}
-              handler={setInputHandler}
-              isRequired={true}
-            />
-          </div>
-          <div className={styles.add__withHeading}>
-            <HeadingTertiary>Number of Developers Needed</HeadingTertiary>
-            <Input
-              for="numOfDevelopersNeeded"
-              placeholder="# of developers you need"
-              isTextArea={false}
-              readOnly={false}
-              type="text"
-              value={input.numOfDevelopersNeeded}
-              handler={setInputHandler}
-              isRequired={true}
-            />
-          </div>
-        </div>
-
-        <div className={styles.add__withHeading}>
-          <HeadingTertiary>Link to Repository</HeadingTertiary>
-          <Input
-            for="repo"
-            placeholder="Link to repository (if available)"
-            isTextArea={false}
-            readOnly={false}
-            type="text"
-            value={input.repo}
-            handler={setInputHandler}
-            isRequired={false}
+        ) : (
+          <AddTechnology
+            techValue={input.tech}
+            setInputHandler={setInputHandler}
+            setTechArr={setTechArr}
+            setInput={setInput}
+            techArr={techArr}
           />
-        </div>
+        )}
 
-        <div className={styles.add__tech}>
-          <HeadingTertiary>Technology</HeadingTertiary>
-          <div
-            className={styles.add__techContainer}
-            onKeyPress={setTechEnterHandler}
-          >
-            <Input
-              for="tech"
-              placeholder="Technology needed to know"
-              isTextArea={false}
-              readOnly={false}
-              type="text"
-              value={input.tech}
-              handler={setInputHandler}
-              isRequired={false}
-            />
-            <div className={styles.add__techAdd}>
-              <MediumLink handler={setTechHandler} className="primary1">
-                Add
-              </MediumLink>
+        {props.section === "Challenge" ? null : (
+          <div className={styles.add__withHeading}>
+            <HeadingTertiary>Repository</HeadingTertiary>
+            <div className={styles.add__challengeCheck}>
+              <Checkbox id="repo" handler={checkboxHandler}>
+                Would you like to add a repository?
+              </Checkbox>
             </div>
+            {isCheckbox.repo ? (
+              <div>
+                <HeadingTertiary>Link to Repository</HeadingTertiary>
+                <Input
+                  for="repo"
+                  placeholder="Link to repository"
+                  isTextArea={false}
+                  readOnly={false}
+                  type="text"
+                  value={input.repo}
+                  handler={setInputHandler}
+                  isRequired={true}
+                />{" "}
+              </div>
+            ) : null}
           </div>
-          <div className={styles.add__techTechnology}>{technology}</div>
-        </div>
+        )}
 
-        <div className={styles.add__challenge}>
-          <HeadingTertiary>Challenge</HeadingTertiary>
-          <div className={styles.add__challengeCheck}>
-            <Checkbox handler={checkboxHandler}>
-              Is a challenge required?
-            </Checkbox>
+        {props.section === "Challenge" ? null : (
+          <div className={styles.add__challenge}>
+            <HeadingTertiary>Challenge</HeadingTertiary>
+            <div className={styles.add__challengeCheck}>
+              <Checkbox id="challenge" handler={checkboxHandler}>
+                Is a challenge required?
+              </Checkbox>
 
-            <div className={styles.add__challengeMoreinfo}>
-              <MoreInfo className="middle">
-                You can require applicants to take a challenge before being able
-                to apply. Please go to the Challenges section to create your
-                challenge and paste your link here.
-              </MoreInfo>
+              <div className={styles.add__challengeMoreinfo}>
+                <MoreInfo className="middle">
+                  You can require applicants to take a challenge before being
+                  able to apply. Please go to the Challenges section to create
+                  your challenge and paste your link here.
+                </MoreInfo>
+              </div>
             </div>
+
+            {isCheckbox.challenge ? (
+              <div>
+                <HeadingTertiary>Link to Challenge</HeadingTertiary>
+                <Input
+                  for="challenge"
+                  placeholder="Link to challenge"
+                  isTextArea={false}
+                  readOnly={false}
+                  type="text"
+                  value={input.challenge}
+                  handler={setInputHandler}
+                  isRequired={true}
+                />
+              </div>
+            ) : null}
           </div>
-
-          {isCheckbox ? (
-            <div>
-              <HeadingTertiary>Link to Challenge</HeadingTertiary>
-              <Input
-                for="challenge"
-                placeholder="Link to challenge"
-                isTextArea={false}
-                readOnly={false}
-                type="text"
-                value={input.challenge}
-                handler={setInputHandler}
-                isRequired={true}
-              />
-            </div>
-          ) : null}
-        </div>
+        )}
 
         <div className={styles.add__submit}>
-          <MediumButton className="tertiary">Post</MediumButton>
+          <MediumLink className="tertiary">Post</MediumLink>
         </div>
       </div>
     </form>

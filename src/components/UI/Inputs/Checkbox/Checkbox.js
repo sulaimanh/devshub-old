@@ -10,7 +10,7 @@ const CheckBox = (props) => {
         <input
           onClick={() => {
             setIsClicked((prevState) => !prevState);
-            props.handler(isClicked);
+            props.handler(isClicked, props.id);
           }}
           className={styles.cont__checkboxInput}
           type="checkbox"
