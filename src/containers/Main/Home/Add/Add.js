@@ -1,6 +1,6 @@
 import {
   headingSecondary as HeadingSecondary,
-  headingTertiary as HeadingTertiary,
+  headingTertiary as HeadingTertiary
 } from "../../../../components/UI/Text/Text";
 import React, { useRef, useState } from "react";
 
@@ -22,12 +22,12 @@ const Add = (props) => {
     numOfDevelopersNeeded: "",
     tech: "",
     repo: "",
-    challenge: "",
+    challenge: ""
   });
   const [techArr, setTechArr] = useState([]);
   const [isCheckbox, setIsCheckbox] = useState({
     repo: false,
-    challenge: false,
+    challenge: false
   });
 
   const setInputHandler = (event) => {
@@ -43,6 +43,11 @@ const Add = (props) => {
     setIsCheckbox((prevState) => {
       return { ...prevState, [id]: isClicked };
     });
+  };
+
+  const postProjectHandler = () => {
+    // - This is not doing anything yet.... Just hides the view
+    props.handler();
   };
 
   const explanation = `You can set up your ${props.section} here. `;
@@ -235,7 +240,9 @@ const Add = (props) => {
         )}
 
         <div className={styles.add__submit}>
-          <MediumLink className='tertiary'>Post</MediumLink>
+          <MediumLink handler={postProjectHandler} className='tertiary'>
+            Post
+          </MediumLink>
         </div>
       </div>
     </form>

@@ -34,9 +34,9 @@ const Sections = (props) => {
             "JavaScript",
             "React Query",
             "CSS",
-            "Sass",
-          ],
-        },
+            "Sass"
+          ]
+        }
       ],
       projects: [
         {
@@ -50,8 +50,8 @@ const Sections = (props) => {
             "JavaScript",
             "React Query",
             "CSS",
-            "Sass",
-          ],
+            "Sass"
+          ]
         },
         {
           id: 1,
@@ -64,9 +64,9 @@ const Sections = (props) => {
             "JavaScript",
             "React Query",
             "CSS",
-            "Sass",
-          ],
-        },
+            "Sass"
+          ]
+        }
       ],
       challenges: [
         {
@@ -80,8 +80,8 @@ const Sections = (props) => {
             "JavaScript",
             "React Query",
             "CSS",
-            "Sass",
-          ],
+            "Sass"
+          ]
         },
         {
           id: 1,
@@ -94,8 +94,8 @@ const Sections = (props) => {
             "JavaScript",
             "React Query",
             "CSS",
-            "Sass",
-          ],
+            "Sass"
+          ]
         },
         {
           id: 1,
@@ -108,10 +108,10 @@ const Sections = (props) => {
             "JavaScript",
             "React Query",
             "CSS",
-            "Sass",
-          ],
-        },
-      ],
+            "Sass"
+          ]
+        }
+      ]
     };
 
     setLoading(true);
