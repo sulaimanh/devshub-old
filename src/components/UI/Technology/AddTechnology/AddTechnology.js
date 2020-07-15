@@ -9,7 +9,8 @@ const AddTechnology = ({
   techArr,
   setInput,
   setTechArr,
-  setInputHandler
+  setInputHandler,
+  backgroundInputColor,
 }) => {
   const setTechHandler = (event) => {
     if (techValue.trim().length > 0) {
@@ -57,17 +58,18 @@ const AddTechnology = ({
       <HeadingTertiary>Technology</HeadingTertiary>
       <div className={styles.techContainer} onKeyPress={setTechEnterHandler}>
         <Input
-          for="tech"
-          placeholder="Technology needed to know"
+          for='tech'
+          placeholder='Technology needed to know'
           isTextArea={false}
           readOnly={false}
-          type="text"
+          type='text'
           value={techValue}
           handler={setInputHandler}
           isRequired={false}
+          backgroundColor={backgroundInputColor}
         />
         <div className={styles.techAdd}>
-          <MediumLink handler={setTechHandler} className="primary1">
+          <MediumLink handler={setTechHandler} className='primary1'>
             Add
           </MediumLink>
         </div>

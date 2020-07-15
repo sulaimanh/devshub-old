@@ -6,7 +6,10 @@ const TextInput = (props, ref) => {
     <input
       id={props.for}
       placeholder={props.placeholder}
-      className={styles.form__input}
+      className={[
+        styles.form__input,
+        styles[`form__input__${props.backgroundColor}`],
+      ].join(" ")}
       type={props.type}
       value={props.value}
       onChange={props.handler}
@@ -16,7 +19,10 @@ const TextInput = (props, ref) => {
     <input
       id={props.for}
       placeholder={props.placeholder}
-      className={styles.form__input}
+      className={[
+        styles.form__input,
+        styles[`form__input__${props.backgroundColor}`],
+      ].join(" ")}
       type={props.type}
       value={props.value}
       onChange={props.handler}
@@ -28,7 +34,10 @@ const TextInput = (props, ref) => {
       <textarea
         id={props.for}
         placeholder={props.placeholder}
-        className={styles.form__textarea}
+        className={[
+          styles.form__textarea,
+          styles[`form__textarea__${props.backgroundColor}`],
+        ].join(" ")}
         type={props.type}
         onChange={props.handler}
         value={props.value}

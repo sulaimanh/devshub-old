@@ -21,21 +21,21 @@ function App() {
 
   let routes = (
     <Switch>
-      <Route path="/home/teams/:id" component={Team} />
-      <Route path="/home/projects/:id" component={Project} />
-      <Route path="/home/challenges/:id" component={Challenge} />
+      <Route path='/home/teams/:id' component={Team} />
+      <Route path='/home/projects/:id' component={Project} />
+      <Route path='/home/challenges/:id' component={Challenge} />
 
-      <Route path="/profile" component={Profile} />
-      <Route path="/messages" component={Messages} />
-      <Route path="/home/:category" component={Home} />
-      <Redirect to="/home/teams" />
+      <Route path='/profile' component={Profile} />
+      <Route path='/messages' component={Messages} />
+      <Route path='/home/:category' component={Home} />
+      <Redirect to='/home/teams' />
     </Switch>
   );
 
   if (!auth) {
     routes = (
       <Switch>
-        <Route path="/" component={Introduction} />
+        <Route path='/' component={Introduction} />
       </Switch>
     );
   }
