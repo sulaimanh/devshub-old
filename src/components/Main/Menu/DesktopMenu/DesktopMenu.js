@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   faArrowCircleLeft,
-  faArrowCircleRight
+  faArrowCircleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { useHistory, useRouteMatch } from "react-router-dom";
 
@@ -20,8 +20,12 @@ const DesktopMenu = () => {
   useEffect(() => {
     console.log("[DesktopMenu.js] useEffect");
 
-    setSelectedTab(match.params.section);
-  }, [match.params.section]);
+    if (match) {
+      setSelectedTab(match.params.section);
+    } else {
+      history.go("/home/teams");
+    }
+  }, [match]);
 
   const selectTabHandler = (event, choice) => {
     event.preventDefault();
@@ -43,7 +47,7 @@ const DesktopMenu = () => {
     <div
       className={[
         styles.menu,
-        arrow === faArrowCircleLeft ? styles.menu__show : styles.menu__hide
+        arrow === faArrowCircleLeft ? styles.menu__show : styles.menu__hide,
       ].join(" ")}
     >
       <div
@@ -52,12 +56,12 @@ const DesktopMenu = () => {
           styles.menu__hideShow,
           arrow === faArrowCircleLeft
             ? styles.menu__show__arrow
-            : styles.menu__hide__arrow
+            : styles.menu__hide__arrow,
         ].join(" ")}
       >
         <FontAwesomeIcon
           icon={arrow}
-          size="2x"
+          size='2x'
           className={styles.menu__hideShow__logo}
         />
       </div>
@@ -72,21 +76,21 @@ const DesktopMenu = () => {
                 selectedTab === item.path ? styles.menu__link__selected : null,
                 arrow === faArrowCircleLeft
                   ? styles.menu__show__links
-                  : styles.menu__hide__links
+                  : styles.menu__hide__links,
               ].join(" ")}
             >
               <FontAwesomeIcon
                 className={[
                   styles.menu__linkColor,
-                  selectedTab === item.path ? styles.menu__linkSelected : null
+                  selectedTab === item.path ? styles.menu__linkSelected : null,
                 ].join(" ")}
                 icon={item.icon}
-                size="2x"
+                size='2x'
               />
               <p
                 className={[
                   styles.menu__text,
-                  selectedTab === item.path ? styles.menu__textSelected : null
+                  selectedTab === item.path ? styles.menu__textSelected : null,
                 ].join(" ")}
               >
                 {item.choice}

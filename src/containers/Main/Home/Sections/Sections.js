@@ -34,9 +34,9 @@ const Sections = (props) => {
             "JavaScript",
             "React Query",
             "CSS",
-            "Sass"
-          ]
-        }
+            "Sass",
+          ],
+        },
       ],
       projects: [
         {
@@ -50,8 +50,8 @@ const Sections = (props) => {
             "JavaScript",
             "React Query",
             "CSS",
-            "Sass"
-          ]
+            "Sass",
+          ],
         },
         {
           id: 1,
@@ -64,9 +64,9 @@ const Sections = (props) => {
             "JavaScript",
             "React Query",
             "CSS",
-            "Sass"
-          ]
-        }
+            "Sass",
+          ],
+        },
       ],
       challenges: [
         {
@@ -80,8 +80,8 @@ const Sections = (props) => {
             "JavaScript",
             "React Query",
             "CSS",
-            "Sass"
-          ]
+            "Sass",
+          ],
         },
         {
           id: 1,
@@ -94,8 +94,8 @@ const Sections = (props) => {
             "JavaScript",
             "React Query",
             "CSS",
-            "Sass"
-          ]
+            "Sass",
+          ],
         },
         {
           id: 1,
@@ -108,10 +108,10 @@ const Sections = (props) => {
             "JavaScript",
             "React Query",
             "CSS",
-            "Sass"
-          ]
-        }
-      ]
+            "Sass",
+          ],
+        },
+      ],
     };
 
     setLoading(true);
@@ -134,24 +134,24 @@ const Sections = (props) => {
     <React.Fragment>
       <div>
         <SearchInput
-          info="Filter your search based on difficulty or tech you are interested in"
+          info='Filter your search based on difficulty or tech you are interested in'
           isSubmitButton={false}
-          placeholder="Filter your search"
+          placeholder='Filter your search'
           value={search}
           handler={filterHandler}
         />
       </div>
       <Switch>
-        <Route path="/home/projects">
+        <Route path='/home/projects'>
           <Projects cards={cards} />
         </Route>
-        <Route path="/home/challenges">
+        <Route path='/home/challenges'>
           <Challenges cards={cards} />
         </Route>
-        <Route path="/home/teams">
+        <Route path='/home/teams'>
           <Teams cards={cards} />
         </Route>
-        <Redirect to="/home/teams" />
+        <Redirect to='/home/teams' />
       </Switch>
     </React.Fragment>
   );
