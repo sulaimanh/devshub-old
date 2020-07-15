@@ -1,7 +1,6 @@
+import Backdrop from "../Backdrop/Backdrop";
 import React from "react";
 import styles from "./Modal.module.scss";
-
-import Backdrop from "../Backdrop/Backdrop";
 
 const Modal = React.memo((props) => {
   // - We only want this modal to update if the 'show' prop changes. This will help us improve performance.

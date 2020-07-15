@@ -1,0 +1,16 @@
+@import "../../../sass/abstracts/mixins";
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+  width: 95%;
+  margin-top: 2rem;
+  margin-left: 2.5%;
+
+  background-color: var(--color-white);
+  border-radius: 1rem;
+  padding-bottom: 2rem;
+  box-shadow: 0 10px 20px rgba(black, 0.2);
+}

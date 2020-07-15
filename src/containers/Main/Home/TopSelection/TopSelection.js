@@ -3,6 +3,7 @@ import React, { Fragment, useEffect, useState } from "react";
 
 import Add from "../Add/Add";
 import MediumLink from "../../../../components/UI/Links/Medium/MediumLink";
+import Modal from "../../../../components/UI/Modal/Modal";
 import styles from "./TopSelection.module.scss";
 
 // - This will show the main contact
@@ -84,7 +85,7 @@ const TopSelection = (props) => {
       <div className={styles.top}>
         <div className={styles.top__links}>{view}</div>
         <div className={styles.top__add}>
-          <MediumLink handler={showAddHandler} className="tertiary">
+          <MediumLink handler={showAddHandler} className='tertiary'>
             Post a {section}
           </MediumLink>
         </div>
