@@ -1,0 +1,136 @@
+@import "../../../../sass/abstracts/mixins";
+
+.rightpanel {
+  display: flex;
+  padding: 3rem 1rem 3rem 1em;
+
+  flex-direction: column;
+  @include respond(tab-port) {
+    margin: 1rem 1rem;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 3rem;
+
+    @include respond(tab-port) {
+      flex-direction: row;
+      margin-left: 1rem;
+      margin-bottom: 0rem;
+    }
+
+    &Pic {
+      width: 50%;
+      border-radius: 5rem;
+      @include respond(tab-port) {
+        width: 15%;
+        margin-right: 2rem;
+      }
+    }
+
+    &NameEdit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @include respond(tab-port) {
+        align-items: flex-start;
+      }
+    }
+
+    &Edit {
+      font-size: var(--default-font-size-small);
+
+      @include respond(tab-port) {
+        margin-left: 2rem;
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: var(--color-tertiary);
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    @include respond(tab-port) {
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-top: 3rem;
+    }
+
+    &Message {
+      display: flex;
+      width: 100%;
+    }
+
+    &Section {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      margin-top: 3rem;
+
+      @include respond(tab-port) {
+        align-items: flex-start;
+        width: 100%;
+      }
+    }
+
+    &Applied {
+      display: flex;
+
+      margin-top: 1rem;
+      width: 100%;
+      @include respond(tab-port) {
+        justify-content: flex-start;
+      }
+    }
+
+    &App {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 1rem;
+      width: 50%;
+      align-content: flex-start;
+      cursor: pointer;
+
+      @include respond(tab-port) {
+        width: 50%;
+        padding: 1rem 1rem 1rem 1rem;
+        justify-content: center;
+      }
+
+      &Projects {
+        border-left: 5px solid var(--color-primary);
+        background-color: rgba(#005aea, 0.1);
+
+        &:hover {
+          background-color: rgba(#005aea, 0.2);
+        }
+      }
+
+      &Teams {
+        border-left: 5px solid var(--color-tertiary);
+        background-color: rgba(#3be47a, 0.1);
+
+        &:hover {
+          background-color: rgba(#3be47a, 0.2);
+        }
+      }
+    }
+
+    &Contact {
+      &__message {
+        width: 100%;
+      }
+    }
+  }
+}

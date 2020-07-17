@@ -19,7 +19,7 @@
 
   &__header {
     display: flex;
-    align-items: center;
+    // align-items: center;
     width: fit-content;
     flex-direction: column;
   }
@@ -27,7 +27,7 @@
   &__maincontainer {
     display: flex;
     // width: 100%;
-    flex-basis: 70%;
+    flex-basis: 90%;
     flex-direction: column;
     margin: 3rem 0rem 3rem 5rem;
 
@@ -35,49 +35,6 @@
       order: 2;
       margin: 3rem 1rem;
       flex-basis: 100%;
-    }
-  }
-
-  &__rightpanel {
-    display: flex;
-    margin: 3rem 3rem 3rem 0rem;
-    align-items: flex-end;
-
-    flex-direction: column;
-    @include respond(tab-port) {
-      margin: 2rem 1rem;
-      justify-content: space-around;
-      align-items: center;
-      flex-direction: row;
-    }
-
-    &__top {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-
-      @include respond(tab-port) {
-        flex-direction: row;
-        margin-left: 1rem;
-      }
-
-      &Pic {
-        width: 50%;
-        border-radius: 5rem;
-        @include respond(tab-port) {
-          width: 15%;
-          margin-right: 2rem;
-        }
-      }
-
-      &Hamburger {
-        display: none;
-        @include respond(tab-port) {
-          display: flex;
-          align-items: center;
-          margin-right: 1rem;
-        }
-      }
     }
   }
 }

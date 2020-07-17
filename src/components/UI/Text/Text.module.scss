@@ -17,5 +17,26 @@
 
 .headingTertiary {
   font-size: var(--default-font-size);
-  // font-weight: 600;
+  &__fadedBlack {
+    color: var(--color-dark-primary);
+  }
+}
+
+.paragraph {
+  font-size: var(--default-font-size);
+
+  &__small {
+    font-size: var(--default-font-size-small);
+  }
+}
+
+.link {
+  color: var(--color-primary);
+  font-size: var(--default-font-size);
+  text-decoration: underline var(--color-primary);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-tertiary);
+  }
 }

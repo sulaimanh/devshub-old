@@ -10,9 +10,35 @@ export const headingSecondary = (props) => {
 };
 
 export const headingTertiary = (props) => {
-  return <h3 className={styles.headingTertiary}>{props.children}</h3>;
+  return (
+    <h3
+      className={[
+        styles.headingTertiary,
+        styles[`headingTertiary__${props.color}`]
+      ].join(" ")}
+    >
+      {props.children}
+    </h3>
+  );
 };
 
 export const paragraph = (props) => {
-  return <p className={styles.paragraph}>{props.children}</p>;
+  return (
+    <p
+      className={[
+        styles.paragraph,
+        styles[`paragraph__${props.className}`]
+      ].join(" ")}
+    >
+      {props.children}
+    </p>
+  );
+};
+
+export const link = (props) => {
+  return (
+    <a href={props.children} className={styles.link}>
+      {props.children}
+    </a>
+  );
 };

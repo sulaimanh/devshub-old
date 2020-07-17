@@ -15,8 +15,8 @@ const HeaderMain = (props) => {
       <div className={styles.header__search}>
         <SearchInput
           isSubmitButton={true}
-          placeholder="Search"
-          info="Search for users, projects, or teams"
+          placeholder='Search'
+          info='Search for users, projects, or teams'
           value={search}
           handler={searchHandler}
         />
