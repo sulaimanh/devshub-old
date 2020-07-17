@@ -32,7 +32,7 @@ const RightPanel = (props) => {
         <div className={styles.rightpanel__infoMessage}>
           <MediumLink className='tertiary'>Message Me</MediumLink>
         </div>
-        <div className={styles.rightpanel__infoSection}>
+        {/* <div className={styles.rightpanel__infoSection}>
           <HeadingTertiary>Applications</HeadingTertiary>
 
           <div className={styles.rightpanel__infoApplied}>
@@ -53,7 +53,7 @@ const RightPanel = (props) => {
               <HeadingTertiary color='fadedBlack'>2 Teams</HeadingTertiary>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className={styles.rightpanel__infoSection}>
           <HeadingTertiary>Social Media</HeadingTertiary>

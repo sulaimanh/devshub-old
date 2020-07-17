@@ -29,12 +29,39 @@
     // width: 100%;
     flex-basis: 90%;
     flex-direction: column;
-    margin: 3rem 0rem 3rem 5rem;
+    align-items: center;
+    margin: 3rem 0rem;
 
     @include respond(tab-port) {
       order: 2;
       margin: 3rem 1rem;
       flex-basis: 100%;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      border-radius: 2rem;
+      // box-shadow: 0 10px 20px rgba(black, 0.2);
+      padding: 2rem;
+
+      &Section {
+        width: 100%;
+      }
+      &Card {
+        cursor: pointer;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border: 1px solid rgba(#47474d, 0.3);
+        border-radius: 5px;
+        transition: all 0.2s;
+
+        &:hover {
+          box-shadow: 0 10px 20px rgba(black, 0.2);
+          // background-color: rgba(#47474d, 0.1);
+        }
+      }
     }
   }
 }
