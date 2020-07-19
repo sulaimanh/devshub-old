@@ -1,23 +1,22 @@
 @import "../../../sass/abstracts/mixins";
+
 .Modal {
   position: fixed;
-
-  z-index: 9000;
-  background-color: var(--color-background);
-  width: 90%;
+  z-index: 10000;
+  background-color: #ffffff;
+  display: inline-block;
+  width: 50%;
   border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(black, 0.2);
-  padding: 3rem 2rem 5rem 2rem;
-  left: 5%;
-  top: 5%;
-  box-sizing: border-box;
+  box-shadow: 0 5px 10px rgba(black, 0.2);
+  padding: 4rem;
+  top: 15%;
+  left: 25%;
+
   transition: all 0.4s ease-out;
 
-  display: flex;
-  // justify-content: center;
-
-  @include respond(tab-port) {
-    // width: 90%;
-    // left: 5%;
+  @include respond(phone) {
+    width: 90%;
+    top: 10%;
+    left: 5%;
   }
 }

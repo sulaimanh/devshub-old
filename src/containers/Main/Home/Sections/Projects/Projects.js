@@ -27,7 +27,7 @@ const Projects = React.memo((props) => {
         title={card.title}
         id={card.id}
         description={card.description}
-        tech={card.tech}
+        tech={card.techArr}
       />
     );
   });

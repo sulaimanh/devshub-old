@@ -22,7 +22,7 @@ const RightPanel = (props) => {
 
         <div className={styles.rightpanel__topNameEdit}>
           <HeadingSecondary>Sulaiman Hamouda</HeadingSecondary>
-          <p className={styles.rightpanel__topEdit}>
+          <p onClick={props.showEdit} className={styles.rightpanel__topEdit}>
             <FontAwesomeIcon icon={faEdit} size='1x' /> Edit Profie
           </p>
         </div>
@@ -57,7 +57,9 @@ const RightPanel = (props) => {
 
         <div className={styles.rightpanel__infoSection}>
           <HeadingTertiary>Social Media</HeadingTertiary>
-          <Link>https://developerspath.com/</Link>
+          <Link link='https://developerspath.com/'>
+            https://developerspath.com/
+          </Link>
         </div>
 
         <div className={styles.rightpanel__infoSection}>

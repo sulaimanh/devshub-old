@@ -37,7 +37,7 @@ export const paragraph = (props) => {
 
 export const link = (props) => {
   return (
-    <a href={props.children} className={styles.link}>
+    <a href={props.link} className={styles.link}>
       {props.children}
     </a>
   );

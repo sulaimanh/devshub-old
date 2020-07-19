@@ -7,7 +7,8 @@
 
   flex-direction: column;
   @include respond(tab-port) {
-    margin: 1rem 1rem;
+    order: 2;
+    margin: 6rem 1rem 1rem 1rem;
     box-shadow: none;
   }
 
@@ -44,11 +45,6 @@
 
     &Edit {
       font-size: var(--default-font-size-small);
-
-      @include respond(tab-port) {
-        margin-left: 2rem;
-      }
-
       &:hover {
         cursor: pointer;
         color: var(--color-tertiary);

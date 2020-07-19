@@ -3,8 +3,10 @@ import {
   headingTertiary as HeadingTertiary,
   paragraph as Paragraph
 } from "../../../components/UI/Text/Text";
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
+import EditProfile from "./EditProfile/EditProfile";
+import Modal from "../../../components/UI/Modal/Modal";
 import RightPanel from "./RightPanel/RightPanel";
 import styles from "./Profile.module.scss";
 
@@ -18,6 +20,7 @@ const Profile = (props) => {
     teams: [],
     challenges: []
   });
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     console.log("[Profile.js] useEffect");
@@ -121,6 +124,10 @@ const Profile = (props) => {
     });
   }, []);
 
+  const showModalHandler = () => {
+    setShowModal((prevState) => !prevState);
+  };
+
   const teamList = applications.teams.map((team, index) => {
     return (
       <div key={index} className={styles.profile__maincontainer__listCard}>
@@ -144,28 +151,38 @@ const Profile = (props) => {
   });
 
   return (
-    <div className={styles.profile}>
-      <div className={styles.profile__maincontainer}>
-        <div className={styles.profile__header}></div>
-        <div className={styles.profile__maincontainer__list}>
-          <HeadingSecondary>Where you applied</HeadingSecondary>
-          <div className={styles.profile__maincontainer__listSection}>
-            <HeadingTertiary>Teams</HeadingTertiary>
-            {teamList}
-          </div>
-          <div className={styles.profile__maincontainer__listSection}>
-            <HeadingTertiary>Projects</HeadingTertiary>
-            {projectList}
-          </div>
-          <div className={styles.profile__maincontainer__listSection}>
-            <HeadingTertiary>Challenges</HeadingTertiary>
-            {challengeList}
+    <Fragment>
+      {showModal ? (
+        <Modal handler={showModalHandler} show={showModal}>
+          <EditProfile />
+        </Modal>
+      ) : null}
+
+      <div className={styles.profile}>
+        <div className={styles.profile__header}>
+          <HeadingSecondary>Welcome</HeadingSecondary>
+        </div>
+        <div className={styles.profile__maincontainer}>
+          <HeadingTertiary>Posts</HeadingTertiary>
+          <div className={styles.profile__maincontainer__list}>
+            <div className={styles.profile__maincontainer__listSection}>
+              <HeadingTertiary>Teams</HeadingTertiary>
+              {teamList}
+            </div>
+            <div className={styles.profile__maincontainer__listSection}>
+              <HeadingTertiary>Projects</HeadingTertiary>
+              {projectList}
+            </div>
+            <div className={styles.profile__maincontainer__listSection}>
+              <HeadingTertiary>Challenges</HeadingTertiary>
+              {challengeList}
+            </div>
           </div>
         </div>
-      </div>
 
-      <RightPanel />
-    </div>
+        <RightPanel showEdit={showModalHandler} />
+      </div>
+    </Fragment>
   );
 };
 

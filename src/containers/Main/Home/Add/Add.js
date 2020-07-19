@@ -12,6 +12,8 @@ import MediumLink from "../../../../components/UI/Links/Medium/MediumLink";
 import MoreInfo from "../../../../components/UI/MoreInfo/MoreInfo";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Add.module.scss";
+import useCreatePost from "../../../../hooks/useCreatePost";
+import { useRouteMatch } from "react-router-dom";
 
 const Add = (props) => {
   const [input, setInput] = useState({
@@ -29,6 +31,10 @@ const Add = (props) => {
     repo: false,
     challenge: false
   });
+  const match = useRouteMatch("/home/:section");
+  const [savePost, { status, data, error }] = useCreatePost(
+    match.params.section
+  );
 
   const setInputHandler = (event) => {
     const value = event.target.value;
@@ -46,7 +52,7 @@ const Add = (props) => {
   };
 
   const postProjectHandler = () => {
-    // - This is not doing anything yet.... Just hides the view
+    savePost({ section: match.params.section, techArr: techArr, ...input });
     props.handler();
   };
 

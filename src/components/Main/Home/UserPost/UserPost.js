@@ -1,14 +1,17 @@
+import {
+  headingSecondary as HeadingSecondary,
+  link as Link
+} from "../../../UI/Text/Text";
 import React, { useEffect } from "react";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { headingSecondary as HeadingSecondary } from "../../../UI/Text/Text";
 import { headingTertiary as HeadingTertiary } from "../../../UI/Text/Text";
 import MediumLink from "../../../UI/Links/Medium/MediumLink";
 import MoreInfo from "../../../UI/MoreInfo/MoreInfo";
 import Technology from "../../../UI/Technology/Technology";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from "./UserPost.module.scss";
-import { useHistory } from "react-router-dom";
 
 const UserPost = (props) => {
   const history = useHistory();
@@ -27,10 +30,10 @@ const UserPost = (props) => {
           onClick={goBackHandler}
           className={styles.post__topIcon}
           icon={faArrowCircleLeft}
-          size="3x"
+          size='3x'
         />
         <div className={styles.post__topRequest}>
-          <MediumLink className="tertiary">Send Request</MediumLink>
+          <MediumLink className='tertiary'>Send Request</MediumLink>
         </div>
       </div>
 
@@ -43,7 +46,7 @@ const UserPost = (props) => {
         </div>
 
         <div className={styles.post__right}>
-          <p className={styles.post__text}>Owner: {props.post.owner}</p>
+          <Link link='https://developerspath.com'>{props.post.owner}</Link>
 
           <p className={styles.post__text}>
             Developers: {props.post.numberOfDevelopers}
@@ -51,9 +54,7 @@ const UserPost = (props) => {
           <p className={styles.post__text}>
             Developers needed: {props.post.numberOfDevelopersNeeded}
           </p>
-          <a href={props.post.githubLink} className={styles.post__textRepo}>
-            <p>Go to Repository</p>
-          </a>
+          <Link link={props.post.githubLink}>Go to Repository</Link>
         </div>
       </div>
 
