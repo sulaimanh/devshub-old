@@ -20,101 +20,10 @@ const Sections = (props) => {
     setSearch(event.target.value);
   };
 
-  React.useEffect(() => {
-    console.log("[Sections.js] useEffect");
-    const cards = {
-      teams: [
-        {
-          id: 1,
-          title: "Developers Path",
-          description:
-            "Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday.",
-          tech: [
-            "Reactjs",
-            "Nodejs",
-            "JavaScript",
-            "React Query",
-            "CSS",
-            "Sass"
-          ]
-        }
-      ],
-      projects: [
-        {
-          id: 1,
-          title: "Developers Path",
-          description:
-            "Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday.",
-          tech: [
-            "Reactjs",
-            "Nodejs",
-            "JavaScript",
-            "React Query",
-            "CSS",
-            "Sass"
-          ]
-        },
-        {
-          id: 1,
-          title: "Developers Path",
-          description:
-            "Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday.",
-          tech: [
-            "Reactjs",
-            "Nodejs",
-            "JavaScript",
-            "React Query",
-            "CSS",
-            "Sass"
-          ]
-        }
-      ],
-      challenges: [
-        {
-          id: 1,
-          title: "Developers Path",
-          description:
-            "Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday.",
-          tech: [
-            "Reactjs",
-            "Nodejs",
-            "JavaScript",
-            "React Query",
-            "CSS",
-            "Sass"
-          ]
-        },
-        {
-          id: 1,
-          title: "Developers Path",
-          description:
-            "Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday.",
-          tech: [
-            "Reactjs",
-            "Nodejs",
-            "JavaScript",
-            "React Query",
-            "CSS",
-            "Sass"
-          ]
-        },
-        {
-          id: 1,
-          title: "Developers Path",
-          description:
-            "Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday.",
-          tech: [
-            "Reactjs",
-            "Nodejs",
-            "JavaScript",
-            "React Query",
-            "CSS",
-            "Sass"
-          ]
-        }
-      ]
-    };
-  }, [match.params.section]);
+  // React.useEffect(() => {
+  //   console.log("[Sections.js] useEffect");
+
+  // }, [match.params.section]);
 
   if (isLoading) {
     return <Spinner />;
@@ -123,7 +32,6 @@ const Sections = (props) => {
   if (isError) {
     return <h1>There is an error</h1>;
   }
-  console.log(data);
 
   return (
     <React.Fragment>

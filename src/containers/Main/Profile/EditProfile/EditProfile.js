@@ -9,7 +9,7 @@ const EditProfile = (props) => {
   const [input, setInput] = useState({ email: "", socialMedia: "" });
 
   return (
-    <div>
+    <div className={styles.edit}>
       <HeadingSecondary>Update your Information</HeadingSecondary>
       <Input placeholder='Email' isRequired={false} for='email' type='email' />
       <Input

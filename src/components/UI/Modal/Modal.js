@@ -9,15 +9,19 @@ const Modal = React.memo((props) => {
 
   return (
     <React.Fragment>
-      <Backdrop show={props.show} handler={props.handler} />
       <div
-        className={styles.Modal}
-        style={{
-          transform: props.show ? "translateY(0)" : "translateY(-100vh",
-          opacity: props.show ? "1" : "0"
-        }}
+        className={[styles.container, styles[`${props.className}`]].join(" ")}
       >
-        {props.children}
+        <Backdrop show={props.show} handler={props.handler} />
+        <div
+          className={styles.Modal}
+          style={{
+            transform: props.show ? "translateY(0)" : "translateY(-100vh",
+            opacity: props.show ? "1" : "0"
+          }}
+        >
+          {props.children}
+        </div>
       </div>
     </React.Fragment>
   );

@@ -3,7 +3,6 @@ import { queryCache, useMutation } from "react-query";
 import { db } from "../firebase";
 
 export default function useCreatePost(section) {
-  console.log(section);
   return useMutation(
     (value) => {
       db.collection(value.section).add(value);
