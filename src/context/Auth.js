@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
       } else {
         console.log("OVER HERE");
         setLoading(false);
-        // history.push("/");
+        history.push("/");
       }
     });
   }, []);
