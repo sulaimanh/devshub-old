@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import { signIn, signUp } from "../../../context/Auth";
 
 import { headingSecondary as HeadingSecondary } from "../../../components/UI/Text/Text";
@@ -7,7 +7,6 @@ import { paragraph as Paragraph } from "../../../components/UI/Text/Text";
 import TextInput from "../../../components/UI/Inputs/TextInput/TextInput";
 import styles from "./SignIn.module.scss";
 import useCreateUser from "../../../hooks/useCreateUser";
-import { useHistory } from "react-router-dom";
 
 const SignIn = (props) => {
   const [form, setForm] = useState({
@@ -16,14 +15,14 @@ const SignIn = (props) => {
     password: "",
     confirmPassword: ""
   });
-  const history = useHistory();
+
   const [error, setError] = useState({ errorMessage: "", isError: false });
   const [saveUser, { status, data, err }] = useCreateUser();
 
   const handleForm = (event) => {
     const id = event.target.id;
     const value = event.target.value;
-
+    setError({ errorMessage: "", isError: false });
     setForm((prevState) => {
       return { ...prevState, [id]: value };
     });
@@ -32,12 +31,14 @@ const SignIn = (props) => {
   const loginHandler = async (event) => {
     event.preventDefault();
     if (props.isSignUp) {
-      const credentials = {
-        email: form.email,
-        password: form.password,
-        fullName: form.fullName
-      };
-      signUp(credentials, setError, saveUser);
+      if (form.password === form.confirmPassword) {
+        const credentials = {
+          email: form.email,
+          password: form.password,
+          fullName: form.fullName
+        };
+        signUp(credentials, setError, saveUser);
+      }
     } else {
       const credentials = {
         email: form.email,

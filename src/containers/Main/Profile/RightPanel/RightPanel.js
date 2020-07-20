@@ -14,9 +14,7 @@ import styles from "./RightPanel.module.scss";
 
 const RightPanel = (props) => {
   const { currentUser } = useContext(AuthContext);
-  useEffect(() => {
-    console.log("UPDATINGGGGGGGGG");
-  });
+  useEffect(() => {});
 
   return (
     <div className={styles.rightpanel}>

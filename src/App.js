@@ -14,24 +14,23 @@ import styles from "./App.module.scss";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
-  const { currentUser } = useContext(AuthContext);
+  const { isAuth } = useContext(AuthContext);
   const match = useRouteMatch("/home/:category/:id");
 
   useEffect(() => {
     console.log("[App.js] useEffect");
-    console.log("USERSSSSSSSS");
-    currentUser ? setAuthenticated(true) : setAuthenticated(false);
-  }, [currentUser]);
+  });
 
   let routes = (
     <Switch>
-      <Route path='/'>
+      <Route exact path='/'>
         <Introduction />
       </Route>
+      <Redirect to='/' />
     </Switch>
   );
 
-  if (authenticated) {
+  if (isAuth) {
     routes = (
       <Switch>
         <Route path='/home/teams/:id' component={Team} />
@@ -48,7 +47,7 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <Layout auth={authenticated}>{routes}</Layout>
+      <Layout auth={isAuth}>{routes}</Layout>
     </div>
   );
 }

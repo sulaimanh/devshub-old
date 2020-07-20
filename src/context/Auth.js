@@ -8,22 +8,25 @@ export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [isAuth, setIsAuth] = useState(false);
   const [loading, setLoading] = useState(true);
   const history = useHistory();
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged(async (user) => {
       if (user) {
-        setCurrentUser({
+        setIsAuth(true);
+        await setCurrentUser({
+          auth: true,
           id: user.uid,
           name: user.displayName,
           email: user.email
         });
         setLoading(false);
       } else {
-        console.log("OVER HERE");
+        setIsAuth(false);
         setLoading(false);
-        history.push("/");
+        // history.push("/");
       }
     });
   }, []);
@@ -35,7 +38,8 @@ export const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
-        currentUser
+        currentUser,
+        isAuth
       }}
     >
       {children}
@@ -49,6 +53,7 @@ export const signUp = async (credentials, setError, saveUser) => {
       .createUserWithEmailAndPassword(credentials.email, credentials.password)
       .then((res) => {
         saveUser({
+          id: res.user.uid,
           name: credentials.fullName,
           email: credentials.email,
           teams: [],
@@ -79,7 +84,7 @@ export const signOut = async (credentials) => {
   try {
     await auth.signOut();
   } catch (error) {
-    console.log("WE GOT AN ERROR!!!!");
+    // - I will handle this later
     console.log(error);
   }
 };
