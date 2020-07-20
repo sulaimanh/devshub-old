@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import {
   faArrowCircleLeft,
-  faArrowCircleRight,
+  faArrowCircleRight
 } from "@fortawesome/free-solid-svg-icons";
 import { useHistory, useRouteMatch } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import menuItems from "../menu";
+import { signOut } from "../../../../context/Auth";
 import styles from "./DesktopMenu.module.scss";
 
 const DesktopMenu = () => {
@@ -29,10 +30,13 @@ const DesktopMenu = () => {
 
   const selectTabHandler = (event, choice) => {
     event.preventDefault();
-
-    history.push("/" + choice);
-
-    setSelectedTab(choice);
+    if (choice === "signOut") {
+      console.log("WE ARE SIGNING OUT");
+      signOut();
+    } else {
+      history.push("/" + choice);
+      setSelectedTab(choice);
+    }
   };
 
   const hideShowHandler = () => {
@@ -47,7 +51,7 @@ const DesktopMenu = () => {
     <div
       className={[
         styles.menu,
-        arrow === faArrowCircleLeft ? styles.menu__show : styles.menu__hide,
+        arrow === faArrowCircleLeft ? styles.menu__show : styles.menu__hide
       ].join(" ")}
     >
       <div
@@ -56,7 +60,7 @@ const DesktopMenu = () => {
           styles.menu__hideShow,
           arrow === faArrowCircleLeft
             ? styles.menu__show__arrow
-            : styles.menu__hide__arrow,
+            : styles.menu__hide__arrow
         ].join(" ")}
       >
         <FontAwesomeIcon
@@ -76,13 +80,13 @@ const DesktopMenu = () => {
                 selectedTab === item.path ? styles.menu__link__selected : null,
                 arrow === faArrowCircleLeft
                   ? styles.menu__show__links
-                  : styles.menu__hide__links,
+                  : styles.menu__hide__links
               ].join(" ")}
             >
               <FontAwesomeIcon
                 className={[
                   styles.menu__linkColor,
-                  selectedTab === item.path ? styles.menu__linkSelected : null,
+                  selectedTab === item.path ? styles.menu__linkSelected : null
                 ].join(" ")}
                 icon={item.icon}
                 size='2x'
@@ -90,7 +94,7 @@ const DesktopMenu = () => {
               <p
                 className={[
                   styles.menu__text,
-                  selectedTab === item.path ? styles.menu__textSelected : null,
+                  selectedTab === item.path ? styles.menu__textSelected : null
                 ].join(" ")}
               >
                 {item.choice}

@@ -19,9 +19,8 @@ const Introduction = () => {
       isSignUp = true;
     }
 
-    setModal({
-      showModal: !showModal.showModal,
-      isSignUp: isSignUp
+    setModal((prevState) => {
+      return { showModal: !prevState.showModal, isSignUp: isSignUp };
     });
   };
 

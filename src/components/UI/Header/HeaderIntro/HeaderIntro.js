@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
-import styles from "./HeaderIntro.module.scss";
+import React, { useEffect, useState } from "react";
+
 import { headingSecondary as HeadingSecondary } from "../../Text/Text";
 import MediumLink from "../../Links/Medium/MediumLink";
+import styles from "./HeaderIntro.module.scss";
 
 const HeaderIntro = (props) => {
   const [showHeader, setHeader] = useState({
@@ -42,20 +43,20 @@ const HeaderIntro = (props) => {
       </div>
       <div className={styles.header__links}>
         <div className={styles.header__links__spread}>
-          <MediumLink handler={null} className="secondary">
+          <MediumLink handler={null} className='secondary'>
             About Us
           </MediumLink>
           <MediumLink
-            action="sign in"
+            id='sign in'
             handler={props.handleSignIn}
-            className="secondary"
+            className='secondary'
           >
             Sign In
           </MediumLink>
           <MediumLink
-            action="sign up"
+            id='sign up'
             handler={props.handleSignIn}
-            className="primary"
+            className='primary'
           >
             Sign Up
           </MediumLink>
@@ -63,9 +64,9 @@ const HeaderIntro = (props) => {
 
         <div className={styles.header__links__smallscreen}>
           <MediumLink
-            action="sign in"
+            id='sign in'
             handler={props.handleSignIn}
-            className="secondary"
+            className='secondary'
           >
             Sign In
           </MediumLink>

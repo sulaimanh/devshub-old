@@ -3,6 +3,7 @@ import { useHistory, useRouteMatch } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import menuItems from "../menu";
+import { signOut } from "../../../../context/Auth";
 import styles from "./MobileMenu.module.scss";
 
 const MobileMenu = (props) => {
@@ -19,11 +20,13 @@ const MobileMenu = (props) => {
 
   const selectTabHandler = (event, choice) => {
     event.preventDefault();
-    console.log(choice);
-
-    history.push("/" + choice);
-
-    setSelectedTab(choice);
+    if (choice === "signOut") {
+      console.log("WE ARE SIGNING OUT");
+      signOut();
+    } else {
+      history.push("/" + choice);
+      setSelectedTab(choice);
+    }
   };
 
   return (
@@ -39,7 +42,7 @@ const MobileMenu = (props) => {
             ].join(" ")}
           >
             <p className={styles.menu__text}>
-              <FontAwesomeIcon icon={tab.icon} size="1x" />
+              <FontAwesomeIcon icon={tab.icon} size='1x' />
             </p>
             <p className={styles.menu__text}>{tab.choice}</p>
           </div>

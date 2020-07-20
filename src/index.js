@@ -3,6 +3,7 @@ import "./index.module.scss";
 import * as serviceWorker from "./serviceWorker";
 
 import App from "./App";
+import { AuthProvider } from "./context/Auth";
 import { BrowserRouter } from "react-router-dom";
 import React from "react";
 import ReactDOM from "react-dom";
@@ -12,7 +13,9 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <ScrollToTop />
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

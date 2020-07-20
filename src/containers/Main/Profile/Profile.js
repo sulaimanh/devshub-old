@@ -3,7 +3,7 @@ import {
   headingTertiary as HeadingTertiary,
   paragraph as Paragraph
 } from "../../../components/UI/Text/Text";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 
 import EditProfile from "./EditProfile/EditProfile";
 import Modal from "../../../components/UI/Modal/Modal";

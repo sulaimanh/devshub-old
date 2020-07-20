@@ -4,14 +4,20 @@ import {
   link as Link,
   paragraph as Paragraph
 } from "../../../../components/UI/Text/Text";
+import React, { useContext, useEffect } from "react";
 import { faBars, faEdit } from "@fortawesome/free-solid-svg-icons";
 
+import { AuthContext } from "../../../../context/Auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MediumLink from "../../../../components/UI/Links/Medium/MediumLink";
-import React from "react";
 import styles from "./RightPanel.module.scss";
 
 const RightPanel = (props) => {
+  const { currentUser } = useContext(AuthContext);
+  useEffect(() => {
+    console.log("UPDATINGGGGGGGGG");
+  });
+
   return (
     <div className={styles.rightpanel}>
       <div className={styles.rightpanel__top}>
@@ -21,7 +27,7 @@ const RightPanel = (props) => {
         />
 
         <div className={styles.rightpanel__topNameEdit}>
-          <HeadingSecondary>Sulaiman Hamouda</HeadingSecondary>
+          <HeadingSecondary>{currentUser.name}</HeadingSecondary>
           <p onClick={props.showEdit} className={styles.rightpanel__topEdit}>
             <FontAwesomeIcon icon={faEdit} size='1x' /> Edit Profie
           </p>
@@ -64,7 +70,7 @@ const RightPanel = (props) => {
 
         <div className={styles.rightpanel__infoSection}>
           <HeadingTertiary>Contact</HeadingTertiary>
-          <Paragraph>hamouda.sulaiman@gmail.com</Paragraph>
+          <Paragraph>{currentUser.email}</Paragraph>
         </div>
       </div>
     </div>

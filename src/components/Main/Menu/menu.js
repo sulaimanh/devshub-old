@@ -24,7 +24,7 @@ const menus = [
   {
     choice: "Sign Out",
     icon: faSignOutAlt,
-    path: "sign"
+    path: "signOut"
   }
 ];
 

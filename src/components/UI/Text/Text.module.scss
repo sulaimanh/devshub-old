@@ -28,6 +28,11 @@
   &__small {
     font-size: var(--default-font-size-small);
   }
+
+  &__error {
+    font-size: var(--default-font-size-small);
+    color: red;
+  }
 }
 
 .link {
