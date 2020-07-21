@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
-import styles from "./WhyDev.module.scss";
-import { headingPrimary as HeadingPrimary } from "../../UI/Text/Text";
-import { useInView } from "react-intersection-observer";
+import {
+  headingPrimary as HeadingPrimary,
+  paragraph as Paragraph
+} from "../../UI/Text/Text";
+import React, { useEffect, useState } from "react";
+
 import MediumLink from "../../UI/Links/Medium/MediumLink";
+import styles from "./WhyDev.module.scss";
+import { useInView } from "react-intersection-observer";
 
 const WhyDev = (props) => {
   const [term, setTerm] = useState({
@@ -57,19 +61,18 @@ const WhyDev = (props) => {
           </HeadingPrimary>
         </div>
         <div className={styles.why__statement}>
-          <p className={styles.why__statementText}>
-            Developers path makes is easy for developers to start working on
+          <Paragraph className='white'>
+            Developers path makes it easy for developers to start working on
             real projects. Developers are able to collaborate on projects
-            together, work on open source, and gain effective team building
-            skills.
-          </p>
+            together, work on teams, and gain effective skills.
+          </Paragraph>
         </div>
       </div>
       <div className={styles.why__button}>
         <MediumLink
-          id="sign up"
+          id='sign up'
           handler={props.handleSignIn}
-          className="tertiaryOutline"
+          className='tertiaryOutline'
         >
           Sign Up
         </MediumLink>

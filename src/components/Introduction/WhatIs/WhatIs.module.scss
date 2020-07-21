@@ -7,83 +7,78 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  width: 100%;
 
+  background-image: url("../../../assets/img/bg-2.svg");
+  background-size: cover;
+  background-position: center;
+  padding: 10rem 0rem;
   margin-top: 5rem;
-  padding-bottom: 10rem;
 
   flex-direction: column;
 
-  &__container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
-    @include respond(tab-port) {
-      align-items: center;
-    }
-  }
-
   &__reason {
+    position: relative;
+    height: fit-content;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-content: center;
     align-items: center;
 
-    padding-top: 5rem;
-    padding-bottom: 5rem;
     &:not(:first-child) {
-      // padding-top: 0rem;
-      margin-top: 4rem;
-      @include respond(phone) {
-        flex-direction: column;
-        padding-top: 0rem;
-      }
+      margin-top: 10rem;
     }
     @include respond(tab-port) {
+      flex-direction: column;
+
       width: 80%;
     }
 
     @include respond(phone) {
+      width: 80%;
       flex-direction: column;
     }
 
-    &Img {
-      width: 10rem;
-      height: 10rem;
-      margin-right: 5rem;
-
-      @include respond(phone) {
-        width: 8rem;
-        height: 8rem;
-        margin-right: 0rem;
-        margin-bottom: 2rem;
-      }
-    }
-
-    &Text {
-      font-size: var(--default-font-size);
-      padding-top: 1rem;
-    }
-
-    &darkMode {
-      color: var(--color-white);
-    }
-
     &Statement {
-      flex-basis: 70%;
-
+      flex-basis: 30%;
+      // width: 40%;
       @include respond(big-desktop) {
-        flex-basis: 60%;
+        // flex-basis: 60%;
       }
 
       @include respond(tab-port) {
         flex-basis: 100%;
+        order: 2;
       }
 
       @include respond(phone) {
         width: 100%;
       }
+    }
+  }
+
+  &__logos {
+    display: flex;
+    justify-content: center;
+    margin-right: 5rem;
+    &:nth-child(2) {
+      margin-right: 0;
+      margin-left: 5rem;
+    }
+
+    &__logo {
+      position: relative;
+
+      height: 40rem;
+
+      @include respond(phone) {
+        height: 30rem;
+        // order: 1;
+      }
+    }
+
+    @include respond(tab-port) {
+      order: 1;
     }
   }
 

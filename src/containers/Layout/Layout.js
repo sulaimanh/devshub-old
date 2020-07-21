@@ -7,7 +7,7 @@ import Header from "../../components/UI/Header/HeaderMain/HeaderMain";
 import MobileMenu from "../../components/Main/Menu/MobileMenu/MobileMenu";
 import styles from "./Layout.module.scss";
 
-const Layout = React.memo((props) => {
+const Layout = (props) => {
   let desktopMenu = props.auth ? <DesktopMenu /> : null;
   let header = props.auth ? <Header /> : null;
   let menu = props.auth ? <MobileMenu /> : null;
@@ -28,6 +28,6 @@ const Layout = React.memo((props) => {
       </div>
     </div>
   );
-});
+};
 
 export default Layout;

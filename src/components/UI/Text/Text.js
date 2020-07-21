@@ -25,6 +25,7 @@ export const headingTertiary = (props) => {
 export const paragraph = (props) => {
   return (
     <p
+      onClick={props.handler}
       className={[
         styles.paragraph,
         styles[`paragraph__${props.className}`]

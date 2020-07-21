@@ -5,39 +5,32 @@ import MediumLink from "../../Links/Medium/MediumLink";
 import styles from "./HeaderIntro.module.scss";
 
 const HeaderIntro = (props) => {
-  const [showHeader, setHeader] = useState({
-    visible: true,
-    yOffset: window.pageYOffset
-  });
+  // const [showHeader, setHeader] = useState({
+  //   visible: true,
+  //   yOffset: window.pageYOffset
+  // });
 
-  const handleScroll = () => {
-    const yOffset = window.pageYOffset;
+  // const handleScroll = () => {
+  //   const yOffset = window.pageYOffset;
 
-    let visible = yOffset < showHeader.yOffset;
+  //   let visible = yOffset < showHeader.yOffset;
 
-    if (yOffset === 0) {
-      visible = true;
-    }
+  //   if (yOffset === 0) {
+  //     visible = true;
+  //   }
 
-    setHeader({ visible: visible, yOffset: yOffset });
-  };
+  //   setHeader({ visible: visible, yOffset: yOffset });
+  // };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  });
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // });
 
   return (
-    <div
-      className={[
-        styles.header,
-        showHeader.visible && !props.showModal
-          ? styles.toggleHeaderOn
-          : styles.toggleHeaderOff
-      ].join(" ")}
-    >
+    <div className={styles.header}>
       <div className={styles.header__logo}>
         <HeadingSecondary>developers path</HeadingSecondary>
       </div>

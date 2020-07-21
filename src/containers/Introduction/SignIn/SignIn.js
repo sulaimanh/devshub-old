@@ -7,6 +7,7 @@ import { paragraph as Paragraph } from "../../../components/UI/Text/Text";
 import TextInput from "../../../components/UI/Inputs/TextInput/TextInput";
 import styles from "./SignIn.module.scss";
 import useCreateUser from "../../../hooks/useCreateUser";
+import { useHistory } from "react-router-dom";
 
 const SignIn = (props) => {
   const [form, setForm] = useState({
@@ -18,6 +19,7 @@ const SignIn = (props) => {
 
   const [error, setError] = useState({ errorMessage: "", isError: false });
   const [saveUser, { status, data, err }] = useCreateUser();
+  const history = useHistory();
 
   const handleForm = (event) => {
     const id = event.target.id;
@@ -37,14 +39,16 @@ const SignIn = (props) => {
           password: form.password,
           fullName: form.fullName
         };
-        signUp(credentials, setError, saveUser);
+        history.push("/home/teams");
+        await signUp(credentials, setError, saveUser);
       }
     } else {
       const credentials = {
         email: form.email,
         password: form.password
       };
-      signIn(credentials, setError);
+      history.push("/home/teams");
+      await signIn(credentials, setError);
     }
   };
   return (

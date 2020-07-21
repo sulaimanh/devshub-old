@@ -28,13 +28,15 @@ const DesktopMenu = () => {
     }
   }, [match]);
 
-  const selectTabHandler = (event, choice) => {
+  const selectTabHandler = async (event, choice) => {
     event.preventDefault();
     if (choice === "signOut") {
-      console.log("WE ARE SIGNING OUT");
-      signOut();
+      await signOut();
+      history.push("/");
     } else {
-      history.push("/" + choice);
+      choice === "home"
+        ? history.push("/home/teams")
+        : history.push("/" + choice);
       setSelectedTab(choice);
     }
   };

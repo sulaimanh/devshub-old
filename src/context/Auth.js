@@ -13,23 +13,23 @@ export const AuthProvider = ({ children }) => {
   const history = useHistory();
 
   useEffect(() => {
-    auth.onAuthStateChanged(async (user) => {
+    auth.onAuthStateChanged((user) => {
       if (user) {
         setIsAuth(true);
-        await setCurrentUser({
-          auth: true,
-          id: user.uid,
+        setCurrentUser({
+          ownerId: user.uid,
           name: user.displayName,
           email: user.email
         });
         setLoading(false);
+        history.push("/home/teams");
       } else {
         setIsAuth(false);
         setLoading(false);
-        // history.push("/");
+        history.push("/");
       }
     });
-  }, []);
+  }, [isAuth]);
 
   if (loading) {
     return <Spinner />;
@@ -51,15 +51,16 @@ export const signUp = async (credentials, setError, saveUser) => {
   try {
     await auth
       .createUserWithEmailAndPassword(credentials.email, credentials.password)
-      .then((res) => {
+      .then(async (res) => {
         saveUser({
-          id: res.user.uid,
+          ownerId: res.user.uid,
           name: credentials.fullName,
           email: credentials.email,
           teams: [],
           projects: [],
           challenges: []
         });
+
         return res.user.updateProfile({
           displayName: credentials.fullName
         });

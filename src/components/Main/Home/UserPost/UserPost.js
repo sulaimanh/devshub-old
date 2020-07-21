@@ -1,6 +1,7 @@
 import {
   headingSecondary as HeadingSecondary,
-  link as Link
+  link as Link,
+  paragraph as Paragraph
 } from "../../../UI/Text/Text";
 import React, { useEffect, useState } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
@@ -15,7 +16,7 @@ import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from "./UserPost.module.scss";
 import usePost from "../../../../hooks/usePost";
 
-const UserPost = (props) => {
+const UserPost = React.memo((props) => {
   const history = useHistory();
   const match = useRouteMatch("/home/:section/:postId");
   const [post, setPost] = useState({
@@ -34,14 +35,19 @@ const UserPost = (props) => {
   // - Retrieve the data for the post
   useEffect(() => {
     if (!isLoading) {
+      console.log(data);
       setPost(data);
     }
   });
 
-  console.log(isLoading, isError, data, error);
-
   const goBackHandler = () => {
     history.goBack();
+  };
+
+  const goToUserHandler = () => {
+    console.log(post, post.ownerId);
+    console.log(post.ownerId);
+    history.push("/profile/" + post.ownerId);
   };
 
   if (isLoading) {
@@ -67,17 +73,23 @@ const UserPost = (props) => {
           <div className={styles.post__leftHeading}>
             <HeadingSecondary>{post.title}</HeadingSecondary>
           </div>
-          <p className={styles.post__text}>{post.description}</p>
+          <Paragraph>{post.description}</Paragraph>
         </div>
 
         <div className={styles.post__right}>
-          <Link link='https://developerspath.com'>{post.owner}</Link>
+          <Paragraph
+            handler={goToUserHandler}
+            className='link'
+            handler={goToUserHandler}
+          >
+            {post.name}
+          </Paragraph>
 
           <p className={styles.post__text}>
-            Developers: {post.numberOfDevelopers}
+            Developers: {post.numOfDevelopers}
           </p>
           <p className={styles.post__text}>
-            Developers needed: {post.numberOfDevelopersNeeded}
+            Developers needed: {post.numOfDevelopersNeeded}
           </p>
           <Link link={post.repo}>Go to Repository</Link>
         </div>
@@ -92,6 +104,6 @@ const UserPost = (props) => {
       </div>
     </div>
   );
-};
+});
 
 export default UserPost;

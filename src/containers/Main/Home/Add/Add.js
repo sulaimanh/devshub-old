@@ -2,9 +2,10 @@ import {
   headingSecondary as HeadingSecondary,
   headingTertiary as HeadingTertiary
 } from "../../../../components/UI/Text/Text";
-import React, { useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 
 import AddTechnology from "../../../../components/UI/Technology/AddTechnology/AddTechnology";
+import { AuthContext } from "../../../../context/Auth";
 import Checkbox from "../../../../components/UI/Inputs/Checkbox/Checkbox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Input from "../../../../components/UI/Inputs/TextInput/TextInput";
@@ -27,6 +28,7 @@ const Add = (props) => {
     challenge: ""
   });
   const [techArr, setTechArr] = useState([]);
+  const { currentUser } = useContext(AuthContext);
   const [isCheckbox, setIsCheckbox] = useState({
     repo: false,
     challenge: false
@@ -52,9 +54,16 @@ const Add = (props) => {
   };
 
   const postProjectHandler = () => {
-    savePost({ section: match.params.section, techArr: techArr, ...input });
+    savePost({
+      section: match.params.section,
+      ownerId: currentUser.ownerId,
+      name: currentUser.name,
+      techArr: techArr,
+      ...input
+    });
     props.handler();
   };
+  console.log(currentUser.name);
 
   return (
     <form className={styles.form}>

@@ -5,124 +5,39 @@ import {
 } from "../../../components/UI/Text/Text";
 import React, { Fragment, useContext, useEffect, useState } from "react";
 
+import { AuthContext } from "../../../context/Auth";
 import EditProfile from "./EditProfile/EditProfile";
 import Modal from "../../../components/UI/Modal/Modal";
 import RightPanel from "./RightPanel/RightPanel";
 import styles from "./Profile.module.scss";
+import useGetUser from "../../../hooks/useGetUser";
+import { useRouteMatch } from "react-router-dom";
 
-{
-  /* <FontAwesomeIcon icon={faEdit} /> */
-}
-
-const Profile = (props) => {
+const Profile = React.memo((props) => {
   const [applications, setApplications] = useState({
     projects: [],
     teams: [],
     challenges: []
   });
   const [showModal, setShowModal] = useState(false);
+  const match = useRouteMatch("/profile/:userId");
+  const { currentUser } = useContext(AuthContext);
+  const { isLoading, isError, data, error } = useGetUser(
+    match ? match.params.userId : currentUser.ownerId
+  );
 
   useEffect(() => {
     console.log("[Profile.js] useEffect");
-    const applications = {
-      teams: [
-        {
-          id: 1,
-          title: "Developers Path",
-          description:
-            "Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday.",
-          tech: [
-            "Reactjs",
-            "Nodejs",
-            "JavaScript",
-            "React Query",
-            "CSS",
-            "Sass"
-          ]
-        }
-      ],
-      projects: [
-        {
-          id: 1,
-          title: "Developers Path",
-          description:
-            "Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday.",
-          tech: [
-            "Reactjs",
-            "Nodejs",
-            "JavaScript",
-            "React Query",
-            "CSS",
-            "Sass"
-          ]
-        },
-        {
-          id: 1,
-          title: "Developers Path",
-          description:
-            "Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday.",
-          tech: [
-            "Reactjs",
-            "Nodejs",
-            "JavaScript",
-            "React Query",
-            "CSS",
-            "Sass"
-          ]
-        }
-      ],
-      challenges: [
-        {
-          id: 1,
-          title: "Developers Path",
-          description:
-            "Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday.",
-          tech: [
-            "Reactjs",
-            "Nodejs",
-            "JavaScript",
-            "React Query",
-            "CSS",
-            "Sass"
-          ]
-        },
-        {
-          id: 1,
-          title: "Developers Path",
-          description:
-            "Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday.",
-          tech: [
-            "Reactjs",
-            "Nodejs",
-            "JavaScript",
-            "React Query",
-            "CSS",
-            "Sass"
-          ]
-        },
-        {
-          id: 1,
-          title: "Developers Path",
-          description:
-            "Developers Path is dedicated to connecting developers to opportunities by facilitating the interaction with other developers and getting hands on experience. Developers Path is run by a community of developers striving to get smarter everday.",
-          tech: [
-            "Reactjs",
-            "Nodejs",
-            "JavaScript",
-            "React Query",
-            "CSS",
-            "Sass"
-          ]
-        }
-      ]
-    };
+    if (data) {
+      setApplications({
+        projects: data.projects,
+        teams: data.teams,
+        challenges: data.challenges
+      });
+    }
+  }, [data]);
 
-    setApplications({
-      projects: applications.projects,
-      teams: applications.teams,
-      challenges: applications.challenges
-    });
-  }, []);
+  console.log(data);
 
   const showModalHandler = () => {
     setShowModal((prevState) => !prevState);
@@ -184,6 +99,6 @@ const Profile = (props) => {
       </div>
     </Fragment>
   );
-};
+});
 
 export default Profile;

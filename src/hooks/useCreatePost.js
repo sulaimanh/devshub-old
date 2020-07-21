@@ -1,11 +1,14 @@
+import { FieldValue, db } from "../firebase";
 import { queryCache, useMutation } from "react-query";
-
-import { db } from "../firebase";
 
 export default function useCreatePost(section) {
   return useMutation(
     (value) => {
+      console.log(value);
       db.collection(value.section).add(value);
+      db.collection("users")
+        .doc(value.ownerId)
+        .update({ [value.section]: FieldValue.arrayUnion(value) });
       console.log(value.section, value.input);
     },
     {

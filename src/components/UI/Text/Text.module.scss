@@ -29,6 +29,21 @@
     font-size: var(--default-font-size-small);
   }
 
+  &__white {
+    color: white;
+  }
+
+  &__link {
+    color: var(--color-primary);
+    font-size: var(--default-font-size);
+    text-decoration: underline var(--color-primary);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-tertiary);
+    }
+  }
+
   &__error {
     font-size: var(--default-font-size-small);
     color: red;

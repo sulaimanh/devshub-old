@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Card from "../../../../../components/UI/Card/Card";
 import { useHistory } from "react-router-dom";
 
-const Challenges = (props) => {
+const Challenges = React.memo((props) => {
   const history = useHistory();
 
   useEffect(() => {
@@ -30,6 +30,6 @@ const Challenges = (props) => {
   });
 
   return <div>{view}</div>;
-};
+});
 
 export default Challenges;
