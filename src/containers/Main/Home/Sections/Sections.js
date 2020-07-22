@@ -24,6 +24,7 @@ const Sections = (props) => {
   //   console.log("[Sections.js] useEffect");
 
   // }, [match.params.section]);
+  console.log(isLoading, isError, data, error);
 
   if (isLoading) {
     return <Spinner />;

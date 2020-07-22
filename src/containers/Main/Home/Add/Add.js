@@ -5,7 +5,7 @@ import {
 import React, { useContext, useState } from "react";
 
 import AddTechnology from "../../../../components/UI/Technology/AddTechnology/AddTechnology";
-import { AuthContext } from "../../../../context/Auth";
+import { AuthContext } from "../../../../helper/Auth";
 import Checkbox from "../../../../components/UI/Inputs/Checkbox/Checkbox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Input from "../../../../components/UI/Inputs/TextInput/TextInput";

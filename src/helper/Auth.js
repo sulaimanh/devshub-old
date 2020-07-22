@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { history, useHistory } from "react-router-dom";
+import { auth, firebase } from "../firebase";
 
 import Spinner from "../components/UI/Spinner/Spinner";
-import { auth } from "../firebase";
+import { useHistory } from "react-router-dom";
 
 export const AuthContext = React.createContext();
 
@@ -19,7 +19,8 @@ export const AuthProvider = ({ children }) => {
         setCurrentUser({
           ownerId: user.uid,
           name: user.displayName,
-          email: user.email
+          email: user.email,
+          isNewUser: user.metadata.lastSignInTime === user.metadata.creationTime
         });
         setLoading(false);
         history.push("/home/teams");
@@ -51,7 +52,8 @@ export const signUp = async (credentials, setError, saveUser) => {
   try {
     await auth
       .createUserWithEmailAndPassword(credentials.email, credentials.password)
-      .then(async (res) => {
+      .then((res) => {
+        console.log(res);
         saveUser({
           ownerId: res.user.uid,
           name: credentials.fullName,
@@ -67,6 +69,56 @@ export const signUp = async (credentials, setError, saveUser) => {
       });
   } catch (error) {
     setError({ isError: true, errorMessage: error.message });
+  }
+};
+
+export const signInWithGoogle = async (saveUser) => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  try {
+    await auth.signInWithPopup(provider).then((res) => {
+      // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+      saveUser({
+        ownerId: res.user.uid,
+        name: res.user.displayName,
+        email: res.user.email,
+        teams: [],
+        projects: [],
+        challenges: []
+      });
+      // ...
+    });
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    const email = error.email;
+    const credential = error.credential;
+  }
+};
+
+export const signInWithGitHub = async (saveUser) => {
+  const provider = new firebase.auth.GithubAuthProvider();
+
+  console.log(provider);
+
+  try {
+    await auth.signInWithPopup(provider).then((res) => {
+      // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+      saveUser({
+        ownerId: res.user.uid,
+        name: res.user.displayName,
+        email: res.user.email,
+        teams: [],
+        projects: [],
+        challenges: []
+      });
+      // ...
+    });
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    const email = error.email;
+    const credential = error.credential;
   }
 };
 

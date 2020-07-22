@@ -9,7 +9,6 @@ import { useHistory, useRouteMatch } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { headingTertiary as HeadingTertiary } from "../../../UI/Text/Text";
 import MediumLink from "../../../UI/Links/Medium/MediumLink";
-import MoreInfo from "../../../UI/MoreInfo/MoreInfo";
 import Spinner from "../../../UI/Spinner/Spinner";
 import Technology from "../../../UI/Technology/Technology";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";

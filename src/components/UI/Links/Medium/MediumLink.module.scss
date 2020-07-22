@@ -140,4 +140,24 @@
       color: var(--color-white);
     }
   }
+
+  &__github {
+    color: var(--color-white);
+    background-color: #24292e;
+    width: 100%;
+
+    &:hover {
+      background-color: rgba(#24292e, 0.8);
+    }
+  }
+
+  &__google {
+    color: var(--color-white);
+    background-color: #ea4335;
+    width: 100%;
+
+    &:hover {
+      background-color: rgba(#ea4335, 0.8);
+    }
+  }
 }

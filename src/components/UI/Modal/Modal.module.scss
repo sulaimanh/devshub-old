@@ -4,7 +4,7 @@
   z-index: 10000;
   position: fixed;
   width: 90%;
-  height: 70vh;
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,6 +32,6 @@
   transition: all 0.4s ease-out;
 
   @include respond(phone) {
-    width: 85%;
+    width: 75%;
   }
 }

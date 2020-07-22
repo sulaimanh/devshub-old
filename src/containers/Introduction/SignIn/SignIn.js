@@ -1,8 +1,16 @@
 import React, { useState } from "react";
-import { signIn, signUp } from "../../../context/Auth";
+import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
+import {
+  signIn,
+  signInWithGitHub,
+  signInWithGoogle,
+  signUp
+} from "../../../helper/Auth";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { headingSecondary as HeadingSecondary } from "../../../components/UI/Text/Text";
 import MediumButton from "../../../components/UI/Buttons/Medium/Medium";
+import MediumLink from "../../../components/UI/Links/Medium/MediumLink";
 import { paragraph as Paragraph } from "../../../components/UI/Text/Text";
 import TextInput from "../../../components/UI/Inputs/TextInput/TextInput";
 import styles from "./SignIn.module.scss";
@@ -28,6 +36,26 @@ const SignIn = (props) => {
     setForm((prevState) => {
       return { ...prevState, [id]: value };
     });
+  };
+
+  const signInWithGoogleHandler = async (event) => {
+    event.preventDefault();
+    try {
+      history.push("/home/teams");
+      await signInWithGoogle(saveUser);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const signInWithGitHubHandler = async (event) => {
+    event.preventDefault();
+    try {
+      history.push("/home/teams");
+      await signInWithGitHub(saveUser);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const loginHandler = async (event) => {
@@ -106,7 +134,17 @@ const SignIn = (props) => {
         ) : null}
       </div>
       <div className={styles.sign__submit}>
-        <MediumButton className='tertiary'>Submit</MediumButton>
+        <div className={styles.sign__signIn}>
+          <MediumButton className='tertiary'>Submit</MediumButton>
+        </div>
+        <div className={styles.sign__logIn}>
+          <MediumLink handler={signInWithGitHubHandler} className='github'>
+            <FontAwesomeIcon icon={faGithub} /> GitHub
+          </MediumLink>
+          <MediumLink handler={signInWithGoogleHandler} className='google'>
+            <FontAwesomeIcon icon={faGoogle} /> Google
+          </MediumLink>
+        </div>
       </div>
     </form>
   );

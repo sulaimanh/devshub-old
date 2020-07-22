@@ -47,7 +47,7 @@
       }
 
       @include respond(tab-port) {
-        flex-basis: 100%;
+        // flex-basis: 100%;
         order: 2;
       }
 
@@ -71,14 +71,23 @@
 
       height: 40rem;
 
-      @include respond(phone) {
+      @include respond(tab-port) {
         height: 30rem;
+        // order: 1;
+      }
+
+      @include respond(phone) {
+        height: 25rem;
         // order: 1;
       }
     }
 
     @include respond(tab-port) {
       order: 1;
+      margin-right: 0;
+      &:nth-child(2) {
+        margin-left: 0rem;
+      }
     }
   }
 

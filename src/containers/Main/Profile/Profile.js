@@ -5,7 +5,7 @@ import {
 } from "../../../components/UI/Text/Text";
 import React, { Fragment, useContext, useEffect, useState } from "react";
 
-import { AuthContext } from "../../../context/Auth";
+import { AuthContext } from "../../../helper/Auth";
 import EditProfile from "./EditProfile/EditProfile";
 import Modal from "../../../components/UI/Modal/Modal";
 import RightPanel from "./RightPanel/RightPanel";
@@ -14,11 +14,7 @@ import useGetUser from "../../../hooks/useGetUser";
 import { useRouteMatch } from "react-router-dom";
 
 const Profile = React.memo((props) => {
-  const [applications, setApplications] = useState({
-    projects: [],
-    teams: [],
-    challenges: []
-  });
+  const [user, setUser] = useState({ teams: [], projects: [], challenges: [] });
   const [showModal, setShowModal] = useState(false);
   const match = useRouteMatch("/profile/:userId");
   const { currentUser } = useContext(AuthContext);
@@ -29,35 +25,29 @@ const Profile = React.memo((props) => {
   useEffect(() => {
     console.log("[Profile.js] useEffect");
     if (data) {
-      setApplications({
-        projects: data.projects,
-        teams: data.teams,
-        challenges: data.challenges
-      });
+      setUser(data);
     }
   }, [data]);
-
-  console.log(data);
 
   const showModalHandler = () => {
     setShowModal((prevState) => !prevState);
   };
 
-  const teamList = applications.teams.map((team, index) => {
+  const teamList = user.teams.map((team, index) => {
     return (
       <div key={index} className={styles.profile__maincontainer__listCard}>
         <Paragraph>{team.title}</Paragraph>
       </div>
     );
   });
-  const projectList = applications.projects.map((project, index) => {
+  const projectList = user.projects.map((project, index) => {
     return (
       <div key={index} className={styles.profile__maincontainer__listCard}>
         <Paragraph>{project.title}</Paragraph>
       </div>
     );
   });
-  const challengeList = applications.challenges.map((challenge, index) => {
+  const challengeList = user.challenges.map((challenge, index) => {
     return (
       <div key={index} className={styles.profile__maincontainer__listCard}>
         <Paragraph>{challenge.title}</Paragraph>
@@ -95,7 +85,11 @@ const Profile = React.memo((props) => {
           </div>
         </div>
 
-        <RightPanel showEdit={showModalHandler} />
+        <RightPanel
+          user={user}
+          isCurrentUser={currentUser.ownerId === user.ownerId}
+          showEdit={showModalHandler}
+        />
       </div>
     </Fragment>
   );

@@ -31,7 +31,7 @@ const WhatIs = (props) => {
           <HeadingSecondary>A community of developers</HeadingSecondary>
           <Paragraph>
             Collaborating with other developers just got easier. Developers Path
-            helps develoeprs build effective technical and collaboration skills.
+            helps developers build effective technical and collaboration skills.
           </Paragraph>
         </div>
       </div>

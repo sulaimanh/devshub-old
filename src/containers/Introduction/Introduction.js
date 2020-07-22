@@ -39,7 +39,10 @@ const Introduction = () => {
         showModal={showModal.showModal}
         handleSignIn={changeModalHandler}
       />
-      <TopHeader handleSignIn={changeModalHandler} />
+      <TopHeader
+        changeModalHandler={changeModalHandler}
+        handleSignIn={changeModalHandler}
+      />
       <WhatIs />
       <WhyDev handleSignIn={changeModalHandler} />
     </Fragment>

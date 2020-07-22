@@ -13,7 +13,7 @@ const TopHeader = (props) => {
     <div className={styles.topHeader}>
       <div className={styles.topHeader__leftContainer}>
         <div className={styles.topHeader__statement}>
-          <HeadingPrimary>Bringing opportunities to engineers</HeadingPrimary>
+          <HeadingPrimary>Bringing opportunities to developers</HeadingPrimary>
           <Paragraph>
             A better way to get involved and build your skills
           </Paragraph>
@@ -30,7 +30,7 @@ const TopHeader = (props) => {
         </div>
       </div>
       <div className={styles.topHeader__rightContainer}>
-        <SignIn isSignUp={true} />
+        <SignIn changeModalHandler={props.changeModalHandler} isSignUp={true} />
       </div>
     </div>
   );

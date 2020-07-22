@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Route, Switch, useLocation, useRouteMatch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
-import { AuthContext } from "./context/Auth";
+import { AuthContext } from "./helper/Auth";
 import Challenge from "./components/Main/Home/Challenge/Challenge";
 import Home from "./containers/Main/Home/Home";
 import Introduction from "./containers/Introduction/Introduction";
@@ -14,14 +14,10 @@ import UserProfile from "./containers/Main/Profile/Profile";
 import styles from "./App.module.scss";
 
 function App() {
-  const { isAuth } = useContext(AuthContext);
-  const match = useRouteMatch("/home/:category/:id");
-  const location = useLocation();
+  const { isAuth, currentUser } = useContext(AuthContext);
 
   useEffect(() => {
     console.log("[App.js] useEffect");
-    if (isAuth) {
-    }
   });
 
   let routes = (

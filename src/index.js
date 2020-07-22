@@ -3,7 +3,7 @@ import "./index.module.scss";
 import * as serviceWorker from "./serviceWorker";
 
 import App from "./App";
-import { AuthProvider } from "./context/Auth";
+import { AuthProvider } from "./helper/Auth";
 import { BrowserRouter } from "react-router-dom";
 import React from "react";
 import ReactDOM from "react-dom";

@@ -7,7 +7,7 @@ const getPost = async (_, section, postId) => {
   return doc.data();
 };
 
-export default function usePosts(section, postId) {
+export default function usePost(section, postId) {
   return useQuery(["posts", section, postId], getPost, {
     initialData: () => {
       return queryCache

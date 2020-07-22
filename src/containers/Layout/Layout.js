@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import { AuthContext } from "../../context/Auth";
+import { AuthContext } from "../../helper/Auth";
 import DesktopMenu from "../../components/Main/Menu/DesktopMenu/DesktopMenu";
 import Footer from "../../components/UI/Footer/Footer";
 import Header from "../../components/UI/Header/HeaderMain/HeaderMain";

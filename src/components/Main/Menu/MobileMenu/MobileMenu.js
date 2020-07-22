@@ -3,7 +3,7 @@ import { useHistory, useRouteMatch } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import menuItems from "../menu";
-import { signOut } from "../../../../context/Auth";
+import { signOut } from "../../../../helper/Auth";
 import styles from "./MobileMenu.module.scss";
 
 const MobileMenu = (props) => {

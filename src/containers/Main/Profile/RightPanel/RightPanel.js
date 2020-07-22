@@ -7,13 +7,12 @@ import {
 import React, { useContext, useEffect } from "react";
 import { faBars, faEdit } from "@fortawesome/free-solid-svg-icons";
 
-import { AuthContext } from "../../../../context/Auth";
+import { AuthContext } from "../../../../helper/Auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MediumLink from "../../../../components/UI/Links/Medium/MediumLink";
 import styles from "./RightPanel.module.scss";
 
 const RightPanel = (props) => {
-  const { currentUser } = useContext(AuthContext);
   useEffect(() => {});
 
   return (
@@ -25,16 +24,20 @@ const RightPanel = (props) => {
         />
 
         <div className={styles.rightpanel__topNameEdit}>
-          <HeadingSecondary>{currentUser.name}</HeadingSecondary>
-          <p onClick={props.showEdit} className={styles.rightpanel__topEdit}>
-            <FontAwesomeIcon icon={faEdit} size='1x' /> Edit Profie
-          </p>
+          <HeadingSecondary>{props.user.name}</HeadingSecondary>
+          {props.isCurrentUser ? (
+            <p onClick={props.showEdit} className={styles.rightpanel__topEdit}>
+              <FontAwesomeIcon icon={faEdit} size='1x' /> Edit Profie
+            </p>
+          ) : null}
         </div>
       </div>
 
       <div className={styles.rightpanel__info}>
         <div className={styles.rightpanel__infoMessage}>
-          <MediumLink className='tertiary'>Message Me</MediumLink>
+          {props.isCurrentUser ? null : (
+            <MediumLink className='tertiary'>Message Me</MediumLink>
+          )}
         </div>
         {/* <div className={styles.rightpanel__infoSection}>
           <HeadingTertiary>Applications</HeadingTertiary>
@@ -68,7 +71,7 @@ const RightPanel = (props) => {
 
         <div className={styles.rightpanel__infoSection}>
           <HeadingTertiary>Contact</HeadingTertiary>
-          <Paragraph>{currentUser.email}</Paragraph>
+          <Paragraph>{props.user.email}</Paragraph>
         </div>
       </div>
     </div>
