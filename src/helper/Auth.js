@@ -72,6 +72,7 @@ export const signUp = async (credentials, setError, saveUser) => {
   }
 };
 
+// https://firebase.google.com/docs/auth/web/github-auth#expandable-1
 export const signInWithGoogle = async (saveUser) => {
   const provider = new firebase.auth.GoogleAuthProvider();
 
