@@ -20,7 +20,12 @@ const Layout = (props) => {
   return (
     <div className={props.auth ? styles.layout : null}>
       {desktopMenu}
-      <div style={{ position: "relative" }}>
+      <div
+        style={{
+          position: "relative",
+          width: "100%"
+        }}
+      >
         {header}
         {props.children}
         {menu}

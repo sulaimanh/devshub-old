@@ -11,10 +11,8 @@ const getUserPosts = async (_, ownerId) => {
     .get();
 
   usersPosts.teams = teams.docs.map((doc) => {
-    return doc.data();
+    return { ...doc.data(), postId: doc.id };
   });
-
-  console.log(usersPosts);
 
   const projects = await db
     .collection("projects")
@@ -22,7 +20,7 @@ const getUserPosts = async (_, ownerId) => {
     .get();
 
   usersPosts.projects = projects.docs.map((doc) => {
-    return doc.data();
+    return { ...doc.data(), postId: doc.id };
   });
 
   const challenges = await db
@@ -31,7 +29,7 @@ const getUserPosts = async (_, ownerId) => {
     .get();
 
   usersPosts.challenges = challenges.docs.map((doc) => {
-    return doc.data();
+    return { ...doc.data(), postId: doc.id };
   });
 
   return usersPosts;

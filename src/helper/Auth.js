@@ -116,10 +116,14 @@ export const signInWithGitHub = async (saveUser) => {
 
 export const signIn = async (credentials, setError) => {
   try {
-    await auth.signInWithEmailAndPassword(
-      credentials.email,
-      credentials.password
-    );
+    await auth
+      .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      .then(async () => {
+        return await auth.signInWithEmailAndPassword(
+          credentials.email,
+          credentials.password
+        );
+      });
   } catch (error) {
     setError({ isError: true, errorMessage: error.message });
   }

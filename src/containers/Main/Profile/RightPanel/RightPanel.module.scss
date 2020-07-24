@@ -5,9 +5,13 @@
   display: flex;
   padding: 3rem 1rem 3rem 1em;
   box-shadow: var(--box-shadow);
-  width: 25%;
-
+  width: 35%;
   flex-direction: column;
+
+  @include respond(big-desktop) {
+    width: 25%;
+  }
+
   @include respond(tab-port) {
     width: 95%;
     order: 2;

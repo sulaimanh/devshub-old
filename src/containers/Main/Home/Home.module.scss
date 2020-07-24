@@ -13,6 +13,11 @@
   border-radius: 1rem;
   padding-bottom: 2rem;
   box-shadow: var(--box-shadow);
+
+  @include respond(big-desktop) {
+    // width: 85%;
+  }
+
   &__buttons {
     display: flex;
     // width: 95%;
