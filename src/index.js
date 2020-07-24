@@ -7,6 +7,7 @@ import { AuthProvider } from "./helper/Auth";
 import { BrowserRouter } from "react-router-dom";
 import React from "react";
 import ReactDOM from "react-dom";
+import { ReactQueryDevtools } from "react-query-devtools";
 import ScrollToTop from "./ScrollToTop";
 
 ReactDOM.render(
@@ -17,6 +18,7 @@ ReactDOM.render(
         <App />
       </AuthProvider>
     </BrowserRouter>
+    <ReactQueryDevtools initialIsOpen={false} />
   </React.StrictMode>,
   document.getElementById("root")
 );
