@@ -31,7 +31,6 @@ const UserPost = React.memo((props) => {
     match.params.postId
   );
 
-  // - Retrieve the data for the post
   useEffect(() => {
     if (!isLoading) {
       console.log(data);
