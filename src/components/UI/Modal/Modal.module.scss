@@ -26,7 +26,7 @@
   align-content: center;
   width: 40%;
   border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(black, 0.2);
+  box-shadow: var(--box-shadow);
   padding: 4rem;
 
   transition: all 0.4s ease-out;

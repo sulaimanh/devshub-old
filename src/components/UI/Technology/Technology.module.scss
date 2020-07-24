@@ -36,7 +36,7 @@
   display: flex;
   width: fit-content;
   border: 1px solid transparent;
-  box-shadow: 0 2px 5px rgba(black, 0.2);
+  box-shadow: var(--box-shadow);
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;

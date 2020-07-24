@@ -1,11 +1,6 @@
 @import "../abstracts/mixins";
 
 :root {
-  // --color-primary: #5f36f8;
-  // --color-primary-hover: #3d3dc3;
-  // --color-secondary: #bbe1fa;
-  // --color-tertiary: #376efe;
-
   --color-primary: #005aea;
   --color-primary-hover: #4692ff;
   --color-secondary: #0183ff;
@@ -40,7 +35,7 @@
   --color-primary-text: #000;
   --color-dropdown-color: #ebf0f7;
 
-  --box-shadow: 0 10px 20px rgba(--color-primary-text, 0.2);
+  --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 
   --primary-heading-size: 4rem;
 

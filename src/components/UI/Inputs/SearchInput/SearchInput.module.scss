@@ -56,7 +56,7 @@
 
     &:focus {
       outline: none;
-      box-shadow: 0 5px 10px rgba(black, 0.2);
+      box-shadow: var(--box-shadow);
     }
 
     &__button {

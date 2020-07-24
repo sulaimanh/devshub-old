@@ -22,7 +22,7 @@
   &:focus {
     outline: none;
     // border-bottom: 3px solid $color-left;
-    box-shadow: 0 1rem 2rem rgba(black, 0.3);
+    box-shadow: var(--box-shadow);
   }
 
   &::-webkit-input-placeholder {

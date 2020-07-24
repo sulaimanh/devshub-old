@@ -32,7 +32,7 @@
 
     &:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(black, 0.2);
+      box-shadow: var(--box-shadow);
       background-color: var(--color-primary-hover);
 
       &::after {
@@ -45,7 +45,7 @@
     &:focus {
       outline: none;
       transform: translateY(1px);
-      box-shadow: 0 5px 10px rgba(black, 0.2);
+      box-shadow: var(--box-shadow);
     }
   }
 

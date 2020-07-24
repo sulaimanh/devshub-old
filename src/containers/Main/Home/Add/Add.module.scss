@@ -28,7 +28,7 @@
   justify-content: center;
   flex-direction: column;
   width: 80%;
-  box-shadow: 0 10px 20px rgba(black, 0.2);
+  box-shadow: var(--box-shadow);
   border-radius: 3rem;
   background-color: var(--color-white);
 
