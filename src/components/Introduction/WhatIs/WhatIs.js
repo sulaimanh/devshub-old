@@ -47,7 +47,7 @@ const WhatIs = (props) => {
           <Paragraph>
             Have an idea? Post it on Developers Path and build your own team.
             Looking for a team or project to join? Join Developers Path and find
-            your next project,
+            your next project.
           </Paragraph>
         </div>
         <div className={styles.what__logos}>

@@ -1,0 +1,42 @@
+import { queryCache, useQuery } from "react-query";
+
+import { db } from "../firebase";
+
+const getUserPosts = async (_, ownerId) => {
+  console.log(ownerId);
+  let usersPosts = { teams: [], projects: [], challenges: [] };
+  const teams = await db
+    .collection("teams")
+    .where("ownerId", "==", ownerId)
+    .get();
+
+  usersPosts.teams = teams.docs.map((doc) => {
+    return doc.data();
+  });
+
+  console.log(usersPosts);
+
+  const projects = await db
+    .collection("projects")
+    .where("ownerId", "==", ownerId)
+    .get();
+
+  usersPosts.projects = projects.docs.map((doc) => {
+    return doc.data();
+  });
+
+  const challenges = await db
+    .collection("challenges")
+    .where("ownerId", "==", ownerId)
+    .get();
+
+  usersPosts.challenges = challenges.docs.map((doc) => {
+    return doc.data();
+  });
+
+  return usersPosts;
+};
+
+export default function useGetUserPosts(ownerId) {
+  return useQuery(["posts", ownerId], getUserPosts);
+}

@@ -8,7 +8,7 @@ const TextInput = (props, ref) => {
       placeholder={props.placeholder}
       className={[
         styles.form__input,
-        styles[`form__input__${props.backgroundColor}`],
+        styles[`form__input__${props.backgroundColor}`]
       ].join(" ")}
       type={props.type}
       value={props.value}
@@ -21,7 +21,7 @@ const TextInput = (props, ref) => {
       placeholder={props.placeholder}
       className={[
         styles.form__input,
-        styles[`form__input__${props.backgroundColor}`],
+        styles[`form__input__${props.backgroundColor}`]
       ].join(" ")}
       type={props.type}
       value={props.value}
@@ -36,12 +36,28 @@ const TextInput = (props, ref) => {
         placeholder={props.placeholder}
         className={[
           styles.form__textarea,
-          styles[`form__textarea__${props.backgroundColor}`],
+          styles[`form__textarea__${props.backgroundColor}`]
         ].join(" ")}
         type={props.type}
         onChange={props.handler}
         value={props.value}
         required
+      />
+    );
+  }
+
+  if (props.isUrl) {
+    input = (
+      <input
+        id={props.for}
+        placeholder={props.placeholder}
+        className={[
+          styles.form__input,
+          styles[`form__input__${props.backgroundColor}`]
+        ].join(" ")}
+        type={props.type}
+        value={props.value}
+        onChange={props.handler}
       />
     );
   }

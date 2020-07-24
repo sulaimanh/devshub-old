@@ -9,6 +9,7 @@
   margin-top: 10rem;
 
   height: 35vh;
+  z-index: 1000;
 
   max-width: 100%;
 
@@ -37,6 +38,7 @@
     flex-direction: column;
     width: 45%;
     margin-top: 5rem;
+    height: fit-content;
 
     animation: moveInLeft 1s ease-in-out;
 

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 
 import { AuthContext } from "./helper/Auth";
 import Challenge from "./components/Main/Home/Challenge/Challenge";
@@ -31,17 +31,17 @@ function App() {
   if (isAuth) {
     routes = (
       <Switch>
+        <Route path='/profile/:userId' component={UserProfile} />
+
         <Route path='/home/teams/:id' component={Team} />
         <Route path='/home/projects/:id' component={Project} />
         <Route path='/home/challenges/:id' component={Challenge} />
-
-        <Route path='/profile/:userId' component={UserProfile} />
 
         <Route path='/profile' component={Profile} />
         <Route path='/messages' component={Messages} />
         <Route path='/home/:category' component={Home} />
 
-        {/* <Redirect to='/home/teams' /> */}
+        <Redirect to='/home/teams' />
       </Switch>
     );
   }

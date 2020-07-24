@@ -6,9 +6,9 @@ export default function useCreatePost(section) {
     (value) => {
       console.log(value);
       db.collection(value.section).add(value);
-      db.collection("users")
-        .doc(value.ownerId)
-        .update({ [value.section]: FieldValue.arrayUnion(value) });
+      // db.collection("users")
+      //   .doc(value.ownerId)
+      //   .update({ [value.section]: FieldValue.arrayUnion(value) });
       console.log(value.section, value.input);
     },
     {
@@ -18,7 +18,6 @@ export default function useCreatePost(section) {
         const previousValue = queryCache.getQueryData(["posts", section]);
         console.log(previousValue);
         queryCache.setQueryData(["posts", section], (old) => {
-          console.log(old);
           return [...old, post];
         });
 

@@ -9,48 +9,74 @@ import { AuthContext } from "../../../helper/Auth";
 import EditProfile from "./EditProfile/EditProfile";
 import Modal from "../../../components/UI/Modal/Modal";
 import RightPanel from "./RightPanel/RightPanel";
+import Spinner from "../../../components/UI/Spinner/Spinner";
 import styles from "./Profile.module.scss";
 import useGetUser from "../../../hooks/useGetUser";
+import useGetUserPosts from "../../../hooks/useGetUserPosts";
 import { useRouteMatch } from "react-router-dom";
+import useUpdateUser from "../../../hooks/useUpdateUser";
 
 const Profile = React.memo((props) => {
-  const [user, setUser] = useState({ teams: [], projects: [], challenges: [] });
+  const [posts, setPosts] = useState({
+    teams: [],
+    projects: [],
+    challenges: []
+  });
+  const [user, setUser] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const match = useRouteMatch("/profile/:userId");
+  const match = useRouteMatch("/profile/:ownerId");
   const { currentUser } = useContext(AuthContext);
-  const { isLoading, isError, data, error } = useGetUser(
-    match ? match.params.userId : currentUser.ownerId
+  const userData = useGetUser(
+    match ? match.params.ownerId : currentUser.ownerId
   );
+  const userPostsData = useGetUserPosts(
+    match ? match.params.ownerId : currentUser.ownerId
+  );
+  const [
+    updateUser,
+    updatedData /*{ status, updatedUserData, err }*/
+  ] = useUpdateUser(user.ownerId);
 
   useEffect(() => {
     console.log("[Profile.js] useEffect");
-    if (data) {
-      setUser(data);
+
+    if (userPostsData.data) {
+      setPosts({ ...userPostsData.data });
+      setUser(userData.data);
     }
-  }, [data]);
+  }, [userPostsData.data, userData.data]);
 
   const showModalHandler = () => {
     setShowModal((prevState) => !prevState);
   };
 
-  const teamList = user.teams.map((team, index) => {
+  const updateUserHandler = async (input) => {
+    await updateUser({ ...input, ownerId: user.ownerId });
+    setShowModal((prevState) => !prevState);
+  };
+
+  if (userData.isLoading) {
+    return <Spinner />;
+  }
+
+  const teamList = posts.teams.map((team, index) => {
     return (
       <div key={index} className={styles.profile__maincontainer__listCard}>
-        <Paragraph>{team.title}</Paragraph>
+        <Paragraph className='small'>{team.title}</Paragraph>
       </div>
     );
   });
-  const projectList = user.projects.map((project, index) => {
+  const projectList = posts.projects.map((project, index) => {
     return (
       <div key={index} className={styles.profile__maincontainer__listCard}>
-        <Paragraph>{project.title}</Paragraph>
+        <Paragraph className='small'>{project.title}</Paragraph>
       </div>
     );
   });
-  const challengeList = user.challenges.map((challenge, index) => {
+  const challengeList = posts.challenges.map((challenge, index) => {
     return (
       <div key={index} className={styles.profile__maincontainer__listCard}>
-        <Paragraph>{challenge.title}</Paragraph>
+        <Paragraph className='small'>{challenge.title}</Paragraph>
       </div>
     );
   });
@@ -58,8 +84,8 @@ const Profile = React.memo((props) => {
   return (
     <Fragment>
       {showModal ? (
-        <Modal handler={showModalHandler} show={showModal}>
-          <EditProfile />
+        <Modal className='intro' handler={showModalHandler} show={showModal}>
+          <EditProfile updateUserHandler={updateUserHandler} user={user} />
         </Modal>
       ) : null}
 

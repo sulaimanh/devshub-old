@@ -25,6 +25,10 @@
 .paragraph {
   font-size: var(--default-font-size);
 
+  &__medium {
+    font-size: var(--default-font-size-medium);
+  }
+
   &__small {
     font-size: var(--default-font-size-small);
   }

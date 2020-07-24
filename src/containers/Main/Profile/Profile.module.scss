@@ -42,20 +42,44 @@
 
     &__list {
       display: flex;
-      flex-direction: column;
-      width: 90%;
+      justify-content: center;
+      // width: 95%;
+      height: 100%;
+      margin-top: 1rem;
       border-radius: 2rem;
       // box-shadow: 0 10px 20px rgba(black, 0.2);
-      padding: 2rem;
+      padding: 0rem 2rem;
+
+      @include respond(tab-port) {
+        flex-direction: column;
+      }
 
       &Section {
+        display: flex;
+        // justify-content: center;
+        align-items: center;
+        flex-direction: column;
         width: 95%;
+        height: 100%;
+
+        border-radius: 5px;
+        margin-right: 3rem;
+
+        @include respond(tab-port) {
+          align-items: flex-start;
+
+          &:not(:last-child) {
+            margin-bottom: 1rem;
+          }
+        }
       }
       &Card {
+        display: flex;
         cursor: pointer;
         margin-bottom: 1rem;
-        padding: 1rem;
-        border-left: 3px solid var(--color-tertiary);
+        padding: 0.5rem 1rem;
+        width: 90%;
+        border-left: 3px solid var(--color-primary);
         margin-left: 10px;
 
         &:hover {
