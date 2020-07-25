@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 
 import Challenges from "../Sections/Challenges/Challenges";
@@ -20,10 +20,12 @@ const Sections = (props) => {
     setSearch(event.target.value);
   };
 
-  // React.useEffect(() => {
-  //   console.log("[Sections.js] useEffect");
+  useEffect(() => {
+    if (data) {
+      setCards(data);
+    }
+  }, [data]);
 
-  // }, [match.params.section]);
   console.log(isLoading, isError, data, error);
 
   if (isLoading) {
@@ -47,13 +49,13 @@ const Sections = (props) => {
       </div>
       <Switch>
         <Route path='/home/projects'>
-          <Projects cards={data} />
+          <Projects cards={cards} />
         </Route>
         <Route path='/home/challenges'>
-          <Challenges cards={data} />
+          <Challenges cards={cards} />
         </Route>
         <Route path='/home/teams'>
-          <Teams cards={data} />
+          <Teams cards={cards} />
         </Route>
         <Redirect to='/home/teams' />
       </Switch>

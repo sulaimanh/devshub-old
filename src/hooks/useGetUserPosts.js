@@ -3,7 +3,6 @@ import { queryCache, useQuery } from "react-query";
 import { db } from "../firebase";
 
 const getUserPosts = async (_, ownerId) => {
-  console.log(ownerId);
   let usersPosts = { teams: [], projects: [], challenges: [] };
   const teams = await db
     .collection("teams")

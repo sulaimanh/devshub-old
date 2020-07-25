@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
         history.push("/");
       }
     });
-    console.log("RENDERED!!!!");
+
     auth.getRedirectResult().then(function (res) {
       if (res.credential) {
         saveUser({
@@ -68,7 +68,6 @@ export const signUp = async (credentials, setError, saveUser) => {
     await auth
       .createUserWithEmailAndPassword(credentials.email, credentials.password)
       .then((res) => {
-        console.log(res);
         saveUser({
           ownerId: res.user.uid,
           name: credentials.fullName,
@@ -116,14 +115,10 @@ export const signInWithGitHub = async (saveUser) => {
 
 export const signIn = async (credentials, setError) => {
   try {
-    await auth
-      .setPersistence(firebase.auth.Auth.Persistence.SESSION)
-      .then(async () => {
-        return await auth.signInWithEmailAndPassword(
-          credentials.email,
-          credentials.password
-        );
-      });
+    await auth.signInWithEmailAndPassword(
+      credentials.email,
+      credentials.password
+    );
   } catch (error) {
     setError({ isError: true, errorMessage: error.message });
   }

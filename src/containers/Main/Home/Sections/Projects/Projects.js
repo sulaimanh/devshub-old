@@ -19,7 +19,10 @@ const Projects = React.memo((props) => {
     history.push("/home/projects/" + projectId);
   };
 
+  console.log(props.cards);
+
   const view = props.cards.map((card, index) => {
+    console.log(card);
     return (
       <Card
         key={index}

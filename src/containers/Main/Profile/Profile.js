@@ -11,6 +11,7 @@ import Modal from "../../../components/UI/Modal/Modal";
 import RightPanel from "./RightPanel/RightPanel";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import styles from "./Profile.module.scss";
+import useDeletePost from "../../../hooks/useDeletePost";
 import useGetUser from "../../../hooks/useGetUser";
 import useGetUserPosts from "../../../hooks/useGetUserPosts";
 import { useHistory } from "react-router-dom";
@@ -26,7 +27,7 @@ const Profile = React.memo((props) => {
     isProjects: false,
     isChallenges: false
   });
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({ arr: [], isUserProfile: false });
   const [showModal, setShowModal] = useState(false);
   const match = useRouteMatch("/profile/:ownerId");
   const history = useHistory();
@@ -41,23 +42,35 @@ const Profile = React.memo((props) => {
     updateUser,
     updatedData /*{ status, updatedUserData, err }*/
   ] = useUpdateUser(user.ownerId);
+  const [
+    deletPost,
+    updatedDeletedPost /*{ status, updatedUserData, err }*/
+  ] = useDeletePost();
 
   useEffect(() => {
     console.log("[Profile.js] useEffect");
 
     if (userPostsData.data) {
-      console.log(userPostsData.data);
       setPosts({
         ...userPostsData.data,
         isTeams: userPostsData.data.teams.length !== 0 ? true : false,
         isProjects: userPostsData.data.projects.length !== 0 ? true : false,
         isChallenges: userPostsData.data.challenges.length !== 0 ? true : false
       });
-      setUser(userData.data);
+      if (match) {
+        setUser({
+          ...userData.data,
+          isUserProfile:
+            match.params.ownerId === currentUser.ownerId ? true : false
+        });
+      } else {
+        setUser({
+          ...userData.data,
+          isUserProfile: true
+        });
+      }
     }
   }, [userPostsData.data, userData.data]);
-
-  console.log(posts.isTeams, posts.isProjects);
 
   const showModalHandler = () => {
     setShowModal((prevState) => !prevState);
@@ -66,6 +79,10 @@ const Profile = React.memo((props) => {
   const updateUserHandler = async (input) => {
     await updateUser({ ...input, ownerId: user.ownerId });
     setShowModal((prevState) => !prevState);
+  };
+
+  const deletePostHandler = async (section, postId) => {
+    await deletPost({ section: section, postId: postId });
   };
 
   if (userData.isLoading) {
@@ -77,36 +94,62 @@ const Profile = React.memo((props) => {
   };
 
   const teamList = posts.teams.map((team, index) => {
-    console.log(team);
     return (
-      <div
-        onClick={() => goToPostHandler("teams", team.postId)}
-        key={index}
-        className={styles.profile__maincontainer__listCard}
-      >
-        <Paragraph className='small'>{team.title}</Paragraph>
+      <div key={index} className={styles.profile__maincontainer__listCard}>
+        <div
+          className={styles.profile__maincontainer__listCardClick}
+          onClick={() => goToPostHandler("teams", team.postId)}
+        >
+          <Paragraph className='medium'>{team.title}</Paragraph>
+        </div>
+        {user.isUserProfile ? (
+          <div
+            onClick={() => deletePostHandler("teams", team.postId)}
+            className={styles.profile__maincontainer__listCardDelete}
+          >
+            <Paragraph className='small'>Delete</Paragraph>
+          </div>
+        ) : null}
       </div>
     );
   });
   const projectList = posts.projects.map((project, index, arr) => {
     return (
-      <div
-        onClick={() => goToPostHandler("projects", project.postId)}
-        key={index}
-        className={styles.profile__maincontainer__listCard}
-      >
-        <Paragraph className='small'>{project.title}</Paragraph>
+      <div key={index} className={styles.profile__maincontainer__listCard}>
+        <div
+          className={styles.profile__maincontainer__listCardClick}
+          onClick={() => goToPostHandler("projects", project.postId)}
+        >
+          <Paragraph className='medium'>{project.title}</Paragraph>
+        </div>
+        {user.isUserProfile ? (
+          <div
+            onClick={() => deletePostHandler("projects", project.postId)}
+            className={styles.profile__maincontainer__listCardDelete}
+          >
+            <Paragraph className='small'>Delete</Paragraph>
+          </div>
+        ) : null}
       </div>
     );
   });
   const challengeList = posts.challenges.map((challenge, index) => {
     return (
-      <div
-        onClick={() => goToPostHandler("challenges", challenge.postId)}
-        key={index}
-        className={styles.profile__maincontainer__listCard}
-      >
-        <Paragraph className='small'>{challenge.title}</Paragraph>
+      <div key={index} className={styles.profile__maincontainer__listCard}>
+        <div
+          className={styles.profile__maincontainer__listCardClick}
+          onClick={() => goToPostHandler("challenges", challenge.postId)}
+        >
+          <Paragraph className='medium'>{challenge.title}</Paragraph>
+        </div>
+        {user.isUserProfile ? (
+          <div
+            onClick={() => deletePostHandler("challenges", challenge.postId)}
+            className={styles.profile__maincontainer__listCardDelete}
+          >
+            <Paragraph className='small'>Delete</Paragraph>
+          </div>
+        ) : null}
       </div>
     );
   });
@@ -134,7 +177,7 @@ const Profile = React.memo((props) => {
             ) : null}
             {posts.isProjects ? (
               <div className={styles.profile__maincontainer__listSection}>
-                <HeadingTertiary>Teams</HeadingTertiary>
+                <HeadingTertiary>Projects</HeadingTertiary>
                 {projectList}
               </div>
             ) : null}

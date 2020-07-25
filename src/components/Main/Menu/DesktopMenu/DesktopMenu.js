@@ -22,7 +22,6 @@ const DesktopMenu = () => {
     console.log("[DesktopMenu.js] useEffect");
 
     if (match) {
-      console.log(match.params.section);
       setSelectedTab(match.params.section);
     } else {
       history.go("/home/teams");

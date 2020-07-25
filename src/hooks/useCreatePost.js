@@ -26,7 +26,7 @@ export default function useCreatePost(section) {
       // On failure, roll back to the previous value
       onError: (err, variables, previousValue) =>
         queryCache.setQueryData(["posts", section], previousValue),
-      // After success or failure, refetch the todos query
+      // After success or failure, refetch
       onSettled: () => {
         queryCache.invalidateQueries(["posts", section]);
       }

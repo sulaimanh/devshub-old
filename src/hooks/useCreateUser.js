@@ -7,7 +7,6 @@ export default function useCreateUser() {
 
     docRef.get().then((doc) => {
       if (!doc.exists) {
-        console.log("IT EXISTS");
         docRef.set(value);
       }
     });
