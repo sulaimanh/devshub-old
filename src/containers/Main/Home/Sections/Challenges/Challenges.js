@@ -18,14 +18,20 @@ const Challenges = React.memo((props) => {
 
   const view = props.cards.map((card, index) => {
     return (
-      <Card
-        key={index}
-        handler={challengesSelectedHandler}
-        title={card.title}
-        id={card.id}
-        description={card.description}
-        tech={card.techArr}
-      />
+      <React.Fragment key={index}>
+        {card.docs.map((doc, index) => {
+          return (
+            <Card
+              key={index}
+              handler={challengesSelectedHandler}
+              title={doc.title}
+              id={doc.id}
+              description={doc.description}
+              tech={doc.techArr}
+            />
+          );
+        })}
+      </React.Fragment>
     );
   });
 

@@ -63,7 +63,6 @@ const Add = (props) => {
     });
     props.handler();
   };
-  console.log(currentUser.name);
 
   return (
     <form className={styles.form}>

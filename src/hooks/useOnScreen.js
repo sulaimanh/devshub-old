@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 function useOnScreen(ref, triggerOnce, rootMargin = "0px") {
   // State and setter for storing whether element is visible
@@ -39,7 +39,7 @@ function useOnScreen(ref, triggerOnce, rootMargin = "0px") {
     // return () => {
     //   observer.unobserve(ref.current);
     // };
-  }); // Empty array ensures that effect is only run on mount and unmount
+  });
 
   return isIntersecting;
 }

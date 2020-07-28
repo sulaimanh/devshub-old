@@ -19,19 +19,22 @@ const Projects = React.memo((props) => {
     history.push("/home/projects/" + projectId);
   };
 
-  console.log(props.cards);
-
   const view = props.cards.map((card, index) => {
-    console.log(card);
     return (
-      <Card
-        key={index}
-        handler={projectSelectedHandler}
-        title={card.title}
-        id={card.id}
-        description={card.description}
-        tech={card.techArr}
-      />
+      <React.Fragment key={index}>
+        {card.docs.map((doc, index) => {
+          return (
+            <Card
+              key={index}
+              handler={projectSelectedHandler}
+              title={doc.title}
+              id={doc.id}
+              description={doc.description}
+              tech={doc.techArr}
+            />
+          );
+        })}
+      </React.Fragment>
     );
   });
 

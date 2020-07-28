@@ -1,24 +1,33 @@
-import { FieldValue, db } from "../firebase";
+import { FieldValue, ServerValue, db } from "../firebase";
 import { queryCache, useMutation } from "react-query";
 
 export default function useCreatePost(section) {
   return useMutation(
     (value) => {
-      console.log(value);
-      db.collection(value.section).add(value);
+      // console.log(value);
+      db.collection(value.section).add({
+        ...value,
+        createdAt: FieldValue.serverTimestamp()
+      });
       // db.collection("users")
       //   .doc(value.ownerId)
       //   .update({ [value.section]: FieldValue.arrayUnion(value) });
-      console.log(value.section, value.input);
     },
     {
       onMutate: (post) => {
         queryCache.cancelQueries(["posts", section]);
 
         const previousValue = queryCache.getQueryData(["posts", section]);
-        console.log(previousValue);
+
         queryCache.setQueryData(["posts", section], (old) => {
-          return [...old, post];
+          const first = old[0].docs;
+          const newFirst = {
+            docs: [post, ...first],
+            lastVisible: first.lastVisible
+          };
+          const updateNew = [newFirst, ...old];
+
+          return updateNew;
         });
 
         return previousValue;

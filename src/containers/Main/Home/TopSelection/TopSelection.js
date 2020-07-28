@@ -84,11 +84,11 @@ const TopSelection = (props) => {
 
       <div className={styles.top}>
         <div className={styles.top__links}>{view}</div>
-        <div className={styles.top__add}>
-          <MediumLink handler={showAddHandler} className='tertiary'>
-            Post a {section}
-          </MediumLink>
-        </div>
+      </div>
+      <div className={styles.top__add}>
+        <MediumLink handler={showAddHandler} className='tertiary'>
+          Post a {section}
+        </MediumLink>
       </div>
     </Fragment>
   );

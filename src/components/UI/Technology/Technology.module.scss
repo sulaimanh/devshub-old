@@ -23,6 +23,7 @@
     &Tech {
       display: flex;
       flex-wrap: wrap;
+      margin-top: 1rem;
     }
   }
 
@@ -37,6 +38,7 @@
   width: fit-content;
   border: 1px solid transparent;
   box-shadow: var(--box-shadow);
+
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;

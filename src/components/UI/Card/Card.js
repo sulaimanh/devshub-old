@@ -22,7 +22,10 @@ const Card = (props) => {
   const description = isWordy ? (
     <p className={styles.card__descriptionText}>
       {props.description.substring(0, 250)}...{" "}
-      <span onClick={props.handler} className={styles.card__descriptionSeemore}>
+      <span
+        onClick={(event) => props.handler(event, props.id)}
+        className={styles.card__descriptionSeemore}
+      >
         see more
       </span>
     </p>
@@ -43,7 +46,7 @@ const Card = (props) => {
         <SmallLink
           id={props.id}
           handler={props.handler}
-          className="tertiaryOutline"
+          className='tertiaryOutline'
         >
           Explore
         </SmallLink>

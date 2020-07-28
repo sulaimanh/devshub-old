@@ -15,6 +15,7 @@ import styles from "./App.module.scss";
 
 function App() {
   const { isAuth, currentUser } = useContext(AuthContext);
+  const [scrollButton, setScrollButton] = useState(false);
 
   useEffect(() => {
     console.log("[App.js] useEffect");

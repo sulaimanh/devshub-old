@@ -8,12 +8,10 @@ import { BrowserRouter } from "react-router-dom";
 import React from "react";
 import ReactDOM from "react-dom";
 import { ReactQueryDevtools } from "react-query-devtools";
-import ScrollToTop from "./ScrollToTop";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ScrollToTop />
       <AuthProvider>
         <App />
       </AuthProvider>

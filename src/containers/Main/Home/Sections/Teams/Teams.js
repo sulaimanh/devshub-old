@@ -14,21 +14,26 @@ const Teams = React.memo((props) => {
 
   // - handle when project is selected
   const teamSelectedHandler = (event, projectId) => {
+    // console.log("QUERY CACHE", queryCache.getQueryData(["posts", "teams"]));
     history.push("/home/teams/" + projectId);
-    console.log("QUERY CACHE", queryCache.getQueryData(["posts", "teams"]));
   };
 
   const view = props.cards.map((card, index) => {
-    console.log(card);
     return (
-      <Card
-        key={index}
-        handler={teamSelectedHandler}
-        title={card.title}
-        id={card.id}
-        description={card.description}
-        tech={card.techArr}
-      />
+      <React.Fragment key={index}>
+        {card.docs.map((doc, index) => {
+          return (
+            <Card
+              key={index}
+              handler={teamSelectedHandler}
+              title={doc.title}
+              id={doc.id}
+              description={doc.description}
+              tech={doc.techArr}
+            />
+          );
+        })}
+      </React.Fragment>
     );
   });
 

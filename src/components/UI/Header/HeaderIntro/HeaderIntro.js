@@ -1,34 +1,9 @@
-import React, { useEffect, useState } from "react";
-
 import { headingSecondary as HeadingSecondary } from "../../Text/Text";
 import MediumLink from "../../Links/Medium/MediumLink";
+import React from "react";
 import styles from "./HeaderIntro.module.scss";
 
 const HeaderIntro = (props) => {
-  // const [showHeader, setHeader] = useState({
-  //   visible: true,
-  //   yOffset: window.pageYOffset
-  // });
-
-  // const handleScroll = () => {
-  //   const yOffset = window.pageYOffset;
-
-  //   let visible = yOffset < showHeader.yOffset;
-
-  //   if (yOffset === 0) {
-  //     visible = true;
-  //   }
-
-  //   setHeader({ visible: visible, yOffset: yOffset });
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // });
-
   return (
     <div className={styles.header}>
       <div className={styles.header__logo}>
