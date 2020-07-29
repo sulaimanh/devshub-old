@@ -56,13 +56,13 @@ const Sections = (props) => {
         justifyContent: "center"
       }}
     >
-      <SearchInput
+      {/* <SearchInput
         info='Filter your search'
         isSubmitButton={false}
         placeholder='Filter your search'
         value={search}
         handler={filterHandler}
-      />
+      /> */}
 
       <Switch>
         <Route path='/home/projects'>

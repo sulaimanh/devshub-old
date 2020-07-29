@@ -17,12 +17,12 @@ const SearchInput = (props) => {
         />
         <FontAwesomeIcon
           icon={faSearch}
-          size="2x"
+          size='2x'
           className={styles.input__iconSearch}
         />
 
         <div className={styles.input__iconInfo}>
-          <MoreInfo className="left">{props.info}</MoreInfo>
+          <MoreInfo className='left'>{props.info}</MoreInfo>
         </div>
       </div>
       {props.isSubmitButton ? (
