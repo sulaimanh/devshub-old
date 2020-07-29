@@ -24,7 +24,7 @@ const HeaderMain = (props) => {
           handler={searchHandler}
         /> */}
         <HeadingSecondary>
-          ( ) <FontAwesomeIcon icon={faBicycle} /> >
+          ( ) <FontAwesomeIcon icon={faBicycle} /> {">"}
         </HeadingSecondary>
       </div>
       <h1 className={styles.header__title}>Developers Path</h1>
