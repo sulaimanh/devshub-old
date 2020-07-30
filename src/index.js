@@ -11,7 +11,7 @@ import { ReactQueryDevtools } from "react-query-devtools";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename='/'>
       <AuthProvider>
         <App />
       </AuthProvider>
