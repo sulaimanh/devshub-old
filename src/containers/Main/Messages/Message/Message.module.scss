@@ -1,0 +1,25 @@
+.message {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+
+  &__first {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &Message {
+      text-align: center;
+      width: 75%;
+      margin-bottom: 3rem;
+    }
+
+    &Logo {
+      display: flex;
+      width: 30%;
+      height: fit-content;
+    }
+  }
+}

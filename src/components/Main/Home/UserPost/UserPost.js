@@ -3,9 +3,10 @@ import {
   link as Link,
   paragraph as Paragraph
 } from "../../../UI/Text/Text";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
 
+import { AuthContext } from "../../../../helper/Auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { headingTertiary as HeadingTertiary } from "../../../UI/Text/Text";
 import MediumLink from "../../../UI/Links/Medium/MediumLink";
@@ -16,6 +17,7 @@ import styles from "./UserPost.module.scss";
 import usePost from "../../../../hooks/usePost";
 
 const UserPost = React.memo((props) => {
+  const { isAuth, currentUser } = useContext(AuthContext);
   const history = useHistory();
   const match = useRouteMatch("/home/:section/:postId");
   const [post, setPost] = useState({
@@ -33,7 +35,6 @@ const UserPost = React.memo((props) => {
 
   useEffect(() => {
     if (!isLoading) {
-      console.log(data);
       setPost(data);
     }
   });
@@ -62,7 +63,11 @@ const UserPost = React.memo((props) => {
           size='3x'
         />
         <div className={styles.post__topRequest}>
-          <MediumLink className='tertiary'>Send Request</MediumLink>
+          {currentUser.ownerId === post.ownerId ? (
+            <HeadingTertiary>You posted this</HeadingTertiary>
+          ) : (
+            <MediumLink className='tertiary'>Send Request</MediumLink>
+          )}
         </div>
       </div>
 
