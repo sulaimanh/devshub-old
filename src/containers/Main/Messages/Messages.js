@@ -3,8 +3,10 @@ import {
   headingTertiary as HeadingTertiary
 } from "../../../components/UI/Text/Text";
 import React, { useContext, useState } from "react";
+import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 
 import { AuthContext } from "../../../helper/Auth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Message from "./Message/Message";
 import { ReactComponent as ReactEmptyLogo } from "../../../assets/img/empty.svg";
 import Spinner from "../../../components/UI/Spinner/Spinner";
@@ -14,6 +16,7 @@ import useGetUserPosts from "../../../hooks/useGetUserPosts";
 const Messages = (props) => {
   const { isAuth, currentUser } = useContext(AuthContext);
   const [selectedPost, setSelectedPost] = useState(null);
+  const [showHide, setShowHide] = useState(true);
   const { isLoading, isError, data, status } = useGetUserPosts(
     currentUser.ownerId
   );
@@ -24,6 +27,7 @@ const Messages = (props) => {
 
   const postSelectedHandler = (post) => {
     setSelectedPost(post);
+    setShowHide((prevValue) => !prevValue);
   };
 
   const teams = data.teams.map((team, index) => {
@@ -79,9 +83,31 @@ const Messages = (props) => {
     );
   }
 
+  const showDropdownHandler = () => {
+    setShowHide((prevValue) => !prevValue);
+  };
+
   return (
     <div className={styles.messages}>
-      {/* <div className={styles.messages__dropDown}>Dropdown</div> */}
+      <div
+        onClick={showDropdownHandler}
+        className={[
+          styles.messages__dropdown,
+          showHide
+            ? styles.messages__dropdown__hide
+            : styles.messages__dropdown__show
+        ].join(" ")}
+      >
+        <HeadingTertiary>
+          {selectedPost === null ? "Select a Post" : selectedPost.title}
+          {"  "}
+          {showHide ? (
+            <FontAwesomeIcon icon={faCaretUp} />
+          ) : (
+            <FontAwesomeIcon icon={faCaretDown} />
+          )}
+        </HeadingTertiary>
+      </div>
       <div className={styles.messages__left}>
         {teams}
         {projects}

@@ -38,10 +38,7 @@ export const AuthProvider = ({ children }) => {
         saveUser({
           ownerId: res.user.uid,
           name: res.user.displayName,
-          email: res.user.email,
-          teams: [],
-          projects: [],
-          challenges: []
+          email: res.user.email
         });
       }
     });
