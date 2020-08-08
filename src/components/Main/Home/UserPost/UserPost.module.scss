@@ -47,6 +47,16 @@
       }
     }
 
+    &Check {
+      color: var(--color-tertiary);
+      cursor: pointer;
+    }
+
+    &Minus {
+      color: var(--color-red);
+      cursor: pointer;
+    }
+
     &Request {
       display: flex;
 

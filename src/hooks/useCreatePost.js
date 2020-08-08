@@ -7,6 +7,7 @@ export default function useCreatePost(section) {
       // console.log(value);
       db.collection(value.section).add({
         ...value,
+        users: [],
         createdAt: FieldValue.serverTimestamp()
       });
       // db.collection("users")

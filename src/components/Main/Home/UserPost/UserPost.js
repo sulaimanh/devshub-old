@@ -4,6 +4,11 @@ import {
   paragraph as Paragraph
 } from "../../../UI/Text/Text";
 import React, { useContext, useEffect, useState } from "react";
+import {
+  faArrowCircleLeft,
+  faCheckCircle,
+  faMinusCircle
+} from "@fortawesome/free-solid-svg-icons";
 import { useHistory, useRouteMatch } from "react-router-dom";
 
 import { AuthContext } from "../../../../helper/Auth";
@@ -12,23 +17,35 @@ import { headingTertiary as HeadingTertiary } from "../../../UI/Text/Text";
 import MediumLink from "../../../UI/Links/Medium/MediumLink";
 import Spinner from "../../../UI/Spinner/Spinner";
 import Technology from "../../../UI/Technology/Technology";
-import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from "./UserPost.module.scss";
 import usePost from "../../../../hooks/usePost";
+import useRemoveRequestToJoin from "../../../../hooks/useRemoveRequestToJoin";
+import useSendRequestToJoin from "../../../../hooks/useSendRequestToJoin";
 
 const UserPost = React.memo((props) => {
   const { isAuth, currentUser } = useContext(AuthContext);
   const history = useHistory();
   const match = useRouteMatch("/home/:section/:postId");
+  const [icon, setIcon] = useState(true);
   const [post, setPost] = useState({
     title: "",
     description: "",
     owner: "Sulaiman",
     requirements: "",
     techArr: [],
-    repo: ""
+    repo: "",
+    users: []
   });
   const { isLoading, isError, data, error } = usePost(
+    match.params.section,
+    match.params.postId
+  );
+
+  const [sendJoinRequest, sendJoinRequestInfo] = useSendRequestToJoin(
+    match.params.section,
+    match.params.postId
+  );
+  const [removeJoinRequest, removeJoinRequestInfo] = useRemoveRequestToJoin(
     match.params.section,
     match.params.postId
   );
@@ -44,9 +61,19 @@ const UserPost = React.memo((props) => {
   };
 
   const goToUserHandler = () => {
-    console.log(post, post.ownerId);
-    console.log(post.ownerId);
     history.push("/profile/" + post.ownerId);
+  };
+
+  const joinPostHandler = () => {
+    sendJoinRequest(currentUser.ownerId);
+  };
+
+  const leavePostHandler = () => {
+    removeJoinRequest(currentUser.ownerId);
+  };
+
+  const changeIconHandler = () => {
+    setIcon((prevState) => !prevState);
   };
 
   if (isLoading) {
@@ -63,10 +90,21 @@ const UserPost = React.memo((props) => {
           size='3x'
         />
         <div className={styles.post__topRequest}>
-          {currentUser.ownerId === post.ownerId ? (
+          {post.users.includes(currentUser.ownerId) ? (
+            <FontAwesomeIcon
+              onMouseEnter={changeIconHandler}
+              onMouseLeave={changeIconHandler}
+              onClick={leavePostHandler}
+              className={icon ? styles.post__topCheck : styles.post__topMinus}
+              icon={icon ? faCheckCircle : faMinusCircle}
+              size='3x'
+            />
+          ) : currentUser.ownerId === post.ownerId ? (
             <HeadingTertiary>You posted this</HeadingTertiary>
           ) : (
-            <MediumLink className='tertiary'>Send Request</MediumLink>
+            <MediumLink handler={joinPostHandler} className='tertiary'>
+              Send Request
+            </MediumLink>
           )}
         </div>
       </div>
