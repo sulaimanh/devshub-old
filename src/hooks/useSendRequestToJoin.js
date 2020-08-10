@@ -17,14 +17,12 @@ export default function useSendRequestToJoin(section, postId) {
     {
       onMutate: (userId) => {
         queryCache.cancelQueries(["posts", section, postId]);
-        console.log(userId);
+
         const previousValue = queryCache.getQueryData([
           "posts",
           section,
           postId
         ]);
-
-        console.log(previousValue);
 
         queryCache.setQueryData(["posts", section, postId], (old) => {
           return { ...old, users: old.users.concat(userId) };

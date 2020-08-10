@@ -29,6 +29,7 @@ const Profile = React.memo((props) => {
   });
   const [user, setUser] = useState({ arr: [], isUserProfile: false });
   const [showModal, setShowModal] = useState(false);
+  const [showMessageModal, setShowMessageModal] = useState(false);
   const match = useRouteMatch("/profile/:ownerId");
   const history = useHistory();
   const { currentUser } = useContext(AuthContext);
@@ -74,6 +75,10 @@ const Profile = React.memo((props) => {
 
   const showModalHandler = () => {
     setShowModal((prevState) => !prevState);
+  };
+
+  const showMessageModalHandler = () => {
+    setShowMessageModal((prevState) => !prevState);
   };
 
   const updateUserHandler = async (input) => {
@@ -162,6 +167,20 @@ const Profile = React.memo((props) => {
         </Modal>
       ) : null}
 
+      {showMessageModal ? (
+        <Modal
+          className='intro'
+          handler={showMessageModalHandler}
+          show={showMessageModal}
+        >
+          <h1>
+            We currently do not have any direct messaging set up. Please connect
+            with {user.name} through their email or any other social media they
+            have posted.
+          </h1>
+        </Modal>
+      ) : null}
+
       <div className={styles.profile}>
         <div className={styles.profile__header}>
           <HeadingSecondary>Welcome</HeadingSecondary>
@@ -194,6 +213,7 @@ const Profile = React.memo((props) => {
           user={user}
           isCurrentUser={currentUser.ownerId === user.ownerId}
           showEdit={showModalHandler}
+          showMessage={showMessageModalHandler}
         />
       </div>
     </Fragment>

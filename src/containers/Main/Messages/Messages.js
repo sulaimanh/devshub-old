@@ -16,6 +16,7 @@ import useGetUserPosts from "../../../hooks/useGetUserPosts";
 const Messages = (props) => {
   const { isAuth, currentUser } = useContext(AuthContext);
   const [selectedPost, setSelectedPost] = useState(null);
+  const [focusedPost, setFocusedPost] = useState(null);
   const [showHide, setShowHide] = useState(true);
   const { isLoading, isError, data, status } = useGetUserPosts(
     currentUser.ownerId
@@ -27,6 +28,7 @@ const Messages = (props) => {
 
   const postSelectedHandler = (post) => {
     setSelectedPost(post);
+    setFocusedPost(post.postId);
     setShowHide((prevValue) => !prevValue);
   };
 
@@ -36,7 +38,10 @@ const Messages = (props) => {
         tabIndex='-1'
         onClick={() => postSelectedHandler(team)}
         key={index}
-        className={styles.messages__card}
+        className={[
+          styles.messages__card,
+          focusedPost === team.postId ? styles.messages__cardFocus : null
+        ].join(" ")}
       >
         <HeadingTertiary>{team.title}</HeadingTertiary>
       </div>
@@ -48,7 +53,10 @@ const Messages = (props) => {
       <div
         onClick={() => postSelectedHandler(project)}
         key={index}
-        className={styles.messages__card}
+        className={[
+          styles.messages__card,
+          focusedPost === project.postId ? styles.messages__cardFocus : null
+        ].join(" ")}
         tabIndex='-1'
       >
         <HeadingTertiary>{project.title}</HeadingTertiary>
@@ -62,7 +70,10 @@ const Messages = (props) => {
         tabIndex='-1'
         onClick={() => postSelectedHandler(challenge)}
         key={index}
-        className={styles.messages__card}
+        className={[
+          styles.messages__card,
+          focusedPost === challenge.postId ? styles.messages__cardFocus : null
+        ].join(" ")}
       >
         <HeadingTertiary>{challenge.title}</HeadingTertiary>
       </div>

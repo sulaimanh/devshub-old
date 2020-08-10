@@ -65,15 +65,15 @@ const UserPost = React.memo((props) => {
   };
 
   const joinPostHandler = () => {
-    sendJoinRequest(currentUser.ownerId);
+    sendJoinRequest({ ownerId: currentUser.ownerId, name: currentUser.name });
   };
 
   const leavePostHandler = () => {
-    removeJoinRequest(currentUser.ownerId);
+    removeJoinRequest({ ownerId: currentUser.ownerId, name: currentUser.name });
   };
 
-  const changeIconHandler = () => {
-    setIcon((prevState) => !prevState);
+  const changeIconHandler = (isChecked) => {
+    setIcon(isChecked);
   };
 
   if (isLoading) {
@@ -90,13 +90,11 @@ const UserPost = React.memo((props) => {
           size='3x'
         />
         <div className={styles.post__topRequest}>
-          {post.users.includes(currentUser.ownerId) ? (
+          {post.users.some((user) => user.ownerId === currentUser.ownerId) ? (
             <FontAwesomeIcon
-              onMouseEnter={changeIconHandler}
-              onMouseLeave={changeIconHandler}
               onClick={leavePostHandler}
-              className={icon ? styles.post__topCheck : styles.post__topMinus}
-              icon={icon ? faCheckCircle : faMinusCircle}
+              className={styles.post__topCheck}
+              icon={faCheckCircle}
               size='3x'
             />
           ) : currentUser.ownerId === post.ownerId ? (

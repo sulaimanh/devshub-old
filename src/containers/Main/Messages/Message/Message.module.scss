@@ -1,11 +1,12 @@
-.message {
+@import "../../../../sass/abstracts/mixins";
+
+.select {
   padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   flex-direction: column;
-
   &__first {
     display: flex;
     justify-content: center;
@@ -20,6 +21,41 @@
       display: flex;
       width: 30%;
       height: fit-content;
+    }
+  }
+}
+
+.message {
+  position: relative;
+  padding: 2rem;
+  display: flex;
+  overflow: scroll;
+  align-items: center;
+  // justify-content: flex-start;
+  text-align: center;
+  width: 100%;
+  flex-direction: column;
+
+  &__card {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    width: 90%;
+    border-left: 3px solid var(--color-primary);
+    padding-right: 1rem;
+    background-color: rgba(grey, 0.1);
+    border-radius: 5px;
+
+    &:hover {
+      background-color: rgba(grey, 0.3);
+    }
+
+    &Click {
+      display: flex;
+      width: 100%;
+      padding: 1.5rem 0rem 1.5rem 1rem;
     }
   }
 }

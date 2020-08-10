@@ -41,7 +41,9 @@ const RightPanel = (props) => {
       <div className={styles.rightpanel__info}>
         <div className={styles.rightpanel__infoMessage}>
           {!props.isCurrentUser ? (
-            <MediumLink className='tertiary'>Message Me</MediumLink>
+            <MediumLink handler={props.showMessage} className='tertiary'>
+              Message Me
+            </MediumLink>
           ) : (
             <MediumLink handler={props.showEdit} className='tertiary'>
               <FontAwesomeIcon icon={faEdit} size='1x' /> Edit Profie

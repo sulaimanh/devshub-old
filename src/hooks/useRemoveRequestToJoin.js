@@ -17,17 +17,24 @@ export default function useRemoveRequestToJoin(section, postId) {
     {
       onMutate: (userId) => {
         queryCache.cancelQueries(["posts", section, postId]);
-        console.log(userId);
+
         const previousValue = queryCache.getQueryData([
           "posts",
           section,
           postId
         ]);
 
-        console.log(previousValue);
-
         queryCache.setQueryData(["posts", section, postId], (old) => {
-          return { ...old, users: old.users.splice(old.users.indexOf(userId)) };
+          const index = old.users
+            .map((user) => userId.ownerId)
+            .indexOf(userId.ownerId);
+          // const usersArr = old.users.splice(index, 1);
+          const usersArr = old.users.filter(
+            (user) => user.ownerId !== userId.ownerId
+          );
+
+          console.log({ ...old, users: usersArr });
+          return { ...old, users: usersArr };
         });
 
         return () =>
