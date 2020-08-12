@@ -39,17 +39,17 @@
   &__card {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     cursor: pointer;
     margin-bottom: 1rem;
     width: 90%;
     border-left: 3px solid var(--color-primary);
     padding-right: 1rem;
+    border-radius: 2px;
     background-color: rgba(grey, 0.1);
-    border-radius: 5px;
 
     &:hover {
-      background-color: rgba(grey, 0.3);
+      background-color: rgba(grey, 0.2);
     }
 
     &Click {

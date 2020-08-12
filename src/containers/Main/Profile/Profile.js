@@ -7,9 +7,11 @@ import React, { Fragment, useContext, useEffect, useState } from "react";
 
 import { AuthContext } from "../../../helper/Auth";
 import EditProfile from "./EditProfile/EditProfile";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Modal from "../../../components/UI/Modal/Modal";
 import RightPanel from "./RightPanel/RightPanel";
 import Spinner from "../../../components/UI/Spinner/Spinner";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Profile.module.scss";
 import useDeletePost from "../../../hooks/useDeletePost";
 import useGetUser from "../../../hooks/useGetUser";
@@ -112,7 +114,11 @@ const Profile = React.memo((props) => {
             onClick={() => deletePostHandler("teams", team.postId)}
             className={styles.profile__maincontainer__listCardDelete}
           >
-            <Paragraph className='small'>Delete</Paragraph>
+            <FontAwesomeIcon
+              icon={faTrash}
+              size='2x'
+              className={styles.profile__maincontainer__listCardDeleteTrash}
+            />
           </div>
         ) : null}
       </div>
@@ -132,7 +138,11 @@ const Profile = React.memo((props) => {
             onClick={() => deletePostHandler("projects", project.postId)}
             className={styles.profile__maincontainer__listCardDelete}
           >
-            <Paragraph className='small'>Delete</Paragraph>
+            <FontAwesomeIcon
+              icon={faTrash}
+              size='2x'
+              className={styles.profile__maincontainer__listCardDeleteTrash}
+            />
           </div>
         ) : null}
       </div>
@@ -152,7 +162,11 @@ const Profile = React.memo((props) => {
             onClick={() => deletePostHandler("challenges", challenge.postId)}
             className={styles.profile__maincontainer__listCardDelete}
           >
-            <Paragraph className='small'>Delete</Paragraph>
+            <FontAwesomeIcon
+              icon={faTrash}
+              size='2x'
+              className={styles.profile__maincontainer__listCardDeleteTrash}
+            />
           </div>
         ) : null}
       </div>
