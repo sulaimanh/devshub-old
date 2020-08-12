@@ -5,13 +5,19 @@ import Input from "../../../../components/UI/Inputs/TextInput/TextInput";
 import MediumButton from "../../../../components/UI/Buttons/Medium/Medium";
 import MoreInfo from "../../../../components/UI/MoreInfo/MoreInfo";
 import styles from "./EditProfile.module.scss";
+import { useForm } from "react-hook-form";
 
 const EditProfile = (props) => {
   const [input, setInput] = useState({
     picture: props.user.picture ? props.user.picture : "",
     portfolio: props.user.portfolio ? props.user.portfolio : "",
-    github: props.user.github ? props.user.github : ""
+    github: props.user.github ? props.user.github : "",
+    twitter: props.user.twitter ? props.user.twitter : "",
+    facebook: props.user.facebook ? props.user.facebook : "",
+    linkedin: props.user.linkedin ? props.user.linkedin : ""
   });
+
+  const { register, handleSubmit, watch, errors } = useForm();
 
   const userChangeInput = (event) => {
     const value = event.target.value;
@@ -69,6 +75,33 @@ const EditProfile = (props) => {
         placeholder='Portfolio'
         isRequired={false}
         for='portfolio'
+        type='url'
+        isUrl={true}
+      />
+      <Input
+        handler={userChangeInput}
+        value={input.twitter}
+        placeholder='Twitter'
+        isRequired={false}
+        for='twitter'
+        type='url'
+        isUrl={true}
+      />
+      <Input
+        handler={userChangeInput}
+        value={input.facebook}
+        placeholder='Facebook'
+        isRequired={false}
+        for='facebook'
+        type='url'
+        isUrl={true}
+      />
+      <Input
+        handler={userChangeInput}
+        value={input.linkedin}
+        placeholder='LinkedIn'
+        isRequired={false}
+        for='linkedin'
         type='url'
         isUrl={true}
       />

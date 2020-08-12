@@ -50,28 +50,6 @@ const RightPanel = (props) => {
             </MediumLink>
           )}
         </div>
-        {/* <div className={styles.rightpanel__infoSection}>
-          <HeadingTertiary>Applications</HeadingTertiary>
-
-          <div className={styles.rightpanel__infoApplied}>
-            <div
-              className={[
-                styles.rightpanel__infoApp,
-                styles.rightpanel__infoAppProjects
-              ].join(" ")}
-            >
-              <HeadingTertiary color='fadedBlack'>4 Projects</HeadingTertiary>
-            </div>
-            <div
-              className={[
-                styles.rightpanel__infoApp,
-                styles.rightpanel__infoAppTeams
-              ].join(" ")}
-            >
-              <HeadingTertiary color='fadedBlack'>2 Teams</HeadingTertiary>
-            </div>
-          </div>
-        </div> */}
 
         {props.user.github ? (
           <div className={styles.rightpanel__infoSection}>
@@ -84,6 +62,27 @@ const RightPanel = (props) => {
           <div className={styles.rightpanel__infoSection}>
             <HeadingTertiary>Portfolio</HeadingTertiary>
             <Link link={props.user.portfolio}>My Website</Link>
+          </div>
+        ) : null}
+
+        {props.user.linkedin ? (
+          <div className={styles.rightpanel__infoSection}>
+            <HeadingTertiary>LinkedIn</HeadingTertiary>
+            <Link link={props.user.linkedin}>LinkedIn</Link>
+          </div>
+        ) : null}
+
+        {props.user.twitter ? (
+          <div className={styles.rightpanel__infoSection}>
+            <HeadingTertiary>Twitter</HeadingTertiary>
+            <Link link={props.user.twitter}>Twitter</Link>
+          </div>
+        ) : null}
+
+        {props.user.facebook ? (
+          <div className={styles.rightpanel__infoSection}>
+            <HeadingTertiary>Facebook</HeadingTertiary>
+            <Link link={props.user.facebook}>Facebook</Link>
           </div>
         ) : null}
 

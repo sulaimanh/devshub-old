@@ -64,6 +64,10 @@ const UserPost = React.memo((props) => {
     history.push("/profile/" + post.ownerId);
   };
 
+  const editPostHandler = () => {
+    console.log("need to complete this [edit post handler]");
+  };
+
   const joinPostHandler = () => {
     sendJoinRequest({ ownerId: currentUser.ownerId, name: currentUser.name });
   };
@@ -98,7 +102,9 @@ const UserPost = React.memo((props) => {
               size='3x'
             />
           ) : currentUser.ownerId === post.ownerId ? (
-            <HeadingTertiary>You posted this</HeadingTertiary>
+            <MediumLink handler={editPostHandler} className='primary'>
+              Edit Post
+            </MediumLink>
           ) : (
             <MediumLink handler={joinPostHandler} className='tertiary'>
               Send Request

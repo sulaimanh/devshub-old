@@ -162,17 +162,13 @@ const Profile = React.memo((props) => {
   return (
     <Fragment>
       {showModal ? (
-        <Modal className='intro' handler={showModalHandler} show={showModal}>
+        <Modal handler={showModalHandler} show={showModal}>
           <EditProfile updateUserHandler={updateUserHandler} user={user} />
         </Modal>
       ) : null}
 
       {showMessageModal ? (
-        <Modal
-          className='intro'
-          handler={showMessageModalHandler}
-          show={showMessageModal}
-        >
+        <Modal handler={showMessageModalHandler} show={showMessageModal}>
           <h1>
             We currently do not have any direct messaging set up. Please connect
             with {user.name} through their email or any other social media they
