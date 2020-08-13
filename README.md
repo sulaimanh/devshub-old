@@ -9,5 +9,5 @@ Developers Path still needs some features to make it even more awesome. You can 
 
 ## How to run
 Clone this repository
-npm install
-npm start
+ - npm install
+ - npm start
