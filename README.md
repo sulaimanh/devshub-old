@@ -8,6 +8,6 @@ Computer Science students have a difficult time finding projects/teams to work o
 Developers Path still needs some features to make it even more awesome. You can contribute to the project today. There is some configuration which you need to set up, such as Firebase.
 
 ## How to run
-Clone this repository
+ - Clone this repository
  - npm install
  - npm start
