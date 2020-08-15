@@ -2,7 +2,7 @@ import {
   headingSecondary as HeadingSecondary,
   headingTertiary as HeadingTertiary
 } from "../../../../components/UI/Text/Text";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 
 import AddTechnology from "../../../../components/UI/Technology/AddTechnology/AddTechnology";
 import { AuthContext } from "../../../../helper/Auth";
