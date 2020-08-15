@@ -16,6 +16,8 @@ export default function useDeletePost() {
         queryCache.cancelQueries(["posts", post.section]);
         const previousValue = queryCache.getQueryData(["posts", post.section]);
 
+        console.log(post);
+
         console.log(previousValue);
 
         queryCache.setQueryData(["posts", post.section], (old) => {
@@ -25,7 +27,7 @@ export default function useDeletePost() {
           }
         });
 
-        // return previousValue;
+        return previousValue;
         return () =>
           queryCache.setQueryData(["posts", post.section], previousValue);
       },
@@ -34,7 +36,10 @@ export default function useDeletePost() {
       // queryCache.setQueryData(["posts", section], previousValue);
 
       // After success or failure, refetch
-      onSettled: () => queryCache.invalidateQueries(["posts"])
+      onSettled: (post) => {
+        console.log(post);
+        return queryCache.invalidateQueries(["posts"]);
+      }
     }
   );
 }

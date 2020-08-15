@@ -67,15 +67,17 @@
     @include respond(tab-port) {
       justify-content: flex-start;
       align-items: flex-start;
+      align-items: center;
       margin-top: 3rem;
     }
 
     &Message {
       display: flex;
+      align-items: center;
       width: 90%;
 
       @include respond(tab-port) {
-        width: 100%;
+        // width: 100%;
       }
     }
 

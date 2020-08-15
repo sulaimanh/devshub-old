@@ -2,7 +2,7 @@ import {
   headingSecondary as HeadingSecondary,
   headingTertiary as HeadingTertiary
 } from "../../../../components/UI/Text/Text";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import AddTechnology from "../../../../components/UI/Technology/AddTechnology/AddTechnology";
 import { AuthContext } from "../../../../helper/Auth";
@@ -13,29 +13,30 @@ import MediumLink from "../../../../components/UI/Links/Medium/MediumLink";
 import MoreInfo from "../../../../components/UI/MoreInfo/MoreInfo";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Add.module.scss";
-import useCreatePost from "../../../../hooks/useCreatePost";
+import useCreateEditPost from "../../../../hooks/useCreateEditPost";
 import { useRouteMatch } from "react-router-dom";
 
 const Add = (props) => {
   const [input, setInput] = useState({
-    title: "",
-    description: "",
-    requirements: "",
-    numOfDevelopers: "",
-    numOfDevelopersNeeded: "",
+    title: props.post ? props.post.title : "",
+    description: props.post ? props.post.description : "",
+    requirements: props.post ? props.post.requirements : "",
+    numOfDevelopers: props.post ? props.post.numOfDevelopers : "",
+    numOfDevelopersNeeded: props.post ? props.post.numOfDevelopersNeeded : "",
     tech: "",
-    repo: "",
-    challenge: ""
+    repo: props.post ? props.post.repo : "",
+    challenge: props.post ? props.post.challenge : ""
   });
-  const [techArr, setTechArr] = useState([]);
+  const [techArr, setTechArr] = useState(props.post ? props.post.techArr : []);
   const { currentUser } = useContext(AuthContext);
   const [isCheckbox, setIsCheckbox] = useState({
-    repo: false,
-    challenge: false
+    repo: props.post ? (props.post.repo != 0 ? true : false) : false,
+    challenge: props.post ? (props.post.challenge != 0 ? true : false) : false
   });
   const match = useRouteMatch("/home/:section");
-  const [savePost, { status, data, error }] = useCreatePost(
-    match.params.section
+  const [savePost, { status, data, error }] = useCreateEditPost(
+    match.params.section,
+    props.post ? props.postId : null
   );
 
   const setInputHandler = (event) => {
@@ -54,11 +55,13 @@ const Add = (props) => {
   };
 
   const postProjectHandler = () => {
+    delete input.tech;
     savePost({
-      section: match.params.section,
       ownerId: currentUser.ownerId,
       name: currentUser.name,
       techArr: techArr,
+      createdAt: props.post ? props.post.createdAt : null,
+      users: props.post ? props.post.users : null,
       ...input
     });
     props.handler();

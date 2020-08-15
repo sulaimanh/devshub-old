@@ -6,11 +6,11 @@ import {
 import React, { useContext, useEffect, useState } from "react";
 import {
   faArrowCircleLeft,
-  faCheckCircle,
-  faMinusCircle
+  faCheckCircle
 } from "@fortawesome/free-solid-svg-icons";
 import { useHistory, useRouteMatch } from "react-router-dom";
 
+import Add from "../../../../containers/Main/Home/Add/Add";
 import { AuthContext } from "../../../../helper/Auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { headingTertiary as HeadingTertiary } from "../../../UI/Text/Text";
@@ -36,6 +36,7 @@ const UserPost = React.memo((props) => {
     repo: "",
     users: []
   });
+  const [showAdd, setShowAdd] = useState(false);
   const { isLoading, isError, data, error } = usePost(
     match.params.section,
     match.params.postId
@@ -65,7 +66,7 @@ const UserPost = React.memo((props) => {
   };
 
   const editPostHandler = () => {
-    console.log("need to complete this [edit post handler]");
+    setShowAdd((prevState) => !prevState);
   };
 
   const joinPostHandler = () => {
@@ -85,69 +86,79 @@ const UserPost = React.memo((props) => {
   }
 
   return (
-    <div className={styles.post}>
-      <div className={styles.post__top}>
-        <FontAwesomeIcon
-          onClick={goBackHandler}
-          className={styles.post__topIcon}
-          icon={faArrowCircleLeft}
-          size='3x'
+    <React.Fragment>
+      {showAdd ? (
+        <Add
+          handler={editPostHandler}
+          post={post}
+          section={match.params.section}
+          postId={match.params.postId}
         />
-        <div className={styles.post__topRequest}>
-          {post.users.some((user) => user.ownerId === currentUser.ownerId) ? (
-            <FontAwesomeIcon
-              onClick={leavePostHandler}
-              className={styles.post__topCheck}
-              icon={faCheckCircle}
-              size='3x'
-            />
-          ) : currentUser.ownerId === post.ownerId ? (
-            <MediumLink handler={editPostHandler} className='primary'>
-              Edit Post
-            </MediumLink>
-          ) : (
-            <MediumLink handler={joinPostHandler} className='tertiary'>
-              Send Request
-            </MediumLink>
-          )}
-        </div>
-      </div>
-
-      <div className={styles.post__details}>
-        <div className={styles.post__left}>
-          <div className={styles.post__leftHeading}>
-            <HeadingSecondary>{post.title}</HeadingSecondary>
+      ) : null}
+      <div className={styles.post}>
+        <div className={styles.post__top}>
+          <FontAwesomeIcon
+            onClick={goBackHandler}
+            className={styles.post__topIcon}
+            icon={faArrowCircleLeft}
+            size='3x'
+          />
+          <div className={styles.post__topRequest}>
+            {post.users.some((user) => user.ownerId === currentUser.ownerId) ? (
+              <FontAwesomeIcon
+                onClick={leavePostHandler}
+                className={styles.post__topCheck}
+                icon={faCheckCircle}
+                size='3x'
+              />
+            ) : currentUser.ownerId === post.ownerId ? (
+              <MediumLink handler={editPostHandler} className='primary'>
+                Edit Post
+              </MediumLink>
+            ) : (
+              <MediumLink handler={joinPostHandler} className='tertiary'>
+                Send Request
+              </MediumLink>
+            )}
           </div>
-          <Paragraph>{post.description}</Paragraph>
         </div>
 
-        <div className={styles.post__right}>
-          <Paragraph
-            handler={goToUserHandler}
-            className='link'
-            handler={goToUserHandler}
-          >
-            {post.name}
-          </Paragraph>
+        <div className={styles.post__details}>
+          <div className={styles.post__left}>
+            <div className={styles.post__leftHeading}>
+              <HeadingSecondary>{post.title}</HeadingSecondary>
+            </div>
+            <Paragraph>{post.description}</Paragraph>
+          </div>
 
-          <p className={styles.post__text}>
-            Developers: {post.numOfDevelopers}
-          </p>
-          <p className={styles.post__text}>
-            Developers needed: {post.numOfDevelopersNeeded}
-          </p>
-          <Link link={post.repo}>Go to Repository</Link>
+          <div className={styles.post__right}>
+            <Paragraph
+              handler={goToUserHandler}
+              className='link'
+              handler={goToUserHandler}
+            >
+              {post.name}
+            </Paragraph>
+
+            <p className={styles.post__text}>
+              Developers: {post.numOfDevelopers}
+            </p>
+            <p className={styles.post__text}>
+              Developers needed: {post.numOfDevelopersNeeded}
+            </p>
+            <Link link={post.repo}>Go to Repository</Link>
+          </div>
+        </div>
+
+        <div className={styles.post__req}>
+          <HeadingTertiary>Requirements</HeadingTertiary>
+          <p className={styles.post__text}>{post.requirements}</p>
+        </div>
+        <div className={styles.post__tech}>
+          <Technology tech={post.techArr} />
         </div>
       </div>
-
-      <div className={styles.post__req}>
-        <HeadingTertiary>Requirements</HeadingTertiary>
-        <p className={styles.post__text}>{post.requirements}</p>
-      </div>
-      <div className={styles.post__tech}>
-        <Technology tech={post.techArr} />
-      </div>
-    </div>
+    </React.Fragment>
   );
 });
 

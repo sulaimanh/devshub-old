@@ -2,14 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 
 import { AuthContext } from "./helper/Auth";
-import Challenge from "./components/Main/Home/Challenge/Challenge";
 import Home from "./containers/Main/Home/Home";
 import Introduction from "./containers/Introduction/Introduction";
 import Layout from "./containers/Layout/Layout";
 import Messages from "./containers/Main/Messages/Messages";
 import Profile from "./containers/Main/Profile/Profile";
-import Project from "./components/Main/Home/Project/Project";
-import Team from "./components/Main/Home/Team/Team";
+import UserPost from "./components/Main/Home/UserPost/UserPost";
 import UserProfile from "./containers/Main/Profile/Profile";
 import styles from "./App.module.scss";
 
@@ -34,9 +32,7 @@ function App() {
       <Switch>
         <Route path='/profile/:userId' component={UserProfile} />
 
-        <Route path='/home/teams/:id' component={Team} />
-        <Route path='/home/projects/:id' component={Project} />
-        <Route path='/home/challenges/:id' component={Challenge} />
+        <Route path='/home/:category/:id' component={UserPost} />
 
         <Route path='/profile' component={Profile} />
         <Route path='/messages' component={Messages} />

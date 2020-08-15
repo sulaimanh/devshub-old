@@ -18,6 +18,7 @@ const Message = (props) => {
         <div className={styles.select__firstMessage}>
           <HeadingTertiary>
             Select a post to see which users are interested in working with you.
+            You can select the user's profile and contact them.
           </HeadingTertiary>
         </div>
         <ReactUsersLogo className={styles.select__firstLogo} />

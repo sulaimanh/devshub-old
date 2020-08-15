@@ -80,7 +80,14 @@ const TopSelection = (props) => {
 
   return (
     <Fragment>
-      {showAdd ? <Add handler={showAddHandler} section={section} /> : null}
+      {showAdd ? (
+        <Add
+          post={null}
+          handler={showAddHandler}
+          section={section}
+          postId={null}
+        />
+      ) : null}
 
       <div className={styles.top}>
         <div className={styles.top__links}>{view}</div>

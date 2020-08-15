@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
-// import styles from "./OpenSources.module.scss";
 import Card from "../../../../../components/UI/Card/Card";
-import { useHistory } from "react-router-dom";
 
-const Challenges = React.memo((props) => {
+const Section = React.memo((props) => {
   const history = useHistory();
+  const match = useRouteMatch("/home/:section");
 
   useEffect(() => {
-    console.log("[Challenges.js] useEffect");
+    console.log("[Section.js] useEffect");
   });
 
-  // - handle when project is selected
-  const challengesSelectedHandler = (event, projectId) => {
-    history.push("/home/challenges/" + projectId);
+  const sectionSelectedHandler = (event, projectId) => {
+    history.push(`/home/${match.params.section}/${projectId}`);
   };
 
   const view = props.cards.map((card, index) => {
@@ -23,7 +22,7 @@ const Challenges = React.memo((props) => {
           return (
             <Card
               key={index}
-              handler={challengesSelectedHandler}
+              handler={sectionSelectedHandler}
               title={doc.title}
               id={doc.id}
               description={doc.description}
@@ -38,4 +37,4 @@ const Challenges = React.memo((props) => {
   return <div>{view}</div>;
 });
 
-export default Challenges;
+export default Section;
