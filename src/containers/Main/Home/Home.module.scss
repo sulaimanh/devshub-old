@@ -14,8 +14,11 @@
   padding-bottom: 2rem;
   box-shadow: var(--box-shadow);
 
-  @include respond(big-desktop) {
-    // width: 85%;
+  &__top {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
   }
 
   &__buttons {
@@ -31,10 +34,5 @@
     flex-direction: column;
     width: 95%;
     margin: 1rem 0;
-  }
-
-  &__search {
-    padding-top: 2rem;
-    width: 95%;
   }
 }

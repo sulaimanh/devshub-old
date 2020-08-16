@@ -76,7 +76,7 @@ const Sections = (props) => {
           }}
         >
           <HeadingSecondary>
-            Looks like there are no more posts
+            Looks like we have reached the bottom
           </HeadingSecondary>
         </div>
       )}

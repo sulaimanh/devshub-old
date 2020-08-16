@@ -67,6 +67,7 @@ const TopSelection = (props) => {
         }
         className={[
           styles.topLink,
+          selectedChoice === selection.choice ? styles[selection.choice] : null,
           selectedChoice === selection.choice ? styles.topLink__selected : null
         ].join(" ")}
         to={selection.path}
@@ -79,7 +80,7 @@ const TopSelection = (props) => {
   let addView = {};
 
   return (
-    <Fragment>
+    <React.Fragment>
       {showAdd ? (
         <Add
           post={null}
@@ -89,15 +90,22 @@ const TopSelection = (props) => {
         />
       ) : null}
 
-      <div className={styles.top}>
-        <div className={styles.top__links}>{view}</div>
+      <div className={styles.container}>
+        <div className={styles.top}>
+          <div className={styles.top__links}>{view}</div>
+        </div>
+
+        <div className={styles.hrContainer}>
+          <hr className={[styles[section], styles.hr1].join(" ")} />
+          <hr className={styles.hr2} />
+        </div>
       </div>
       <div className={styles.top__add}>
         <MediumLink handler={showAddHandler} className='tertiary'>
           Post a {section}
         </MediumLink>
       </div>
-    </Fragment>
+    </React.Fragment>
   );
 };
 

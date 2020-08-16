@@ -1,5 +1,12 @@
 @import "../../../../sass/abstracts/mixins";
 
+.container {
+  width: 100%;
+  position: sticky;
+  z-index: 10000;
+  top: 0rem;
+}
+
 .top {
   display: none;
 
@@ -29,7 +36,6 @@
     cursor: pointer;
     // border-radius: 3rem 3rem 0 0;
     padding: 1.3rem 0rem;
-    border-bottom: 3px solid var(--color-grey);
     text-decoration: none;
     color: var(--color-black);
 
@@ -39,24 +45,59 @@
 
     &__selected {
       color: var(--color-primary);
-      border-bottom: 3px solid var(--color-primary);
       cursor: default;
       pointer-events: none;
     }
-    // @media (hover: hover) {
-    //   &__selected:hover {
-    //     background-color: blue;
-    //   }
-    // }
   }
 
   &__add {
     display: flex;
     margin-top: 1rem;
+    margin-left: 2.5%;
     width: 95%;
   }
 
   &Text {
     font-size: var(--default-font-size);
   }
+}
+
+.hrContainer {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.hr1 {
+  display: flex;
+  flex-direction: column;
+  height: 0.4rem;
+  width: 33.33%;
+  overflow: visible;
+  position: absolute;
+  margin: 0;
+  background: var(--color-primary);
+  border: none;
+  transition: 0.3s ease-in-out;
+  z-index: 1;
+}
+.hr2 {
+  display: flex;
+  height: 0.4rem;
+  width: 100%;
+  overflow: visible;
+  position: absolute;
+  margin: 0;
+  background: var(--color-grey);
+  border: none;
+  transition: 0.3s ease-in-out;
+}
+
+.Team {
+  margin-left: 0;
+}
+.Project {
+  margin-left: 33.33%;
+}
+.Challenge {
+  margin-left: 66.66%;
 }
