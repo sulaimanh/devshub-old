@@ -74,6 +74,7 @@ const AddTechnology = ({
             category='primary'
             label='Add'
             size='large'
+            type='button'
           />
         </div>
       </div>

@@ -3,34 +3,35 @@ import React, { useState } from "react";
 import Button from "../Button/Button";
 import { headingSecondary as HeadingSecondary } from "../Text/Text";
 import { headingTertiary as HeadingTertiary } from "../Text/Text";
+import PropTypes from "prop-types";
 import Technology from "../Technology/Technology";
 import styles from "./Card.module.scss";
 import { useEffect } from "react";
 
-const Card = (props) => {
+const Card = ({ description, handler, id, title, tech, ...props }) => {
   const [isWordy, setWordy] = useState(false);
   // 250
 
   useEffect(() => {
-    if (props.description.length > 250) {
+    if (description.length > 250) {
       setWordy(true);
     } else {
       setWordy(false);
     }
-  }, [props.description]);
+  }, [description]);
 
-  const description = isWordy ? (
+  const desc = isWordy ? (
     <p className={styles.card__descriptionText}>
-      {props.description.substring(0, 250)}...{" "}
+      {description.substring(0, 250)}...{" "}
       <span
-        onClick={(event) => props.handler(event, props.id)}
+        onClick={(event) => handler(event, id)}
         className={styles.card__descriptionSeemore}
       >
         see more
       </span>
     </p>
   ) : (
-    <p className={styles.card__descriptionText}>{props.description}</p>
+    <p className={styles.card__descriptionText}>{description}</p>
   );
 
   return (
@@ -38,27 +39,39 @@ const Card = (props) => {
       <div className={styles.card__heading}>
         <div
           className={styles.card__headingTitle}
-          onClick={(event) => props.handler(event, props.id)}
+          onClick={(event) => handler(event, id)}
         >
-          <HeadingSecondary>{props.title}</HeadingSecondary>
+          <HeadingSecondary>{title}</HeadingSecondary>
         </div>
 
         <Button
-          handler={(event) => props.handler(event, props.id)}
+          handler={(event) => handler(event, id)}
           category='tertiary--outline'
           size='small'
           label='Explore'
+          type='button'
         />
       </div>
       <div className={styles.card__description}>
         <HeadingTertiary>Description</HeadingTertiary>
-        {description}
+        {desc}
       </div>
       <div className={styles.card__tech}>
-        <Technology tech={props.tech} />
+        <Technology tech={tech} />
       </div>
     </div>
   );
+};
+
+Card.propTypes = {
+  description: PropTypes.string.isRequired,
+  tech: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
+};
+
+Card.defaultProps = {
+  handler: null
 };
 
 export default Card;
