@@ -12,9 +12,9 @@ import { useHistory, useRouteMatch } from "react-router-dom";
 
 import Add from "../../../../containers/Main/Home/Add/Add";
 import { AuthContext } from "../../../../helper/Auth";
+import Button from "../../../UI/Button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { headingTertiary as HeadingTertiary } from "../../../UI/Text/Text";
-import MediumLink from "../../../UI/Links/Medium/MediumLink";
 import Spinner from "../../../UI/Spinner/Spinner";
 import Technology from "../../../UI/Technology/Technology";
 import styles from "./UserPost.module.scss";
@@ -112,13 +112,19 @@ const UserPost = React.memo((props) => {
                 size='3x'
               />
             ) : currentUser.ownerId === post.ownerId ? (
-              <MediumLink handler={editPostHandler} className='primary'>
-                Edit Post
-              </MediumLink>
+              <Button
+                handler={editPostHandler}
+                category='primary'
+                type='button'
+                label='Edit Post'
+              />
             ) : (
-              <MediumLink handler={joinPostHandler} className='tertiary'>
-                Send Request
-              </MediumLink>
+              <Button
+                handler={joinPostHandler}
+                category='tertiary'
+                label='Send Request'
+                type='button'
+              />
             )}
           </div>
         </div>

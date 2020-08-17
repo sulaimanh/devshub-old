@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
+import Button from "../Button/Button";
 import { headingSecondary as HeadingSecondary } from "../Text/Text";
 import { headingTertiary as HeadingTertiary } from "../Text/Text";
-import SmallLink from "../Links/Small/SmallLink";
 import Technology from "../Technology/Technology";
 import styles from "./Card.module.scss";
 import { useEffect } from "react";
@@ -43,13 +43,12 @@ const Card = (props) => {
           <HeadingSecondary>{props.title}</HeadingSecondary>
         </div>
 
-        <SmallLink
-          id={props.id}
-          handler={props.handler}
-          className='tertiaryOutline'
-        >
-          Explore
-        </SmallLink>
+        <Button
+          handler={(event) => props.handler(event, props.id)}
+          category='tertiary--outline'
+          size='small'
+          label='Explore'
+        />
       </div>
       <div className={styles.card__description}>
         <HeadingTertiary>Description</HeadingTertiary>

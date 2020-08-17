@@ -8,8 +8,8 @@ import React, { useContext, useEffect } from "react";
 import { faBars, faEdit } from "@fortawesome/free-solid-svg-icons";
 
 import { AuthContext } from "../../../../helper/Auth";
+import Button from "../../../../components/UI/Button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import MediumLink from "../../../../components/UI/Links/Medium/MediumLink";
 import styles from "./RightPanel.module.scss";
 
 const RightPanel = (props) => {
@@ -41,13 +41,22 @@ const RightPanel = (props) => {
       <div className={styles.rightpanel__info}>
         <div className={styles.rightpanel__infoMessage}>
           {!props.isCurrentUser ? (
-            <MediumLink handler={props.showMessage} className='tertiary'>
-              Message Me
-            </MediumLink>
+            <Button
+              handler={props.showMessage}
+              type='button'
+              category='tertiary'
+              label='Message Me'
+              size='large'
+            />
           ) : (
-            <MediumLink handler={props.showEdit} className='tertiary'>
-              <FontAwesomeIcon icon={faEdit} size='1x' /> Edit Profie
-            </MediumLink>
+            <Button
+              handler={props.showEdit}
+              category='tertiary'
+              type='button'
+              label='Edit Profile'
+              size='large'
+              icon={<FontAwesomeIcon icon={faEdit} size='1x' />}
+            />
           )}
         </div>
 

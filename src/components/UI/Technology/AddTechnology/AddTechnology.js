@@ -1,6 +1,6 @@
+import Button from "../../../UI/Button/Button";
 import { headingTertiary as HeadingTertiary } from "../../Text/Text";
 import Input from "../../../UI/Inputs/TextInput/TextInput";
-import MediumLink from "../../../UI/Links/Medium/MediumLink";
 import React from "react";
 import styles from "./AddTechnology.module.scss";
 
@@ -10,7 +10,7 @@ const AddTechnology = ({
   setInput,
   setTechArr,
   setInputHandler,
-  backgroundInputColor,
+  backgroundInputColor
 }) => {
   const setTechHandler = (event) => {
     if (techValue.trim().length > 0) {
@@ -69,9 +69,12 @@ const AddTechnology = ({
           backgroundColor={backgroundInputColor}
         />
         <div className={styles.techAdd}>
-          <MediumLink handler={setTechHandler} className='primary1'>
-            Add
-          </MediumLink>
+          <Button
+            handler={setTechHandler}
+            category='primary'
+            label='Add'
+            size='large'
+          />
         </div>
       </div>
       <div className={styles.techCards}>

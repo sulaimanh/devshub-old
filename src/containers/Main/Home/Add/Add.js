@@ -6,10 +6,10 @@ import React, { useContext, useState } from "react";
 
 import AddTechnology from "../../../../components/UI/Technology/AddTechnology/AddTechnology";
 import { AuthContext } from "../../../../helper/Auth";
+import Button from "../../../../components/UI/Button/Button";
 import Checkbox from "../../../../components/UI/Inputs/Checkbox/Checkbox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Input from "../../../../components/UI/Inputs/TextInput/TextInput";
-import MediumLink from "../../../../components/UI/Links/Medium/MediumLink";
 import MoreInfo from "../../../../components/UI/MoreInfo/MoreInfo";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Add.module.scss";
@@ -256,9 +256,13 @@ const Add = (props) => {
           )}
 
           <div className={styles.add__submit}>
-            <MediumLink handler={postProjectHandler} className='tertiary'>
-              Post
-            </MediumLink>
+            <Button
+              handler={postProjectHandler}
+              category='tertiary'
+              label='Post'
+              type='button'
+              size='large'
+            />
           </div>
         </div>
       </div>

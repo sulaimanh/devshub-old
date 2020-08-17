@@ -2,7 +2,7 @@ import { Link, useRouteMatch } from "react-router-dom";
 import React, { Fragment, useEffect, useState } from "react";
 
 import Add from "../Add/Add";
-import MediumLink from "../../../../components/UI/Links/Medium/MediumLink";
+import Button from "../../../../components/UI/Button/Button";
 import Modal from "../../../../components/UI/Modal/Modal";
 import styles from "./TopSelection.module.scss";
 
@@ -101,9 +101,13 @@ const TopSelection = (props) => {
         </div>
       </div>
       <div className={styles.top__add}>
-        <MediumLink handler={showAddHandler} className='tertiary'>
-          Post a {section}
-        </MediumLink>
+        <Button
+          handler={showAddHandler}
+          category='tertiary'
+          type='button'
+          size='large'
+          label={`Post a ${section}`}
+        />
       </div>
     </React.Fragment>
   );

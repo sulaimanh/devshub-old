@@ -4,7 +4,7 @@ import {
 } from "../../UI/Text/Text";
 import React, { useEffect, useState } from "react";
 
-import MediumLink from "../../UI/Links/Medium/MediumLink";
+import Button from "../../UI/Button/Button";
 import styles from "./WhyDev.module.scss";
 import { useInView } from "react-intersection-observer";
 
@@ -69,13 +69,13 @@ const WhyDev = (props) => {
         </div>
       </div>
       <div className={styles.why__button}>
-        <MediumLink
-          id='sign up'
-          handler={props.handleSignIn}
-          className='tertiaryOutline'
-        >
-          Sign Up
-        </MediumLink>
+        <Button
+          handler={() => props.handleSignIn("sign up")}
+          category='tertiary--outline'
+          type='button'
+          size='large'
+          label='Sign Up'
+        />
       </div>
     </div>
   );

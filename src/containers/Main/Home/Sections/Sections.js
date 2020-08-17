@@ -4,7 +4,6 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { headingSecondary as HeadingSecondary } from "../../../../components/UI/Text/Text";
-import MediumLink from "../../../../components/UI/Links/Medium/MediumLink";
 import SearchInput from "../../../../components/UI/Inputs/SearchInput/SearchInput";
 import Section from "./Section/Section";
 import Spinner from "../../../../components/UI/Spinner/Spinner";

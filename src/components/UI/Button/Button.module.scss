@@ -1,0 +1,133 @@
+@import "../../../sass/base/animations";
+@import "../../../sass/abstracts/mixins";
+
+.button {
+  font-family: inherit;
+
+  padding: 1.5rem 2rem;
+  // width: 100%;
+
+  &:not(:first-child) {
+    margin-left: 1rem;
+  }
+  border-radius: 5px;
+  font-size: var(--default-font-size);
+
+  border: none;
+  transition: all 0.2s;
+  position: relative;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  @include respond(tab-port) {
+    padding: 1rem 1.5rem;
+  }
+
+  &--small {
+    width: fit-content;
+  }
+
+  &--medium {
+    width: 50%;
+  }
+
+  &--large {
+    width: 100%;
+  }
+
+  &--primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--box-shadow);
+      background-color: var(--color-primary-hover);
+
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+      }
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
+      transform: translateY(1px);
+      box-shadow: var(--box-shadow);
+    }
+  }
+
+  &--secondary {
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+    background-color: var(--color-white);
+
+    &:after {
+      content: "";
+      position: absolute;
+      // z-index: -1;
+      right: 0;
+      width: 0;
+      bottom: -5px;
+      background: var(--color-primary);
+      height: 3px;
+      transition-property: width;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-out;
+    }
+    &:hover:after,
+    &:focus:after,
+    &:active:after {
+      outline: none;
+      left: 0;
+      right: auto;
+      width: 100%;
+    }
+  }
+
+  &--tertiary {
+    color: var(--color-white);
+
+    background-color: var(--color-tertiary);
+    &:hover {
+      background-color: rgba(#3be47a, 0.8);
+      color: var(--color-black);
+    }
+
+    &--outline {
+      border: 1px solid var(--color-tertiary);
+
+      color: var(--color-tertiary);
+      background-color: transparent;
+      &:hover {
+        background-color: var(--color-tertiary);
+        color: var(--color-white);
+      }
+    }
+  }
+
+  &--github {
+    color: var(--color-white);
+    background-color: #24292e;
+    width: 100%;
+
+    &:hover {
+      background-color: rgba(#24292e, 0.8);
+    }
+  }
+
+  &--google {
+    color: var(--color-white);
+    background-color: #ea4335;
+    width: 100%;
+
+    &:hover {
+      background-color: rgba(#ea4335, 0.8);
+    }
+  }
+}

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
+import Button from "../../../../components/UI/Button/Button";
 import { headingSecondary as HeadingSecondary } from "../../../../components/UI/Text/Text";
 import Input from "../../../../components/UI/Inputs/TextInput/TextInput";
-import MediumButton from "../../../../components/UI/Buttons/Medium/Medium";
 import MoreInfo from "../../../../components/UI/MoreInfo/MoreInfo";
 import styles from "./EditProfile.module.scss";
 import { useForm } from "react-hook-form";
@@ -106,7 +106,7 @@ const EditProfile = (props) => {
         isUrl={true}
       />
       <div className={styles.edit__submit}>
-        <MediumButton className='tertiary'>Submit</MediumButton>
+        <Button type='submit' label='Submit' size='large' category='tertiary' />
       </div>
     </form>
   );

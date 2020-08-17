@@ -7,10 +7,9 @@ import {
   signUp
 } from "../../../helper/Auth";
 
+import Button from "../../../components/UI/Button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { headingSecondary as HeadingSecondary } from "../../../components/UI/Text/Text";
-import MediumButton from "../../../components/UI/Buttons/Medium/Medium";
-import MediumLink from "../../../components/UI/Links/Medium/MediumLink";
 import { paragraph as Paragraph } from "../../../components/UI/Text/Text";
 import TextInput from "../../../components/UI/Inputs/TextInput/TextInput";
 import styles from "./SignIn.module.scss";
@@ -134,16 +133,21 @@ const SignIn = (props) => {
         ) : null}
       </div>
       <div className={styles.sign__submit}>
-        <div className={styles.sign__signIn}>
-          <MediumButton className='tertiary'>Submit</MediumButton>
-        </div>
+        <Button type='submit' size='large' category='tertiary' label='Submit' />
+
         <div className={styles.sign__logIn}>
-          <MediumLink handler={signInWithGitHubHandler} className='github'>
-            <FontAwesomeIcon icon={faGithub} /> GitHub
-          </MediumLink>
-          <MediumLink handler={signInWithGoogleHandler} className='google'>
-            <FontAwesomeIcon icon={faGoogle} /> Google
-          </MediumLink>
+          <Button
+            handler={signInWithGitHubHandler}
+            category='github'
+            label='GitHub'
+            icon={<FontAwesomeIcon icon={faGithub} />}
+          />
+          <Button
+            handler={signInWithGoogleHandler}
+            category='google'
+            icon={<FontAwesomeIcon icon={faGoogle} />}
+            label='Google'
+          />
         </div>
       </div>
     </form>

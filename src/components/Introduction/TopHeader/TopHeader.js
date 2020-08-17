@@ -3,7 +3,7 @@ import {
   paragraph as Paragraph
 } from "../../UI/Text/Text";
 
-import MediumLink from "../../UI/Links/Medium/MediumLink";
+import Button from "../../UI/Button/Button";
 import React from "react";
 import SignIn from "../../../containers/Introduction/SignIn/SignIn";
 import styles from "./TopHeader.module.scss";
@@ -19,14 +19,13 @@ const TopHeader = (props) => {
           </Paragraph>
         </div>
         <div className={styles.topHeader__buttons}>
-          <MediumLink
-            id='sign up'
-            handler={props.handleSignIn}
-            className='primary'
-          >
-            Sign Up
-          </MediumLink>
-          <MediumLink className='secondary'>About us</MediumLink>
+          <Button
+            handler={() => props.handleSignIn("sign up")}
+            type='button'
+            category='primary'
+            label='Sign Up'
+          />
+          <Button category='secondary' type='button' label='About Us' />
         </div>
       </div>
       <div className={styles.topHeader__rightContainer}>
