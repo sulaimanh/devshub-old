@@ -12,12 +12,13 @@ const TextInput = (
     backgroundColor,
     isRequired,
     isTextArea,
+    isReadOnly,
     ...props
   },
   ref
 ) => {
   return (
-    <React.Fragment>
+    <div className={styles.form}>
       {isTextArea ? (
         <textarea
           id={id}
@@ -29,6 +30,7 @@ const TextInput = (
           onChange={handler}
           value={value}
           required={isRequired}
+          readOnly={isReadOnly}
         />
       ) : (
         <input
@@ -44,7 +46,7 @@ const TextInput = (
       <label className={styles[`label`]} htmlFor={props.id}>
         {placeholder}
       </label>
-    </React.Fragment>
+    </div>
   );
 };
 
@@ -53,13 +55,13 @@ TextInput.propTypes = {
   type: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
-  handler: PropTypes.func.isRequired,
-  backgroundColor: PropTypes.string.isRequired
+  handler: PropTypes.func.isRequired
 };
 
 TextInput.defaultProps = {
   isRequired: false,
-  isTextArea: false
+  isTextArea: false,
+  backgroundColor: "white"
 };
 
 export default TextInput;
