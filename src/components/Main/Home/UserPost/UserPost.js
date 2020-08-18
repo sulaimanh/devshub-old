@@ -116,6 +116,7 @@ const UserPost = React.memo((props) => {
                 handler={editPostHandler}
                 category='primary'
                 type='button'
+                size='small'
                 label='Edit Post'
               />
             ) : (
@@ -123,6 +124,7 @@ const UserPost = React.memo((props) => {
                 handler={joinPostHandler}
                 category='tertiary'
                 label='Send Request'
+                size='small'
                 type='button'
               />
             )}
