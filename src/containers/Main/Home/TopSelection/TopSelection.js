@@ -7,7 +7,7 @@ import Modal from "../../../../components/UI/Modal/Modal";
 import styles from "./TopSelection.module.scss";
 
 // - This will show the main contact
-const TopSelection = (props) => {
+const TopSelection = () => {
   const [selectedChoice, setSelectedChoice] = useState("teams");
   const [section, setSection] = useState("Team");
   const [showAdd, setShowAdd] = useState(false);
@@ -92,15 +92,15 @@ const TopSelection = (props) => {
 
       <div className={styles.container}>
         <div className={styles.top}>
-          <div className={styles.top__links}>{view}</div>
+          <div className={styles[`top--links`]}>{view}</div>
         </div>
 
-        <div className={styles.hrContainer}>
+        <div className={styles.hr}>
           <hr className={[styles[section], styles.hr1].join(" ")} />
           <hr className={styles.hr2} />
         </div>
       </div>
-      <div className={styles.top__add}>
+      <div className={styles[`top--add`]}>
         <Button
           handler={showAddHandler}
           category='tertiary'

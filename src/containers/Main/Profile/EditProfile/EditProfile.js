@@ -34,26 +34,27 @@ const EditProfile = (props) => {
 
   return (
     <form onSubmit={submitForm} className={styles.edit}>
-      <div className={styles.edit__pic}>
+      <div className={styles[`edit--container`]}>
         <HeadingSecondary>Update your Information</HeadingSecondary>
-        <div className={styles.edit__pic__moreInfo}>
+        <div className={styles[`edit--container__moreinfo`]}>
           <MoreInfo className='left'>
             If you would like to delete a field, just leave that field blank and
             submit
           </MoreInfo>
         </div>
       </div>
-      <div className={styles.edit__pic}>
-        <Input
-          handler={userChangeInput}
-          value={input.picture}
-          placeholder='Link to your profile picture'
-          isRequired={false}
-          for='picture'
-          type='url'
-          isUrl={true}
-        />
-        <div className={styles.edit__pic__moreInfo}>
+      <div className={styles[`edit--container`]}>
+        <div className={styles[`edit--input`]}>
+          <Input
+            handler={userChangeInput}
+            value={input.picture}
+            placeholder='Link to your profile picture'
+            isRequired={false}
+            id='picture'
+            type='url'
+          />
+        </div>
+        <div className={styles[`edit--container__moreinfo`]}>
           <MoreInfo className='left'>
             You can copy a link to your profile picture from websites such as
             LinkedIn, GitHub, Facebook, etc..
@@ -65,47 +66,42 @@ const EditProfile = (props) => {
         value={input.github}
         placeholder='GitHub Account'
         isRequired={false}
-        for='github'
+        id='github'
         type='url'
-        isUrl={true}
       />
       <Input
         handler={userChangeInput}
         value={input.portfolio}
         placeholder='Portfolio'
         isRequired={false}
-        for='portfolio'
+        id='portfolio'
         type='url'
-        isUrl={true}
       />
       <Input
         handler={userChangeInput}
         value={input.twitter}
         placeholder='Twitter'
         isRequired={false}
-        for='twitter'
+        id='twitter'
         type='url'
-        isUrl={true}
       />
       <Input
         handler={userChangeInput}
         value={input.facebook}
         placeholder='Facebook'
         isRequired={false}
-        for='facebook'
+        id='facebook'
         type='url'
-        isUrl={true}
       />
       <Input
         handler={userChangeInput}
         value={input.linkedin}
         placeholder='LinkedIn'
         isRequired={false}
-        for='linkedin'
+        id='linkedin'
         type='url'
-        isUrl={true}
       />
-      <div className={styles.edit__submit}>
+      <div className={styles[`edit--submit`]}>
         <Button type='submit' label='Submit' size='large' category='tertiary' />
       </div>
     </form>

@@ -95,7 +95,7 @@ const SignIn = (props) => {
         {props.isSignUp ? (
           <TextInput
             placeholder='Full Name'
-            for='fullName'
+            id='fullName'
             type='text'
             value={form.fullName}
             handler={handleForm}
@@ -104,7 +104,7 @@ const SignIn = (props) => {
         ) : null}
         <TextInput
           placeholder='Email'
-          for='email'
+          id='email'
           type='email'
           value={form.email}
           handler={handleForm}
@@ -112,7 +112,7 @@ const SignIn = (props) => {
         />
         <TextInput
           placeholder='Password'
-          for='password'
+          id='password'
           type='password'
           value={form.password}
           handler={handleForm}
@@ -121,7 +121,7 @@ const SignIn = (props) => {
         {props.isSignUp ? (
           <TextInput
             placeholder='Confirm Password'
-            for='confirmPassword'
+            id='confirmPassword'
             type='password'
             value={form.confirmPassword}
             handler={handleForm}
@@ -140,11 +140,15 @@ const SignIn = (props) => {
             handler={signInWithGitHubHandler}
             category='github'
             label='GitHub'
+            size='small'
+            type='button'
             icon={<FontAwesomeIcon icon={faGithub} />}
           />
           <Button
             handler={signInWithGoogleHandler}
             category='google'
+            size='small'
+            type='button'
             icon={<FontAwesomeIcon icon={faGoogle} />}
             label='Google'
           />

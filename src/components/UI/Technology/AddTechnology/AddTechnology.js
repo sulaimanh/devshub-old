@@ -58,10 +58,8 @@ const AddTechnology = ({
       <HeadingTertiary>Technology</HeadingTertiary>
       <div className={styles.techContainer} onKeyPress={setTechEnterHandler}>
         <Input
-          for='tech'
+          id='tech'
           placeholder='Technology needed to know'
-          isTextArea={false}
-          readOnly={false}
           type='text'
           value={techValue}
           handler={setInputHandler}

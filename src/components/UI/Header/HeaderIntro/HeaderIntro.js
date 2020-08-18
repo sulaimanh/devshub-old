@@ -11,7 +11,12 @@ const HeaderIntro = (props) => {
       </div>
       <div className={styles.header__links}>
         <div className={styles.header__links__spread}>
-          <Button label='About Us' category='secondary' type='button' />
+          <Button
+            size='small'
+            label='About Us'
+            category='secondary'
+            type='button'
+          />
           <Button
             handler={props.handleSignIn}
             category='secondary'

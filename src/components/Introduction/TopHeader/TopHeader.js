@@ -23,9 +23,15 @@ const TopHeader = (props) => {
             handler={() => props.handleSignIn("sign up")}
             type='button'
             category='primary'
+            size='small'
             label='Sign Up'
           />
-          <Button category='secondary' type='button' label='About Us' />
+          <Button
+            size='small'
+            category='secondary'
+            type='button'
+            label='About Us'
+          />
         </div>
       </div>
       <div className={styles.topHeader__rightContainer}>

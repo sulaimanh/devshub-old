@@ -39,7 +39,7 @@
     width: 90%;
   }
 
-  &__top {
+  &--top {
     position: relative;
     display: flex;
     width: 100%;
@@ -55,7 +55,7 @@
     }
   }
 
-  &__row2 {
+  &--row2 {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -65,7 +65,7 @@
     }
   }
 
-  &__withHeading {
+  &--withHeading {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -76,26 +76,26 @@
     }
   }
 
-  &__challenge {
+  &--challenge {
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin-top: 1rem;
     margin-bottom: 3rem;
 
-    &Check {
+    &__check {
       display: flex;
       margin-top: 1rem;
     }
 
-    &Moreinfo {
+    &__moreinfo {
       display: flex;
       align-items: center;
       margin-left: 2rem;
     }
   }
 
-  &__submit {
+  &--submit {
     position: relative;
     display: flex;
     margin-top: 3rem;
