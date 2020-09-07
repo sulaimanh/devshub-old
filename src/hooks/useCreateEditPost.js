@@ -19,10 +19,6 @@ export default function useCreatePost(section, postId) {
           createdAt: FieldValue.serverTimestamp()
         });
       }
-
-      // db.collection("users")
-      //   .doc(value.ownerId)
-      //   .update({ [value.section]: FieldValue.arrayUnion(value) });
     },
     {
       onMutate: (post) => {
@@ -36,17 +32,10 @@ export default function useCreatePost(section, postId) {
           ]);
 
           queryCache.setQueryData(["posts", section, postId], (old) => {
-            // console.log(old);
-            // const newFirst = {
-            //   docs: [post, ...first],
-            //   lastVisible: first.lastVisible
-            // };
-            // const updateNew = [newFirst, ...old];
-
             return { ...post };
           });
 
-          return previousValue;
+          return () => queryCache.setQueryData(["posts", section, postId]);
         } else {
           queryCache.cancelQueries(["posts", section]);
 

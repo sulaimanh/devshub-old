@@ -111,6 +111,16 @@
     }
   }
 
+  &--delete {
+    color: var(--color-white);
+
+    background-color: var(--color-delete);
+    &:hover {
+      background-color: rgba(#d11a2a, 0.8);
+      color: var(--color-white);
+    }
+  }
+
   &--github {
     color: var(--color-white);
     background-color: #24292e;

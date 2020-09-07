@@ -27,6 +27,7 @@ const UserPost = React.memo((props) => {
   const history = useHistory();
   const match = useRouteMatch("/home/:section/:postId");
   const [icon, setIcon] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [post, setPost] = useState({
     title: "",
     description: "",

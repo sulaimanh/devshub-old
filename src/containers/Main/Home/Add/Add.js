@@ -245,10 +245,9 @@ const Add = (props) => {
 
           <div className={styles[`add--submit`]}>
             <Button
-              handler={postProjectHandler}
               category='tertiary'
               label='Post'
-              type='button'
+              type='submit'
               size='large'
             />
           </div>

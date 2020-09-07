@@ -6,12 +6,12 @@ import {
 import React, { Fragment, useContext, useEffect, useState } from "react";
 
 import { AuthContext } from "../../../helper/Auth";
+import Button from "../../../components/UI/Button/Button";
 import EditProfile from "./EditProfile/EditProfile";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import MiniCard from "../../../components/UI/MiniCard/MiniCard";
 import Modal from "../../../components/UI/Modal/Modal";
 import RightPanel from "./RightPanel/RightPanel";
 import Spinner from "../../../components/UI/Spinner/Spinner";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Profile.module.scss";
 import useDeletePost from "../../../hooks/useDeletePost";
 import useGetUser from "../../../hooks/useGetUser";
@@ -32,6 +32,11 @@ const Profile = React.memo((props) => {
   const [user, setUser] = useState({ arr: [], isUserProfile: false });
   const [showModal, setShowModal] = useState(false);
   const [showMessageModal, setShowMessageModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState({
+    show: false,
+    section: "",
+    postId: ""
+  });
   const match = useRouteMatch("/profile/:ownerId");
   const history = useHistory();
   const { currentUser } = useContext(AuthContext);
@@ -83,6 +88,12 @@ const Profile = React.memo((props) => {
     setShowMessageModal((prevState) => !prevState);
   };
 
+  const showDeleteModalHandler = (section, postId) => {
+    setShowDeleteModal((prevState) => {
+      return { show: !prevState.show, section: section, postId: postId };
+    });
+  };
+
   const updateUserHandler = async (input) => {
     await updateUser({ ...input, ownerId: user.ownerId });
     setShowModal((prevState) => !prevState);
@@ -90,6 +101,9 @@ const Profile = React.memo((props) => {
 
   const deletePostHandler = async (section, postId) => {
     await deletPost({ section: section, postId: postId });
+    setShowDeleteModal((prevState) => {
+      return { show: !prevState.show, section: "", postId: "" };
+    });
   };
 
   if (userData.isLoading) {
@@ -102,74 +116,38 @@ const Profile = React.memo((props) => {
 
   const teamList = posts.teams.map((team, index) => {
     return (
-      <div key={index} className={styles.profile__maincontainer__listCard}>
-        <div
-          className={styles.profile__maincontainer__listCardClick}
-          onClick={() => goToPostHandler("teams", team.postId)}
-        >
-          <Paragraph className='medium'>{team.title}</Paragraph>
-        </div>
-        {user.isUserProfile ? (
-          <div
-            onClick={() => deletePostHandler("teams", team.postId)}
-            className={styles.profile__maincontainer__listCardDelete}
-          >
-            <FontAwesomeIcon
-              icon={faTrash}
-              size='2x'
-              className={styles.profile__maincontainer__listCardDeleteTrash}
-            />
-          </div>
-        ) : null}
-      </div>
+      <MiniCard
+        key={index}
+        data={team}
+        section='teams'
+        user={user}
+        goToPostHandler={goToPostHandler}
+        deletePostHandler={showDeleteModalHandler}
+      />
     );
   });
   const projectList = posts.projects.map((project, index, arr) => {
     return (
-      <div key={index} className={styles.profile__maincontainer__listCard}>
-        <div
-          className={styles.profile__maincontainer__listCardClick}
-          onClick={() => goToPostHandler("projects", project.postId)}
-        >
-          <Paragraph className='medium'>{project.title}</Paragraph>
-        </div>
-        {user.isUserProfile ? (
-          <div
-            onClick={() => deletePostHandler("projects", project.postId)}
-            className={styles.profile__maincontainer__listCardDelete}
-          >
-            <FontAwesomeIcon
-              icon={faTrash}
-              size='2x'
-              className={styles.profile__maincontainer__listCardDeleteTrash}
-            />
-          </div>
-        ) : null}
-      </div>
+      <MiniCard
+        key={index}
+        data={project}
+        section='projects'
+        user={user}
+        goToPostHandler={goToPostHandler}
+        deletePostHandler={showDeleteModalHandler}
+      />
     );
   });
   const challengeList = posts.challenges.map((challenge, index) => {
     return (
-      <div key={index} className={styles.profile__maincontainer__listCard}>
-        <div
-          className={styles.profile__maincontainer__listCardClick}
-          onClick={() => goToPostHandler("challenges", challenge.postId)}
-        >
-          <Paragraph className='medium'>{challenge.title}</Paragraph>
-        </div>
-        {user.isUserProfile ? (
-          <div
-            onClick={() => deletePostHandler("challenges", challenge.postId)}
-            className={styles.profile__maincontainer__listCardDelete}
-          >
-            <FontAwesomeIcon
-              icon={faTrash}
-              size='2x'
-              className={styles.profile__maincontainer__listCardDeleteTrash}
-            />
-          </div>
-        ) : null}
-      </div>
+      <MiniCard
+        key={index}
+        data={challenge}
+        section='challenges'
+        user={user}
+        goToPostHandler={goToPostHandler}
+        deletePostHandler={showDeleteModalHandler}
+      />
     );
   });
 
@@ -191,23 +169,64 @@ const Profile = React.memo((props) => {
         </Modal>
       ) : null}
 
+      {showDeleteModal.show ? (
+        <Modal handler={showDeleteModalHandler} show={showDeleteModal.show}>
+          <div className={styles.profileDelete}>
+            <h1>Are you sure you want to delete this post?</h1>
+            <div className={styles.profileDelete__buttons}>
+              <div className={styles.profileDelete__button}>
+                <Button
+                  type='button'
+                  category='delete'
+                  size='small'
+                  label='Yes'
+                  handler={() =>
+                    deletePostHandler(
+                      showDeleteModal.section,
+                      showDeleteModal.postId
+                    )
+                  }
+                />
+              </div>
+              <div className={styles.profileDelete__button}>
+                <Button
+                  type='button'
+                  category='secondary'
+                  size='small'
+                  label='No'
+                  handler={() => showDeleteModalHandler("", "")}
+                />
+              </div>
+            </div>
+          </div>
+        </Modal>
+      ) : null}
+
       <div className={styles.profile}>
         <div className={styles.profile__header}>
           <HeadingSecondary>Welcome</HeadingSecondary>
         </div>
         <div className={styles.profile__maincontainer}>
-          <HeadingTertiary>Posts</HeadingTertiary>
+          <HeadingTertiary>Your Posts</HeadingTertiary>
           <div className={styles.profile__maincontainer__list}>
             {posts.isTeams ? (
               <div className={styles.profile__maincontainer__listSection}>
                 <HeadingTertiary>Teams</HeadingTertiary>
-                {teamList}
+                <div
+                  className={styles.profile__maincontainer__listSectionCards}
+                >
+                  {teamList}
+                </div>
               </div>
             ) : null}
             {posts.isProjects ? (
               <div className={styles.profile__maincontainer__listSection}>
                 <HeadingTertiary>Projects</HeadingTertiary>
-                {projectList}
+                <div
+                  className={styles.profile__maincontainer__listSectionCards}
+                >
+                  {projectList}
+                </div>
               </div>
             ) : null}
             {posts.isChallenges ? (

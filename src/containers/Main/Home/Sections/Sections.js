@@ -1,10 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import React, { useEffect, useRef } from "react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { headingSecondary as HeadingSecondary } from "../../../../components/UI/Text/Text";
-import SearchInput from "../../../../components/UI/Inputs/SearchInput/SearchInput";
+import { Route } from "react-router-dom";
 import Section from "./Section/Section";
 import Spinner from "../../../../components/UI/Spinner/Spinner";
 import useIntersectionObserver from "../../../../hooks/useInteractionObserver";
@@ -14,15 +11,13 @@ import { useRouteMatch } from "react-router-dom";
 const Sections = (props) => {
   const match = useRouteMatch("/home/:section");
 
-  const {
-    status,
-    data,
-    error,
-    isFetching,
-    isFetchingMore,
-    fetchMore,
-    canFetchMore
-  } = usePosts(match.params.section);
+  const { status, data, fetchMore, canFetchMore } = usePosts(
+    match.params.section
+  );
+
+  useEffect(() => {
+    console.log("[Sections.js] useEffect");
+  });
 
   const loadingMore = useRef();
 
@@ -40,6 +35,8 @@ const Sections = (props) => {
     return <h1>There is an error</h1>;
   }
 
+  console.log(data[0].docs.length);
+
   return (
     <div
       style={{
@@ -48,14 +45,9 @@ const Sections = (props) => {
         justifyContent: "center"
       }}
     >
-      <Switch>
-        <Route path={`/home/${match.params.section}`}>
-          <Section cards={data} />
-        </Route>
-        <Redirect to='/home/teams' />
-      </Switch>
+      <Section cards={data} />
 
-      {canFetchMore ? (
+      {canFetchMore && status !== "loading" ? (
         <div
           ref={loadingMore}
           style={{

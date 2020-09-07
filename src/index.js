@@ -7,13 +7,18 @@ import { AuthProvider } from "./helper/Auth";
 import { BrowserRouter } from "react-router-dom";
 import React from "react";
 import ReactDOM from "react-dom";
+import { ReactQueryConfigProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query-devtools";
+
+const queryConfig = { queries: { refetchOnWindowFocus: false } };
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <App />
+        <ReactQueryConfigProvider config={queryConfig}>
+          <App />
+        </ReactQueryConfigProvider>
       </AuthProvider>
     </BrowserRouter>
     <ReactQueryDevtools initialIsOpen={false} />

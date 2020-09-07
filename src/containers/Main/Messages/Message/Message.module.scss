@@ -42,11 +42,14 @@
     align-items: center;
     cursor: pointer;
     margin-bottom: 1rem;
+    margin-top: 1rem;
     width: 90%;
     border-left: 3px solid var(--color-primary);
+
+    box-shadow: var(--box-shadow-medium);
     padding-right: 1rem;
-    border-radius: 2px;
-    background-color: rgba(grey, 0.1);
+    border-radius: 5px;
+    // background-color: rgba(grey, 0.1);
 
     &:hover {
       background-color: rgba(grey, 0.2);

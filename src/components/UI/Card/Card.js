@@ -66,8 +66,7 @@ const Card = ({ description, handler, id, title, tech, ...props }) => {
 Card.propTypes = {
   description: PropTypes.string.isRequired,
   tech: PropTypes.array.isRequired,
-  title: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired
 };
 
 Card.defaultProps = {

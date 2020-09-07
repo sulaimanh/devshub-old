@@ -4,7 +4,6 @@
   position: relative;
   display: flex;
   padding: 3rem 1rem 3rem 1em;
-  box-shadow: var(--box-shadow);
   width: 35%;
   flex-direction: column;
 
@@ -15,7 +14,7 @@
   @include respond(tab-port) {
     width: 95%;
     order: 2;
-    margin: 6rem 1rem 1rem 1rem;
+    margin: 6rem 1rem 1rem 0rem;
     box-shadow: none;
   }
 
@@ -31,7 +30,7 @@
       margin-bottom: 0rem;
     }
 
-    &Pic {
+    &--pic {
       width: 50%;
       border-radius: 5rem;
       @include respond(tab-port) {
@@ -40,7 +39,7 @@
       }
     }
 
-    &NameEdit {
+    &--name {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -64,6 +63,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
     @include respond(tab-port) {
       justify-content: flex-start;
       align-items: flex-start;
@@ -71,81 +71,34 @@
       margin-top: 3rem;
     }
 
-    &Message {
+    &--message {
       display: flex;
-      align-items: center;
-      width: 90%;
+      align-items: flex-start;
+      width: 95%;
+    }
+
+    &--container {
+      width: 95%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
 
       @include respond(tab-port) {
-        // width: 100%;
+        flex-direction: row;
       }
     }
 
-    &Section {
+    &--section {
       position: relative;
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
-      width: 95%;
+      width: fit-content;
       margin-top: 3rem;
 
       @include respond(tab-port) {
         align-items: flex-start;
-        width: 100%;
-      }
-
-      &__text {
-        width: 100%;
-        word-wrap: break-word;
-      }
-    }
-
-    &Applied {
-      display: flex;
-
-      margin-top: 1rem;
-      width: 100%;
-      @include respond(tab-port) {
-        justify-content: flex-start;
-      }
-    }
-
-    &App {
-      display: flex;
-      flex-direction: column;
-      padding: 2rem 1rem;
-      width: 50%;
-      align-content: flex-start;
-      cursor: pointer;
-
-      @include respond(tab-port) {
-        width: 50%;
-        padding: 1rem 1rem 1rem 1rem;
-        justify-content: center;
-      }
-
-      &Projects {
-        border-left: 5px solid var(--color-primary);
-        background-color: rgba(#005aea, 0.1);
-
-        &:hover {
-          background-color: rgba(#005aea, 0.2);
-        }
-      }
-
-      &Teams {
-        border-left: 5px solid var(--color-tertiary);
-        background-color: rgba(#3be47a, 0.1);
-
-        &:hover {
-          background-color: rgba(#3be47a, 0.2);
-        }
-      }
-    }
-
-    &Contact {
-      &__message {
-        width: 100%;
+        margin: 2rem;
       }
     }
   }

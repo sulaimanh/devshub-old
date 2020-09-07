@@ -26,7 +26,11 @@ const TopSelection = () => {
       }
       setSection(view);
     }
-  }, [match]);
+  }, []);
+
+  useEffect(() => {
+    console.log("[TopSelection.js] 2nd useEffect");
+  });
 
   const selectedChoiceHandler = (choice, heading) => {
     setSelectedChoice(choice);

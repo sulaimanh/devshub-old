@@ -5,7 +5,7 @@ import { db } from "../firebase";
 export default function useDeletePost() {
   return useMutation(
     (value) => {
-      console.log(value.section, value.postId);
+      // console.log(value.section, value.postId);
       db.collection(value.section).doc(value.postId).delete();
       // db.collection("users")
       //   .doc(value.ownerId)
@@ -27,7 +27,7 @@ export default function useDeletePost() {
           }
         });
 
-        return previousValue;
+        // return previousValue;
         return () =>
           queryCache.setQueryData(["posts", post.section], previousValue);
       },
@@ -37,7 +37,6 @@ export default function useDeletePost() {
 
       // After success or failure, refetch
       onSettled: (post) => {
-        console.log(post);
         return queryCache.invalidateQueries(["posts"]);
       }
     }

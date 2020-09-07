@@ -32,7 +32,7 @@
     flex-basis: 90%;
     flex-direction: column;
     // align-items: center;
-    margin: 10rem 3rem;
+    margin: 10rem 1rem 10rem 3rem;
 
     @include respond(tab-port) {
       order: 3;
@@ -46,14 +46,14 @@
       height: 100%;
       margin-top: 1rem;
       border-radius: 2rem;
-      padding: 0rem 2rem;
+      // padding: 0rem 2rem;
       flex-direction: column;
 
       &Section {
         display: flex;
-        align-items: center;
+        // align-items: center;
         flex-direction: column;
-        width: 95%;
+
         margin-bottom: 2rem;
         border-radius: 5px;
         margin-right: 3rem;
@@ -63,47 +63,28 @@
             margin-bottom: 1rem;
           }
         }
+
+        &Cards {
+          display: flex;
+          flex-wrap: wrap;
+        }
       }
+    }
+  }
 
-      // &Card::before {
-      //   box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
-      //   filter: blur(10px);
-      // }
-      &Card {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-        margin-bottom: 1rem;
-        width: 90%;
-        border-left: 3px solid var(--color-primary);
-        padding-right: 1rem;
-        border-radius: 2px;
-        background-color: rgba(grey, 0.1);
+  &Delete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-        &:hover {
-          background-color: rgba(grey, 0.2);
-        }
+    &__buttons {
+      display: flex;
+      margin-top: 2rem;
+    }
 
-        &Click {
-          display: flex;
-          width: 100%;
-          padding: 1.5rem 0rem 1.5rem 1rem;
-        }
-
-        &Delete {
-          display: flex;
-          width: fit-content;
-          padding: 1rem;
-          z-index: 9000;
-          border-radius: 5px;
-          // background-color: rgba(grey, 0.2);
-          &Trash {
-            &:hover {
-              color: var(--color-red);
-            }
-          }
-        }
+    &__button {
+      &:not(:last-child) {
+        margin-right: 2rem;
       }
     }
   }
