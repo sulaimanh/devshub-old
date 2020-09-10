@@ -11,7 +11,7 @@ import { useRouteMatch } from "react-router-dom";
 const Sections = (props) => {
   const match = useRouteMatch("/home/:section");
 
-  const { status, data, fetchMore, canFetchMore } = usePosts(
+  const { status, data, fetchMore, canFetchMore, isFetchingMore } = usePosts(
     match.params.section
   );
 
@@ -35,7 +35,7 @@ const Sections = (props) => {
     return <h1>There is an error</h1>;
   }
 
-  console.log(data[0].docs.length);
+  // console.log(data[0].docs.length);
 
   return (
     <div
@@ -47,7 +47,7 @@ const Sections = (props) => {
     >
       <Section cards={data} />
 
-      {canFetchMore && status !== "loading" ? (
+      {canFetchMore ? (
         <div
           ref={loadingMore}
           style={{

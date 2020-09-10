@@ -68,7 +68,7 @@ const Add = (props) => {
   };
 
   return (
-    <form onSubmit={postProjectHandler} className={styles.form}>
+    <div className={styles.form}>
       <div className={styles.container}>
         <div className={styles.add}>
           <div className={styles[`add--top`]}>
@@ -249,11 +249,12 @@ const Add = (props) => {
               label='Post'
               type='submit'
               size='large'
+              handler={postProjectHandler}
             />
           </div>
         </div>
       </div>
-    </form>
+    </div>
   );
 };
 

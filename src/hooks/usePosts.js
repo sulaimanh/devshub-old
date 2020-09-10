@@ -3,6 +3,7 @@ import { useInfiniteQuery, useQuery } from "react-query";
 import { db } from "../firebase";
 
 const getPosts = async (_, section, lastVisible = null) => {
+  console.log("We are calling this again and again");
   if (!lastVisible) {
     const first = db.collection(section).orderBy("createdAt", "desc").limit(5);
 

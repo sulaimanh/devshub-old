@@ -16,10 +16,6 @@ export default function useDeletePost() {
         queryCache.cancelQueries(["posts", post.section]);
         const previousValue = queryCache.getQueryData(["posts", post.section]);
 
-        console.log(post);
-
-        console.log(previousValue);
-
         queryCache.setQueryData(["posts", post.section], (old) => {
           if (old) {
             console.log(old);
