@@ -1,0 +1,21 @@
+@import "../../../../../sass/abstracts/mixins";
+
+.project {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  margin-right: 3rem;
+
+  &Section {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @include respond(tab-port) {
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+}

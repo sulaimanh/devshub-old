@@ -31,6 +31,7 @@ const TopHeader = (props) => {
             category='secondary'
             type='button'
             label='About Us'
+            handler={() => window.open("https://sulaimanhamouda.com", "_self")}
           />
         </div>
       </div>

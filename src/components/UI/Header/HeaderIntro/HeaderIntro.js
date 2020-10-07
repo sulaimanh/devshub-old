@@ -16,6 +16,7 @@ const HeaderIntro = (props) => {
             label='About Us'
             category='secondary'
             type='button'
+            handler={() => window.open("https://sulaimanhamouda.com", "_self")}
           />
           <Button
             handler={props.handleSignIn}

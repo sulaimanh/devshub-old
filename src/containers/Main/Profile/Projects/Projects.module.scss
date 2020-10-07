@@ -1,0 +1,29 @@
+.projects {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  height: fit-content;
+  width: 95%;
+  //   margin-top: 2rem;
+  margin-left: 2.5%;
+  background-color: var(--color-white);
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+
+  &Delete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    &__buttons {
+      display: flex;
+      margin-top: 2rem;
+    }
+
+    &__button {
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+  }
+}

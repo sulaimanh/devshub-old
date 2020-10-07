@@ -10,7 +10,7 @@ import styles from "./MiniCard.module.scss";
 
 const MiniCard = ({
   data,
-  user,
+  isUserProfile,
   section,
   goToPostHandler,
   deletePostHandler,
@@ -36,7 +36,7 @@ const MiniCard = ({
         >
           <HeadingTertiary>{data.title}</HeadingTertiary>
         </div>
-        {user.isUserProfile ? (
+        {isUserProfile ? (
           <div
             onClick={() => deletePostHandler(section, data.postId)}
             className={styles[`card--heading__delete`]}

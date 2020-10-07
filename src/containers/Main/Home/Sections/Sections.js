@@ -36,7 +36,6 @@ const Sections = (props) => {
   }
 
   // console.log(data[0].docs.length);
-
   return (
     <div
       style={{
@@ -47,7 +46,20 @@ const Sections = (props) => {
     >
       <Section cards={data} />
 
-      {canFetchMore ? (
+      {status === "loading" && canFetchMore && isFetchingMore ? (
+        <div
+          ref={loadingMore}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            margin: "2rem 0"
+          }}
+        >
+          <Spinner />
+        </div>
+      ) : null}
+
+      {canFetchMore && isFetchingMore ? (
         <div
           ref={loadingMore}
           style={{
@@ -63,6 +75,7 @@ const Sections = (props) => {
           style={{
             display: "flex",
             justifyContent: "center",
+            textAlign: "center",
             margin: "2rem 0"
           }}
         >

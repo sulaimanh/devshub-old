@@ -13,7 +13,12 @@ const Footer = (props) => {
       </div>
       <div className={styles.footer__right}>
         <div className={styles.footer__right__left}>
-          <p className={styles.footer__links}>Our Story</p>
+          <p
+            className={styles.footer__links}
+            onClick={() => window.open("https://sulaimanhamouda.com", "_self")}
+          >
+            About Us
+          </p>
           <p className={styles.footer__links}>Careers</p>
           <p className={styles.footer__links}>Email us</p>
         </div>
