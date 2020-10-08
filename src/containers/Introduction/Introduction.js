@@ -13,6 +13,8 @@ const Introduction = () => {
     isSignUp: false
   });
 
+  // const [showStillDev, setShowStillDev] = useState(true);
+
   const changeModalHandler = (action) => {
     let isSignUp = false;
     if (action === "sign up") {
@@ -35,6 +37,7 @@ const Introduction = () => {
           <SignIn isSignUp={showModal.isSignUp} isModal='true' />
         </Modal>
       ) : null}
+
       <Header
         showModal={showModal.showModal}
         handleSignIn={changeModalHandler}

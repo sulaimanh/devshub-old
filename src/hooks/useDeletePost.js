@@ -5,11 +5,7 @@ import { db } from "../firebase";
 export default function useDeletePost() {
   return useMutation(
     (value) => {
-      // console.log(value.section, value.postId);
       db.collection(value.section).doc(value.postId).delete();
-      // db.collection("users")
-      //   .doc(value.ownerId)
-      //   .update({ [value.section]: FieldValue.arrayUnion(value) });
     },
     {
       onMutate: (post) => {

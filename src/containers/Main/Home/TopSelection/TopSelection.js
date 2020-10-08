@@ -1,12 +1,10 @@
 import { Link, useRouteMatch } from "react-router-dom";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Add from "../Add/Add";
 import Button from "../../../../components/UI/Button/Button";
-import Modal from "../../../../components/UI/Modal/Modal";
 import styles from "./TopSelection.module.scss";
 
-// - This will show the main contact
 const TopSelection = () => {
   const [selectedChoice, setSelectedChoice] = useState("teams");
   const [section, setSection] = useState("Team");
@@ -14,7 +12,6 @@ const TopSelection = () => {
   const match = useRouteMatch("/home/:section");
 
   useEffect(() => {
-    console.log("[TopSelection.js] useEffect");
     if (match) {
       let route = match.params.section;
       setSelectedChoice(route);
@@ -27,10 +24,6 @@ const TopSelection = () => {
       setSection(view);
     }
   }, []);
-
-  useEffect(() => {
-    console.log("[TopSelection.js] 2nd useEffect");
-  });
 
   const selectedChoiceHandler = (choice, heading) => {
     setSelectedChoice(choice);

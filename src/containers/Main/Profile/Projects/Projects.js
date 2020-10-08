@@ -36,7 +36,6 @@ const Projects = ({ isUserProfile }) => {
 
   const deletePostHandler = async (section, postId) => {
     await deletePost({ section: section, postId: postId });
-    console.log("DID IT DO IT!");
     setShowDeleteModal((prevState) => {
       return { show: !prevState.show, section: "", postId: "" };
     });

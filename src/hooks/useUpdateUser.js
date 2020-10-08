@@ -17,8 +17,6 @@ export default function useUpdateUser(ownerId) {
 
         const previousValue = queryCache.getQueryData(["users", ownerId]);
 
-        console.log(user);
-
         queryCache.setQueryData(["users", ownerId], (old) => {
           return { ...old, ...user };
         });

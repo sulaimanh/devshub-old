@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 
 import { headingSecondary as HeadingSecondary } from "../../../../components/UI/Text/Text";
-import { Route } from "react-router-dom";
 import Section from "./Section/Section";
 import Spinner from "../../../../components/UI/Spinner/Spinner";
 import useIntersectionObserver from "../../../../hooks/useInteractionObserver";
@@ -14,10 +13,6 @@ const Sections = (props) => {
   const { status, data, fetchMore, canFetchMore, isFetchingMore } = usePosts(
     match.params.section
   );
-
-  useEffect(() => {
-    console.log("[Sections.js] useEffect");
-  });
 
   const loadingMore = useRef();
 

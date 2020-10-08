@@ -32,8 +32,6 @@ export default function useRemoveRequestToJoin(section, postId) {
           const usersArr = old.users.filter(
             (user) => user.ownerId !== userId.ownerId
           );
-
-          console.log({ ...old, users: usersArr });
           return { ...old, users: usersArr };
         });
 

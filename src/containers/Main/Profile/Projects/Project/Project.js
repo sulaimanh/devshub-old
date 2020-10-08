@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
-
 import { headingTertiary as HeadingTertiary } from "../../../../../components/UI/Text/Text";
 import MiniCard from "../../../../../components/UI/MiniCard/MiniCard";
+import React from "react";
 import styles from "./Project.module.scss";
 
 const Project = ({

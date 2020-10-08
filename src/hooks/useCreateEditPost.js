@@ -4,7 +4,6 @@ import { queryCache, useMutation } from "react-query";
 export default function useCreatePost(section, postId) {
   return useMutation(
     (value) => {
-      // console.log(value);
       if (value.createdAt) {
         db.collection(section)
           .doc(postId)

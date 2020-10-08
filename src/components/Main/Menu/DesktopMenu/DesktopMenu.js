@@ -19,8 +19,6 @@ const DesktopMenu = () => {
 
   // - If page is refreshed, then we need to keep the path
   useEffect(() => {
-    console.log("[DesktopMenu.js] useEffect");
-
     if (match) {
       setSelectedTab(match.params.section);
     } else {

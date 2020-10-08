@@ -1,15 +1,11 @@
-import React, { useEffect } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
 
 import Card from "../../../../../components/UI/Card/Card";
+import React from "react";
 
 const Section = React.memo((props) => {
   const history = useHistory();
   const match = useRouteMatch("/home/:section");
-
-  useEffect(() => {
-    console.log("[Section.js] useEffect");
-  });
 
   const sectionSelectedHandler = (event, projectId) => {
     history.push(`/home/${match.params.section}/${projectId}`);
