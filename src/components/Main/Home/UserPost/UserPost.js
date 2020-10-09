@@ -29,7 +29,7 @@ const UserPost = React.memo((props) => {
 
   const history = useHistory();
   const match = useRouteMatch("/home/:section/:postId");
-  // const [icon, setIcon] = useState(true);
+
   const [post, setPost] = useState({
     title: "",
     description: "",
@@ -80,17 +80,9 @@ const UserPost = React.memo((props) => {
     removeJoinRequest({ ownerId: currentUser.ownerId, name: currentUser.name });
   };
 
-  // const changeIconHandler = (isChecked) => {
-  //   setIcon(isChecked);
-  // };
-
   if (isLoading) {
     return <Spinner />;
   }
-
-  // if (!isLoading) {
-  //   refTextArea.style.height = "50rem";
-  // }
 
   return (
     <React.Fragment>
@@ -170,7 +162,7 @@ const UserPost = React.memo((props) => {
 
         <div className={styles.post__req}>
           <HeadingTertiary>Requirements</HeadingTertiary>
-          <p className={styles.post__text}>{post.requirements}</p>
+          <Pre>{post.requirements}</Pre>
         </div>
         <div className={styles.post__tech}>
           <Technology tech={post.techArr} />
