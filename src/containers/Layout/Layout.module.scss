@@ -6,10 +6,11 @@
 }
 
 .top {
+  overflow: hidden;
   text-align: center;
   z-index: 1;
   background-color: var(--color-primary);
-  width: 100%;
+
   color: var(--color-white);
   padding: 0.5rem;
 
