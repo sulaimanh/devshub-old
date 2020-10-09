@@ -161,8 +161,10 @@ const UserPost = React.memo((props) => {
             <p className={styles.post__text}>
               Developers needed: {post.numOfDevelopersNeeded}
             </p>
-            <Link link={post.repo}>Go to Repository</Link>
-            <Link link={post.challenge}>Go to Challenge</Link>
+            {post.repo ? <Link link={post.repo}>Go to Repository</Link> : null}
+            {post.challenge ? (
+              <Link link={post.challenge}>Go to Challenge</Link>
+            ) : null}
           </div>
         </div>
 
