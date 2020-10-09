@@ -55,6 +55,11 @@
   }
 }
 
+.pre {
+  font-size: var(--default-font-size);
+  font-family: inherit;
+}
+
 .link {
   color: var(--color-primary);
   font-size: var(--default-font-size);

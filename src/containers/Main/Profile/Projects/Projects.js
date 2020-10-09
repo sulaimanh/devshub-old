@@ -20,13 +20,10 @@ const Projects = ({ isUserProfile }) => {
   const { currentUser } = useContext(AuthContext);
   const match = useRouteMatch("/profile/:ownerId");
   const history = useHistory();
-  const { isLoading, isError, data, error } = useGetUserPosts(
+  const { isLoading, data } = useGetUserPosts(
     match ? match.params.ownerId : currentUser.ownerId
   );
-  const [
-    deletePost,
-    updatedDeletedPost /*{ status, updatedUserData, err }*/
-  ] = useDeletePost();
+  const [deletePost] = useDeletePost();
 
   const showDeleteModalHandler = (section, postId) => {
     setShowDeleteModal((prevState) => {

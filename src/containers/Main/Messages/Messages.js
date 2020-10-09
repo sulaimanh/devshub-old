@@ -1,12 +1,9 @@
-import {
-  headingSecondary as HeadingSecondary,
-  headingTertiary as HeadingTertiary
-} from "../../../components/UI/Text/Text";
 import React, { useContext, useState } from "react";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 
 import { AuthContext } from "../../../helper/Auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { headingTertiary as HeadingTertiary } from "../../../components/UI/Text/Text";
 import Message from "./Message/Message";
 import { ReactComponent as ReactEmptyLogo } from "../../../assets/img/empty.svg";
 import Spinner from "../../../components/UI/Spinner/Spinner";
@@ -14,7 +11,7 @@ import styles from "./Messages.module.scss";
 import useGetUserPosts from "../../../hooks/useGetUserPosts";
 
 const Messages = (props) => {
-  const { isAuth, currentUser } = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
   const [selectedPost, setSelectedPost] = useState(null);
   const [focusedPost, setFocusedPost] = useState(null);
   const [showHide, setShowHide] = useState(true);

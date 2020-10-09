@@ -25,9 +25,9 @@ export default function useRemoveRequestToJoin(section, postId) {
         ]);
 
         queryCache.setQueryData(["posts", section, postId], (old) => {
-          const index = old.users
-            .map((user) => userId.ownerId)
-            .indexOf(userId.ownerId);
+          // const index = old.users
+          //   .map((user) => userId.ownerId)
+          //   .indexOf(userId.ownerId);
           // const usersArr = old.users.splice(index, 1);
           const usersArr = old.users.filter(
             (user) => user.ownerId !== userId.ownerId

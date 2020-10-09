@@ -1,9 +1,10 @@
 import {
   headingSecondary as HeadingSecondary,
   link as Link,
-  paragraph as Paragraph
+  paragraph as Paragraph,
+  pre as Pre
 } from "../../../UI/Text/Text";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import {
   faArrowCircleLeft,
   faCheckCircle
@@ -17,17 +18,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { headingTertiary as HeadingTertiary } from "../../../UI/Text/Text";
 import Spinner from "../../../UI/Spinner/Spinner";
 import Technology from "../../../UI/Technology/Technology";
+import TextInput from "../../../../components/UI/Inputs/TextInput/TextInput";
 import styles from "./UserPost.module.scss";
 import usePost from "../../../../hooks/usePost";
 import useRemoveRequestToJoin from "../../../../hooks/useRemoveRequestToJoin";
 import useSendRequestToJoin from "../../../../hooks/useSendRequestToJoin";
 
 const UserPost = React.memo((props) => {
-  const { isAuth, currentUser } = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
+
   const history = useHistory();
   const match = useRouteMatch("/home/:section/:postId");
-  const [icon, setIcon] = useState(true);
-  const [loading, setLoading] = useState(false);
+  // const [icon, setIcon] = useState(true);
   const [post, setPost] = useState({
     title: "",
     description: "",
@@ -78,13 +80,17 @@ const UserPost = React.memo((props) => {
     removeJoinRequest({ ownerId: currentUser.ownerId, name: currentUser.name });
   };
 
-  const changeIconHandler = (isChecked) => {
-    setIcon(isChecked);
-  };
+  // const changeIconHandler = (isChecked) => {
+  //   setIcon(isChecked);
+  // };
 
   if (isLoading) {
     return <Spinner />;
   }
+
+  // if (!isLoading) {
+  //   refTextArea.style.height = "50rem";
+  // }
 
   return (
     <React.Fragment>
@@ -137,7 +143,7 @@ const UserPost = React.memo((props) => {
             <div className={styles.post__leftHeading}>
               <HeadingSecondary>{post.title}</HeadingSecondary>
             </div>
-            <Paragraph>{post.description}</Paragraph>
+            <Pre>{post.description}</Pre>
           </div>
 
           <div className={styles.post__right}>
@@ -156,6 +162,7 @@ const UserPost = React.memo((props) => {
               Developers needed: {post.numOfDevelopersNeeded}
             </p>
             <Link link={post.repo}>Go to Repository</Link>
+            <Link link={post.challenge}>Go to Challenge</Link>
           </div>
         </div>
 

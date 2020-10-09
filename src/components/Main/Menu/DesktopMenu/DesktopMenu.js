@@ -24,7 +24,7 @@ const DesktopMenu = () => {
     } else {
       history.go("/home/teams");
     }
-  }, [match]);
+  }, [match, history]);
 
   const selectTabHandler = async (event, choice) => {
     event.preventDefault();

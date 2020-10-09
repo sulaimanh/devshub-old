@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   const [isAuth, setIsAuth] = useState(false);
   const [loading, setLoading] = useState(true);
   const history = useHistory();
-  const [saveUser, { status, data, err }] = useCreateUser();
+  const [saveUser] = useCreateUser();
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -90,10 +90,10 @@ export const signInWithGoogle = async (saveUser) => {
   try {
     await auth.signInWithRedirect(provider);
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    const email = error.email;
-    const credential = error.credential;
+    // const errorCode = error.code;
+    // const errorMessage = error.message;
+    // const email = error.email;
+    // const credential = error.credential;
   }
 };
 
@@ -103,10 +103,10 @@ export const signInWithGitHub = async (saveUser) => {
   try {
     await auth.signInWithRedirect(provider);
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    const email = error.email;
-    const credential = error.credential;
+    // const errorCode = error.code;
+    // const errorMessage = error.message;
+    // const email = error.email;
+    // const credential = error.credential;
   }
 };
 

@@ -18,7 +18,11 @@ const RightPanel = (props) => {
   return (
     <div className={styles.rightpanel}>
       <div className={styles.rightpanel__top}>
-        <img className={styles[`rightpanel__top--pic`]} src={profilePicture} />
+        <img
+          alt='Profile'
+          className={styles[`rightpanel__top--pic`]}
+          src={profilePicture}
+        />
 
         <div className={styles[`rightpanel__top--name`]}>
           <HeadingSecondary>{props.user.name}</HeadingSecondary>

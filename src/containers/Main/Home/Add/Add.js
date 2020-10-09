@@ -30,8 +30,8 @@ const Add = (props) => {
   const [techArr, setTechArr] = useState(props.post ? props.post.techArr : []);
   const { currentUser } = useContext(AuthContext);
   const [isCheckbox, setIsCheckbox] = useState({
-    repo: props.post ? (props.post.repo != 0 ? true : false) : false,
-    challenge: props.post ? (props.post.challenge != 0 ? true : false) : false
+    repo: props.post ? (props.post.repo !== 0 ? true : false) : false,
+    challenge: props.post ? (props.post.challenge !== 0 ? true : false) : false
   });
   const match = useRouteMatch("/home/:section");
   const [savePost, { status, data, error }] = useCreateEditPost(

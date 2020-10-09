@@ -1,6 +1,5 @@
-import { useInfiniteQuery, useQuery } from "react-query";
-
 import { db } from "../firebase";
+import { useInfiniteQuery } from "react-query";
 
 const getPosts = async (_, section, lastVisible = null) => {
   if (!lastVisible) {

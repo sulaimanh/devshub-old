@@ -1,4 +1,4 @@
-import { FieldValue, ServerValue, db } from "../firebase";
+import { FieldValue, db } from "../firebase";
 import { queryCache, useMutation } from "react-query";
 
 export default function useCreatePost(section, postId) {
@@ -24,11 +24,11 @@ export default function useCreatePost(section, postId) {
         if (postId) {
           queryCache.cancelQueries(["posts", section, postId]);
 
-          const previousValue = queryCache.getQueryData([
-            "posts",
-            section,
-            postId
-          ]);
+          // const previousValue = queryCache.getQueryData([
+          //   "posts",
+          //   section,
+          //   postId
+          // ]);
 
           queryCache.setQueryData(["posts", section, postId], (old) => {
             return { ...post };

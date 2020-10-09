@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 
 import { AuthContext } from "./helper/Auth";
@@ -12,12 +12,7 @@ import UserProfile from "./containers/Main/Profile/Profile";
 import styles from "./App.module.scss";
 
 function App() {
-  const { isAuth, currentUser } = useContext(AuthContext);
-  const [scrollButton, setScrollButton] = useState(false);
-
-  useEffect(() => {
-    console.log("[App.js] useEffect");
-  });
+  const { isAuth } = useContext(AuthContext);
 
   let routes = (
     <Switch>

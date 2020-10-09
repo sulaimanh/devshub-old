@@ -1,5 +1,4 @@
 import {
-  headingSecondary as HeadingSecondary,
   headingTertiary as HeadingTertiary,
   paragraph as Paragraph
 } from "../../../../components/UI/Text/Text";

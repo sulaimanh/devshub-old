@@ -23,7 +23,7 @@ const TopSelection = () => {
       }
       setSection(view);
     }
-  }, []);
+  }, [match]);
 
   const selectedChoiceHandler = (choice, heading) => {
     setSelectedChoice(choice);

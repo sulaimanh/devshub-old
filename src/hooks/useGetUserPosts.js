@@ -1,6 +1,5 @@
-import { queryCache, useQuery } from "react-query";
-
 import { db } from "../firebase";
+import { useQuery } from "react-query";
 
 const getUserPosts = async (_, ownerId) => {
   let usersPosts = { teams: [], projects: [], challenges: [] };

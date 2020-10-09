@@ -36,6 +36,14 @@ export const paragraph = (props) => {
   );
 };
 
+export const pre = (props) => {
+  return (
+    <pre className={styles.pre} onClick={props.handler}>
+      {props.children}
+    </pre>
+  );
+};
+
 export const link = (props) => {
   return (
     <a href={props.link} className={styles.link}>

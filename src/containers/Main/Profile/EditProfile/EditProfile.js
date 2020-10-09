@@ -5,7 +5,8 @@ import { headingSecondary as HeadingSecondary } from "../../../../components/UI/
 import Input from "../../../../components/UI/Inputs/TextInput/TextInput";
 import MoreInfo from "../../../../components/UI/MoreInfo/MoreInfo";
 import styles from "./EditProfile.module.scss";
-import { useForm } from "react-hook-form";
+
+// import { useForm } from "react-hook-form";
 
 const EditProfile = (props) => {
   const [input, setInput] = useState({
@@ -17,7 +18,7 @@ const EditProfile = (props) => {
     linkedin: props.user.linkedin ? props.user.linkedin : ""
   });
 
-  const { register, handleSubmit, watch, errors } = useForm();
+  // const { register, handleSubmit, watch, errors } = useForm();
 
   const userChangeInput = (event) => {
     const value = event.target.value;

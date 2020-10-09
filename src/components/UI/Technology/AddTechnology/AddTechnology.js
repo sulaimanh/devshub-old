@@ -22,7 +22,7 @@ const AddTechnology = ({
   };
 
   const setTechEnterHandler = (event) => {
-    if (event.charCode == 13 && techValue.trim().length > 0) {
+    if (event.charCode === 13 && techValue.trim().length > 0) {
       setTechArr((prevState) => [...prevState, techValue]);
       setInput((prevState) => {
         return { ...prevState, tech: "" };
