@@ -20,17 +20,14 @@ const Layout = (props) => {
       {show ? (
         <div className={styles.top}>
           <Paragraph className='small'>
-            Developers Path is still in development mode. Please go to{" "}
+            DevsHub is still in development mode. Please go to{" "}
             <span
               className={styles.link}
               onClick={() =>
-                window.open(
-                  "https://github.com/sulaimanh/developerspath",
-                  "_self"
-                )
+                window.open("https://github.com/sulaimanh/devshub", "_self")
               }
             >
-              Developers Path
+              DevsHub
             </span>{" "}
             to check on or contribute to the project.{" "}
             <FontAwesomeIcon

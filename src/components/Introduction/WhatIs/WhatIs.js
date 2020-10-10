@@ -30,8 +30,8 @@ const WhatIs = (props) => {
         <div className={styles.what__reasonStatement}>
           <HeadingSecondary>A community of developers</HeadingSecondary>
           <Paragraph>
-            Collaborating with other developers just got easier. Developers Path
-            helps developers build effective technical and collaboration skills.
+            Collaborating with other developers just got easier. DevsHub helps
+            developers build effective technical and collaboration skills.
           </Paragraph>
         </div>
       </div>
@@ -45,9 +45,9 @@ const WhatIs = (props) => {
         <div className={styles.what__reasonStatement}>
           <HeadingSecondary>Join Teams and Projects</HeadingSecondary>
           <Paragraph>
-            Have an idea? Post it on Developers Path and build your own team.
-            Looking for a team or project to join? Join Developers Path and find
-            your next project.
+            Have an idea? Post it on DevsHub and build your own team. Looking
+            for a team or project to join? Join DevsHub and find your next
+            project.
           </Paragraph>
         </div>
         <div className={styles.what__logos}>

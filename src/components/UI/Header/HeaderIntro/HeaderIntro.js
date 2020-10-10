@@ -7,7 +7,7 @@ const HeaderIntro = (props) => {
   return (
     <div className={styles.header}>
       <div className={styles.header__logo}>
-        <HeadingSecondary>developers path</HeadingSecondary>
+        <HeadingSecondary>DevsHub</HeadingSecondary>
       </div>
       <div className={styles.header__links}>
         <div className={styles.header__links__spread}>

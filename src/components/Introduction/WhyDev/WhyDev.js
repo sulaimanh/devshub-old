@@ -62,9 +62,9 @@ const WhyDev = (props) => {
         </div>
         <div className={styles.why__statement}>
           <Paragraph className='white'>
-            Developers path makes it easy for developers to start working on
-            real projects. Developers are able to collaborate on projects
-            together, work on teams, and gain effective skills.
+            DevsHub makes it easy for developers to start working on real
+            projects. Developers are able to collaborate on projects together,
+            work on teams, and gain effective skills.
           </Paragraph>
         </div>
       </div>

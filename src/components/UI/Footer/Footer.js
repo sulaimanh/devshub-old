@@ -6,9 +6,9 @@ const Footer = (props) => {
     <div className={styles.footer}>
       <div className={styles.footer__left}>
         <p className={styles.footer__para}>
-          Developers path is commited in connecting developers to opportunities
-          by facilitating the interaction with other developers and getting
-          hands on experience.
+          DevsHub is commited in connecting developers to opportunities by
+          facilitating the interaction with other developers and getting hands
+          on experience.
         </p>
       </div>
       <div className={styles.footer__right}>

@@ -23,7 +23,7 @@ const HeaderMain = (props) => {
           handler={searchHandler}
         /> */}
       </div>
-      <h1 className={styles.header__title}>Developers Path</h1>
+      <h1 className={styles.header__title}>DevsHub</h1>
     </div>
   );
 };
