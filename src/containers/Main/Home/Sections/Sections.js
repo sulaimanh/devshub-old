@@ -1,14 +1,15 @@
 import React, { useRef } from "react";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 import { headingSecondary as HeadingSecondary } from "../../../../components/UI/Text/Text";
-import Section from "./Section/Section";
+import Section from "../../../../components/Main/Home/Section/Section";
 import Spinner from "../../../../components/UI/Spinner/Spinner";
 import useIntersectionObserver from "../../../../hooks/useInteractionObserver";
 import usePosts from "../../../../hooks/usePosts";
-import { useRouteMatch } from "react-router-dom";
 
 const Sections = (props) => {
   const match = useRouteMatch("/home/:section");
+  const history = useHistory();
 
   const { status, data, fetchMore, canFetchMore, isFetchingMore } = usePosts(
     match.params.section
@@ -21,6 +22,10 @@ const Sections = (props) => {
     onIntersect: fetchMore,
     enabled: canFetchMore
   });
+
+  const sectionSelectedHandler = (event, projectId) => {
+    history.push(`/home/${match.params.section}/${projectId}`);
+  };
 
   if (status === "loading") {
     return <Spinner />;
@@ -39,7 +44,7 @@ const Sections = (props) => {
         justifyContent: "center"
       }}
     >
-      <Section cards={data} />
+      <Section sectionSelectedHandler={sectionSelectedHandler} cards={data} />
 
       {status === "loading" && canFetchMore && isFetchingMore ? (
         <div

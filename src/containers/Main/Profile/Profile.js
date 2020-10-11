@@ -31,7 +31,9 @@ const Profile = React.memo((props) => {
     updateUser,
     updatedData /*{ status, updatedUserData, err }*/
   ] = useUpdateUser(currentUser.ownerId);
-
+  useEffect(() => {
+    console.log("bbbebe");
+  });
   const showModalHandler = () => {
     setShowModal((prevState) => !prevState);
   };

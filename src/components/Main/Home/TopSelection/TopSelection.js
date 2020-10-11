@@ -1,60 +1,17 @@
-import { Link, useRouteMatch } from "react-router-dom";
-import React, { useEffect, useState } from "react";
-
 import Add from "../Add/Add";
 import Button from "../../../../components/UI/Button/Button";
+import { Link } from "react-router-dom";
+import React from "react";
 import styles from "./TopSelection.module.scss";
 
-const TopSelection = () => {
-  const [selectedChoice, setSelectedChoice] = useState("teams");
-  const [section, setSection] = useState("Team");
-  const [showAdd, setShowAdd] = useState(false);
-  const match = useRouteMatch("/home/:section");
-
-  useEffect(() => {
-    if (match) {
-      let route = match.params.section;
-      setSelectedChoice(route);
-      let view = "Team";
-      if (route === "projects") {
-        view = "Project";
-      } else if (route === "challenges") {
-        view = "Challenge";
-      }
-      setSection(view);
-    }
-  }, [match]);
-
-  const selectedChoiceHandler = (choice, heading) => {
-    setSelectedChoice(choice);
-    setSection(heading);
-  };
-
-  const showAddHandler = (event, id) => {
-    setShowAdd((prevState) => !prevState);
-  };
-
-  const selections = [
-    {
-      heading: "Teams",
-      choice: "teams",
-      path: "/home/teams",
-      buttonName: "Team"
-    },
-    {
-      heading: "Projects",
-      choice: "projects",
-      path: "/home/projects",
-      buttonName: "Project"
-    },
-    {
-      heading: "Challenges",
-      choice: "challenges",
-      path: "/home/challenges",
-      buttonName: "Challenge"
-    }
-  ];
-
+const TopSelection = ({
+  selectedChoice,
+  section,
+  showAdd,
+  selectedChoiceHandler,
+  showAddHandler,
+  selections
+}) => {
   const view = selections.map((selection, index) => {
     return (
       <Link

@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useHistory, useRouteMatch } from "react-router-dom";
 
-import Add from "../../../../containers/Main/Home/Add/Add";
+import Add from "../Add/Add";
 import { AuthContext } from "../../../../helper/Auth";
 import Button from "../../../UI/Button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

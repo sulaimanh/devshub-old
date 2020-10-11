@@ -54,7 +54,7 @@ const RightPanel = (props) => {
           {props.user.github ? (
             <div className={styles[`rightpanel__info--section`]}>
               <HeadingTertiary>GitHub</HeadingTertiary>
-              <Link link={props.user.github}>My Github Profile</Link>
+              <Link link={props.user.github}>My GitHub Profile</Link>
             </div>
           ) : null}
 
