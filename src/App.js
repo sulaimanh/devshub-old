@@ -31,7 +31,7 @@ function App() {
 
         <Route path='/profile' component={Profile} />
         <Route path='/messages' component={Messages} />
-        <Route path='/home' component={Home} />
+        <Route path='/home/:category' component={Home} />
 
         <Redirect to='/home/teams' />
       </Switch>

@@ -3,7 +3,7 @@ import {
   headingTertiary as HeadingTertiary,
   paragraph as Paragraph
 } from "../../../components/UI/Text/Text";
-import React, { Fragment, useContext, useEffect, useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
 
 import { AuthContext } from "../../../helper/Auth";
 import EditProfile from "./EditProfile/EditProfile";
@@ -31,9 +31,7 @@ const Profile = React.memo((props) => {
     updateUser,
     updatedData /*{ status, updatedUserData, err }*/
   ] = useUpdateUser(currentUser.ownerId);
-  useEffect(() => {
-    console.log("bbbebe");
-  });
+
   const showModalHandler = () => {
     setShowModal((prevState) => !prevState);
   };

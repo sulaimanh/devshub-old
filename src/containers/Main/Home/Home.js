@@ -1,4 +1,4 @@
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link, useHistory, useRouteMatch } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
 import Sections from "./Sections/Sections";
@@ -10,6 +10,7 @@ const Home = (props) => {
   const [section, setSection] = useState("Team");
   const [showAdd, setShowAdd] = useState(false);
   const match = useRouteMatch("/home/:section");
+  const history = useHistory();
 
   const selections = [
     {
@@ -33,20 +34,35 @@ const Home = (props) => {
   ];
 
   useEffect(() => {
+    console.log(match);
     if (match) {
-      let route = match.params.section;
-      setSelectedChoice(route);
-      let view = "Team";
-      if (route === "projects") {
-        view = "Project";
-      } else if (route === "challenges") {
-        view = "Challenge";
+      let exists = true;
+      selections.map((selection) => {
+        if (selection.choice === match.params.section) {
+          setSelectedChoice(match.params.section);
+          setSection(selection.buttonName);
+          exists = false;
+        }
+      });
+      console.log(exists);
+      if (exists) {
+        history.push("/home/teams");
       }
-      setSection(view);
+
+      // let route = match.params.section;
+      // setSelectedChoice(route);
+      // let view = "Team";
+      // if (route === "projects") {
+      //   view = "Project";
+      // } else if (route === "challenges") {
+      //   view = "Challenge";
+      // }
+      // setSection(view);
     }
-  }, [match]);
+  }, []);
 
   const selectedChoiceHandler = (choice, heading) => {
+    console.log(choice, heading);
     setSelectedChoice(choice);
     setSection(heading);
   };
