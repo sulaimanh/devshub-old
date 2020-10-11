@@ -44,7 +44,6 @@ const Home = (props) => {
           exists = false;
         }
       });
-      console.log(exists);
       if (exists) {
         history.push("/home/teams");
       }
