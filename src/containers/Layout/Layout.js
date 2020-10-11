@@ -24,7 +24,7 @@ const Layout = (props) => {
             <span
               className={styles.link}
               onClick={() =>
-                window.open("https://github.com/sulaimanh/devshub", "_self")
+                window.open("https://github.com/devs-hub/devshub", "_self")
               }
             >
               DevsHub
